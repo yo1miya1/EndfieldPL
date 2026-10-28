@@ -109,7 +109,7 @@ namespace Endfield.Editor
                 case "皮肤与面部": return material.IsKeywordEnabled("EF_SOURCE_SKIN") || material.IsKeywordEnabled("EF_SOURCE_VIEW_TINT");
                 case "发丝": return material.IsKeywordEnabled("EF_HAIR");
                 case "眼睛": return material.IsKeywordEnabled("EF_EYE");
-                case "分层衣料": return material.IsKeywordEnabled("EF_SOURCE_ANISOTROPIC");
+                case "分层衣料": return material.IsKeywordEnabled("EF_SOURCE_ANISOTROPIC") || material.IsKeywordEnabled("EF_SOURCE_COAT");
                 case "视差水晶": return material.IsKeywordEnabled("EF_SOURCE_PARALLAX_GLOW");
                 case "环境材质": return material.IsKeywordEnabled("EF_SOURCE_ENVIRONMENT");
                 case "效果材质": return material.IsKeywordEnabled("EF_SOURCE_EFFECT");

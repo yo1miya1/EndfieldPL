@@ -19,8 +19,10 @@ namespace Endfield.Rendering
         public float depthBiasTexels = 3;
         [InspectorName("沿接收法线偏移（纹素）"), Min(0), Tooltip("默认6。接收片元使用GBuffer扰动法线和源角度权重；投影顶点本身不沿艺术法线移动。")]
         public float normalBiasTexels = 6;
-        [InspectorName("过滤半径（图集纹素）"), Min(0), Tooltip("默认4。源公式以1/atlasWidth同时换算两个UV轴；2:1图集上对应横向4、纵向2像素，并用16次Gather统计深度。")]
+        [InspectorName("横向过滤半径（纹素）"), Min(0), Tooltip("默认4。配合过滤宽高比决定两轴像素范围，16次Gather统计深度；不依赖当前图集如何打包。")]
         public float filterRadiusTexels = 4;
+        [InspectorName("过滤宽高比"), Min(0.25f), Tooltip("横向/纵向像素半径比。SI1源图集为2:1，对应4/2纹素；Typhon2为1:1，对应4/4纹素。当前图集容量变化不改变该采样语义。")]
+        public float filterAspectRatio = 2;
         [InspectorName("局部阴影强度"), Range(0, 1), Tooltip("与当前主光的shadowStrength相乘。主光关闭阴影时也关闭本组采样；此值不修改普通场景级联阴影。")]
         public float strength = 1;
         [InspectorName("光栅深度偏置"), Min(0), Tooltip("默认8，为Unity逻辑光栅单位。独立D16图在reverse-Z平台对应原生-8；它不等同于世界距离，投影Pass没有顶点法线偏移。")]

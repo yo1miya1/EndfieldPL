@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI_SourceLayeredDepthClippedSprite_3434
+  m_Shader: {fileID: 4800000, guid: 96633eacf0c92ed49b664ec5d454b8f5, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - UI_S1_CLAMP
+  - UI_S1_POINT
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _UITexture0:
+        m_Texture: {fileID: 2800000, guid: 918fdca93b294cf41b42a69d4b7e9fd2, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UITexture1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UITexture2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UITexture3:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UITexture4:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _blendOp: 0
+    - _blendOpAlpha: 0
+    - _colorMask: 15
+    - _cull: 0
+    - _dstBlend: 10
+    - _dstBlendAlpha: 10
+    - _srcBlend: 1
+    - _srcBlendAlpha: 1
+    - _stencilCompBack: 8
+    - _stencilCompFront: 8
+    - _stencilFailBack: 0
+    - _stencilFailFront: 0
+    - _stencilPassBack: 0
+    - _stencilPassFront: 0
+    - _stencilReadMask: 255
+    - _stencilRef: 0
+    - _stencilWriteMask: 255
+    - _stencilZFailBack: 0
+    - _stencilZFailFront: 0
+    - _zTest: 8
+    - _zWrite: 0
+    m_Colors:
+    - _ClipFadeWidths: {r: 0, g: 0, b: 0, a: 0}
+    - _ClipRect: {r: -2e+10, g: -2e+10, b: 2e+10, a: 2e+10}
+    - _DepthClipOffset: {r: 0.005, g: 0, b: 0, a: 0}
+    - _DepthLinearization: {r: 0, g: 0, b: 9.98, a: 0.02}
+    - _OpacityControl: {r: 0, g: 0, b: 0, a: 0}
+    - _TextureAlphaAndDepthControl: {r: 0, g: 0, b: 0.005, a: 0}
+    - _TextureSampleAdd: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

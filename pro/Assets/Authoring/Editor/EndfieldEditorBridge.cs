@@ -36,6 +36,7 @@ namespace Endfield.Editor
             public string debugView;
             public bool disablePostProcessing;
             public bool disableShadows;
+            public bool disableAdditionalLights;
         }
 
         [Serializable]

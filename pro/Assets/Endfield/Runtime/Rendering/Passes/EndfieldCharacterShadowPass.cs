@@ -38,11 +38,12 @@ namespace Endfield.Rendering
                 if (!group || !group.isActiveAndEnabled || groups.Count >= MaxGroups || !group.TryGetCasterBounds(out Bounds box)) continue;
                 groups.Add(group); bounds.Add(box);
                 tileResolution = Mathf.Max(tileResolution, Mathf.NextPowerOfTwo(Mathf.Clamp(group.resolution, 128, 2048)));
-                guard = Mathf.Max(guard, Mathf.CeilToInt(group.filterRadiusTexels) + 2);
+                float maximumRadius = group.filterRadiusTexels / Mathf.Min(1, Mathf.Max(.25f, group.filterAspectRatio));
+                guard = Mathf.Max(guard, Mathf.CeilToInt(maximumRadius) + 2);
             }
             if (groups.Count == 0) return;
 
-            // 2:1图集使源单标量1/width过滤保持X4/Y2像素语义；组数只改变打包容量。
+            // 图集按2:1打包容量；每组的实际X/Y过滤像素范围独立传参，避免绑定某个截帧的布局。
             int columns = Mathf.NextPowerOfTwo(Mathf.CeilToInt(Mathf.Sqrt(groups.Count * 2)));
             int rows = columns / 2;
             int usableResolution = Mathf.Min(tileResolution, SystemInfo.maxTextureSize / columns - 2 * guard);
@@ -77,7 +78,8 @@ namespace Endfield.Rendering
                 Vector3 rowX = new Vector3(matrices[index].m00, matrices[index].m01, matrices[index].m02);
                 float worldTexelX = 1 / (rowX.magnitude * width);
                 parameters[index] = new Vector4(group.strength * light.shadowStrength, worldTexelX, group.depthBiasTexels, group.normalBiasTexels);
-                filterRadii[index] = new Vector4(group.filterRadiusTexels, 0, 0, 0);
+                filterRadii[index] = new Vector4(group.filterRadiusTexels,
+                    group.filterRadiusTexels / Mathf.Max(.25f, group.filterAspectRatio), 0, 0);
                 lightDirections[index] = new Vector4(towardLight.x, towardLight.y, towardLight.z, 0);
                 group.SetReceiverIndex(index);
 

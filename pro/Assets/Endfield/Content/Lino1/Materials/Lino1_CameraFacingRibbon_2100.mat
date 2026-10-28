@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lino1_CameraFacingRibbon_2100
+  m_Shader: {fileID: 4800000, guid: a5a4d91d0b0780e4c96d65884af0200c, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3020
+  stringTagMap: {}
+  disabledShaderPasses:
+  - EndfieldGBuffer
+  - EndfieldSurfaceLighting
+  - EndfieldEffect
+  - EndfieldOutline
+  - EndfieldSurfaceOutline
+  - EndfieldMotionVectors
+  - SHADOWCASTER
+  - CharacterShadowCaster
+  - UniversalForward
+  - SRPDEFAULTUNLIT
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: ad0d21b4969f9e943a0101c3f5405f03, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SkyMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaGain: 1
+    - _AlphaMode: 0
+    - _BlendOp: 0
+    - _BlendOpAlpha: 0
+    - _BloomBoost: 0
+    - _BloomThreshold: 1
+    - _ColorGain: 1
+    - _ColorMask: 15
+    - _Cull: 0
+    - _Cutoff: 0.049
+    - _DepthFadeEnabled: 1
+    - _DissolveEnabled: 0
+    - _DissolveHeight: 0
+    - _DissolveMask: 0
+    - _DstBlend: 10
+    - _DstBlendAlpha: 10
+    - _FilterInfluence: 0
+    - _FilterOpacity: 1
+    - _FilterRejectMaterialTag: 0
+    - _ForceNearPlane: 0
+    - _IgnoreVertexColor: 0
+    - _InvisibleWeight: 0
+    - _MipBias: -1.7655349
+    - _Model: 2
+    - _MonochromeWeight: 1
+    - _Opacity: 1
+    - _Phase: 132.7333
+    - _PhaseSpeed: 0
+    - _PreExposureWeight: 1
+    - _ResponseWeight: 0
+    - _RibbonWidth: 1.5
+    - _SrcBlend: 5
+    - _SrcBlendAlpha: 1
+    - _StencilComp: 8
+    - _StencilFail: 0
+    - _StencilPass: 0
+    - _StencilReadMask: 255
+    - _StencilRef: 0
+    - _StencilWriteMask: 255
+    - _StencilZFail: 0
+    - _UVStreamBlend: 1
+    - _ViewOffset: 0
+    - _ViewOffsetWeight: 1
+    - _ZTest: 4
+    - _ZWrite: 0
+    m_Colors:
+    - _BaseColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 0.6}
+    - _ColorResponse: {r: 1, g: 1, b: 1, a: 1}
+    - _DepthRanges: {r: 2, g: 3, b: 120, a: 100}
+    - _DissolveColor: {r: 0, g: 0, b: 0, a: 0}
+    - _DissolveProfile: {r: 0, g: 0, b: 0, a: 0}
+    - _SecondaryShadowTint: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowOrigin: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowRange: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowTint: {r: 0, g: 0, b: 0, a: 1}
+    - _SkyRotation: {r: 1, g: 0, b: 0, a: 1}
+    - _UVRotation: {r: 1, g: 0, b: 0, a: 1}
+    - _UVTransform: {r: 1, g: 1, b: 0, a: 0}
+    - _UVVelocity: {r: 0, g: 0, b: 0, a: 0}
+    - _UVWeights: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

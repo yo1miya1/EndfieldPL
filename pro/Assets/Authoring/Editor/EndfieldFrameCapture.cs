@@ -80,11 +80,16 @@ namespace Endfield.Editor
             var previousActive = RenderTexture.active;
             string rdc = null;
             Texture2D image = null;
-            var lights = request.disableShadows ? UnityEngine.Object.FindObjectsByType<Light>(FindObjectsSortMode.None) : Array.Empty<Light>();
+            var lights = request.disableShadows || request.disableAdditionalLights ? UnityEngine.Object.FindObjectsByType<Light>(FindObjectsSortMode.None) : Array.Empty<Light>();
             var savedShadows = lights.Select(light => light.shadows).ToArray();
+            var savedLightEnabled = lights.Select(light => light.enabled).ToArray();
             try
             {
-                foreach (var light in lights) light.shadows = LightShadows.None;
+                foreach (var light in lights)
+                {
+                    if (request.disableShadows) light.shadows = LightShadows.None;
+                    if (request.disableAdditionalLights && light != RenderSettings.sun) light.enabled = false;
+                }
                 camera.targetTexture = target;
                 camera.aspect = (float)request.width / request.height;
                 // 时序抗锯齿需要真实连续渲染来建立历史，不能把单帧离屏截图当作稳定画面。
@@ -123,7 +128,11 @@ namespace Endfield.Editor
             }
             finally
             {
-                for (int i = 0; i < lights.Length; i++) if (lights[i]) lights[i].shadows = savedShadows[i];
+                for (int i = 0; i < lights.Length; i++) if (lights[i])
+                {
+                    lights[i].shadows = savedShadows[i];
+                    lights[i].enabled = savedLightEnabled[i];
+                }
                 camera.targetTexture = previousTarget;
                 // 场景相机由Unity管理视口比例；结束比较后恢复自动比例，避免截图尺寸固定Game视口。
                 camera.ResetAspect();

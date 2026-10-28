@@ -1,0 +1,3220 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f78f21742821114ca4981fab7a4b81b, type: 3}
+  m_Name: UIComposition_Typhon2
+  m_EditorClassIdentifier: Assembly-CSharp::Endfield.UI.UIComposition
+  referenceResolution: {x: 2560, y: 1440}
+  compositeMaterial: {fileID: 2100000, guid: 147909f476a5fb94587fa0fbe87b34a3, type: 2}
+  sceneBlurMaterial: {fileID: 2100000, guid: e67185e210ec7fb4aa5b4e93d3f64ce8, type: 2}
+  sceneBlurDownsamples: 040000000800000010000000i
+  sceneBlurHighlightClamp: 2.5
+  draws:
+  - mesh: {fileID: 4300000, guid: e5a12c8d5fb203c4ba384ce8e6f779bc, type: 2}
+    material: {fileID: 2100000, guid: 31144911029b6a1489d2bf0e6bc655ec, type: 2}
+    sourceEvent: 2376
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: f8b4061f153a628419219689320fb963, type: 2}
+    material: {fileID: 2100000, guid: 8503f461c6d699648b42bb1b992a8b38, type: 2}
+    sourceEvent: 2387
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 1503084ec65b7d542ad79fa7ebc81898, type: 2}
+    material: {fileID: 2100000, guid: 0fda247d5c4458a459572bfbaf6b2acb, type: 2}
+    sourceEvent: 2398
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 265a346e6978e744283d2ff62eb240b5, type: 2}
+    material: {fileID: 2100000, guid: 4d4f53c81e78d404dbf4758de0041b9c, type: 2}
+    sourceEvent: 2409
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: c546c0965aa6d494b8593ffb228488c3, type: 2}
+    material: {fileID: 2100000, guid: 12accd5e904f2614e9af916051dfcb37, type: 2}
+    sourceEvent: 2420
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 1bf788cc13b3d77408295c79541aede7, type: 2}
+    material: {fileID: 2100000, guid: 18fde0f4b2f4f544690fc3b555879c8c, type: 2}
+    sourceEvent: 2431
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: f515fd89e705c8a48b834bf2a0beee75, type: 2}
+    material: {fileID: 2100000, guid: ebd539f425b31484baa9ae867567ed7d, type: 2}
+    sourceEvent: 2442
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 7030f3acd6edc8c4181694177e5e7fb4, type: 2}
+    material: {fileID: 2100000, guid: 6fce17418fc632145a8a8db944f96ef2, type: 2}
+    sourceEvent: 2453
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 91ad3090b8825204d91ea4649a3935da, type: 2}
+    material: {fileID: 2100000, guid: 10c8132eb8c3298429a12c65e6ffd65b, type: 2}
+    sourceEvent: 2473
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 9d8c580bd5ca93342888cfdcde43c048, type: 2}
+    material: {fileID: 2100000, guid: 61225a358e190c4499aa6bc68479aa8e, type: 2}
+    sourceEvent: 2493
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 07c3398a0e8547a4698d44bfb415431d, type: 2}
+    material: {fileID: 2100000, guid: 8673a40a017015743a1c51b1167cfeff, type: 2}
+    sourceEvent: 2504
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 9535850eb535e9341b481a4702a4132a, type: 2}
+    material: {fileID: 2100000, guid: 5c2cac1dd4e930441a281a3a9a183a99, type: 2}
+    sourceEvent: 2515
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: fce3b286466ccbc4788da82a875a10a1, type: 2}
+    material: {fileID: 2100000, guid: f5f617517e12e244eb47d93fb0fc61dc, type: 2}
+    sourceEvent: 2526
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: fc1317eca76b2244bb590a38fb56343d, type: 2}
+    material: {fileID: 2100000, guid: f44d94632db98754eb8d1bbdc63ce838, type: 2}
+    sourceEvent: 2537
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 47960bbe9342c3244810a0a85daa2797, type: 2}
+    material: {fileID: 2100000, guid: 3c3f47d2a31d68d429e90ae8d5f21862, type: 2}
+    sourceEvent: 2548
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 94cb45f815ee3ad4dbf426aef9377b4b, type: 2}
+    material: {fileID: 2100000, guid: b22fa6b5767b044489241428fd69ba3f, type: 2}
+    sourceEvent: 2560
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: a73e667a5bd08334181e63016be6b81a, type: 2}
+    material: {fileID: 2100000, guid: 7856143cc4f48d84b879f891e6515881, type: 2}
+    sourceEvent: 2571
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: a7ce122e0cfaeeb448e4171b0b2c383f, type: 2}
+    material: {fileID: 2100000, guid: cf5ffaaf833f53e48bb19209c89d9941, type: 2}
+    sourceEvent: 2582
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 851a46fd716479d4fa1e3e96a53f584f, type: 2}
+    material: {fileID: 2100000, guid: 55324c9793637e54aaad1e19764f7f30, type: 2}
+    sourceEvent: 2593
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: bd491c1aa0bed524889cca6ed45cf5de, type: 2}
+    material: {fileID: 2100000, guid: a9f79da33c7c65f4f964b2d00516e01a, type: 2}
+    sourceEvent: 2604
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 6557285dd0a75ad45953d4f3173005d2, type: 2}
+    material: {fileID: 2100000, guid: abc397cb85281d040bfcf74488209bb4, type: 2}
+    sourceEvent: 2615
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 29f413afef8047949989b7d392de587d, type: 2}
+    material: {fileID: 2100000, guid: f6de71165464ac74cb417459cdf378fa, type: 2}
+    sourceEvent: 2626
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 5f759d88c178d8d4b828dcbe7cfeef58, type: 2}
+    material: {fileID: 2100000, guid: dd729df66103d4040abb57914655cc2d, type: 2}
+    sourceEvent: 2637
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 17ffc243037a9b940ad287685c3c9b9b, type: 2}
+    material: {fileID: 2100000, guid: a4e1cab700cbd164894641adf7fbc839, type: 2}
+    sourceEvent: 2648
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: e5106d1833423b94e9e9097def5cfe84, type: 2}
+    material: {fileID: 2100000, guid: 05279bb0a02eb1449bb79b4c668c9611, type: 2}
+    sourceEvent: 2662
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 635e2d73935271a4cb34d53545a55261, type: 2}
+    material: {fileID: 2100000, guid: 8e87fc68394d6fe4ca8d2040dd312b88, type: 2}
+    sourceEvent: 2673
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 74c34f627dc16ae438bc022942dd5506, type: 2}
+    material: {fileID: 2100000, guid: d9cdff3140f2d7449a6e42cca38ba5e3, type: 2}
+    sourceEvent: 2684
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: dda3b7f2430db1d43a7944e9afa29785, type: 2}
+    material: {fileID: 2100000, guid: 6e5fd04cac8a04b4a88dbeb47fb40ee3, type: 2}
+    sourceEvent: 2695
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 2d56b70216f70814aab6b9652ec26bee, type: 2}
+    material: {fileID: 2100000, guid: b982c6047978b704baba2edcc08f5b28, type: 2}
+    sourceEvent: 2706
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 4ef4cbb8e25ac6f4590037cee6f593af, type: 2}
+    material: {fileID: 2100000, guid: a06c977ade04c194491c28851ae26005, type: 2}
+    sourceEvent: 2717
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 5b4772e32bef52c498ffb15b73f3a53c, type: 2}
+    material: {fileID: 2100000, guid: fd04436e2df333f418318b9109b492cd, type: 2}
+    sourceEvent: 2737
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 115d7bbe6f0d99140a54f9ab2a15fe2b, type: 2}
+    material: {fileID: 2100000, guid: f59d453e16b2d27458ee90d708c40d4c, type: 2}
+    sourceEvent: 2757
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: e22da47d1b6ee2743812fcd93bb18575, type: 2}
+    material: {fileID: 2100000, guid: ca6a3aec9732e40458e23b3390a0a18b, type: 2}
+    sourceEvent: 2777
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: be27a910f00b25d4aaecda595c8dc73d, type: 2}
+    material: {fileID: 2100000, guid: 890edefb6cb5eeb46bc5e3958c286dd6, type: 2}
+    sourceEvent: 2798
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: ff76c16fae2ba5f40b51b36760eb2878, type: 2}
+    material: {fileID: 2100000, guid: 886cb700fbbbccc4ea2b7a9c58726875, type: 2}
+    sourceEvent: 2809
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: f1079e82e03eeed4080b2861fdfd4e30, type: 2}
+    material: {fileID: 2100000, guid: 2023a9a0a03a927498d4c4c78d30e7c8, type: 2}
+    sourceEvent: 2820
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 821d607051a7bef41915ba8b498d0ae5, type: 2}
+    material: {fileID: 2100000, guid: 77f4caf4236e07b40b85c2b16b9a0cc9, type: 2}
+    sourceEvent: 2831
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: c4cc2142056268f4eaa6a570f473c353, type: 2}
+    material: {fileID: 2100000, guid: 1bde3a0fc138b2d4087407b1e91cf160, type: 2}
+    sourceEvent: 2842
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: a8241c2c13b600945ace9f0f0d332b42, type: 2}
+    material: {fileID: 2100000, guid: bf63d3b78c4c30e47864fa477673d0a5, type: 2}
+    sourceEvent: 2853
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: df9219fba59e89f41ac7c9b3a5dad8f5, type: 2}
+    material: {fileID: 2100000, guid: 54ecf149093fe9249817c3d632dc44ba, type: 2}
+    sourceEvent: 2864
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: e9913da9266171145bd3bfa9054c9e4c, type: 2}
+    material: {fileID: 2100000, guid: ad63d1bd6ac9ccb4bb4e4815f82eb64b, type: 2}
+    sourceEvent: 2875
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 5788738855724fa47a772396840907db, type: 2}
+    material: {fileID: 2100000, guid: 3b091819306aabd46ba78a100fe43eac, type: 2}
+    sourceEvent: 2895
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 2112d8209554ef048a29d431e45e84ee, type: 2}
+    material: {fileID: 2100000, guid: e96ef575c94306d499884c5cccc943bd, type: 2}
+    sourceEvent: 2915
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 4ed658d37d547f54d8b2f4dccb8fd9cb, type: 2}
+    material: {fileID: 2100000, guid: 1c4eb9a1f02d49a4292a77fae04bd04d, type: 2}
+    sourceEvent: 2926
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: dccd1cd5678c7f647aee9c7cc40f8f00, type: 2}
+    material: {fileID: 2100000, guid: 457a320ae509b2949892a7b8c456dc55, type: 2}
+    sourceEvent: 2937
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: c84d5b36ac74f5d4c888912f474bb856, type: 2}
+    material: {fileID: 2100000, guid: 7de7564cf0ea88a4e84ec6f31559bded, type: 2}
+    sourceEvent: 2949
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 4094a126c4cb8b244b35507332f28e7a, type: 2}
+    material: {fileID: 2100000, guid: 4efcd690ff75d0f4bbbafd78c058049a, type: 2}
+    sourceEvent: 2960
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 69b966874b57fec48a878650fd62bdc0, type: 2}
+    material: {fileID: 2100000, guid: 728d5602dbcd0b748aca9adf2acb4e3c, type: 2}
+    sourceEvent: 2971
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 63efb6afa8494b64eb41aac8ba4da833, type: 2}
+    material: {fileID: 2100000, guid: ac7123527a603314b9160352833854eb, type: 2}
+    sourceEvent: 2982
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 3e088b995d095164ca437351b92c76ee, type: 2}
+    material: {fileID: 2100000, guid: ec8002b6dabbeee4e9d39f0ed076bf01, type: 2}
+    sourceEvent: 2993
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 5e9855084eaf2b241805266676e6f1f5, type: 2}
+    material: {fileID: 2100000, guid: 6c335aa8a582b8341bd0735da6f3947a, type: 2}
+    sourceEvent: 3004
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 1138c590bf1f061448ac60be787f2603, type: 2}
+    material: {fileID: 2100000, guid: ba4fa6290f14f73458998f2550e756f5, type: 2}
+    sourceEvent: 3015
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 75d9885e7cc51d148a599ea45659aa22, type: 2}
+    material: {fileID: 2100000, guid: efa9541c48099c943b82001f5f79b55e, type: 2}
+    sourceEvent: 3026
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 98e2c7d066d6edb439b61f8b8a47cd34, type: 2}
+    material: {fileID: 2100000, guid: 5a4ab42eb56d49f4a929ddf3b5582068, type: 2}
+    sourceEvent: 3037
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 6df90bf32d8d1744ab2ec16d74122698, type: 2}
+    material: {fileID: 2100000, guid: 1b354c50b184c254b9b49e68c9498151, type: 2}
+    sourceEvent: 3048
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: d950159ccfe7b9f4cb47d9c6eb1ca24c, type: 2}
+    material: {fileID: 2100000, guid: 0141604fe668dc74c9305d1dc68254ea, type: 2}
+    sourceEvent: 3059
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: c1f7399df4db46747b1ef813a2b113b8, type: 2}
+    material: {fileID: 2100000, guid: a86efb8e0f6b1d649bf4159712aab0b6, type: 2}
+    sourceEvent: 3070
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: de82d9ed67019cc4caa644d01caed232, type: 2}
+    material: {fileID: 2100000, guid: 8875764bc7f23194abd8fd05f58f78fa, type: 2}
+    sourceEvent: 3081
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 6bf775fc882caeb4f8165e76eb7a0910, type: 2}
+    material: {fileID: 2100000, guid: 0543424770d886c49b86d585bbb32ee0, type: 2}
+    sourceEvent: 3092
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 5b181466501a9e34b95489dd84b1d24b, type: 2}
+    material: {fileID: 2100000, guid: ea70959728e8d6c4898b827bb235f3b7, type: 2}
+    sourceEvent: 3106
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 28e1f238136eeab47aa449dafa2bea4f, type: 2}
+    material: {fileID: 2100000, guid: 2a662a22ac18a894ba1acfe612907787, type: 2}
+    sourceEvent: 3118
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: ccc949e4bb986ab43b51114c3f14e5c5, type: 2}
+    material: {fileID: 2100000, guid: 0f3bb243b12602645b4797370a24ce7a, type: 2}
+    sourceEvent: 3129
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: bad2eb5a5d8a3544ab437993e21b1fe8, type: 2}
+    material: {fileID: 2100000, guid: ff3e699ee51bd324eb3a6e8b3e1ab1fc, type: 2}
+    sourceEvent: 3140
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: d216e4ee436bd64459eb3bdfa6a33898, type: 2}
+    material: {fileID: 2100000, guid: bd557cdddb42d8849a7876b439cd7e34, type: 2}
+    sourceEvent: 3151
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: c0bdba3aa18ef4d40a16e13228af3d77, type: 2}
+    material: {fileID: 2100000, guid: 0363913df0764d442a73bb0b167452fb, type: 2}
+    sourceEvent: 3162
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 7be896715dad3bf42afa8e1b3e836fa1, type: 2}
+    material: {fileID: 2100000, guid: e5c28c51e43ffb8479df02eac4376e1f, type: 2}
+    sourceEvent: 3182
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 536fa691d539cbf4dbb0b7e776941fc8, type: 2}
+    material: {fileID: 2100000, guid: c7ce76ce3cfd2da4c8ecb7ad1e183850, type: 2}
+    sourceEvent: 3202
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 1a385e37e389bf747b1b604983c91eed, type: 2}
+    material: {fileID: 2100000, guid: 8fc8476f64a1bd64297b319897f37e96, type: 2}
+    sourceEvent: 3222
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 5ced8425280fe114e9296ec09b2acdc0, type: 2}
+    material: {fileID: 2100000, guid: 167a778faa2f63d48bd2440c45d9db1b, type: 2}
+    sourceEvent: 3243
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: db1b17dee0e136a4b837c01ead264246, type: 2}
+    material: {fileID: 2100000, guid: e7bb2533c5ca94747adda1690c5b3b21, type: 2}
+    sourceEvent: 3254
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 4f24b068e01d948488713b81d701ab1a, type: 2}
+    material: {fileID: 2100000, guid: e7082dd4f7a01e14585c82f9928aaca7, type: 2}
+    sourceEvent: 3265
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 96830dc129939254d9ab758e08aec778, type: 2}
+    material: {fileID: 2100000, guid: f7a7e8d983e7867418d30dcab4255bd0, type: 2}
+    sourceEvent: 3276
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: e3cff0a0c9d48e440963bb0ca978fbb1, type: 2}
+    material: {fileID: 2100000, guid: 26880cc83ac3e2146b2abb07c0374342, type: 2}
+    sourceEvent: 3287
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 1e5850cbe32ed8f479d7d212ec6df1de, type: 2}
+    material: {fileID: 2100000, guid: f0d623e811ca16646a9d3f9e6dc24603, type: 2}
+    sourceEvent: 3298
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 45eaab65cd778d64496ef5110501a5fc, type: 2}
+    material: {fileID: 2100000, guid: 0316fc924d8f14b4b84436e35ed2342b, type: 2}
+    sourceEvent: 3318
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 133c2fe75c663a94090eee622e2056d2, type: 2}
+    material: {fileID: 2100000, guid: 04bcca779b18d654aafc0933c82c6053, type: 2}
+    sourceEvent: 3338
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 393d5d8763cad42488c148b39cabcb80, type: 2}
+    material: {fileID: 2100000, guid: b66f503890b9a0d4bbce7e8795fff805, type: 2}
+    sourceEvent: 3358
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 8439cc0418ea45e4986b7c502354aa19, type: 2}
+    material: {fileID: 2100000, guid: fda6a18badde78f4a917b781cce52306, type: 2}
+    sourceEvent: 3379
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 33624386f93c8d5459ef950f080e2b97, type: 2}
+    material: {fileID: 2100000, guid: 5a44ca7e03446334a9c175589a44de93, type: 2}
+    sourceEvent: 3390
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 27e7f3634e1a77b4dac142c6e94c09d0, type: 2}
+    material: {fileID: 2100000, guid: 4353ee293fb87cb449f4b3bf7e6a62da, type: 2}
+    sourceEvent: 3401
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 913fe2fdf45d5514eb2f068de56c6b31, type: 2}
+    material: {fileID: 2100000, guid: 3a5da25cd4d1e444286835085fe7d223, type: 2}
+    sourceEvent: 3412
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: b62f29e704ba1824dba7b644c071feba, type: 2}
+    material: {fileID: 2100000, guid: f1469864c9ec1804d86b111c460a2d26, type: 2}
+    sourceEvent: 3423
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: d88a5e3c84df8e9498d51c0c9fff7252, type: 2}
+    material: {fileID: 2100000, guid: 864567a82d363bc4bb394bb29485a116, type: 2}
+    sourceEvent: 3434
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 078d6f8d372570d40a1fb01eccbc9e12, type: 2}
+    material: {fileID: 2100000, guid: 91992f3ed77da4041968da3d02c20ec7, type: 2}
+    sourceEvent: 3445
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: dd7a1ae86034b394e8a595f1f2b2b3f9, type: 2}
+    material: {fileID: 2100000, guid: 9e459592043691f4c9e922e18fc0aa29, type: 2}
+    sourceEvent: 3456
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 79e5be129f0f9ff4e914a811f78d80e8, type: 2}
+    material: {fileID: 2100000, guid: fa7bb1f07c840474aafcabf8ce5460ea, type: 2}
+    sourceEvent: 3476
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: d52fb10bb54beb544885d6de8177289d, type: 2}
+    material: {fileID: 2100000, guid: 221d0cc065912134a9c18762a45da0c7, type: 2}
+    sourceEvent: 3496
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: cd8cfcaf20f734444a0c95fb3f350e0d, type: 2}
+    material: {fileID: 2100000, guid: e693862c392568145a1bd1ac4dd1d3f7, type: 2}
+    sourceEvent: 3507
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 0f53e2251c4c075409d0c47195eea298, type: 2}
+    material: {fileID: 2100000, guid: 7619a8d483b25684aa0e532ec54168c9, type: 2}
+    sourceEvent: 3518
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: b8c24059ed79c53419000a1840e7228a, type: 2}
+    material: {fileID: 2100000, guid: 4b7fb88c722b6444296d06af5b717566, type: 2}
+    sourceEvent: 3529
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 1d78ce41ac7884b469a05743bc013c0c, type: 2}
+    material: {fileID: 2100000, guid: 52122c01efc118140a27bf2d1d0d0578, type: 2}
+    sourceEvent: 3541
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 3686b5a48c806be40b3d52d20914fc3a, type: 2}
+    material: {fileID: 2100000, guid: 4b596f2a1cba39c4ab2a61804941bb3f, type: 2}
+    sourceEvent: 3552
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 5c4a69f5e1b472840ab36e5e3b00101b, type: 2}
+    material: {fileID: 2100000, guid: e70e0a587f4d8024eacf4f6e886e5d9c, type: 2}
+    sourceEvent: 3563
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 43592f2fa8757a34f9e52a2e4b468b51, type: 2}
+    material: {fileID: 2100000, guid: 1312ba1cbadad5f479a47d54cd086d5c, type: 2}
+    sourceEvent: 3574
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 7c06a3bdbf5e55649a50d1a717ea2d99, type: 2}
+    material: {fileID: 2100000, guid: bb1d0668174bf314fb4a02ef4d8c80f0, type: 2}
+    sourceEvent: 3585
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 6cbeb0ca2e4962349bdda3ef0bb9ad84, type: 2}
+    material: {fileID: 2100000, guid: 4c8036fe1f51c404192750df6a17ee30, type: 2}
+    sourceEvent: 3596
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 3a7822dee5ff36e499dc54c5509cc8ba, type: 2}
+    material: {fileID: 2100000, guid: b563cb8251b7ffc439b35090e7222323, type: 2}
+    sourceEvent: 3607
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: d34766b3354f1a84d93a7fda48d4d298, type: 2}
+    material: {fileID: 2100000, guid: 25ecd88694559fb459b49c8c4ae8c7c6, type: 2}
+    sourceEvent: 3618
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 6d4144685fdaf1d4baf960d0d640058b, type: 2}
+    material: {fileID: 2100000, guid: 6c7083241e413ed47b2bfed6ed36a296, type: 2}
+    sourceEvent: 3629
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: d1d26175afba2df408dd8ae07fc04d65, type: 2}
+    material: {fileID: 2100000, guid: 6a606bbf6dfbf394cbb8cd03088b9cea, type: 2}
+    sourceEvent: 3640
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 721afda3482603542a7254516dd8989a, type: 2}
+    material: {fileID: 2100000, guid: 3df60115a2ae32140841905d8f3bd70f, type: 2}
+    sourceEvent: 3651
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 3d14cc8b94695bb4faa0b9f3e7620bb3, type: 2}
+    material: {fileID: 2100000, guid: aa73f0011add01b4a83d64e063d278e7, type: 2}
+    sourceEvent: 3672
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: aad28661041a2c0449c777e02da51cfd, type: 2}
+    material: {fileID: 2100000, guid: 5e94928423d913c4e9406fb4b4f88c3a, type: 2}
+    sourceEvent: 3692
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 22a5b43b275dbc246ac15bbf835c71b3, type: 2}
+    material: {fileID: 2100000, guid: e449d7ba454cf754e8a35994ad789b4e, type: 2}
+    sourceEvent: 3703
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 68688b3b3a2ccc041881c6ebe94c25a6, type: 2}
+    material: {fileID: 2100000, guid: 3b64f00cce22894408f267a55efc4394, type: 2}
+    sourceEvent: 3714
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: e2b37472f8cb99349b1ca5170a4a75dc, type: 2}
+    material: {fileID: 2100000, guid: bfa1f8778211e0a48b7e3e07af6c8123, type: 2}
+    sourceEvent: 3729
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: a1889ee98e3c98b44bc014b9ea6a7737, type: 2}
+    material: {fileID: 2100000, guid: 71faaf39c2bd94c4aacbcdb2365b7594, type: 2}
+    sourceEvent: 3740
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 07cae8304bb98c04092daf8fc6607026, type: 2}
+    material: {fileID: 2100000, guid: 18b3cbde2f1f9824f9b28dd49e366c89, type: 2}
+    sourceEvent: 3751
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 3bb6ca86d4f0d744bbac8a6b946b9ec6, type: 2}
+    material: {fileID: 2100000, guid: 9d0e6ef88809a804eb209436e76a63b6, type: 2}
+    sourceEvent: 3762
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: d18163f5b9f08ad4597182347caa08e9, type: 2}
+    material: {fileID: 2100000, guid: 2ef8cdcf1ee864b41bcfc429707465f7, type: 2}
+    sourceEvent: 3773
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: bca73ec33f3a774448c743ebcae3015d, type: 2}
+    material: {fileID: 2100000, guid: 933296351f610a84989c290ce53a847c, type: 2}
+    sourceEvent: 3784
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: a9500ccd057193f48a7a2e52203ff0d0, type: 2}
+    material: {fileID: 2100000, guid: 9e24181068f80bb41a756cd1631a5fe7, type: 2}
+    sourceEvent: 3795
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: fd886286e50e2f041b74d6a3ad08d004, type: 2}
+    material: {fileID: 2100000, guid: 9ca68dae53ca2374b8becdbc644bfefe, type: 2}
+    sourceEvent: 3815
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: b69d01db2b8534e4abab0038e048de52, type: 2}
+    material: {fileID: 2100000, guid: 0d0664efee9cf624fb19d8644742a3fe, type: 2}
+    sourceEvent: 3835
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 07343c6b473888e419510adda30863ab, type: 2}
+    material: {fileID: 2100000, guid: 71e8e94053b2b8b409f1c695bf345aa3, type: 2}
+    sourceEvent: 3846
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: faabbc93efab1a043ab735abe645eb95, type: 2}
+    material: {fileID: 2100000, guid: 5ed5138f815b0a24bb6cb1f4e73b9829, type: 2}
+    sourceEvent: 3857
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: a985d9b3f6c5f80489de7a8919fc4dba, type: 2}
+    material: {fileID: 2100000, guid: a44bdeccd85cb1c4db28bb25a9e26126, type: 2}
+    sourceEvent: 3868
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 68cee9cd61ba90f4d802db43db778481, type: 2}
+    material: {fileID: 2100000, guid: 13224af9348ebc54e8cbbf8ff7f77684, type: 2}
+    sourceEvent: 3879
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: a383327e67974954aa97350d6c6f5679, type: 2}
+    material: {fileID: 2100000, guid: 837564ca267d4b14888891e42a857d45, type: 2}
+    sourceEvent: 3890
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: eab1eb78f04fee3419b997b28d4cb3f4, type: 2}
+    material: {fileID: 2100000, guid: df6328204486b814985d8d235ed9382f, type: 2}
+    sourceEvent: 3901
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 432d7589ca16e344186261b5eb758f2c, type: 2}
+    material: {fileID: 2100000, guid: e383deb850df8f04898cc6a317766c30, type: 2}
+    sourceEvent: 3913
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: ef22865c6c4c7724b8dc567704f3b117, type: 2}
+    material: {fileID: 2100000, guid: 69881f2391db58345a1a2fd1b18bd641, type: 2}
+    sourceEvent: 3924
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 243f315289c33374f9bfbedefb5640de, type: 2}
+    material: {fileID: 2100000, guid: 45d1dcad22b91eb4299d14edc7a38d5c, type: 2}
+    sourceEvent: 3935
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: acd4696c91bb9ce46b8fa063cc491f62, type: 2}
+    material: {fileID: 2100000, guid: 8296b5e23b674be40873473977543ee1, type: 2}
+    sourceEvent: 3946
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: b10236733f3fecf4890fbc01cbcc1dd3, type: 2}
+    material: {fileID: 2100000, guid: 79cb18e1e0b27ef4d8b30ba51af998f7, type: 2}
+    sourceEvent: 3957
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: fef8eda1823dabd4794a93e0dcb44116, type: 2}
+    material: {fileID: 2100000, guid: 7104d79d882d9b247bdddd946ae59f51, type: 2}
+    sourceEvent: 3968
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 30b3699111f68be4ea31e484f38bc208, type: 2}
+    material: {fileID: 2100000, guid: c9ce12a8fab53bf4c8efc5551228279a, type: 2}
+    sourceEvent: 3979
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 73f0d153195c4ad40a0c88eae8d588a1, type: 2}
+    material: {fileID: 2100000, guid: 34087c3aa92b8784a8e46cede2e7ea04, type: 2}
+    sourceEvent: 3990
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 82ccb9a8e1778084cb9bff93ddd8da0a, type: 2}
+    material: {fileID: 2100000, guid: 2652f42c4d3cd764ea9bd373dbc38960, type: 2}
+    sourceEvent: 4001
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 6009412c50a65ee4fa8062bed51e46bd, type: 2}
+    material: {fileID: 2100000, guid: 7906fc854fad6a6469f18bc761e38809, type: 2}
+    sourceEvent: 4012
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 642352a6eea05d54c9f7fb6b0e914453, type: 2}
+    material: {fileID: 2100000, guid: 35df7be5e1b7def4ba187e81eb2ee083, type: 2}
+    sourceEvent: 4023
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 0da0d48f324a6f44380ff37cf79eed0a, type: 2}
+    material: {fileID: 2100000, guid: b983f56a1c454b445b52232bac52bd7d, type: 2}
+    sourceEvent: 4034
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 69e2bf84dffa6be49b61e09015ad737b, type: 2}
+    material: {fileID: 2100000, guid: fa6074697252c8a469ccfecd26c31ca3, type: 2}
+    sourceEvent: 4045
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: a61c4f5981ebb064dae65f642803ebb8, type: 2}
+    material: {fileID: 2100000, guid: 0ae6fee3f9514004eb08914c8d799fec, type: 2}
+    sourceEvent: 4056
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 643eac1ba8fc7c34bb9afee7dae57c27, type: 2}
+    material: {fileID: 2100000, guid: 7019609c34919b843a8d711d59cf9612, type: 2}
+    sourceEvent: 4070
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 5263496849e115f41a4da821b3f7ee13, type: 2}
+    material: {fileID: 2100000, guid: 8bfd49f8d35709c468c221ea33a01ff2, type: 2}
+    sourceEvent: 4082
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 4db47b92c9f700e4685a4adc6a32b933, type: 2}
+    material: {fileID: 2100000, guid: 30e643dcfed464f4e81633e1e2ca455f, type: 2}
+    sourceEvent: 4093
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: fd29bf571a660e7448e50410a9e48db2, type: 2}
+    material: {fileID: 2100000, guid: a0b56b0be64adc64ab960261074d1382, type: 2}
+    sourceEvent: 4104
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: c21fae1de67ac0d40a891722bf410796, type: 2}
+    material: {fileID: 2100000, guid: b1d71d4b1331360429024657cfe8c942, type: 2}
+    sourceEvent: 4115
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: f8e01b8c8118a42499c5373a574f7cdd, type: 2}
+    material: {fileID: 2100000, guid: 60a872900c91d4149924e0b8229301ba, type: 2}
+    sourceEvent: 4126
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 1a55d391e82dce040899fb1ec34dcb14, type: 2}
+    material: {fileID: 2100000, guid: 7d9692b6413c48d4780e26c51c0ef247, type: 2}
+    sourceEvent: 4146
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: fa2c225f1dbfc5c49ad172f06db643fc, type: 2}
+    material: {fileID: 2100000, guid: dec03211df4b40b40beb6f176322c91d, type: 2}
+    sourceEvent: 4166
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 2c209a8e0ec5eb1489d909a3167fd7e9, type: 2}
+    material: {fileID: 2100000, guid: d529a352a103aeb45a39a0c536da7592, type: 2}
+    sourceEvent: 4186
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 70f1e55c094d33240b8f9f2dcf239b06, type: 2}
+    material: {fileID: 2100000, guid: d053b15d906c4884097100dacf101cef, type: 2}
+    sourceEvent: 4207
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 3869c5bd986fd6f46bc469294c705601, type: 2}
+    material: {fileID: 2100000, guid: 71fbf191e292ac744abbda48f1c4bb07, type: 2}
+    sourceEvent: 4218
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: ee343eb5af6d28045b504efbc967e565, type: 2}
+    material: {fileID: 2100000, guid: a1fcf8fc0af269a4bae06e12baa152bb, type: 2}
+    sourceEvent: 4229
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: e0e8bf16a6bf71149aa7a559929d48c3, type: 2}
+    material: {fileID: 2100000, guid: dcdc5e924bc4bcf45b24e4d871d75700, type: 2}
+    sourceEvent: 4240
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: b5f10a9203fb4ef40baba0bfbaa29828, type: 2}
+    material: {fileID: 2100000, guid: 7fffcd5ac9f27ac469616da19d82f548, type: 2}
+    sourceEvent: 4251
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: bea32cc69ebf0b944abe89a456f67596, type: 2}
+    material: {fileID: 2100000, guid: 494e9637196724248a6f425cf9d0ed70, type: 2}
+    sourceEvent: 4262
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 3ff698772fbef1944a5ca68a641ddb00, type: 2}
+    material: {fileID: 2100000, guid: aa7296ed8864d1d47a419e63bdd2209f, type: 2}
+    sourceEvent: 4273
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: bdddf339223e4834cbc90f5ce28de3bb, type: 2}
+    material: {fileID: 2100000, guid: 991f7cc38084c944ebce3ec6450ac4e2, type: 2}
+    sourceEvent: 4285
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 355e7b0b088b93842877416d85ba5bc2, type: 2}
+    material: {fileID: 2100000, guid: 6aa5830402177b942a1f71eac3a2da91, type: 2}
+    sourceEvent: 4296
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 21a465362ceedc349b488de29509df42, type: 2}
+    material: {fileID: 2100000, guid: 0d73c1309884acb4baa5882f817e8051, type: 2}
+    sourceEvent: 4307
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: bd0025e20f5551242bdbb0201ce5e3e1, type: 2}
+    material: {fileID: 2100000, guid: a088df2cd00320d49a763611e2b74f47, type: 2}
+    sourceEvent: 4318
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 14d7bdebf85970845b853d96e41b63b4, type: 2}
+    material: {fileID: 2100000, guid: 5795ca6f09cc1fb49a7d828632e2b2c7, type: 2}
+    sourceEvent: 4329
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 0f0ea9fd6af9d0f4cb75c611eddb4dae, type: 2}
+    material: {fileID: 2100000, guid: db863250ead70804daec7b47e78e3207, type: 2}
+    sourceEvent: 4340
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 44ff8d5e2aed0b3489406e9b129d4762, type: 2}
+    material: {fileID: 2100000, guid: d32b1bf045a87a748b402635bdf6a594, type: 2}
+    sourceEvent: 4351
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: ef76594c0d973324a96aec9e77a32a5f, type: 2}
+    material: {fileID: 2100000, guid: 6043bb46ac8bc2244bdedadcde849ef9, type: 2}
+    sourceEvent: 4362
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 93251fefe37ed574c9754af19b6075de, type: 2}
+    material: {fileID: 2100000, guid: a07fef0b6bb6aaa4599c761d50eed10e, type: 2}
+    sourceEvent: 4373
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 7718b350674359646a9e4616e5be4fe5, type: 2}
+    material: {fileID: 2100000, guid: 737a7a8a644e5c249b03fb6a407cd870, type: 2}
+    sourceEvent: 4384
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 2f924b97458f1124ba3b77f39545d8a7, type: 2}
+    material: {fileID: 2100000, guid: d0e98db441f408f4890e1d4cb844b000, type: 2}
+    sourceEvent: 4395
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 7044048d83c54ad49ada410fe66f9e9a, type: 2}
+    material: {fileID: 2100000, guid: 2a49221e2dc5f2847a75eac36a8e98d5, type: 2}
+    sourceEvent: 4406
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 48a1c27a628c00b4eb8bee303727eb11, type: 2}
+    material: {fileID: 2100000, guid: d016e9372d461fc47ae5fc6ff93e2b2f, type: 2}
+    sourceEvent: 4417
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: a3829cf376d59404daf271e3efec34ef, type: 2}
+    material: {fileID: 2100000, guid: e84099f71153b1a4cb97c5876262b895, type: 2}
+    sourceEvent: 4428
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 0980b9a0dde185948924e232fd7d6e11, type: 2}
+    material: {fileID: 2100000, guid: d8eb8a6f4a2905c4ea008b7569f755ee, type: 2}
+    sourceEvent: 4439
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: f760b1dfb52898145890df89f5d1e1a5, type: 2}
+    material: {fileID: 2100000, guid: fba93f5fe7dfe3b4b9f5f246e8d2644e, type: 2}
+    sourceEvent: 4451
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 41ebfcadee71fa84a831900d9aeb878f, type: 2}
+    material: {fileID: 2100000, guid: ed08b5b66e40e4c4e803aa56ff501c16, type: 2}
+    sourceEvent: 4462
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 33df9183deb835f41a831b981c7cdb72, type: 2}
+    material: {fileID: 2100000, guid: e5bf9b6dc2969ad47808a602dedfc251, type: 2}
+    sourceEvent: 4473
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: a99712240c1440d4f83db9d3f81d838e, type: 2}
+    material: {fileID: 2100000, guid: f40ff9a6c6c2ca447ade7b5e752fb4ca, type: 2}
+    sourceEvent: 4484
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 264aca400ee237c458bf875429cd5801, type: 2}
+    material: {fileID: 2100000, guid: 7398722cd81b92645a13fa65cdf36b9b, type: 2}
+    sourceEvent: 4495
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 4755a0a97a20ac249a52bba58e14b45d, type: 2}
+    material: {fileID: 2100000, guid: e755e2c192a5e1541bdebe417c26ef83, type: 2}
+    sourceEvent: 4506
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 1e1827e6931f8df4083f70e1b2f8c155, type: 2}
+    material: {fileID: 2100000, guid: 2c6e9f7eea64d214fa26fa0c0993cbc9, type: 2}
+    sourceEvent: 4526
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 84187087564f0b24fbe6fa02c8fca935, type: 2}
+    material: {fileID: 2100000, guid: e22bbf00b2887b641afc381301d64ff7, type: 2}
+    sourceEvent: 4546
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: af01c1a2aef372f429f620b808b82c6c, type: 2}
+    material: {fileID: 2100000, guid: 20083bdfbbd78074abe04073707ae268, type: 2}
+    sourceEvent: 4557
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 6b796739f46f7b04595b5f48151a8795, type: 2}
+    material: {fileID: 2100000, guid: 8a77b7ec6bb5ab448b87caf439457c19, type: 2}
+    sourceEvent: 4577
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 3564ce6c2a4510d40a702bd21c5b66ab, type: 2}
+    material: {fileID: 2100000, guid: 472161b1537967d4f8cce304ff45028b, type: 2}
+    sourceEvent: 4596
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 040955be0eb3f2c41ab21e52b65b3655, type: 2}
+    material: {fileID: 2100000, guid: c3f32c60427a0364295615153dbee900, type: 2}
+    sourceEvent: 4617
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: ea8633484d2b27b4baaa8bb1a2106515, type: 2}
+    material: {fileID: 2100000, guid: 6f65e2319c1f2e44c94a5e0f7c8e8715, type: 2}
+    sourceEvent: 4655
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 97badc10a2b65a34dbcce2f67a58c352, type: 2}
+    material: {fileID: 2100000, guid: f25948c75fdaba54d8cde6ede450f05a, type: 2}
+    sourceEvent: 4665
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: f0822fb534dac3442b63bf8a1d4d05c5, type: 2}
+    material: {fileID: 2100000, guid: 6f8563d2007bff64583aa41a22e915cf, type: 2}
+    sourceEvent: 4675
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: adc49d620c4ab80449ab9e2e7e22c2ff, type: 2}
+    material: {fileID: 2100000, guid: 6166f8baf890d67428aab3cb0e9633c2, type: 2}
+    sourceEvent: 4685
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 8631f56e404df6348b855150afca0754, type: 2}
+    material: {fileID: 2100000, guid: 6a76fccc1c6e46449842dd6add59555d, type: 2}
+    sourceEvent: 4705
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 6af6410564ffce54ba0377426c4a633c, type: 2}
+    material: {fileID: 2100000, guid: 62b1c24731a8efc4eb44e70063aa4db7, type: 2}
+    sourceEvent: 4725
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: b42a7bbb5f9bb5b4599ed092f3feadaf, type: 2}
+    material: {fileID: 2100000, guid: 664bb9c53153e9b4bac23d5e0c1c35bc, type: 2}
+    sourceEvent: 4735
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 5635e6e226c375a4e90b2257a48084cf, type: 2}
+    material: {fileID: 2100000, guid: effcc9ffd57487841a244764a6cae22c, type: 2}
+    sourceEvent: 4745
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: e3085ccb1bac3d544b94e640c050a910, type: 2}
+    material: {fileID: 2100000, guid: a8561896f1bdf104f819805a8e290e20, type: 2}
+    sourceEvent: 4755
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 3758f8f8ad28d8a4485c0b7c925ac15b, type: 2}
+    material: {fileID: 2100000, guid: e63714e853e12c94fb9548d99d5cc3f2, type: 2}
+    sourceEvent: 4765
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 92f1a8bc92f092543bc159545944396c, type: 2}
+    material: {fileID: 2100000, guid: 6705603edd2f9c248858a844293f19e0, type: 2}
+    sourceEvent: 4775
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: d84676d67e1cbc54991df3b116ffa383, type: 2}
+    material: {fileID: 2100000, guid: a80002a8d0fd7fa40b6f86f204b96ced, type: 2}
+    sourceEvent: 4795
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: b0a25f2df62bdad40af7e351edc34b10, type: 2}
+    material: {fileID: 2100000, guid: cbee4062881ce644bb65f2f159e6f74e, type: 2}
+    sourceEvent: 4815
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: e3a4342db832ffb49a2c117d355a0ecb, type: 2}
+    material: {fileID: 2100000, guid: 6159223edecd50b49b464daef4435d3e, type: 2}
+    sourceEvent: 4835
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 391f7ecd79b78574a96f9a7321ff1a11, type: 2}
+    material: {fileID: 2100000, guid: da8492e4819c632488b6a7a88f82454f, type: 2}
+    sourceEvent: 4855
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: b2dc0349b05ae9547a1b7f0f2d468be7, type: 2}
+    material: {fileID: 2100000, guid: a43cf2ff0aa780e48afd0052215d1aa3, type: 2}
+    sourceEvent: 4875
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 6851f4491ec848849a18266315f51b54, type: 2}
+    material: {fileID: 2100000, guid: 2c3254fdada1dc84eb564540649f2759, type: 2}
+    sourceEvent: 4895
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 09b7ee941cb9e344ea64ae82f4515f56, type: 2}
+    material: {fileID: 2100000, guid: cdb08745efea7aa4c9fa978f6d07f3fd, type: 2}
+    sourceEvent: 4915
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 745a75208494d934db15a1c6f62af83a, type: 2}
+    material: {fileID: 2100000, guid: 81ea2d1c539694247b72f961076c07df, type: 2}
+    sourceEvent: 4935
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 32de6d56c13f93642974e24aac89c714, type: 2}
+    material: {fileID: 2100000, guid: d3df94d2396961f40ac1813d8d0b4262, type: 2}
+    sourceEvent: 4945
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 8664fe89ea2006b4aa172d2185d43289, type: 2}
+    material: {fileID: 2100000, guid: 8ac1f6b7fe016ca47a9a0c0bbcabffb7, type: 2}
+    sourceEvent: 4965
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 6388c7e36c1286247a5b047e850019b8, type: 2}
+    material: {fileID: 2100000, guid: 470666074018f0f4382c341b9f7dd3ee, type: 2}
+    sourceEvent: 4985
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: a34f737d6c62c8d40be83346b323ca9b, type: 2}
+    material: {fileID: 2100000, guid: 02b686b82e4f114469faf1e8bb5485ad, type: 2}
+    sourceEvent: 4995
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 4fbc3908a0bebe24ca52b7798d4b2982, type: 2}
+    material: {fileID: 2100000, guid: 66f66d04e1e4c08428c069b612fe348f, type: 2}
+    sourceEvent: 5005
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: c4cf52e3f9e9c864db315fa20482adf1, type: 2}
+    material: {fileID: 2100000, guid: 377f117a441a7dd488ff661490c8b4d3, type: 2}
+    sourceEvent: 5025
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: a9baff38ed885094d817866d21ebff64, type: 2}
+    material: {fileID: 2100000, guid: 356e7864bd175cd4fadb6981725fcaa1, type: 2}
+    sourceEvent: 5045
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: bc17ca735ffe9204e89b4f041501ea02, type: 2}
+    material: {fileID: 2100000, guid: 3477e24848f44324cb35f0b770cdc19e, type: 2}
+    sourceEvent: 5055
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: d53b8846b1baeea488d765a4bcd7b8dc, type: 2}
+    material: {fileID: 2100000, guid: 1aea505306e50c643b8e8ec0e26d9f39, type: 2}
+    sourceEvent: 5075
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 76db3781a740dd148b6199dd91d9819a, type: 2}
+    material: {fileID: 2100000, guid: 0b4605fd759bc3940a066f59bfb8d2f5, type: 2}
+    sourceEvent: 5095
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 3d25ea227f9f88b4983aa82468b05e72, type: 2}
+    material: {fileID: 2100000, guid: 8a5635c7985740144a325c163498c91c, type: 2}
+    sourceEvent: 5105
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: cfbe044d6f10f5f46b67eb9c62e21013, type: 2}
+    material: {fileID: 2100000, guid: 6f2653e7505cbe34a90dcc514072b810, type: 2}
+    sourceEvent: 5115
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 290bf2008e05c5148a3c33314085ada0, type: 2}
+    material: {fileID: 2100000, guid: 335a2009d19334c46beea3ce0f34a681, type: 2}
+    sourceEvent: 5135
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: bde0c77700043994a8897b7a715a5da0, type: 2}
+    material: {fileID: 2100000, guid: f6c13ae7c5177c945a17367b0bcac6ce, type: 2}
+    sourceEvent: 5155
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 1d09122ccc215eb4fba9149d0471a694, type: 2}
+    material: {fileID: 2100000, guid: d05ee54fe5fe4b64a8663358263e92d7, type: 2}
+    sourceEvent: 5175
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 6ed7473a267eb8346b154348cfb6da8e, type: 2}
+    material: {fileID: 2100000, guid: c9047012909a0504fb329905d85b0454, type: 2}
+    sourceEvent: 5195
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: c17a7dda6e7bc6c4aa5d8b10809675f4, type: 2}
+    material: {fileID: 2100000, guid: 8df3456811ac83747950095dd49a40bc, type: 2}
+    sourceEvent: 5215
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 1a20a7c30ac5c7a4fbbf88e34d17d798, type: 2}
+    material: {fileID: 2100000, guid: 365c71c6504b7df4bbf94e9d76aafce2, type: 2}
+    sourceEvent: 5235
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 740eff73aa33ca24ab0f71e0a1322d86, type: 2}
+    material: {fileID: 2100000, guid: 1aa616723b1edac4bad08328f7a289a5, type: 2}
+    sourceEvent: 5245
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: eefeeb32a3d65224eaf95205afa3c5c5, type: 2}
+    material: {fileID: 2100000, guid: d6f24ed86bf965146b031f018d96d288, type: 2}
+    sourceEvent: 5265
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 4bfd8a069f11f1447b9ec290c4c97277, type: 2}
+    material: {fileID: 2100000, guid: 3577a9a973e463f4691fe0f789ec9a2d, type: 2}
+    sourceEvent: 5285
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 63d2a035d9133e84abeefc7ebbb18e04, type: 2}
+    material: {fileID: 2100000, guid: 24fb9a771ff40654fb644483a4741ada, type: 2}
+    sourceEvent: 5295
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: d67847d7eab11a348821489621e7a6df, type: 2}
+    material: {fileID: 2100000, guid: 7dad5c3b4215cfe468022b940f6a04b4, type: 2}
+    sourceEvent: 5305
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 77a673bc72bb31a499c588e846a9f2dc, type: 2}
+    material: {fileID: 2100000, guid: 6fb9ab9291cbd9448bfe741d26cbaf21, type: 2}
+    sourceEvent: 5315
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 5f7b75eb109728b45b0381a75e46db26, type: 2}
+    material: {fileID: 2100000, guid: 22e0f5553316bab4ca480da8e773d729, type: 2}
+    sourceEvent: 5325
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 19e957517107c3e429d3d14f1cc686a6, type: 2}
+    material: {fileID: 2100000, guid: 9f2770c827fc9284f821449d0d66100b, type: 2}
+    sourceEvent: 5335
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 9f1e93bb4e60e6a4fb6a35efc3c2aea0, type: 2}
+    material: {fileID: 2100000, guid: 966dabf0e731dc64a9348f597cea1f3e, type: 2}
+    sourceEvent: 5345
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 1dc13825edd5ae94f9935a6b1690758c, type: 2}
+    material: {fileID: 2100000, guid: d780bc39ac88e1a47a21ce706d913144, type: 2}
+    sourceEvent: 5355
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: d878416fc1101b04299f7ebc1c116f71, type: 2}
+    material: {fileID: 2100000, guid: ff4c0c2bcaa2e4640bff1627d31e53c6, type: 2}
+    sourceEvent: 5365
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: f1fa9f4a085d5a34284b7936bdfdca24, type: 2}
+    material: {fileID: 2100000, guid: 026f47f0d74cd7d459a33b2bac67181d, type: 2}
+    sourceEvent: 5376
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 336983cf541945a4b9f6746ddeb790ba, type: 2}
+    material: {fileID: 2100000, guid: 77d59442ce1eac44ba761f7225a0d196, type: 2}
+    sourceEvent: 5386
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: ae92206ff0e5d664e840eb228d028f84, type: 2}
+    material: {fileID: 2100000, guid: f1c202e1abc609542ab4417acf790eef, type: 2}
+    sourceEvent: 5396
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 1138d398ee581df4dba7b222a55e63a8, type: 2}
+    material: {fileID: 2100000, guid: 83234d20b90f7374b89907b2dbc0a58e, type: 2}
+    sourceEvent: 5406
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: ae86e660504f44e46a4f79695aeea4e0, type: 2}
+    material: {fileID: 2100000, guid: a3d4236de3ee8c84786d2a6619eb9fd9, type: 2}
+    sourceEvent: 5416
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: e694d302d096c0f46b52cdd176527487, type: 2}
+    material: {fileID: 2100000, guid: b87b599e6dd42e946be01f7a83b865bc, type: 2}
+    sourceEvent: 5426
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: ffc0893bb7e703648a6127faa79b0040, type: 2}
+    material: {fileID: 2100000, guid: 11ca75bf0d06e624a8fa40eb70695e74, type: 2}
+    sourceEvent: 5436
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 8073133f966331a489dddc24c5b7ee3c, type: 2}
+    material: {fileID: 2100000, guid: cae02490c833dce4285fa6f2152091b6, type: 2}
+    sourceEvent: 5446
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 10889e9068d114a4fb45a850a30865ed, type: 2}
+    material: {fileID: 2100000, guid: a2f0bf8549d176745bd37b6a0b25683e, type: 2}
+    sourceEvent: 5456
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 57c5ac4555bb73a499b2d92a81b6333b, type: 2}
+    material: {fileID: 2100000, guid: 9a36ca6883bf7d64eb1f6de116a96f85, type: 2}
+    sourceEvent: 5476
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: a8e0c7b1ce229674eb28bab64fc770b9, type: 2}
+    material: {fileID: 2100000, guid: 8f5f463e3e994094c9474681aaff79f9, type: 2}
+    sourceEvent: 5496
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: ea81cb600d96c5547a7618c1bd27355e, type: 2}
+    material: {fileID: 2100000, guid: 12043a30f203b9445a505635d7757ce3, type: 2}
+    sourceEvent: 5506
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: dc5d7cb203e6fa448a333df52dca5852, type: 2}
+    material: {fileID: 2100000, guid: 021e4e5c1315f84458a4a8a9b6aa734e, type: 2}
+    sourceEvent: 5516
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 1d92105c6150f624eb6be2e9d6ec0ef0, type: 2}
+    material: {fileID: 2100000, guid: 4faac4980cde1fc439b3b7a66ef8d288, type: 2}
+    sourceEvent: 5536
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: cb50cae378ed28e49ad02dd56d4b4413, type: 2}
+    material: {fileID: 2100000, guid: a4d4752b16757874d93e90483bcfb861, type: 2}
+    sourceEvent: 5556
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 1eaf97e45c5cbb04da21a07eda4e6ab4, type: 2}
+    material: {fileID: 2100000, guid: c5096091b6235244d9176d4ffba11b3a, type: 2}
+    sourceEvent: 5566
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: aa4e6087bd9bbed45b92e3781274bf4d, type: 2}
+    material: {fileID: 2100000, guid: e8a9a5c90ddc76944adddb3e2788dc4d, type: 2}
+    sourceEvent: 5577
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: be97a71a4b3d61c4c9692c97c0761c6b, type: 2}
+    material: {fileID: 2100000, guid: 99b92ab26cae1ef4fa0c8601ab6ca88f, type: 2}
+    sourceEvent: 5587
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 52559f104f33f144ea7ad8e463a82400, type: 2}
+    material: {fileID: 2100000, guid: 19aa76feaabe35b4ca66119a81b7b9ae, type: 2}
+    sourceEvent: 5597
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 1d729145d71c9eb45af50f245788fe21, type: 2}
+    material: {fileID: 2100000, guid: 1a9ee15b6d0034a4398b2f39c15de03b, type: 2}
+    sourceEvent: 5607
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: fc61f790e4f19d84fa2fff34d56a7e72, type: 2}
+    material: {fileID: 2100000, guid: 708de0659bd00394b82d545f35ffb24b, type: 2}
+    sourceEvent: 5617
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 58a61c62416979e4e8c09bed5f4bce56, type: 2}
+    material: {fileID: 2100000, guid: 037cd1e4ef427164aa88a7b804a1611f, type: 2}
+    sourceEvent: 5627
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 180ede14011b68f4899481f3767d0fa2, type: 2}
+    material: {fileID: 2100000, guid: 175ec03bdcff83540a0d3845551cbb1e, type: 2}
+    sourceEvent: 5647
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 585a542e0dcd9844d8a5848ca0c22658, type: 2}
+    material: {fileID: 2100000, guid: 9485fc40f6f40cf4ea298301982eb92a, type: 2}
+    sourceEvent: 5667
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: f0a5848e6ad7d2245ba13639e2a8f4ff, type: 2}
+    material: {fileID: 2100000, guid: ba38049c3fe292f499c41ecc9d25c4e3, type: 2}
+    sourceEvent: 5687
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: c4e3e46cd62e05a48be6451b868c0002, type: 2}
+    material: {fileID: 2100000, guid: 6233ded869c211f4292276a32dbe49bb, type: 2}
+    sourceEvent: 5707
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: bdf799b7e30c6724090d38eea5ace2fe, type: 2}
+    material: {fileID: 2100000, guid: d3163588f4f61e8488f7e2a49021951c, type: 2}
+    sourceEvent: 5717
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 10c8850109d86034983ae1bccdd38ca7, type: 2}
+    material: {fileID: 2100000, guid: 09c9a976a02badc4da8e3f87f4b054a5, type: 2}
+    sourceEvent: 5737
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: af7e9e8dbc928b54983cf9e165f110d4, type: 2}
+    material: {fileID: 2100000, guid: 7ae2a93c01007384dbabd4774c128240, type: 2}
+    sourceEvent: 5757
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: c3972020b31b08946a3c631220a57911, type: 2}
+    material: {fileID: 2100000, guid: 039de51ed2fe46e49a1c4d122cec1a11, type: 2}
+    sourceEvent: 5777
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: d277f0a2d5f6fe445acd4dd3103146d1, type: 2}
+    material: {fileID: 2100000, guid: 632373dcda3d484448eccc58a0307b77, type: 2}
+    sourceEvent: 5797
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: d618c8f6fee1245489042a577fbb432a, type: 2}
+    material: {fileID: 2100000, guid: 3d88003c330b8c1448326d83944600c7, type: 2}
+    sourceEvent: 5810
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: b8c75b699bc015e4e9163fee620eb99e, type: 2}
+    material: {fileID: 2100000, guid: b7c335d604c8523439765db80fa933e4, type: 2}
+    sourceEvent: 5823
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 52d4bccd3086cf444988b31b8b1aa7b6, type: 2}
+    material: {fileID: 2100000, guid: 9c4da3aca4ab93248a02844dd1f00016, type: 2}
+    sourceEvent: 5833
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: d9ab60e74864aee42a313a7f56de7663, type: 2}
+    material: {fileID: 2100000, guid: 42baccc651aa63b4eb07f8be0ad808d5, type: 2}
+    sourceEvent: 5843
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 344987ce8f64d714e90b504cccf4e167, type: 2}
+    material: {fileID: 2100000, guid: 7e32980f51c04df448f9fdfe5fe935ac, type: 2}
+    sourceEvent: 5863
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: b16fc17420e1463429724b45fbc92e77, type: 2}
+    material: {fileID: 2100000, guid: b1b70e7f13cc9ce4fbba9096c6b2e225, type: 2}
+    sourceEvent: 5883
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: d9d954f968967734fb0fad7435119b32, type: 2}
+    material: {fileID: 2100000, guid: 289f4cd2dd4c0ba47a74808c46efffb4, type: 2}
+    sourceEvent: 5893
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 56f76bc41926e4f4f9e1f5581aa3e06c, type: 2}
+    material: {fileID: 2100000, guid: 0b1489674d6cae84c96b7ed46286155d, type: 2}
+    sourceEvent: 5903
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 7fdeb4430c833e74eb357bb6ca2bc192, type: 2}
+    material: {fileID: 2100000, guid: 975d6e3623827854b8fbeb7237a92bf3, type: 2}
+    sourceEvent: 5913
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 4a006a5e13c880548b990e36144cb0a8, type: 2}
+    material: {fileID: 2100000, guid: e670304816df1de419177ad1333efe48, type: 2}
+    sourceEvent: 5923
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 2371887228e15a34db8daaa44ca7fb45, type: 2}
+    material: {fileID: 2100000, guid: 4c5247db67d74e24a8cf7d12d7752f11, type: 2}
+    sourceEvent: 5933
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: f887c7d5a4f204a4986e7aaba0c028b0, type: 2}
+    material: {fileID: 2100000, guid: 185d707cb26cbe045bc68454566ddcca, type: 2}
+    sourceEvent: 5943
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: d0c9ceff5c7dbdc4891c49658168d981, type: 2}
+    material: {fileID: 2100000, guid: 312a1149c249f104d926d9d2592cb174, type: 2}
+    sourceEvent: 5953
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 9e87d1c1d48d34649a9932743e9c5501, type: 2}
+    material: {fileID: 2100000, guid: d9f79bc036a04a641a01e2306d84bfc2, type: 2}
+    sourceEvent: 5963
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 93d5d46540175734e95909c870a58f94, type: 2}
+    material: {fileID: 2100000, guid: 9f93b6bb283965749beeb3b1f5095edf, type: 2}
+    sourceEvent: 5973
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: ff168a4327be9f54d813eb6e706b05a3, type: 2}
+    material: {fileID: 2100000, guid: f3bed2ab0da736b41ba68101bce9387d, type: 2}
+    sourceEvent: 5983
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: db8efe3e8f82a894198003092044fcf7, type: 2}
+    material: {fileID: 2100000, guid: 472a886dff0746e47a14487f575c11a5, type: 2}
+    sourceEvent: 5993
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 0651f1509f6d6ab40b0c465688a46256, type: 2}
+    material: {fileID: 2100000, guid: 1214ed71cb730694b92b1fbfe0ca6598, type: 2}
+    sourceEvent: 6004
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 4a0200e64e769984ca1675239e33b1c7, type: 2}
+    material: {fileID: 2100000, guid: 9f80b4cb42e781543a0a506b25e6af03, type: 2}
+    sourceEvent: 6014
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 248d200a4d6e97a438dd01c3569616bc, type: 2}
+    material: {fileID: 2100000, guid: 09bd4265775ea0349a77fe963d7b8315, type: 2}
+    sourceEvent: 6029
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: a53e674577006ea47a7a303f550969ad, type: 2}
+    material: {fileID: 2100000, guid: 35bb3c223963d1349b7a884c2fe62213, type: 2}
+    sourceEvent: 6051
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 5505a03b7cd7a8a46bbcca33c6656af8, type: 2}
+    material: {fileID: 2100000, guid: b61eed9e5a54e9f49867077bd36d4b3c, type: 2}
+    sourceEvent: 6073
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: ebcb0ca2927faf449b4c13f91c2db93d, type: 2}
+    material: {fileID: 2100000, guid: bab5e068f028d0445864987805c4c527, type: 2}
+    sourceEvent: 6095
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 592a26f680c2fde41b86177180c2d6cc, type: 2}
+    material: {fileID: 2100000, guid: d8b470d6ceec916479903ce9bd909ab6, type: 2}
+    sourceEvent: 6115
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 2c0fe43ad67393845a6b1711c9c988f2, type: 2}
+    material: {fileID: 2100000, guid: 82ec70367b841084aa225983c736d410, type: 2}
+    sourceEvent: 6125
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 05447d680e9f4674181d8f822c7e11e4, type: 2}
+    material: {fileID: 2100000, guid: f34feaf4344b3b74b9a176b87409bca7, type: 2}
+    sourceEvent: 6135
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: affbfb0c38097db4db023fa771a32a76, type: 2}
+    material: {fileID: 2100000, guid: 7d96f2db1c8072c4a81eb381c7e903cb, type: 2}
+    sourceEvent: 6145
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: fd6420d23c07afa4e81752e9ce189ee2, type: 2}
+    material: {fileID: 2100000, guid: eaf14defc0839064582786392398b016, type: 2}
+    sourceEvent: 6159
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: ca1f77d2e4fc412459ef132716e39a03, type: 2}
+    material: {fileID: 2100000, guid: 895fdd43f6e2d0346abf217e223db3c9, type: 2}
+    sourceEvent: 6173
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: d2ee789250259214aac38b7421715928, type: 2}
+    material: {fileID: 2100000, guid: da2cd1a4532516249be07cb9c61996e0, type: 2}
+    sourceEvent: 6183
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 02f5cc7c9b4a18b47b37243d68c7d720, type: 2}
+    material: {fileID: 2100000, guid: b033b9f99cc04d84dac9c2d3108b035e, type: 2}
+    sourceEvent: 6193
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: c667ed7a89b76ad4f9888f85c97065f0, type: 2}
+    material: {fileID: 2100000, guid: b1a8a963936f57e42b96c9d77b0ba6c7, type: 2}
+    sourceEvent: 6203
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: f33e0b40a4c794544a6171db515199c7, type: 2}
+    material: {fileID: 2100000, guid: fc30c6d41015f5149bf7b7ddf1e691f2, type: 2}
+    sourceEvent: 6223
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 9ea9a12448c6799438fdc54018301cbd, type: 2}
+    material: {fileID: 2100000, guid: 61857a5a4cbcfc14394b1e7ef1c0f0b6, type: 2}
+    sourceEvent: 6244
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 6cd1e071d7f00754bad1e37a50aef4f0, type: 2}
+    material: {fileID: 2100000, guid: 1a4b05f1ec160394b82861a620e99095, type: 2}
+    sourceEvent: 6258
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: a3ee2d8617e06e64a8af6871192f53fb, type: 2}
+    material: {fileID: 2100000, guid: 0865a483b751bd74fb6d75ebfa131a3d, type: 2}
+    sourceEvent: 6268
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 54483caa340292443bcd74b1361a0628, type: 2}
+    material: {fileID: 2100000, guid: 2f2495be920099f48a428343b64e06dd, type: 2}
+    sourceEvent: 6278
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 5fca8e02740024f4bad0f7712922fcde, type: 2}
+    material: {fileID: 2100000, guid: d32f7c85357be2748af7d23949b2a02e, type: 2}
+    sourceEvent: 6288
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: f9bc73a51a4ecd34da1e7c6c0b011dec, type: 2}
+    material: {fileID: 2100000, guid: 1340608af94149e44815b0acd76ecc9d, type: 2}
+    sourceEvent: 6298
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 2dd54dc9bc689694d8cc9b891bcb8156, type: 2}
+    material: {fileID: 2100000, guid: 62880f522035cc54293196f8a8f6d9a6, type: 2}
+    sourceEvent: 6308
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 821f7cb74679b954a8ab76745a55d24b, type: 2}
+    material: {fileID: 2100000, guid: c5676933d0efba54d9eb1db4d3e5cb34, type: 2}
+    sourceEvent: 6318
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: eacccfb693e149f429abef3bd77aae54, type: 2}
+    material: {fileID: 2100000, guid: f3b24e1ed7c2a8e4fa37675df22a90fc, type: 2}
+    sourceEvent: 6328
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: af02eb272011aa847843bb5f2d96edba, type: 2}
+    material: {fileID: 2100000, guid: c6718e4c08f853f4897c90669470eb6a, type: 2}
+    sourceEvent: 6348
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 503e4b8b802c370469b8fb20c0313f13, type: 2}
+    material: {fileID: 2100000, guid: 697ad98f685f23743b2e6cca98ba2aea, type: 2}
+    sourceEvent: 6368
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 0a472f572d541b541afff8fdeb6ad5d3, type: 2}
+    material: {fileID: 2100000, guid: 3693019eded828448b9eab5734f88663, type: 2}
+    sourceEvent: 6378
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 34e927666e7107d41af909356ad5ad68, type: 2}
+    material: {fileID: 2100000, guid: de1cc967bae127a41a1d7936044d01ca, type: 2}
+    sourceEvent: 6388
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: cf2cf950ef904134db4b12ca1ff7be7c, type: 2}
+    material: {fileID: 2100000, guid: 81800c95788da954a981bc5192b6f09e, type: 2}
+    sourceEvent: 6398
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 0d92b22861da6b94d8be64a6be6d2501, type: 2}
+    material: {fileID: 2100000, guid: 76b74ef9e7e0c824b805390af537530f, type: 2}
+    sourceEvent: 6418
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: afb9384e2bec38940990bf4bd220610c, type: 2}
+    material: {fileID: 2100000, guid: f29b617b61123df41835d056245ad9f5, type: 2}
+    sourceEvent: 6438
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: dc166949194deb54596d14669be0dede, type: 2}
+    material: {fileID: 2100000, guid: 3c44e0cc251de9942844878c9e93bd2c, type: 2}
+    sourceEvent: 6451
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 8c602f78c9b13e8469835766e1c56bd9, type: 2}
+    material: {fileID: 2100000, guid: 2776706a9146de04389a14d6db7b85b7, type: 2}
+    sourceEvent: 6462
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 415fc47b0e35d4c4ab42f66776c5acee, type: 2}
+    material: {fileID: 2100000, guid: ebdbc8ad7aeb15d48b3019d330bce78e, type: 2}
+    sourceEvent: 6473
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 0ca457b368de7544296092012c28d11b, type: 2}
+    material: {fileID: 2100000, guid: af56cbaeea58f0a4fa2eb84689f281a6, type: 2}
+    sourceEvent: 6487
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: b31b9cb1e4fcb874ab072db71479e458, type: 2}
+    material: {fileID: 2100000, guid: 57dc658ef5808f2449cb5bcf978de355, type: 2}
+    sourceEvent: 6501
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: bd770e4652119794291e70c09a811835, type: 2}
+    material: {fileID: 2100000, guid: 4b6569548c097794db13ed96254b1956, type: 2}
+    sourceEvent: 6512
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 90f503efaf7ffa74fab23db03fe7d882, type: 2}
+    material: {fileID: 2100000, guid: c07783de846c2884f8937475dad31b6d, type: 2}
+    sourceEvent: 6523
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 806ba4d4044beed429544b4196661f0c, type: 2}
+    material: {fileID: 2100000, guid: e491f22ff8eca2a498a97e829efa2227, type: 2}
+    sourceEvent: 6536
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: b501f921c1daf754292c655cd2746fe6, type: 2}
+    material: {fileID: 2100000, guid: 4af47d7b9fc0f2f4bac8b121dac2b328, type: 2}
+    sourceEvent: 6546
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 3d502b250ea374e4b975cb345343f3ea, type: 2}
+    material: {fileID: 2100000, guid: 7d751ff6e5965a146bc189f260c30c4c, type: 2}
+    sourceEvent: 6556
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 11905ead559fc4e4b9fc0bf93d43c64d, type: 2}
+    material: {fileID: 2100000, guid: cd478b385e7031348952a53eaeebecad, type: 2}
+    sourceEvent: 6566
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: e78ae228d89f40d468b292ca4a0cb447, type: 2}
+    material: {fileID: 2100000, guid: 764f8e3f04d8b294abf6a7aab21ba084, type: 2}
+    sourceEvent: 6579
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 8f422cfceeeef4e47ab24fc8a39b5fa2, type: 2}
+    material: {fileID: 2100000, guid: c023ec9806a1ded42b26b3219d69f645, type: 2}
+    sourceEvent: 6590
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 2e041855b8473ae41abf8e59a819f0bb, type: 2}
+    material: {fileID: 2100000, guid: 502826bbb13e3bb43b71e1ac3cae6780, type: 2}
+    sourceEvent: 6604
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440
+  - mesh: {fileID: 4300000, guid: 1d49b7ae7a3b9024ca9cb517ff7b73a7, type: 2}
+    material: {fileID: 2100000, guid: 138d708c0daf20f478e586d3915d1f55, type: 2}
+    sourceEvent: 6624
+    scissorEnabled: 1
+    scissor:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2560
+      height: 1440

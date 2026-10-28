@@ -129,6 +129,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _BackFaceNormal: 0
+    - _CharacterShadowIndex: -1
     - _Cloth: 0
     - _ClothCoatMetallic: 0
     - _ClothCoatNormalBlend: 1
@@ -186,9 +187,13 @@ Material:
     - _Occlusion: 1
     - _Opacity: 1
     - _OutlineStencilComparison: 8
+    - _OutlineStencilReadMask: 16
     - _OutlineStencilReference: 0
+    - _OutlineStencilWriteMask: 16
     - _OutlineWidth: 0
+    - _RenderPassMask: 0
     - _Roughness: 0.742
+    - _ShadowCoverageMode: 0
     - _SkinSdfBias: 0
     - _SourceAmbientResponse: 0.28772247
     - _SourceAnisotropic: 0
@@ -202,7 +207,9 @@ Material:
     - _SourceEnvironmentReflection: 0
     - _SourceEnvironmentStrength: 1
     - _SourceGBufferTag: 0.4
+    - _SourceGround: 0
     - _SourceIndirectAlbedoGain: 1
+    - _SourceIndirectColor: 0
     - _SourceIndirectSaturation: 1
     - _SourceIndirectStrength: 0.5
     - _SourceMipBias: -1.7655349
@@ -221,6 +228,9 @@ Material:
     - _SourceViewTint: 1
     - _Specular: 0.454
     - _SrcBlend: 1
+    - _StencilFail: 0
+    - _StencilPass: 2
+    - _StencilZFail: 0
     - _UseMaskMap: 0
     - _UseNormalMap: 1
     - _ViewTintStrength: 0.3
@@ -243,6 +253,12 @@ Material:
     - _EyeIrisTint: {r: 1, g: 1, b: 1, a: 1}
     - _EyeReflectionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EyeScleraTint: {r: 1, g: 1, b: 1, a: 1}
+    - _GroundBaseUV_ST: {r: 1, g: 1, b: 0, a: 0}
+    - _GroundColorGain: {r: 0, g: 1, b: 1, a: 0}
+    - _GroundCoverageParameters: {r: 0, g: 1, b: 1, a: 1}
+    - _GroundDistanceParameters: {r: 30, g: 14, b: 0, a: 0}
+    - _GroundPatternColor: {r: 1, g: 1, b: 1, a: 0}
+    - _GroundPatternUV_ST: {r: 1, g: 1, b: 0, a: 0}
     - _HairForwardOS: {r: 0, g: 0, b: 1, a: 0}
     - _HairOcclusionLobe: {r: 0, g: 0.5, b: 1, a: 0}
     - _HairOcclusionResponse: {r: 1, g: 1, b: 0, a: 0}

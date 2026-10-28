@@ -22,3 +22,4 @@
 *.pyc
 *.pyo
 __pycache__/
+tool/

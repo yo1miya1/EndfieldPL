@@ -15,10 +15,18 @@ namespace Endfield.Authoring
         [Serializable] sealed class Manifest
         {
             public int referenceWidth, referenceHeight;
+            public bool requiresSceneBlur;
+            public int[] blurDownsamples;
+            public float blurHighlightClamp;
             public SourceDraw[] draws;
             public SourceTexture[] textures;
         }
-        [Serializable] sealed class SourceTexture { public int resourceId; public string path; public bool linear; }
+        [Serializable] sealed class SourceTexture
+        {
+            public int resourceId;
+            public string path, viewFormat;
+            public bool linear, dds;
+        }
         [Serializable] sealed class SemanticParameter { public string name; public float[] values; }
         [Serializable] sealed class SourceBinding { public int slot, resourceId; public string dynamic, path; }
         [Serializable] sealed class SourceDraw
@@ -36,11 +44,10 @@ namespace Endfield.Authoring
         [Serializable] sealed class FixedState
         {
             public int srcBlend, dstBlend, srcBlendAlpha, dstBlendAlpha, blendOp, blendOpAlpha;
-            public int colorMask, zTest, zWrite, stencilRef, stencilReadMask, stencilWriteMask;
+            public int colorMask, cull, zTest, zWrite, stencilRef, stencilReadMask, stencilWriteMask;
             public int stencilCompFront, stencilCompBack, stencilPassFront, stencilPassBack;
             public int stencilFailFront, stencilFailBack, stencilZFailFront, stencilZFailBack;
         }
-        const string Destination = "Assets/Endfield/Content/SI1/UI";
 
         static void MoveLegacy(string source, string destination)
         {
@@ -72,7 +79,7 @@ namespace Endfield.Authoring
             return value;
         }
 
-        static Mesh BuildMesh(SourceDraw draw, string source)
+        static Mesh BuildMesh(SourceDraw draw, string source, string destination)
         {
             var bytes = File.ReadAllBytes(Path.Combine(source, draw.vertexPath));
             var vertices = new float[bytes.Length / 4];
@@ -87,8 +94,8 @@ namespace Endfield.Authoring
             for (int i = 0; i < 8; i++)
                 attributes[i + 2] = new VertexAttributeDescriptor((VertexAttribute)((int)VertexAttribute.TexCoord0 + i), VertexAttributeFormat.Float32, 4);
             string stem = "UI_" + draw.family + "_" + draw.eid;
-            string assetPath = Destination + "/Meshes/" + stem + ".asset";
-            MoveLegacy(Destination + "/Meshes/UI-" + draw.eid + ".asset", assetPath);
+            string assetPath = destination + "/Meshes/" + stem + ".asset";
+            MoveLegacy(destination + "/Meshes/UI-" + draw.eid + ".asset", assetPath);
             var existing = AssetDatabase.LoadAssetAtPath<Mesh>(assetPath);
             var mesh = existing ? existing : new Mesh();
             // 显式刷新GPU顶点流；CopySerialized仅改序列化对象时可能留下旧Renderer缓冲。
@@ -109,19 +116,29 @@ namespace Endfield.Authoring
         }
 
         [MenuItem("Endfield/Authoring/Build SI1 UI Composition")]
-        public static void Build()
+        public static void Build() => BuildForCapture("SI1");
+
+        // 捕获ID只决定离线输入/发布目录；运行组件与材质没有角色ID分支。
+        public static void BuildForCapture(string captureId)
         {
+            if (string.IsNullOrWhiteSpace(captureId) || captureId.Any(c => !char.IsLetterOrDigit(c) && c != '_'))
+                throw new ArgumentException("Capture ID must be a directory name", nameof(captureId));
             string project = Directory.GetParent(Application.dataPath).FullName;
-            string source = Path.Combine(project, "Authoring/Extracted/SI1/UIPrepared");
+            string source = Path.Combine(project, "Authoring/Extracted", captureId, "UIPrepared");
+            string destination = "Assets/Endfield/Content/" + captureId + "/UI";
             var manifest = JsonUtility.FromJson<Manifest>(File.ReadAllText(Path.Combine(source, "manifest.json")));
             foreach (var folder in new[] { "Meshes", "Materials", "Textures" })
-                Directory.CreateDirectory(Path.Combine(project, Destination, folder));
+                Directory.CreateDirectory(Path.Combine(project, destination, folder));
             AssetDatabase.Refresh();
             var textures = manifest.textures.ToDictionary(t => t.resourceId, t =>
             {
                 string stem = "UIAtlas_" + t.resourceId;
-                string assetPath = Destination + "/Textures/" + stem + ".asset";
-                MoveLegacy(Destination + "/Textures/Atlas-" + t.resourceId + ".asset", assetPath);
+                string assetPath = destination + "/Textures/" + stem + ".asset";
+                MoveLegacy(destination + "/Textures/Atlas-" + t.resourceId + ".asset", assetPath);
+                // DDS保留原始编码块与mip；不套SaveTexture PNG的线性数值和行翻转规则。
+                if (t.dds)
+                    return EndfieldDdsImporter.LoadOrCreate(Path.GetFullPath(Path.Combine(source, t.path)), assetPath,
+                        "Clamp", "Clamp", "Bilinear", t.viewFormat);
                 // RenderDoc SaveTexture已经输出解码线性数值；原SRV标记仅保留为来源证据。
                 var texture = new Texture2D(2, 2, TextureFormat.RGBA32, false, true)
                 { name = stem, filterMode = FilterMode.Bilinear, wrapMode = TextureWrapMode.Clamp };
@@ -144,23 +161,31 @@ namespace Endfield.Authoring
                 return Save(texture, assetPath);
             });
             var composition = ScriptableObject.CreateInstance<UIComposition>();
-            composition.name = "UIComposition_SI1";
+            composition.name = "UIComposition_" + captureId;
             composition.referenceResolution = new Vector2Int(manifest.referenceWidth, manifest.referenceHeight);
             var compositeShader = Shader.Find("Hidden/Endfield/UI/Composite");
             if (!compositeShader) throw new InvalidOperationException("UI composite shader did not import");
-            MoveLegacy(Destination + "/Materials/Composite.mat", Destination + "/Materials/UI_Composite.mat");
-            composition.compositeMaterial = Save(new Material(compositeShader) { name = "UI_Composite" }, Destination + "/Materials/UI_Composite.mat");
+            MoveLegacy(destination + "/Materials/Composite.mat", destination + "/Materials/UI_Composite.mat");
+            composition.compositeMaterial = Save(new Material(compositeShader) { name = "UI_Composite" }, destination + "/Materials/UI_Composite.mat");
+            if (manifest.requiresSceneBlur)
+            {
+                var blurShader = Shader.Find("Hidden/Endfield/PostProcess");
+                if (!blurShader) throw new InvalidOperationException("UI scene blur shader did not import");
+                composition.sceneBlurMaterial = Save(new Material(blurShader) { name = "UI_SceneBlur" }, destination + "/Materials/UI_SceneBlur.mat");
+                composition.sceneBlurDownsamples = manifest.blurDownsamples ?? Array.Empty<int>();
+                composition.sceneBlurHighlightClamp = manifest.blurHighlightClamp;
+            }
             composition.draws = manifest.draws.OrderBy(d => d.eid).Select(draw =>
             {
                 var shader = Shader.Find("Endfield/UI/" + draw.family);
                 if (!shader) throw new InvalidOperationException("Missing UI family: " + draw.family);
                 string stem = "UI_" + draw.family + "_" + draw.eid;
-                string materialPath = Destination + "/Materials/" + stem + ".mat";
-                MoveLegacy(Destination + "/Materials/UI-" + draw.eid + ".mat", materialPath);
+                string materialPath = destination + "/Materials/" + stem + ".mat";
+                MoveLegacy(destination + "/Materials/UI-" + draw.eid + ".mat", materialPath);
                 var material = new Material(shader) { name = stem };
                 foreach (var field in typeof(FixedState).GetFields())
-                    material.SetInt("_" + field.Name, (int)field.GetValue(draw.fixedState));
-                material.SetFloat("_AlphaReduction", draw.alphaReduction);
+                    if (material.HasProperty("_" + field.Name)) material.SetInt("_" + field.Name, (int)field.GetValue(draw.fixedState));
+                if (material.HasProperty("_AlphaReduction")) material.SetFloat("_AlphaReduction", draw.alphaReduction);
                 foreach (var parameter in draw.parameters)
                 {
                     var value = new Vector4(parameter.values[0], parameter.values[1], parameter.values[2], parameter.values[3]);
@@ -182,14 +207,14 @@ namespace Endfield.Authoring
                 return new UIComposition.Draw
                 {
                     sourceEvent = draw.eid,
-                    mesh = BuildMesh(draw, source),
+                    mesh = BuildMesh(draw, source, destination),
                     material = material,
                     scissorEnabled = draw.scissorEnabled,
                     scissor = new Rect(draw.scissor[0], draw.scissor[1], draw.scissor[2], draw.scissor[3])
                 };
             }).ToArray();
-            MoveLegacy(Destination + "/Composition.asset", Destination + "/UIComposition_SI1.asset");
-            var saved = Save(composition, Destination + "/UIComposition_SI1.asset");
+            MoveLegacy(destination + "/Composition.asset", destination + "/" + composition.name + ".asset");
+            var saved = Save(composition, destination + "/" + composition.name + ".asset");
             var camera = Camera.main ? Camera.main : UnityEngine.Object.FindFirstObjectByType<Camera>();
             if (camera)
             {
@@ -200,7 +225,9 @@ namespace Endfield.Authoring
                 UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(camera.gameObject.scene);
             }
             AssetDatabase.SaveAssets();
-            Debug.Log("SI1 UI composition published: " + saved.draws.Length + " source draws, 7 material families, 15 static atlases. No captured RT pixels.");
+            Debug.Log(captureId + " UI composition published: " + saved.draws.Length + " source draws, " +
+                manifest.draws.Select(d => d.family).Distinct().Count() + " material families, " +
+                manifest.textures.Length + " static atlases. No captured RT pixels.");
         }
     }
 }

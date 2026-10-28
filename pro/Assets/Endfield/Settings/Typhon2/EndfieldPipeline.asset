@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d42b35173ffe024d9a8814f56cc030e, type: 3}
+  m_Name: EndfieldPipeline
+  m_EditorClassIdentifier: Assembly-CSharp::Endfield.Rendering.EndfieldRenderPipelineAsset
+  renderScale: 1
+  enableSrpBatcher: 1
+  debugView: 0
+  enableTemporalAA: 1
+  temporalCurrentWeight: 0.1
+  temporalVarianceScale: 0.9
+  temporalAAShader: {fileID: 4800000, guid: 667dc603f7a057246b667af705747642, type: 3}
+  maxAdditionalLights: 32
+  requireOpaqueDepthTexture: 1
+  shadowDistance: 80
+  shadowAtlasSize: 2048
+  shadowCascadeCount: 4
+  shadowCascadeSplits: {x: 0.1, y: 0.3, z: 0.6}
+  additionalShadowAtlasSize: 2048
+  deferredLightingShader: {fileID: 4800000, guid: 1afc1c6e779054e42ab97006fcf05ff2, type: 3}
+  postProcessShader: {fileID: 4800000, guid: 434b346d64a8a22428edaa814846585b, type: 3}
+  colorLutShader: {fileID: 4800000, guid: 9070dc6da91017143b4874375eddf282, type: 3}
+  defaultLitMaterial: {fileID: 2100000, guid: 3cdc861ac5439c04ba080bce88697e8b, type: 2}
+  defaultVolumeProfile: {fileID: 11400000, guid: b52a41a9b363f1c4990c25ead4b78341, type: 2}

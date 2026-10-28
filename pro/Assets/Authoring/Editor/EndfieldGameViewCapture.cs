@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Endfield.Editor
 {
@@ -12,16 +13,32 @@ namespace Endfield.Editor
     {
         static EditorWindow pendingView;
         static double captureAfter;
+        static double captureDeadline;
+        static int renderedGameFrames;
 
         public static void CaptureCurrentGameView()
         {
             Type type = typeof(EditorWindow).Assembly.GetType("UnityEditor.GameView");
             pendingView = Resources.FindObjectsOfTypeAll(type).Cast<EditorWindow>().First();
             captureAfter = EditorApplication.timeSinceStartup + 2;
+            captureDeadline = captureAfter + 8;
+            renderedGameFrames = 0;
+            RenderPipelineManager.endCameraRendering -= RecordGameFrame;
+            RenderPipelineManager.endCameraRendering += RecordGameFrame;
             EditorApplication.update -= ReadAfterRepaint;
             EditorApplication.update += ReadAfterRepaint;
+            // 隐藏标签的Repaint不会保证Game相机重绘，直接读取会拿到旧材质版本的缓存图。
+            // 激活真正Game视口，并等本次请求后的原生渲染；仍不替换camera.targetTexture。
+            pendingView.Show();
+            pendingView.Focus();
             pendingView.Repaint();
             EditorApplication.QueuePlayerLoopUpdate();
+        }
+
+        static void RecordGameFrame(ScriptableRenderContext context, Camera camera)
+        {
+            if (camera == Camera.main && camera.cameraType == CameraType.Game && !camera.targetTexture)
+                renderedGameFrames++;
         }
 
         static void ReadAfterRepaint()
@@ -29,7 +46,11 @@ namespace Endfield.Editor
             pendingView.Repaint();
             EditorApplication.QueuePlayerLoopUpdate();
             if (EditorApplication.timeSinceStartup < captureAfter) return;
+            if (renderedGameFrames == 0 && EditorApplication.timeSinceStartup < captureDeadline) return;
             EditorApplication.update -= ReadAfterRepaint;
+            RenderPipelineManager.endCameraRendering -= RecordGameFrame;
+            if (renderedGameFrames == 0)
+                throw new InvalidOperationException("GameView did not render a new Game camera frame; refusing to capture its stale texture.");
             var field = pendingView.GetType().GetField("m_RenderTexture", BindingFlags.Instance | BindingFlags.NonPublic);
             var rendered = (RenderTexture)field.GetValue(pendingView);
             string folder = Path.Combine(EndfieldEditorBridge.OutputRoot, "game-view", DateTime.UtcNow.ToString("yyyyMMdd-HHmmss-fff"));
@@ -45,6 +66,7 @@ namespace Endfield.Editor
                 File.WriteAllText(Path.Combine(folder, "evidence.txt"),
                     "Source: Unity GameView.m_RenderTexture after native GameView repaint; no Camera.Render or camera target replacement.\n" +
                     "Camera targetTexture is null: " + (Camera.main.targetTexture == null) + "\n" +
+                    "Native Game camera frames after request: " + renderedGameFrames + "\n" +
                     "Resolution: " + rendered.width + " x " + rendered.height + "\n" +
                     "Scene: " + Camera.main.gameObject.scene.path + "\n");
                 File.WriteAllText(Path.Combine(EndfieldEditorBridge.OutputRoot, "latest-game-view.txt"), folder);

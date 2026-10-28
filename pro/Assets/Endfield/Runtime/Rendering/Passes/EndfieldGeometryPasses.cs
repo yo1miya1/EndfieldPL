@@ -52,7 +52,15 @@ namespace Endfield.Rendering
                 frame.Flush();
             }
             // 多个候选标签仍在同一RendererList排序，避免把不同透明材质拆成两批。
-            DrawGeometry(frame, shaderTags, RenderQueueRange.transparent, SortingCriteria.CommonTransparent);
+            if (frame.settings.requireRefractionColorTexture)
+            {
+                DrawGeometry(frame, shaderTags, new RenderQueueRange { lowerBound = 2501, upperBound = 3499 }, SortingCriteria.CommonTransparent);
+                frame.targets.CopySceneColorForRefraction(frame.command);
+                frame.command.SetRenderTarget(new RenderTargetIdentifier(frame.targets.sceneColor), new RenderTargetIdentifier(frame.targets.depthAttachment));
+                frame.Flush();
+                DrawGeometry(frame, shaderTags, new RenderQueueRange { lowerBound = 3500, upperBound = 5000 }, SortingCriteria.CommonTransparent);
+            }
+            else DrawGeometry(frame, shaderTags, RenderQueueRange.transparent, SortingCriteria.CommonTransparent);
         }
     }
 

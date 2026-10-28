@@ -39,6 +39,7 @@ namespace Endfield.Rendering
         public readonly int width, height;
         public readonly int depthAttachment = Shader.PropertyToID("_EndfieldCameraDepthAttachment");
         public readonly int opaqueDepthTexture = Shader.PropertyToID("_EndfieldOpaqueDepthTexture");
+        public readonly int refractionColorTexture = Shader.PropertyToID("_CameraRefractionTexture");
         public readonly int sceneColor = Shader.PropertyToID("_EndfieldSceneColor");
         public readonly int bloomA = Shader.PropertyToID("_EndfieldBloomA");
         public readonly int bloomB = Shader.PropertyToID("_EndfieldBloomB");
@@ -115,6 +116,16 @@ namespace Endfield.Rendering
         }
 
         public void RegisterEffect(int name) => effectTargets.Add(name);
+
+        public void CopySceneColorForRefraction(CommandBuffer command)
+        {
+            AllocateEffect(command, refractionColorTexture, width, height);
+            // 完成普通透明后建立只读快照。后续折射继续写sceneColor，不采正在写入的颜色附件。
+            command.SetRenderTarget(new RenderTargetIdentifier(refractionColorTexture));
+            command.CopyTexture(new RenderTargetIdentifier(sceneColor), new RenderTargetIdentifier(refractionColorTexture));
+            command.SetGlobalTexture("_CameraRefractionTexture", new RenderTargetIdentifier(refractionColorTexture));
+            command.SetGlobalVector("_CameraRefractionTexture_TexelSize", new Vector4(1f / width, 1f / height, width, height));
+        }
 
         public void CopyOpaqueDepthForSampling(CommandBuffer command)
         {

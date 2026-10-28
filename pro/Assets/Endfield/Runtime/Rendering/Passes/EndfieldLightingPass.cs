@@ -10,6 +10,10 @@ namespace Endfield.Rendering
         readonly Vector4[] colors = new Vector4[32];
         readonly Vector4[] spotDirections = new Vector4[32];
         readonly Vector4[] spotAngles = new Vector4[32];
+        readonly Vector4[] responses = new Vector4[32];
+        readonly Vector4[] falloffs = new Vector4[32];
+        readonly float[] evaluationOrder = new float[32];
+        readonly int[] priorities = new int[32];
 
         public override void Execute(EndfieldFrameData frame)
         {
@@ -47,13 +51,40 @@ namespace Endfield.Rendering
                     spotAngles[lightCount] = new Vector4(inverseRange, -outerCos * inverseRange, 0, 0);
                 }
                 else spotAngles[lightCount] = new Vector4(0, 1, 0, 0);
+                var response = visible.light ? visible.light.GetComponent<EndfieldLightResponse>() : null;
+                bool custom = response && response.isActiveAndEnabled;
+                responses[lightCount] = custom
+                    ? new Vector4((int)response.response, response.responseStrength,
+                        response.response == EndfieldLightResponse.ResponseMode.ColorBlend ? response.radialFalloffPower
+                            : response.response == EndfieldLightResponse.ResponseMode.RoughnessSpecular ? response.specularRoughnessBlend : response.surfaceColorWeight,
+                        response.specularScale)
+                    : new Vector4(0, 0, 0, 1);
+                falloffs[lightCount] = new Vector4(custom ? response.falloffExponent : -1,
+                    custom ? response.normalResponseWeight : 0, 0, 0);
+                priorities[lightCount] = custom ? response.evaluationOrder : 0;
+                evaluationOrder[lightCount] = lightCount;
                 lightCount++;
+            }
+            // 仅排列着色遍历表；visible-light 与 shadow-slot 对应关系保持不动。
+            for (int i = 1; i < lightCount; i++)
+            {
+                float slot = evaluationOrder[i];
+                int previous = i - 1;
+                while (previous >= 0 && priorities[(int)evaluationOrder[previous]] > priorities[(int)slot])
+                {
+                    evaluationOrder[previous + 1] = evaluationOrder[previous];
+                    previous--;
+                }
+                evaluationOrder[previous + 1] = slot;
             }
             frame.command.SetGlobalInt("_AdditionalLightCount", lightCount);
             frame.command.SetGlobalVectorArray("_AdditionalLightPositions", positions);
             frame.command.SetGlobalVectorArray("_AdditionalLightColors", colors);
             frame.command.SetGlobalVectorArray("_AdditionalLightSpotDirections", spotDirections);
             frame.command.SetGlobalVectorArray("_AdditionalLightSpotAngles", spotAngles);
+            frame.command.SetGlobalVectorArray("_AdditionalLightResponses", responses);
+            frame.command.SetGlobalVectorArray("_AdditionalLightFalloff", falloffs);
+            frame.command.SetGlobalFloatArray("_AdditionalLightEvaluationOrder", evaluationOrder);
             // 全屏阶段没有逐Renderer的UnityPerDraw，单独传Unity环境探针的标准SH9。
             var ambient = new SHCoefficients(RenderSettings.ambientProbe);
             frame.command.SetGlobalVector("_AmbientSHAr", ambient.SHAr);

@@ -20,17 +20,36 @@ namespace Endfield.Editor
 
         [Serializable] public sealed class ImportPlan
         {
+            public string coordinateFrame;
+            public string lightCoordinateFrame;
             public float[] origin;
             public float[] cameraPosition;
             public float[] cameraRotation;
+            public float[] cameraForward;
+            public float[] cameraUp;
             public float[] mainLightDirection;
             public float[] mainLightRadiance;
             public float[] ambientRadiance;
             public string environmentReflection;
+            public string environmentReflectionDdsImportPath;
+            public bool requireRefractionColorTexture;
+            public LocalLight[] localLights;
             public EndfieldCharacterShadowAuthoring.Profile characterShadowProfile;
             public float fieldOfView = 20;
             public float aspect = 1.7777778f;
+            public float nearClipPlane = .1f;
+            public float farClipPlane = 50;
             public Part[] parts;
+        }
+        [Serializable] public sealed class LocalLight
+        {
+            public string name, type;
+            public float[] position, forward, linearRadiance;
+            public float range, spotAngle, innerSpotAngle;
+            public int responseMode, evaluationOrder;
+            public bool castShadows;
+            public float responseStrength, surfaceColorWeight = 1, radialFalloffPower = 2, falloffExponent = -1, specularScale = 1, normalResponseWeight;
+            public float specularRoughnessBlend;
         }
         [Serializable] public sealed class Part
         {
@@ -38,6 +57,10 @@ namespace Endfield.Editor
             public string binary;
             public string vertexColorPath;
             public string normalTangentPath;
+            public string extrasPath;
+            public int[] unityUvChannels;
+            public int[] extraPositionUvChannels;
+            public bool hasColor;
             public float[] placement;
             public bool placed;
             public string shader = "Endfield/HybridLit";
@@ -47,6 +70,7 @@ namespace Endfield.Editor
             public bool castShadows;
             public bool shadowsOnly;
             public string[] keywords;
+            public string[] enabledPasses;
             public TextureBinding[] textures;
             public Scalar[] scalars;
             public Vector[] vectors;
@@ -54,7 +78,7 @@ namespace Endfield.Editor
         }
         [Serializable] public sealed class TextureBinding
         {
-            public string property, path, nativeImportPath, wrapMode, wrapModeU, wrapModeV, filterMode;
+            public string property, path, nativeImportPath, ddsImportPath, wrapMode, wrapModeU, wrapModeV, filterMode;
             public bool srgb;
         }
         [Serializable] sealed class NativeTextureImport { public int width, height, mipCount; public string data; }
@@ -76,41 +100,50 @@ namespace Endfield.Editor
         [MenuItem("Endfield/Build/Rebuild SI-1 scene from extracted assets")]
         public static void BuildScene()
         {
-            string planPath = Path.Combine(Extracted, "Source/scene-import.json");
+            BuildScene("SI1", Extracted, Content, Settings, ScenePath,
+                Endfield.Authoring.EndfieldPostProcessBuilder.ApplySourceProfile);
+        }
+
+        // 捕获标识只控制发布目录与名称；运行场景不再读取离线清单。
+        public static void BuildScene(string captureId, string extractedRoot, string contentRoot,
+            string settingsRoot, string scenePath, Action<VolumeProfile> applyProfile)
+        {
+            string planPath = Path.Combine(extractedRoot, "Source/scene-import.json");
             ImportPlan plan = JsonUtility.FromJson<ImportPlan>(File.ReadAllText(planPath));
-            Directory.CreateDirectory(Content + "/Meshes");
-            Directory.CreateDirectory(Content + "/Materials");
-            Directory.CreateDirectory(Content + "/Textures");
-            Directory.CreateDirectory(Content + "/Prefabs");
-            Directory.CreateDirectory(Settings);
-            Directory.CreateDirectory("Assets/Endfield/Scenes");
+            Directory.CreateDirectory(contentRoot + "/Meshes");
+            Directory.CreateDirectory(contentRoot + "/Materials");
+            Directory.CreateDirectory(contentRoot + "/Textures");
+            Directory.CreateDirectory(contentRoot + "/Prefabs");
+            Directory.CreateDirectory(settingsRoot);
+            Directory.CreateDirectory(Path.GetDirectoryName(scenePath));
             AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
-            ConfigurePipeline();
+            ConfigurePipeline(settingsRoot, applyProfile, plan.requireRefractionColorTexture);
             var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
-            var character = new GameObject("SI-1 Character");
+            var character = new GameObject(captureId == "SI1" ? "SI-1 Character" : captureId + " Character");
             var environment = new GameObject("Environment");
             var effects = new GameObject("Character Effects");
             effects.transform.SetParent(character.transform, false);
-            var publishedTextures = new Dictionary<string, Texture2D>();
-            Vector3 origin = BlenderToUnity(V3(plan.origin));
+            var publishedTextures = new Dictionary<string, Texture>();
+            bool unityWorld = plan.coordinateFrame == "unity-world";
+            Vector3 origin = ImportVector(V3(plan.origin), unityWorld);
             foreach (Part part in plan.parts)
             {
-                var mesh = ReadMesh(Path.Combine(Extracted, "Source", part.binary), part, origin);
+                var mesh = ReadMesh(Path.Combine(extractedRoot, "Source", part.binary), part, origin, unityWorld, extractedRoot);
                 if (!string.IsNullOrEmpty(part.vertexColorPath))
                 {
-                    using var colorsReader = new BinaryReader(File.OpenRead(Path.Combine(Extracted, part.vertexColorPath)));
+                    using var colorsReader = new BinaryReader(File.OpenRead(Path.Combine(extractedRoot, part.vertexColorPath)));
                     var colors = new Color[mesh.vertexCount];
                     for (int vertex = 0; vertex < colors.Length; vertex++)
                         colors[vertex] = new Color(colorsReader.ReadSingle(), colorsReader.ReadSingle(), colorsReader.ReadSingle(), colorsReader.ReadSingle());
                     mesh.colors = colors;
                 }
                 mesh.name = part.materialName;
-                string meshPath = Content + "/Meshes/" + mesh.name + ".asset";
-                MovePublishedAsset(Content + "/Meshes/SI1_" + part.sourceEvent + ".asset", meshPath);
+                string meshPath = contentRoot + "/Meshes/" + mesh.name + ".asset";
+                MovePublishedAsset(contentRoot + "/Meshes/" + captureId + "_" + part.sourceEvent + ".asset", meshPath);
                 if (!string.IsNullOrEmpty(part.previousMaterialName))
-                    MovePublishedAsset(Content + "/Meshes/" + part.previousMaterialName + ".asset", meshPath);
+                    MovePublishedAsset(contentRoot + "/Meshes/" + part.previousMaterialName + ".asset", meshPath);
                 SaveAsset(mesh, meshPath);
-                var material = BuildMaterial(part, publishedTextures);
+                var material = BuildMaterial(part, publishedTextures, captureId, extractedRoot, contentRoot);
                 var instance = new GameObject(part.materialName ?? "Part " + part.sourceEvent);
                 var parent = part.category == "Environment" ? environment : part.category == "Effects" ? effects : character;
                 instance.transform.SetParent(parent.transform, false);
@@ -122,15 +155,22 @@ namespace Endfield.Editor
             }
             var camera = new GameObject("Main Camera", typeof(Camera), typeof(EndfieldCameraSettings)).GetComponent<Camera>();
             camera.tag = "MainCamera";
-            camera.transform.position = BlenderToUnity(V3(plan.cameraPosition)) - origin;
-            Matrix4x4 rotation = Matrix(plan.cameraRotation);
-            // Blender 相机沿 -Z 观察，局部 +Y 向上；统一换到 Unity 的 Y-up / +Z-forward。
-            camera.transform.rotation = Quaternion.LookRotation(BlenderToUnity(-rotation.GetColumn(2)), BlenderToUnity(rotation.GetColumn(1)));
+            camera.transform.position = ImportVector(V3(plan.cameraPosition), unityWorld) - origin;
+            if (plan.cameraForward != null)
+                camera.transform.rotation = Quaternion.LookRotation(ImportVector(V3(plan.cameraForward), unityWorld),
+                    ImportVector(V3(plan.cameraUp), unityWorld));
+            else
+            {
+                Matrix4x4 rotation = Matrix(plan.cameraRotation);
+                // SI1旧资料是Blender相机，默认保持原来的-Z观察/+Y向上约定。
+                camera.transform.rotation = Quaternion.LookRotation(BlenderToUnity(-rotation.GetColumn(2)), BlenderToUnity(rotation.GetColumn(1)));
+            }
             camera.fieldOfView = plan.fieldOfView;
             // 视口比例由Unity跟随Game窗口/RenderTexture；截帧工具按请求尺寸临时设置并恢复。
             camera.ResetAspect();
-            camera.nearClipPlane = 0.1f;
-            camera.farClipPlane = 50f;
+            // 旧SI1清单没有clip字段，继续沿用原来的.1/50；新清单可显式提供投影范围。
+            camera.nearClipPlane = plan.nearClipPlane > 0 ? plan.nearClipPlane : .1f;
+            camera.farClipPlane = plan.farClipPlane > camera.nearClipPlane ? plan.farClipPlane : 50f;
             camera.allowHDR = true;
             camera.allowMSAA = false;
             camera.clearFlags = CameraClearFlags.SolidColor;
@@ -138,40 +178,70 @@ namespace Endfield.Editor
 
             var key = new GameObject("Key Light", typeof(Light)).GetComponent<Light>();
             key.type = LightType.Directional;
-            var radiance = V3(plan.mainLightRadiance);
-            key.intensity = Mathf.Max(radiance.x, Mathf.Max(radiance.y, radiance.z));
-            key.color = new Color(radiance.x / key.intensity, radiance.y / key.intensity, radiance.z / key.intensity).gamma;
+            ApplyRadiance(key, V3(plan.mainLightRadiance));
             key.shadows = LightShadows.Soft;
             key.shadowBias = 0.03f;
             key.shadowNormalBias = 0.12f;
             Vector3 sourceDirection = V3(plan.mainLightDirection);
-            Vector3 unityDirection = new Vector3(-sourceDirection.x, sourceDirection.y, -sourceDirection.z);
+            Vector3 unityDirection = plan.lightCoordinateFrame == "unity-world" ? sourceDirection
+                : new Vector3(-sourceDirection.x, sourceDirection.y, -sourceDirection.z);
             key.transform.rotation = Quaternion.LookRotation(-unityDirection, Vector3.up);
             RenderSettings.sun = key;
+            if (plan.localLights != null) foreach (LocalLight sourceLight in plan.localLights)
+            {
+                var light = new GameObject(sourceLight.name, typeof(Light)).GetComponent<Light>();
+                light.type = (LightType)Enum.Parse(typeof(LightType), sourceLight.type, true);
+                light.transform.position = ImportVector(V3(sourceLight.position), unityWorld) - origin;
+                if (sourceLight.forward != null)
+                    light.transform.rotation = Quaternion.LookRotation(ImportVector(V3(sourceLight.forward), unityWorld), Vector3.up);
+                ApplyRadiance(light, V3(sourceLight.linearRadiance));
+                light.range = sourceLight.range;
+                light.shadows = sourceLight.castShadows ? LightShadows.Soft : LightShadows.None;
+                var response = light.gameObject.AddComponent<EndfieldLightResponse>();
+                response.response = (EndfieldLightResponse.ResponseMode)sourceLight.responseMode;
+                response.responseStrength = sourceLight.responseStrength;
+                response.specularRoughnessBlend = sourceLight.specularRoughnessBlend;
+                response.surfaceColorWeight = sourceLight.surfaceColorWeight;
+                response.radialFalloffPower = sourceLight.radialFalloffPower;
+                response.falloffExponent = sourceLight.falloffExponent;
+                response.normalResponseWeight = sourceLight.normalResponseWeight;
+                response.specularScale = sourceLight.specularScale;
+                response.evaluationOrder = sourceLight.evaluationOrder;
+                if (light.type == LightType.Spot)
+                {
+                    light.spotAngle = sourceLight.spotAngle;
+                    light.innerSpotAngle = sourceLight.innerSpotAngle;
+                }
+            }
             // 本帧源程序明确走常量环境分支；将实测辐照度转换结果初始化Unity SH探针。
             // 之后Shader读取Unity逐Renderer的SH绑定，材质不保存固定环境CBuffer。
             var environmentLighting = environment.AddComponent<EndfieldEnvironmentLighting>();
             environmentLighting.linearAmbientRadiance = new Color(plan.ambientRadiance[0], plan.ambientRadiance[1], plan.ambientRadiance[2], 1);
             environmentLighting.Apply();
             if (!string.IsNullOrEmpty(plan.environmentReflection))
-                Endfield.Authoring.EndfieldReflectionBuilder.Publish(environment, Path.Combine(Extracted, plan.environmentReflection));
+                Endfield.Authoring.EndfieldReflectionBuilder.Publish(environment, Path.Combine(extractedRoot, plan.environmentReflection));
+            if (!string.IsNullOrEmpty(plan.environmentReflectionDdsImportPath))
+                PublishDdsReflection(environment, Path.Combine(extractedRoot, plan.environmentReflectionDdsImportPath), contentRoot);
 
             var volume = new GameObject("Post Process Volume", typeof(Volume)).GetComponent<Volume>();
             volume.isGlobal = true;
-            volume.sharedProfile = AssetDatabase.LoadAssetAtPath<VolumeProfile>(Settings + "/EndfieldPostProcess.asset");
+            volume.sharedProfile = AssetDatabase.LoadAssetAtPath<VolumeProfile>(settingsRoot + "/EndfieldPostProcess.asset");
             EndfieldCharacterShadowAuthoring.Configure(character, plan.characterShadowProfile);
-            PrefabUtility.SaveAsPrefabAsset(character, Content + "/Prefabs/SI1.prefab");
-            PrefabUtility.SaveAsPrefabAsset(environment, Content + "/Prefabs/Environment.prefab");
-            PrefabUtility.SaveAsPrefabAsset(effects, Content + "/Prefabs/CharacterEffects.prefab");
-            EditorSceneManager.SaveScene(scene, ScenePath);
-            EditorBuildSettings.scenes = new[] { new EditorBuildSettingsScene(ScenePath, true) };
+            PrefabUtility.SaveAsPrefabAsset(character, contentRoot + "/Prefabs/" + captureId + ".prefab");
+            PrefabUtility.SaveAsPrefabAsset(environment, contentRoot + "/Prefabs/Environment.prefab");
+            PrefabUtility.SaveAsPrefabAsset(effects, contentRoot + "/Prefabs/CharacterEffects.prefab");
+            EditorSceneManager.SaveScene(scene, scenePath);
+            EditorBuildSettings.scenes = new[] { new EditorBuildSettingsScene(scenePath, true) };
             AssetDatabase.SaveAssets();
             Selection.activeGameObject = character;
             SceneView.lastActiveSceneView?.FrameSelected();
-            Debug.Log("SI-1 scene rebuilt: " + plan.parts.Length + " renderers.");
+            Debug.Log(captureId + " scene rebuilt: " + plan.parts.Length + " renderers.");
         }
 
         public static void ConfigurePipeline()
+            => ConfigurePipeline(Settings, Endfield.Authoring.EndfieldPostProcessBuilder.ApplySourceProfile);
+
+        public static void ConfigurePipeline(string settingsRoot, Action<VolumeProfile> applyProfile, bool requireRefractionColorTexture = false)
         {
             PlayerSettings.colorSpace = ColorSpace.Linear;
             PlayerSettings.companyName = "Endfield Learning";
@@ -180,26 +250,27 @@ namespace Endfield.Editor
             PlayerSettings.defaultScreenHeight = 1440;
             PlayerSettings.runInBackground = true;
             QualitySettings.antiAliasing = 0;
-            var profile = AssetDatabase.LoadAssetAtPath<VolumeProfile>(Settings + "/EndfieldPostProcess.asset");
+            var profile = AssetDatabase.LoadAssetAtPath<VolumeProfile>(settingsRoot + "/EndfieldPostProcess.asset");
             if (!profile)
             {
                 profile = ScriptableObject.CreateInstance<VolumeProfile>();
-                AssetDatabase.CreateAsset(profile, Settings + "/EndfieldPostProcess.asset");
+                AssetDatabase.CreateAsset(profile, settingsRoot + "/EndfieldPostProcess.asset");
                 var post = profile.Add<EndfieldPostProcessVolume>(true);
                 post.toneMapping.value = false;
                 AssetDatabase.AddObjectToAsset(post, profile);
             }
-            var asset = AssetDatabase.LoadAssetAtPath<EndfieldRenderPipelineAsset>(Settings + "/EndfieldPipeline.asset");
+            var asset = AssetDatabase.LoadAssetAtPath<EndfieldRenderPipelineAsset>(settingsRoot + "/EndfieldPipeline.asset");
             if (!asset)
             {
                 asset = ScriptableObject.CreateInstance<EndfieldRenderPipelineAsset>();
-                AssetDatabase.CreateAsset(asset, Settings + "/EndfieldPipeline.asset");
+                AssetDatabase.CreateAsset(asset, settingsRoot + "/EndfieldPipeline.asset");
             }
             asset.deferredLightingShader = Shader.Find("Hidden/Endfield/DeferredLighting");
             asset.postProcessShader = Shader.Find("Hidden/Endfield/PostProcess");
             asset.defaultVolumeProfile = profile;
             asset.requireOpaqueDepthTexture = true; // SI-1软粒子实际采样不透明深度，与测试用DSV分离。
-            Endfield.Authoring.EndfieldPostProcessBuilder.ApplySourceProfile(profile);
+            asset.requireRefractionColorTexture = requireRefractionColorTexture;
+            applyProfile(profile);
             Endfield.Authoring.EndfieldPostProcessBuilder.ApplyPipelineShaders(asset);
             GraphicsSettings.defaultRenderPipeline = asset;
             QualitySettings.renderPipeline = asset;
@@ -207,12 +278,13 @@ namespace Endfield.Editor
             AssetDatabase.SaveAssets();
         }
 
-        static Material BuildMaterial(Part part, Dictionary<string, Texture2D> publishedTextures)
+        static Material BuildMaterial(Part part, Dictionary<string, Texture> publishedTextures,
+            string captureId, string extractedRoot, string contentRoot)
         {
-            string path = Content + "/Materials/" + (part.materialName ?? "SI1_" + part.sourceEvent) + ".mat";
-            MovePublishedAsset(Content + "/Materials/SI1_" + part.sourceEvent + ".mat", path);
+            string path = contentRoot + "/Materials/" + (part.materialName ?? captureId + "_" + part.sourceEvent) + ".mat";
+            MovePublishedAsset(contentRoot + "/Materials/" + captureId + "_" + part.sourceEvent + ".mat", path);
             if (!string.IsNullOrEmpty(part.previousMaterialName))
-                MovePublishedAsset(Content + "/Materials/" + part.previousMaterialName + ".mat", path);
+                MovePublishedAsset(contentRoot + "/Materials/" + part.previousMaterialName + ".mat", path);
             var material = AssetDatabase.LoadAssetAtPath<Material>(path);
             Shader shader = Shader.Find(part.shader);
             if (!shader) throw new InvalidOperationException("Missing shader " + part.shader);
@@ -246,30 +318,41 @@ namespace Endfield.Editor
             if (part.textures != null) foreach (var binding in part.textures)
             {
                 // 原图只在发布时读取；材质永久引用独立的Unity Texture资产。
-                string sourceName = Path.GetFileNameWithoutExtension(binding.path);
+                string sourcePath = !string.IsNullOrEmpty(binding.ddsImportPath)
+                    ? Endfield.Authoring.EndfieldDdsImporter.GetSourcePath(Path.Combine(extractedRoot, binding.ddsImportPath))
+                    : binding.path ?? binding.nativeImportPath;
+                string sourceName = Path.GetFileNameWithoutExtension(sourcePath);
                 string filename = binding.property.TrimStart('_') + "_" + sourceName + (binding.srgb ? "_color" : "_data");
                 TextureWrapMode defaultWrap = binding.property.Contains("Lut") || binding.property.Contains("Ramp") ? TextureWrapMode.Clamp : TextureWrapMode.Repeat;
                 if (!string.IsNullOrEmpty(binding.wrapMode)) defaultWrap = (TextureWrapMode)Enum.Parse(typeof(TextureWrapMode), binding.wrapMode);
                 TextureWrapMode wrapU = string.IsNullOrEmpty(binding.wrapModeU) ? defaultWrap : (TextureWrapMode)Enum.Parse(typeof(TextureWrapMode), binding.wrapModeU);
                 TextureWrapMode wrapV = string.IsNullOrEmpty(binding.wrapModeV) ? defaultWrap : (TextureWrapMode)Enum.Parse(typeof(TextureWrapMode), binding.wrapModeV);
                 FilterMode filter = string.IsNullOrEmpty(binding.filterMode) ? FilterMode.Bilinear : (FilterMode)Enum.Parse(typeof(FilterMode), binding.filterMode);
-                string previousPath = Content + "/Textures/" + filename + ".asset";
+                string previousPath = contentRoot + "/Textures/" + filename + ".asset";
                 if (!string.IsNullOrEmpty(binding.wrapModeU) || !string.IsNullOrEmpty(binding.wrapModeV))
                     filename += "_" + wrapU + "_" + wrapV + "_" + filter;
-                string texturePath = Content + "/Textures/" + filename + ".asset";
+                string texturePath = contentRoot + "/Textures/" + filename + ".asset";
                 // 同一资源/采样方式可被多个语义槽复用；不同UV边界需要独立Unity纹理采样设置。
-                string textureKey = (binding.nativeImportPath ?? binding.path) + "|" + wrapU + "|" + wrapV + "|" + filter;
-                if (publishedTextures.TryGetValue(textureKey, out Texture2D publishedTexture))
+                string textureKey = (binding.ddsImportPath ?? binding.nativeImportPath ?? binding.path) + "|" + wrapU + "|" + wrapV + "|" + filter;
+                if (publishedTextures.TryGetValue(textureKey, out Texture publishedTexture))
                 {
                     material.SetTexture(binding.property, publishedTexture);
                     continue;
                 }
                 MovePublishedAsset(previousPath, texturePath);
-                MovePublishedAsset(Content + "/Textures/" + sourceName + (binding.srgb ? "_color" : "_data") + ".asset", texturePath);
+                MovePublishedAsset(contentRoot + "/Textures/" + sourceName + (binding.srgb ? "_color" : "_data") + ".asset", texturePath);
+                if (!string.IsNullOrEmpty(binding.ddsImportPath))
+                {
+                    publishedTexture = Endfield.Authoring.EndfieldDdsImporter.LoadAssetFromImport(
+                        Path.Combine(extractedRoot, binding.ddsImportPath), texturePath, wrapU.ToString(), wrapV.ToString(), filter.ToString());
+                    publishedTextures.Add(textureKey, publishedTexture);
+                    material.SetTexture(binding.property, publishedTexture);
+                    continue;
+                }
                 Texture2D texture;
                 if (!string.IsNullOrEmpty(binding.nativeImportPath))
                 {
-                    string importPath = Path.Combine(Extracted, binding.nativeImportPath);
+                    string importPath = Path.Combine(extractedRoot, binding.nativeImportPath);
                     var native = JsonUtility.FromJson<NativeTextureImport>(File.ReadAllText(importPath));
                     texture = new Texture2D(native.width, native.height, TextureFormat.RGBAHalf, native.mipCount, true);
                     // GPU线性Half像素按原行序和完整mip链保存，不重压缩、不重生平均mip。
@@ -280,7 +363,7 @@ namespace Endfield.Editor
                 {
                     // 兼容旧PNG资料：SaveTexture已输出线性像素；srgb字段只记录原SRV。
                     texture = new Texture2D(2, 2, TextureFormat.RGBA32, true, true);
-                    ImageConversion.LoadImage(texture, File.ReadAllBytes(Path.Combine(Extracted, binding.path)), false);
+                    ImageConversion.LoadImage(texture, File.ReadAllBytes(Path.Combine(extractedRoot, binding.path)), false);
                     // PNG加载器按Unity图像原点存储；原D3D shader的UV和LUT坐标以首行起点采样。
                     // 在导入边界恢复源行顺序，避免每份Shader对纹理做不同的临时翻转。
                     var pixels = texture.GetPixels32();
@@ -304,11 +387,21 @@ namespace Endfield.Editor
                 material.SetTexture(binding.property, publishedTexture);
             }
             EndfieldMaterialSetup.Apply(material);
+            if (part.enabledPasses != null)
+            {
+                // 离线计划显式指定实际阶段，防止GB事件和Forward事件各自再提交全部材质Pass。
+                var enabled = new HashSet<string>(part.enabledPasses, StringComparer.Ordinal);
+                string[] pipelinePasses = { "EndfieldGBuffer", "EndfieldSurfaceLighting", "EndfieldEffect", "EndfieldForward",
+                    "EndfieldOutline", "EndfieldSurfaceOutline", "EndfieldMotionVectors", "ShadowCaster", "CharacterShadowCaster",
+                    "UniversalForward", "SRPDefaultUnlit" };
+                foreach (string tag in pipelinePasses) material.SetShaderPassEnabled(tag, enabled.Contains(tag));
+                foreach (string tag in enabled) material.SetShaderPassEnabled(tag, true);
+            }
             EditorUtility.SetDirty(material);
             return material;
         }
 
-        static Mesh ReadMesh(string path, Part part, Vector3 origin)
+        static Mesh ReadMesh(string path, Part part, Vector3 origin, bool unityWorld, string extractedRoot)
         {
             using var reader = new BinaryReader(File.OpenRead(path));
             int count = reader.ReadInt32(), indexCount = reader.ReadInt32(), uvCount = reader.ReadInt32(), flags = reader.ReadInt32();
@@ -318,11 +411,11 @@ namespace Endfield.Editor
             var positions = new Vector3[count];
             var normals = new Vector3[count];
             var tangents = new Vector4[count];
-            for (int i = 0; i < count; ++i) positions[i] = BlenderToUnity(placement.MultiplyPoint3x4(ReadV3(reader))) - origin;
-            for (int i = 0; i < count; ++i) normals[i] = BlenderToUnity(normalMatrix.MultiplyVector(ReadV3(reader))).normalized;
+            for (int i = 0; i < count; ++i) positions[i] = ImportVector(placement.MultiplyPoint3x4(ReadV3(reader)), unityWorld) - origin;
+            for (int i = 0; i < count; ++i) normals[i] = ImportVector(normalMatrix.MultiplyVector(ReadV3(reader)), unityWorld).normalized;
             for (int i = 0; i < count; ++i)
             {
-                Vector3 tangent = BlenderToUnity(placement.MultiplyVector(ReadV3(reader))).normalized;
+                Vector3 tangent = ImportVector(placement.MultiplyVector(ReadV3(reader)), unityWorld).normalized;
                 tangents[i] = new Vector4(tangent.x, tangent.y, tangent.z, handedness * reader.ReadSingle());
             }
             if (!string.IsNullOrEmpty(part.normalTangentPath))
@@ -330,14 +423,16 @@ namespace Endfield.Editor
                 // 角色截帧是已蒙皮的静态姿势。原提取器的方向流与真实VS输出不一致，
                 // 用离线修正的姿势方向发布普通Mesh；运行时仍由Unity对象矩阵变换N/T。
                 // 此流已经处于源世界坐标，不能再次乘placement或把相机方向写进网格。
-                using var directions = new BinaryReader(File.OpenRead(Path.Combine(Extracted, part.normalTangentPath)));
+                using var directions = new BinaryReader(File.OpenRead(Path.Combine(extractedRoot, part.normalTangentPath)));
                 if (directions.BaseStream.Length != count * 7L * sizeof(float))
                     throw new InvalidDataException("Posed normal/tangent stream does not match mesh vertices: " + part.materialName);
                 for (int i = 0; i < count; ++i)
                 {
                     Vector3 n = ReadV3(directions), t = ReadV3(directions);
-                    normals[i] = new Vector3(-n.x, n.y, -n.z).normalized;
-                    tangents[i] = new Vector4(-t.x, t.y, -t.z, directions.ReadSingle());
+                    Vector3 normal = unityWorld ? n : new Vector3(-n.x, n.y, -n.z);
+                    Vector3 tangent = unityWorld ? t : new Vector3(-t.x, t.y, -t.z);
+                    normals[i] = normal.normalized;
+                    tangents[i] = new Vector4(tangent.x, tangent.y, tangent.z, directions.ReadSingle());
                 }
             }
             var mesh = new Mesh { indexFormat = IndexFormat.UInt32, vertices = positions, normals = normals, tangents = tangents };
@@ -347,7 +442,8 @@ namespace Endfield.Editor
                 for (int i = 0; i < count; ++i) uvs.Add(new Vector2(reader.ReadSingle(), reader.ReadSingle()));
                 mesh.SetUVs(layer, uvs);
             }
-            if ((flags & 1) != 0) reader.BaseStream.Position += count * 12;
+            // world2 flags1是previousPosition float3数组，不是索引；必须在flags2/IB前消费。
+            if ((flags & 1) != 0) reader.BaseStream.Position += count * 3L * sizeof(float);
             if ((flags & 2) != 0)
             {
                 // endfield solver保留的切线空间平滑法线编码，对应源描边VS输入v4.xy。
@@ -366,12 +462,71 @@ namespace Endfield.Editor
                     int swap = indices[i + 1]; indices[i + 1] = indices[i + 2]; indices[i + 2] = swap;
                 }
             mesh.SetIndices(indices, MeshTopology.Triangles, 0);
+            if (!string.IsNullOrEmpty(part.extrasPath))
+                ApplyExtras(mesh, Path.Combine(extractedRoot, part.extrasPath), part, origin);
             mesh.RecalculateBounds();
             return mesh;
         }
 
+        static void ApplyExtras(Mesh mesh, string path, Part part, Vector3 origin)
+        {
+            using var reader = new BinaryReader(File.OpenRead(path));
+            uint magic = reader.ReadUInt32(), version = reader.ReadUInt32();
+            int count = reader.ReadInt32(), channels = reader.ReadInt32();
+            if (magic != 0x58464645 || version != 2 || count != mesh.vertexCount || channels != part.unityUvChannels.Length)
+                throw new InvalidDataException("ForwardExtras EFFXv2 layout does not match mesh: " + path);
+            // 每个通道是整段float4，不是逐顶点交错；只有明确标为位置的流需要减本次场景原点。
+            var positionChannels = new HashSet<int>(part.extraPositionUvChannels ?? Array.Empty<int>());
+            foreach (int channel in part.unityUvChannels)
+            {
+                var values = new List<Vector4>(count);
+                for (int vertex = 0; vertex < count; vertex++)
+                {
+                    var value = new Vector4(reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle());
+                    if (positionChannels.Contains(channel))
+                    {
+                        value.x -= origin.x; value.y -= origin.y; value.z -= origin.z;
+                    }
+                    values.Add(value);
+                }
+                mesh.SetUVs(channel, values);
+            }
+            if (part.hasColor)
+            {
+                var colors = new Color[count];
+                for (int vertex = 0; vertex < count; vertex++)
+                    colors[vertex] = new Color(reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle());
+                mesh.colors = colors;
+            }
+        }
+
         static Vector3 ReadV3(BinaryReader reader) => new Vector3(reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle());
         static Vector3 V3(float[] value) => new Vector3(value[0], value[1], value[2]);
+        static Vector3 ImportVector(Vector3 value, bool unityWorld) => unityWorld ? value : BlenderToUnity(value);
+        static void ApplyRadiance(Light light, Vector3 radiance)
+        {
+            light.intensity = Mathf.Max(radiance.x, Mathf.Max(radiance.y, radiance.z));
+            light.color = light.intensity > 0
+                ? new Color(radiance.x / light.intensity, radiance.y / light.intensity, radiance.z / light.intensity).gamma
+                : Color.black;
+        }
+
+        static void PublishDdsReflection(GameObject environment, string importPath, string contentRoot)
+        {
+            var cube = Endfield.Authoring.EndfieldDdsImporter.LoadCubemapFromImport(importPath,
+                contentRoot + "/Textures/EnvironmentReflection.asset");
+            var probe = environment.AddComponent<ReflectionProbe>();
+            probe.mode = ReflectionProbeMode.Custom;
+            probe.customBakedTexture = cube;
+            probe.size = Vector3.one * 20;
+            probe.center = new Vector3(0, 1, 0);
+            probe.boxProjection = false;
+            probe.blendDistance = 0;
+            probe.intensity = 1;
+            probe.importance = 1;
+            RenderSettings.defaultReflectionMode = DefaultReflectionMode.Custom;
+            RenderSettings.customReflectionTexture = cube;
+        }
         // 整套几何、法线、切线和相机只在导入边界转换一次，不在Shader重复翻转。
         // capture-camera的VP首行X系数为负，沿用其屏幕right约定；只在此边界处理X。
         static Vector3 BlenderToUnity(Vector3 value) => new Vector3(-value.x, value.z, value.y);
@@ -396,9 +551,25 @@ namespace Endfield.Editor
                 published.colors = source.colors;
                 for (int channel = 0; channel < 8; channel++)
                 {
-                    var values = new List<Vector2>();
-                    source.GetUVs(channel, values);
-                    if (values.Count > 0) published.SetUVs(channel, values);
+                    int dimension = source.GetVertexAttributeDimension((VertexAttribute)((int)VertexAttribute.TexCoord0 + channel));
+                    if (dimension == 2)
+                    {
+                        var values = new List<Vector2>();
+                        source.GetUVs(channel, values);
+                        published.SetUVs(channel, values);
+                    }
+                    else if (dimension == 3)
+                    {
+                        var values = new List<Vector3>();
+                        source.GetUVs(channel, values);
+                        published.SetUVs(channel, values);
+                    }
+                    else if (dimension == 4)
+                    {
+                        var values = new List<Vector4>();
+                        source.GetUVs(channel, values);
+                        published.SetUVs(channel, values);
+                    }
                 }
                 published.SetIndices(source.GetIndices(0), MeshTopology.Triangles, 0);
                 published.bounds = source.bounds;
@@ -432,15 +603,18 @@ namespace Endfield.Editor
 
         [MenuItem("Endfield/Build/Windows player")]
         public static void BuildPlayer()
+            => BuildPlayer(ScenePath, "tmp/build/Windows", "EndfieldRebuild.exe", "player-build.txt");
+
+        public static void BuildPlayer(string scenePath, string outputDirectory, string executableName, string reportName)
         {
-            Directory.CreateDirectory(Path.Combine(EndfieldEditorBridge.Workspace, "tmp/build/Windows"));
+            Directory.CreateDirectory(Path.Combine(EndfieldEditorBridge.Workspace, outputDirectory));
             var report = BuildPipeline.BuildPlayer(new BuildPlayerOptions
             {
-                scenes = new[] { ScenePath }, target = BuildTarget.StandaloneWindows64,
-                locationPathName = Path.Combine(EndfieldEditorBridge.Workspace, "tmp/build/Windows/EndfieldRebuild.exe"),
+                scenes = new[] { scenePath }, target = BuildTarget.StandaloneWindows64,
+                locationPathName = Path.Combine(EndfieldEditorBridge.Workspace, outputDirectory, executableName),
                 options = BuildOptions.None
             });
-            File.WriteAllText(Path.Combine(EndfieldEditorBridge.OutputRoot, "player-build.txt"),
+            File.WriteAllText(Path.Combine(EndfieldEditorBridge.OutputRoot, reportName),
                 report.summary.result + "; errors=" + report.summary.totalErrors + "; bytes=" + report.summary.totalSize);
             if (report.summary.result != BuildResult.Succeeded) throw new InvalidOperationException("Player build failed: " + report.summary.result);
         }

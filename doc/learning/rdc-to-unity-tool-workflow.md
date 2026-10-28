@@ -1,8 +1,10 @@
 # 从 RDC 提取数据到 Unity 工程：工具改动与操作手册
 
-本文以 **SI-1 的已完成重构工程**为基准，整理于 2026-10-29。本快照工作区为 `F:/Project/_Game/Endfield/EndfieldPL/EndfieldPL`，Unity 工程根为 `pro`，原始输入的约定位置为 `src/SI-1.rdc`。文中命令根据实际脚本、配置和原工作区已有运行记录整理；整理文档时没有重新回放 RDC、重新发布或运行测试。
+本文以 **SI-1 的已完成重构工程**为基准，整理于 2026-10-29。以工作区根目录 `.` 为路径基准，Unity 工程根为 `pro/`，原始输入为 `src/SI-1.rdc`，外部工具统一约定放在 `tool/`。本文不依赖具体盘符、用户名或机器安装目录。命令根据实际脚本、配置和已有运行记录整理；文档修改不执行提取、发布或测试。
 
-本仓库未附带原始 RDC 与 `pro/Authoring/Extracted/SI1`。已发布 SI1 场景可直接运行；完整再生成输入仍保留在 `F:/Project/_Game/EndfieldRebuild/pro/Authoring/Extracted/SI1`，恢复到本仓库同路径后再执行发布。原 RDC 另行恢复；`$EndfieldRoot` 始终设为当前仓库根，而非源工作区。后文历史验证结论仍来自原工作区，复制本身没有重新验收。
+所有命令都从工作区根目录运行。正文路径默认相对此根目录；明确注明的子目录表、源数据内部路径和Unity API要求的`Assets/...`路径按各自说明解释。Markdown链接保持相对本文位置，以便点击。工具要求绝对路径时，由`$EndfieldRoot`与相对路径在运行时组合，不在示例中写死本机位置。
+
+本仓库未附带原始 RDC 与 `pro/Authoring/Extracted/SI1`。已发布 SI1 场景可直接运行；完整再生成输入需从原工作区的`pro/Authoring/Extracted/SI1`归档恢复到本仓库同一路径，再执行发布。原 RDC 另行恢复；`$EndfieldRoot` 始终设为当前仓库根，而非源工作区。后文历史验证结论仍来自原工作区，复制本身没有重新验收。
 
 这份文档同时说明三件事：外部工具具体改了什么；现有提取数据怎样重新发布为独立 Unity 场景；重新从 RDC 开始时，各类数据怎样获取、哪些步骤仍需要人工整理。**现有 SI-1 数据到 Unity 的发布链已经存在；任意 RDC 到完整工程还不是一键转换。** 新角色需要自己的事件、资源、常量和着色模型映射。
 
@@ -11,7 +13,7 @@
 | 目的 | 从哪里开始 | 是否需要 RenderDoc |
 | --- | --- | --- |
 | 打开当前效果、学习管线、调 Unity 灯光 | Unity Hub 打开 `pro`，打开 `Assets/Endfield/Scenes/SI1.unity` | 否 |
-| 已发布资产丢失或需要完整重建，提取数据仍在 | 第 4 节：从现有 `Extracted/SI1` 发布 | 否 |
+| 已发布资产丢失或需要完整重建，提取数据仍在 | 第 4 节：从现有 `pro/Authoring/Extracted/SI1` 发布 | 否 |
 | 某个参数、几何、纹理输入变化 | 第 8～11 节：只重建受影响的数据，再发布 | 仅缺少源证据时需要 |
 | 从原始 SI-1.rdc 重新提取 | 第 5 节开始，经过采集、归档、语义整理，再回到第 4 节 | 是 |
 | 换另一个角色或另一份截帧 | 第 16 节：建立新的角色数据配置，复用现有管线 | 按已有资料是否完整决定 |
@@ -47,27 +49,28 @@ pro/Assets/Endfield/                 真正独立的 Unity 运行资产与管线
 
 工具生成的是资产和配置，**不会从任意 DXBC 自动设计出本工程的通用 SRP**。自定义 GBuffer、光照接口、阴影、后处理、UI 调度及可读 Shader 已在 `Assets/Endfield` 中实现；移植新角色时继续使用这套代码，补充实际需要的模型分支。
 
-### 2.2 本机已使用的环境
+### 2.2 版本与工具目录约定
 
-| 依赖 | 本机位置或版本 | 使用范围 |
+| 依赖 | 工作区相对路径与版本 | 使用范围 |
 | --- | --- | --- |
-| Unity 6 | `6000.6.3f1`；`D:/Tool/unity/editor/6000.6.3f1/Editor/Unity.exe` | 发布、编辑器显示、Player 构建 |
+| Unity 6 | `tool/Unity/6000.6.3f1/Editor/Unity.exe`，版本`6000.6.3f1` | 发布、编辑器显示、Player 构建 |
 | Unity 包 | Core `17.6.0`，UGUI `2.6.0`，以 `pro/Packages/manifest.json` 为准 | 自定义 SRP 与 UI |
-| RenderDoc | `C:/Program Files/RenderDoc/qrenderdoc.exe`，本机 v1.46 | 原生回放，提供内置 Python 的 `renderdoc` 模块 |
+| RenderDoc | `tool/RenderDoc/qrenderdoc.exe`，已使用版本v1.46 | 原生回放，提供内置 Python 的 `renderdoc` 模块 |
 | rdc2dcc 本地副本 | `tool/rdc2dcc/rdc2blendCppCli.exe` | character 流程；程序名实际是 rdc2blendCppCli |
-| 普通 Python | 64 位 Python 3.11 或更高、NumPy | 离线几何、语义和纹理解码；Pillow 用于图像预览/比较 |
-| MCP 后端 | `C:/Users/Yoimiya/.codex/vendor_imports/renderdoc-mcp/bin/renderdoc-mcp.exe` | Shader/CB/绑定等交互式批次采集；旁边需匹配的依赖 DLL |
+| 普通 Python | `tool/Python/python.exe`，64位Python 3.11或更高，安装NumPy/Pillow | 离线几何、语义和纹理解码；Pillow 用于图像预览/比较 |
+| MCP 后端 | `tool/renderdoc-mcp/bin/renderdoc-mcp.exe` | Shader/CB/绑定等交互式批次采集；旁边需匹配的依赖 DLL |
 | HLSLDecompiler | `tool/rdc2dcc/SI1Scripts/HLSLDecompiler.dll` | Windows ctypes 反编译实际 DXBC |
 
-MCP 后端目前没有完整打包进本仓库；换机器需配置 `--exe` 或 `RENDERDOC_MCP_EXE`。`qrenderdoc + export_native.py` 路线不依赖 MCP 服务。普通 Python 不等于 qrenderdoc 内置 Python：含 `import renderdoc` 的导出脚本必须交给 qrenderdoc。Unity 发布读取 world2，不要求安装 Blender；只有另行编辑 `.blend` 才需要 Blender。
+上表是本文的工具部署约定，按对应目录安装或放置完整依赖；不表示所有工具都已随仓库分发。MCP后端通过`--exe`或`RENDERDOC_MCP_EXE`显式指定。`qrenderdoc + export_native.py` 路线不依赖 MCP 服务。普通 Python 不等于 qrenderdoc 内置 Python：含 `import renderdoc` 的导出脚本必须交给 qrenderdoc。Unity 发布读取 world2，不要求安装 Blender；只有另行编辑 `.blend` 才需要 Blender。
 
-后文 PowerShell 示例统一先设置：
+在工作区根目录打开PowerShell，后文示例统一先设置；新开终端也使用此根目录并执行这段初始化：
 
 ```powershell
-Set-Location 'F:\Project\_Game\Endfield\EndfieldPL\EndfieldPL'
 $EndfieldRoot = (Get-Location).Path
-$UnityExe = 'D:\Tool\unity\editor\6000.6.3f1\Editor\Unity.exe'
-$RenderDocExe = 'C:\Program Files\RenderDoc\qrenderdoc.exe'
+$UnityExe = Join-Path $EndfieldRoot 'tool/Unity/6000.6.3f1/Editor/Unity.exe'
+$RenderDocExe = Join-Path $EndfieldRoot 'tool/RenderDoc/qrenderdoc.exe'
+$PythonExe = Join-Path $EndfieldRoot 'tool/Python/python.exe'
+$RenderDocMcpExe = Join-Path $EndfieldRoot 'tool/renderdoc-mcp/bin/renderdoc-mcp.exe'
 $ProjectPath = Join-Path $EndfieldRoot 'pro'
 New-Item -ItemType Directory -Force -Path "$EndfieldRoot/tmp/unity" | Out-Null
 ```
@@ -78,9 +81,9 @@ Python 命令使用 `-X utf8`，避免本机中文编码影响记录。普通 pr
 
 ### 3.1 外部 rdc2dcc：只有一个核心文件改动
 
-外部原目录为 `F:/Project/rdc2blend/release/UI`，先复制到 `tool/rdc2dcc`。对核心 27 个文件的比较显示，只有 **`env/rdc_driver.py`** 不同；C++ CLI、solver、组件配置、FBX writer 等未修改。
+原始rdc2dcc发行目录先完整复制到`tool/rdc2dcc`，只修改工作区副本。对核心27个文件的比较显示，只有 **`tool/rdc2dcc/env/rdc_driver.py`** 不同；C++ CLI、solver、组件配置、FBX writer等未修改。
 
-原代码已经获取完整 packed PostVS，却只提取其中的 clip position。本轮增加一行，将原始字节保存下来：
+原工具角色读取流程已经调用`GetPostVSData(..., VSOut)`取得输出缓冲信息，再以`GetBufferData`把所需顶点范围的完整packed PostVS读入`praw`；后续`posed`只取每个顶点开头的`float4`位置。本轮在两者之间增加一行，将已读取的完整字节保存下来：
 
 ```python
 praw = bytes(controller.GetBufferData(md.vertexResourceId,
@@ -88,18 +91,27 @@ praw = bytes(controller.GetBufferData(md.vertexResourceId,
 save(os.path.join(d, "postvs.bin"), praw)  # 新增
 ```
 
-这使首次角色筛选漏掉的 553 draw 可以从真实 position/UV/normal/tangent 恢复。**没有重写 solver 或蒙皮算法**；方向修复发生在后面的离线补充脚本。文件原/改版 hash 与首次命令记录于 [tool-provenance.json](../capture/tool-provenance.json)。
+这使首次角色筛选漏掉的553 draw可以结合真实VS输出布局恢复position/UV/normal/tangent。**没有重写solver或蒙皮算法，也没有重新编译rdc2dcc核心DLL/可执行文件**；方向修复发生在后面的离线补充脚本。文件原/改版hash与首次命令记录于[tool-provenance.json](../capture/tool-provenance.json)。
 
-`tool/rdc2dcc/SI1Scripts` 是另加的早期工作脚本和 DLL。除当前 decompiler 依赖外，里面的 `complete553.py`、`prepare-ui.py` 等不应当成最新入口：部分仍写旧目录或读取 tmp。正式入口位于 `pro/Authoring/Tools`。
+通用性分为两层：保存原始PostVS字节不依赖角色名、EID或固定属性布局，可复用在能够由RenderDoc取得VS输出的其他绘制；将字节解释成法线、切线、UV等属性，则必须结合各Shader的输出签名、stride、索引和坐标约定。单独一个bin不能自动恢复所有模型语义。
+
+当前补丁仅加在角色流程`WANT_MESH`分支；原工具Matex的`_mesh_dump`也读取`praw`，但本轮没有给该分支添加相同落盘行。实例/阶段选择仍沿用原工具逻辑，因此不能声称所有流程、全部实例或后续几何阶段都已统一导出。需要扩为公共能力时，应让相关分支共用原始输出保存逻辑，并同时记录布局、索引、实例和阶段信息；这属于后续工具改造，本轮尚未实施。
+
+`tool/rdc2dcc/SI1Scripts`是另加的早期工作脚本和DLL。`HLSLDecompiler.dll`是旧工程已有的DXBC反编译依赖，本地文件与旧工程文件SHA-256相同，原样复用，不是本轮编译产物。除当前decompiler依赖外，里面的 `complete553.py`、`prepare-ui.py` 等不应当成最新入口：部分仍写旧目录或读取 tmp。正式入口位于 `pro/Authoring/Tools`。
+
+
+2026-10-29已将该定制版以独立文件`rdc_driver_endfield.py`合入rdc2dcc源码的`env/`。以rdc2dcc源码仓库根为基准，位置为`rdc2blendCpp-cli/rdc2blendCpp/env/rdc_driver_endfield.py`；原`rdc_driver.py`保留。新增文件与本工作区定制副本内容一致，现有工程的`CopyEnv`会随其他env文件一起复制它，无需新增C++接口。
+
+CLI仍默认选择通用`rdc_driver.py`。在含定制文件的发行目录运行时，用`--driver env/rdc_driver_endfield.py --package-name rdc2blend_env`显式选择；若把发行目录放在本文约定的`tool/rdc2dcc`下，则从工作区根传`--driver "$EndfieldRoot/tool/rdc2dcc/env/rdc_driver_endfield.py"`。本次只加入源码文件，没有重新编译或更新已有发行目录，因此不把文件改名误写成默认选择已经切换。
 
 ### 3.2 从旧工程或技能复用的工具
 
 | 工具 | 复用与本轮改动 |
 | --- | --- |
-| `Tools/export_native.py` | 基于旧工程 `pro/Generation/Tools/frame_analysis/export_native.py`；新增六类能力，见下表 |
-| `Tools/frame_analysis/{rdc_analyze,rdc_probe,mcp_client}.py` | 从 renderdoc-frame-analysis 技能复制，代码未修改；持久保存到工程中 |
-| `Tools/read_exr.py` | 旧工程原样复用；只支持本流程的未压缩 scanline EXR，不是任意 EXR 解码器 |
-| `SI1Scripts/HLSLDecompiler.dll` | 旧工程原样复用；不是本轮编写的反编译器 |
+| `pro/Authoring/Tools/export_native.py` | 基于旧工程 `pro/Generation/Tools/frame_analysis/export_native.py`；新增六类能力，见下表 |
+| `pro/Authoring/Tools/frame_analysis/{rdc_analyze,rdc_probe,mcp_client}.py` | 从 renderdoc-frame-analysis 技能复制，代码未修改；持久保存到工程中 |
+| `pro/Authoring/Tools/read_exr.py` | 旧工程原样复用；只支持本流程的未压缩 scanline EXR，不是任意 EXR 解码器 |
+| `tool/rdc2dcc/SI1Scripts/HLSLDecompiler.dll` | 旧工程原样复用；不是本轮编写的反编译器 |
 
 `export_native.py` 的本轮增量：
 
@@ -120,8 +132,8 @@ PostVS、普通绑定、纹理、compute、buffer 导出及回放关闭机制原
 
 | 工具 | 输入 → 输出 | 本轮用途 |
 | --- | --- | --- |
-| `prepare_capture_copy.py` | `src/SI-1.rdc` → `Work/SI1.rdc`、完整性记录 | 独立 ASCII 工作副本；固定本份 SI1 hash |
-| `prepare_export_configs.py` | 模板 `{ROOT}` → `Work/ExportConfigs` | 路径从早期本机 tmp 改为工作区配置 |
+| `prepare_capture_copy.py` | `src/SI-1.rdc` → `pro/Authoring/Work/SI1.rdc`、完整性记录 | 独立 ASCII 工作副本；固定本份 SI1 hash |
+| `prepare_export_configs.py` | 模板 `{ROOT}` → `pro/Authoring/Work/ExportConfigs` | 路径从早期本机 tmp 改为工作区配置 |
 | `restore_character_submesh.py` | `CharacterSupplement/553` → world2、manifest、scene 条目 | 恢复漏件；**不生成新的 FBX** |
 | `prepare_character_directions.py` | 真实 PostVS → `CharacterDirections` float7/import | 恢复已 pose 的 N/T；眼睛取 Forward 真切线 |
 | `prepare_outline_stream.py` | 617 原 VB1 与 world2 → 描边流证据 | 核对 TS2N；运行直接读 world2 中已有的 flags2 流 |
@@ -166,7 +178,7 @@ PostVS、普通绑定、纹理、compute、buffer 导出及回放关闭机制原
 
 ### 4.1 现有数据已经包括什么
 
-当前 `Extracted/SI1` 包含 Source、CharacterSupplement、CharacterDirections、Background、EffectsRead/Native/Programs、UINative/UIRead/UIPrograms/UIPrepared、TexturesNative、EnvironmentReflection、Outline、ShadowReceiverNative 等目录。
+当前 `pro/Authoring/Extracted/SI1` 包含 Source、CharacterSupplement、CharacterDirections、Background、EffectsRead/Native/Programs、UINative/UIRead/UIPrograms/UIPrepared、TexturesNative、EnvironmentReflection、Outline、ShadowReceiverNative 等目录。
 
 整理时的状态为：最终 `scene-import.json` 有 22 个部件；静态 2D 原生 mip 链 59 张；UI 有 95 个 draw、7 个 Shader 家族、15 张静态图集；反射 Cube 有 6 面、8 mip。数量只是 SI1 当前记录，不是新角色必须满足的标准。
 
@@ -175,11 +187,11 @@ PostVS、普通绑定、纹理、compute、buffer 导出及回放关闭机制原
 ### 4.2 重新生成语义与导入计划
 
 ```powershell
-python -X utf8 pro/Authoring/Tools/build_semantic_material_bindings.py
-python -X utf8 pro/Authoring/Tools/build_semantic_effect_bindings.py
-python -X utf8 pro/Authoring/Tools/build_semantic_soft_effect_bindings.py
-python -X utf8 pro/Authoring/Tools/build_semantic_layered_bindings.py
-python -X utf8 pro/Authoring/Tools/prepare_scene_import.py
+& $PythonExe -X utf8 pro/Authoring/Tools/build_semantic_material_bindings.py
+& $PythonExe -X utf8 pro/Authoring/Tools/build_semantic_effect_bindings.py
+& $PythonExe -X utf8 pro/Authoring/Tools/build_semantic_soft_effect_bindings.py
+& $PythonExe -X utf8 pro/Authoring/Tools/build_semantic_layered_bindings.py
+& $PythonExe -X utf8 pro/Authoring/Tools/prepare_scene_import.py
 ```
 
 主材质脚本同时生成 `semantic-scene-settings.json`，包含灯光/环境初值和角色阴影 profile。效果脚本之间有先后依赖，soft 脚本不能放到主 effect 脚本前面。几何、方向、原生纹理和 UI 资料未改时，不需要重新生成它们。
@@ -196,7 +208,7 @@ python -X utf8 pro/Authoring/Tools/prepare_scene_import.py
 
 该入口依次：
 
-1. 读取 `Authoring/Extracted/SI1/Source/scene-import.json`。
+1. 读取 `pro/Authoring/Extracted/SI1/Source/scene-import.json`。
 2. 创建/更新已发布网格、材质、贴图、环境反射、角色与效果 Prefab。
 3. 重建 SI1 场景、Unity 相机/Light、Volume、管线配置。
 4. 创建 UIComposition，绑定到场景相机。
@@ -241,8 +253,8 @@ python -X utf8 pro/Authoring/Tools/prepare_scene_import.py
 ### 5.1 建立回放副本
 
 ```powershell
-python -X utf8 pro/Authoring/Tools/prepare_capture_copy.py
-python -X utf8 pro/Authoring/Tools/prepare_export_configs.py
+& $PythonExe -X utf8 pro/Authoring/Tools/prepare_capture_copy.py
+& $PythonExe -X utf8 pro/Authoring/Tools/prepare_export_configs.py
 ```
 
 第一条从 `src/SI-1.rdc` 创建独立的 `pro/Authoring/Work/SI1.rdc`，记录 `capture-integrity.json`。本份源文件为 313,257,758 字节，SHA-256 为：
@@ -265,7 +277,7 @@ e2c40a194bf57fe4827aa631a4a50562c792258a2007819d2c1d3f6745ef3bec
 
 `--origin character` 是关键：所有部件按角色中心采用统一原点。后面的 `matex` 负责补读材质和逐 draw 数据，不替代角色流程。
 
-实际输出根在 `Work/rdc2dcc/imi/SI1`，不是把 `bin/SI1` 当作模型目录：
+实际输出根在 `pro/Authoring/Work/rdc2dcc/imi/SI1`，不是把 `bin/SI1` 当作模型目录：
 
 | 阶段 | 主要输出 |
 | --- | --- |
@@ -273,9 +285,9 @@ e2c40a194bf57fe4827aa631a4a50562c792258a2007819d2c1d3f6745ef3bec
 | parse | `parse/stage.json` |
 | solve | `solve/world2/manifest.json` 和 `eid-*.world2` |
 | emit | `emit/scene.rdc2scene`、`emit/fbx`、`emit/stage.json` |
-| handoff | `Work/rdc2dcc/bin/SI1/handoff.json`，记录阶段与相对产物 |
+| handoff | `pro/Authoring/Work/rdc2dcc/bin/SI1/handoff.json`，记录阶段与相对产物 |
 
-把需要保留的 solve/world2、emit/fbx、scene.rdc2scene、stage.json 归档到 `Extracted/SI1/Source` 的对应位置。现有 Source 已经经过补件与修正；重新发射的初始结果不能被当成最终等价结果，必须继续完成相关补充步骤。
+把需要保留的 solve/world2、emit/fbx、scene.rdc2scene、stage.json 归档到 `pro/Authoring/Extracted/SI1/Source` 的对应位置。现有 Source 已经经过补件与修正；重新发射的初始结果不能被当成最终等价结果，必须继续完成相关补充步骤。
 
 `Source/capture-camera.json` 保存源 VP、frame、unit_scale 和变换约定，供 FX 逆投影等离线处理使用。它的首次建立目前仍来自初始流程的人工整理，**没有统一的持久生成入口**；新 capture 需要从实际 read/parse 的相机与矩阵结果建立，不能继承 SI1 的 VP。
 
@@ -292,24 +304,32 @@ e2c40a194bf57fe4827aa631a4a50562c792258a2007819d2c1d3f6745ef3bec
 在一个 PowerShell 窗口运行：
 
 ```powershell
-python -X utf8 pro/Authoring/Tools/frame_analysis/rdc_probe.py serve `
+& $PythonExe -X utf8 pro/Authoring/Tools/frame_analysis/rdc_probe.py serve `
   --dir "$EndfieldRoot/pro/Authoring/Work/MCP-SI1" `
-  --exe 'C:/Users/Yoimiya/.codex/vendor_imports/renderdoc-mcp/bin/renderdoc-mcp.exe' `
+  --exe $RenderDocMcpExe `
   --idle-timeout 1800
 ```
 
-该进程保持运行；另一个窗口向 `Work/MCP-SI1/jobs` 写请求。启动后产生 `tools.json` 和 `ready.json`。以后端实际 schema 为准，脚本头部旧版本/工具数注释不代表本机服务版本。
+该进程保持运行；另一个窗口向 `pro/Authoring/Work/MCP-SI1/jobs` 写请求。启动后产生 `tools.json` 和 `ready.json`。以后端实际 schema 为准，脚本头部旧版本/工具数注释不代表当前服务版本。
 
-第一批请求示例，保存为 UTF-8 的 `jobs/001.request.json`：
+第一批请求示例，在另一个已初始化的终端执行。capture路径由工作区根动态生成，请求以UTF-8保存到`pro/Authoring/Work/MCP-SI1/jobs/001.request.json`：
 
-```json
-[
-  {"name":"open_capture","args":{"path":"F:/Project/_Game/Endfield/EndfieldPL/EndfieldPL/pro/Authoring/Work/SI1.rdc"}},
-  {"name":"get_pipeline_state","args":{"eventId":585}},
-  {"name":"get_bindings","args":{"eventId":585}},
-  {"name":"get_shader","args":{"eventId":585,"stage":"ps","mode":"disasm"}},
-  {"name":"list_cbuffers","args":{"eventId":585,"stage":"ps"}}
-]
+```powershell
+$capturePath = Join-Path $EndfieldRoot 'pro/Authoring/Work/SI1.rdc'
+$requests = @(
+    @{ name = 'open_capture'; args = @{ path = $capturePath } }
+    @{ name = 'get_pipeline_state'; args = @{ eventId = 585 } }
+    @{ name = 'get_bindings'; args = @{ eventId = 585 } }
+    @{ name = 'get_shader'; args = @{ eventId = 585; stage = 'ps'; mode = 'disasm' } }
+    @{ name = 'list_cbuffers'; args = @{ eventId = 585; stage = 'ps' } }
+)
+$jobDirectory = Join-Path $EndfieldRoot 'pro/Authoring/Work/MCP-SI1/jobs'
+New-Item -ItemType Directory -Force -Path $jobDirectory | Out-Null
+$pendingPath = Join-Path $jobDirectory '001.tmp'
+$requestPath = Join-Path $jobDirectory '001.request.json'
+$json = ConvertTo-Json -InputObject $requests -Depth 8
+[System.IO.File]::WriteAllText($pendingPath, $json, [System.Text.UTF8Encoding]::new($false))
+Move-Item -LiteralPath $pendingPath -Destination $requestPath
 ```
 
 根据返回的 CB 列表和真实绑定，再写下一批；以下 index/RID 是本流程的请求形态示例：
@@ -371,7 +391,7 @@ $env:EF_EXPORT_CONFIG = "$EndfieldRoot/pro/Authoring/Work/ExportConfigs/characte
 & $RenderDocExe --python "$EndfieldRoot/pro/Authoring/Tools/export_native.py"
 ```
 
-配置由第 5.1 节生成到 Work；需要调整来源时编辑正式 `Tools/ExtractionConfigs` 模板，再展开，避免只改即将被覆盖的 Work 文件。
+配置由第 5.1 节生成到 Work；需要调整来源时编辑正式 `pro/Authoring/Tools/ExtractionConfigs` 模板，再展开，避免只改即将被覆盖的 Work 文件。
 
 ### 7.2 当前模板的真实用途
 
@@ -405,8 +425,8 @@ $env:RDC2BLEND_TASK = "$EndfieldRoot/pro/Authoring/Work/ExportConfigs/UIRead-dri
 分别用 `effects-native.json` 和 `ui-native.json` 取得原生补充后，再反编译：
 
 ```powershell
-python -X utf8 pro/Authoring/Tools/decompile_effect_programs.py
-python -X utf8 pro/Authoring/Tools/decompile_ui_programs.py
+& $PythonExe -X utf8 pro/Authoring/Tools/decompile_effect_programs.py
+& $PythonExe -X utf8 pro/Authoring/Tools/decompile_ui_programs.py
 ```
 
 输出 EffectsPrograms/UIPrograms 的 HLSL 和索引。它们用来确认公式、槽位和启用分支；真正运行代码仍需要按 Unity 接口整理。ShadowReceiverNative 当前已归档的 HLSL 也是补充资料，`export_native` 只导 DXBC，不会自动产生这些 HLSL。
@@ -419,18 +439,18 @@ python -X utf8 pro/Authoring/Tools/decompile_ui_programs.py
 
 ```powershell
 # Source 基础几何重新提取且缺少 553 时使用。
-python -X utf8 pro/Authoring/Tools/restore_character_submesh.py
+& $PythonExe -X utf8 pro/Authoring/Tools/restore_character_submesh.py
 # 从已归档 PostVS 生成角色真实已 pose 方向。
-python -X utf8 pro/Authoring/Tools/prepare_character_directions.py
+& $PythonExe -X utf8 pro/Authoring/Tools/prepare_character_directions.py
 # FX 几何与原始 varying。
-python -X utf8 pro/Authoring/Tools/prepare_effect_geometry.py
+& $PythonExe -X utf8 pro/Authoring/Tools/prepare_effect_geometry.py
 # 台面 UV、几何法线、材质输入。
-python -X utf8 pro/Authoring/Tools/prepare_background.py
+& $PythonExe -X utf8 pro/Authoring/Tools/prepare_background.py
 # 核对已保存描边流；不是从 RDC 自动补采 VB。
-python -X utf8 pro/Authoring/Tools/prepare_outline_stream.py
+& $PythonExe -X utf8 pro/Authoring/Tools/prepare_outline_stream.py
 ```
 
-这些生成器读取 `Extracted/SI1`，不会重新打开 RDC。之后重跑受影响的语义脚本和 `prepare_scene_import.py`。
+这些生成器读取 `pro/Authoring/Extracted/SI1`，不会重新打开 RDC。之后重跑受影响的语义脚本和 `prepare_scene_import.py`。
 
 ### 8.2 必须保留的方向约定
 
@@ -488,11 +508,11 @@ python -X utf8 pro/Authoring/Tools/prepare_outline_stream.py
 在主材质、FX、叠层语义绑定齐备后：
 
 ```powershell
-python -X utf8 pro/Authoring/Tools/prepare_native_texture_plan.py
+& $PythonExe -X utf8 pro/Authoring/Tools/prepare_native_texture_plan.py
 $env:ENDFIELD_TEXTURE_PLAN = "$EndfieldRoot/pro/Authoring/Work/native-texture-plan.json"
 & $RenderDocExe --python "$EndfieldRoot/pro/Authoring/Tools/export_native_texture_mips.py"
-python -X utf8 pro/Authoring/Tools/decode_native_texture_mips.py
-python -X utf8 pro/Authoring/Tools/prepare_scene_import.py
+& $PythonExe -X utf8 pro/Authoring/Tools/decode_native_texture_mips.py
+& $PythonExe -X utf8 pro/Authoring/Tools/prepare_scene_import.py
 ```
 
 plan 从真实 SRV 与语义消费者选资源，补上本帧平台/背景/描边静态资源。导出器在实际消费者事件读取各 mip，保存未量化 EXR；只接受静态 Texture2D，cube/array/3D 另走对应路径。
@@ -509,8 +529,8 @@ plan 从真实 SRV 与语义消费者选资源，补上本帧平台/背景/描�
 $env:ENDFIELD_ROOT = $EndfieldRoot
 $env:ENDFIELD_SOURCE_CAPTURE = "$EndfieldRoot/pro/Authoring/Work/SI1.rdc"
 & $RenderDocExe --python "$EndfieldRoot/pro/Authoring/Tools/export_reflection_cube.py"
-python -X utf8 pro/Authoring/Tools/decode_reflection_cube.py
-python -X utf8 pro/Authoring/Tools/prepare_scene_import.py
+& $PythonExe -X utf8 pro/Authoring/Tools/decode_reflection_cube.py
+& $PythonExe -X utf8 pro/Authoring/Tools/prepare_scene_import.py
 ```
 
 当前 exporter 固定 SI1 的 event1122/RID11550；六面全部 8 mip 保存到 EnvironmentReflection/11550。总 blob 为 **源面 +X/-X/+Y/-Y/+Z/-Z → mip → 顶行 → float32 RGBA**，保留 HDR >1 和预滤波层。Unity 发布器集中处理换面/旋转，建立真正 Cubemap 和 Custom ReflectionProbe。
@@ -522,8 +542,8 @@ EnvironmentSH 的六个 3D 资源虽然已归档，本帧角色实际走 fallbac
 当前 UIPrepared 已经可供 Unity 发布。**仅在需要重生成 UI 时**运行：
 
 ```powershell
-python -X utf8 pro/Authoring/Tools/prepare_ui_geometry.py
-python -X utf8 pro/Authoring/Tools/build_ui_semantic_parameters.py
+& $PythonExe -X utf8 pro/Authoring/Tools/prepare_ui_geometry.py
+& $PythonExe -X utf8 pro/Authoring/Tools/build_ui_semantic_parameters.py
 ```
 
 两步会写 `UIPrepared`，也会覆盖 **`pro/Assets/Endfield/Shaders/UI/*.shader`**。第一步建立几何/状态/临时 constants manifest 与程序包装；第二步将 CB 行转换为命名参数，生成 parameters 并移除 constants。
@@ -681,7 +701,7 @@ PublicationCleanup 只按 Scenes/Prefabs/Settings 的显式依赖归档 Content 
 
 建议按以下顺序移植：
 
-1. 新建独立 `Extracted/<角色>`、内容目录和场景名，避免覆盖 SI1 资料。
+1. 新建独立 `pro/Authoring/Extracted/<角色>`、内容目录和场景名，避免覆盖 SI1 资料。
 2. 从旧工程的已完成导出与参数映射开始，先复用几何、静态纹理和同族公式。
 3. 根据真实 Shader/绑定建立 GBuffer ↔ 受光事件对应；不要拿 SI1 的数值只换贴图。
 4. 把当前硬编码 SI1 的生成入口提取为角色配置或为新角色增加明确的发布入口；不能只改 RDC 文件名。

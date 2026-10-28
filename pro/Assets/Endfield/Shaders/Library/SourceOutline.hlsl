@@ -50,7 +50,9 @@ EFVaryings EFSourceOutlineVertex(EFAttributes input)
 
 float4 EFSourceOutlineFragment(EFVaryings input) : SV_Target
 {
-    clip(SAMPLE_TEXTURE2D_BIAS(_SourceOutlineCoverageMap,sampler_SourceOutlineCoverageMap,input.uv,_SourceMipBias).r-_SourceOutlineCutoff);
+    EFSourceDissolveClip(input);
+    float4 coverage=SAMPLE_TEXTURE2D_BIAS(_SourceOutlineCoverageMap,sampler_SourceOutlineCoverageMap,input.uv,_SourceMipBias);
+    clip(dot(coverage,_SourceOutlineCoverageChannel)-_SourceOutlineCutoff);
     // 源PS只写RT0=(0,0,0,0)，其余附件保留先前表面写入的值。
     return 0;
 }

@@ -20,6 +20,7 @@ namespace Endfield.Editor
         {
             public int sourceEvent, tileResolution;
             public float receiverDepthBiasTexels, receiverNormalBiasTexels, filterRadiusTexels;
+            public float filterAspectRatio = 2;
             public float casterDepthBias, casterSlopeBias;
         }
 
@@ -38,6 +39,7 @@ namespace Endfield.Editor
             shadows.depthBiasTexels = profile.receiverDepthBiasTexels;
             shadows.normalBiasTexels = profile.receiverNormalBiasTexels;
             shadows.filterRadiusTexels = profile.filterRadiusTexels;
+            shadows.filterAspectRatio = profile.filterAspectRatio;
             shadows.strength = 1;
             shadows.rasterDepthBias = profile.casterDepthBias;
             EditorUtility.SetDirty(shadows);

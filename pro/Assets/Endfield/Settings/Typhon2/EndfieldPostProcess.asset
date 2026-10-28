@@ -1,0 +1,267 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8490124581351919666
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73b915bcc45cdbc40b35e2488677a251, type: 3}
+  m_Name: EndfieldColorGradingVolume
+  m_EditorClassIdentifier: Assembly-CSharp::Endfield.Rendering.EndfieldColorGradingVolume
+  active: 1
+  enabled:
+    m_OverrideState: 1
+    m_Value: 1
+  temperature:
+    m_OverrideState: 1
+    m_Value: 0
+  tint:
+    m_OverrideState: 1
+    m_Value: 0
+  colorFilter:
+    m_OverrideState: 1
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+  hueShift:
+    m_OverrideState: 1
+    m_Value: 0
+  saturation:
+    m_OverrideState: 1
+    m_Value: 1.08
+  contrast:
+    m_OverrideState: 1
+    m_Value: 1
+  channelMixerRed:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 0, z: 0}
+  channelMixerGreen:
+    m_OverrideState: 1
+    m_Value: {x: 0, y: 1, z: 0}
+  channelMixerBlue:
+    m_OverrideState: 1
+    m_Value: {x: 0, y: 0, z: 1}
+  lift:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 1, z: 1, w: 0}
+  gamma:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 1, z: 1, w: 0}
+  gain:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 1, z: 1, w: 0}
+  shadows:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 1, z: 1, w: -0.105263114}
+  midtones:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 1, z: 1, w: 0}
+  highlights:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 1, z: 1, w: 0}
+  tonalRanges:
+    m_OverrideState: 1
+    m_Value: {x: 0, y: 0.3, z: 0.55, w: 1}
+  splitShadows:
+    m_OverrideState: 1
+    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  splitHighlights:
+    m_OverrideState: 1
+    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  splitBalance:
+    m_OverrideState: 1
+    m_Value: 0
+  masterCurve:
+    m_OverrideState: 1
+    m_Value: {fileID: 0}
+    dimension: 1
+  redCurve:
+    m_OverrideState: 1
+    m_Value: {fileID: 0}
+    dimension: 1
+  greenCurve:
+    m_OverrideState: 1
+    m_Value: {fileID: 0}
+    dimension: 1
+  blueCurve:
+    m_OverrideState: 1
+    m_Value: {fileID: 0}
+    dimension: 1
+  hueVsHueCurve:
+    m_OverrideState: 1
+    m_Value: {fileID: 0}
+    dimension: 1
+  hueVsSatCurve:
+    m_OverrideState: 1
+    m_Value: {fileID: 0}
+    dimension: 1
+  satVsSatCurve:
+    m_OverrideState: 1
+    m_Value: {fileID: 0}
+    dimension: 1
+  lumVsSatCurve:
+    m_OverrideState: 1
+    m_Value: {fileID: 0}
+    dimension: 1
+--- !u!114 &-911173581930761040
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 258f841ebdb821c49b0f422999f17098, type: 3}
+  m_Name: EndfieldPostProcessVolume
+  m_EditorClassIdentifier: Assembly-CSharp::Endfield.Rendering.EndfieldPostProcessVolume
+  active: 1
+  exposure:
+    m_OverrideState: 1
+    m_Value: 0
+  toneMapping:
+    m_OverrideState: 1
+    m_Value: 0
+  contrast:
+    m_OverrideState: 1
+    m_Value: 1
+  saturation:
+    m_OverrideState: 1
+    m_Value: 1
+  bloomIntensity:
+    m_OverrideState: 1
+    m_Value: 0
+  bloomThreshold:
+    m_OverrideState: 1
+    m_Value: 1
+  vignetteIntensity:
+    m_OverrideState: 1
+    m_Value: 0
+--- !u!114 &-623917285775410696
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 283d0bd695ad8154daad9f43ae1a269b, type: 3}
+  m_Name: EndfieldDepthOfFieldVolume
+  m_EditorClassIdentifier: Assembly-CSharp::Endfield.Rendering.EndfieldDepthOfFieldVolume
+  active: 1
+  enabled:
+    m_OverrideState: 1
+    m_Value: 1
+  nearStart:
+    m_OverrideState: 1
+    m_Value: 0
+  nearEnd:
+    m_OverrideState: 1
+    m_Value: 0
+  nearRadius:
+    m_OverrideState: 1
+    m_Value: 0
+  farStart:
+    m_OverrideState: 1
+    m_Value: 9
+  farEnd:
+    m_OverrideState: 1
+    m_Value: 20
+  farRadius:
+    m_OverrideState: 1
+    m_Value: 1.41
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
+  m_Name: EndfieldPostProcess
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.VolumeProfile
+  components:
+  - {fileID: -911173581930761040}
+  - {fileID: -623917285775410696}
+  - {fileID: 4243159700159886118}
+  - {fileID: 1162386868602531813}
+  - {fileID: -8490124581351919666}
+--- !u!114 &1162386868602531813
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abcff5c462a69d946a7e917fbe97ae15, type: 3}
+  m_Name: EndfieldSourceDisplayVolume
+  m_EditorClassIdentifier: Assembly-CSharp::Endfield.Rendering.EndfieldSourceDisplayVolume
+  active: 1
+  enabled:
+    m_OverrideState: 1
+    m_Value: 1
+  bloomHighlightSuppression:
+    m_OverrideState: 1
+    m_Value: 0
+  vignetteCenter:
+    m_OverrideState: 1
+    m_Value: {x: 0.5, y: 0.5}
+  vignetteAspectBlend:
+    m_OverrideState: 1
+    m_Value: 0
+  vignetteRoundness:
+    m_OverrideState: 1
+    m_Value: 0.90000004
+  vignetteFalloff:
+    m_OverrideState: 1
+    m_Value: 2.05
+  vignetteExponent:
+    m_OverrideState: 1
+    m_Value: 1.3
+  vignetteAspectCompensation:
+    m_OverrideState: 1
+    m_Value: 0
+  vignetteColor:
+    m_OverrideState: 1
+    m_Value: {r: 0.06666667, g: 0.067174576, b: 0.07450981, a: 1}
+--- !u!114 &4243159700159886118
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fb98e4070749ad4593cc564085bad8c, type: 3}
+  m_Name: EndfieldBloomVolume
+  m_EditorClassIdentifier: Assembly-CSharp::Endfield.Rendering.EndfieldBloomVolume
+  active: 1
+  enabled:
+    m_OverrideState: 1
+    m_Value: 1
+  thresholdGamma:
+    m_OverrideState: 1
+    m_Value: 0.75000006
+  softKnee:
+    m_OverrideState: 1
+    m_Value: 0.5
+  scatter:
+    m_OverrideState: 1
+    m_Value: 0.77
+  maxIterations:
+    m_OverrideState: 1
+    m_Value: 9
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.36604023
+  tint:
+    m_OverrideState: 1
+    m_Value: {r: 0.9999998, g: 0.9999998, b: 0.9999998, a: 0.9999999}

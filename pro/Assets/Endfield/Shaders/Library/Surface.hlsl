@@ -23,9 +23,18 @@ TEXTURE2D(_SkinRegionMap); SAMPLER(sampler_SkinRegionMap);
 TEXTURE2D(_SkinLightingSdf); SAMPLER(sampler_SkinLightingSdf);
 TEXTURE2D(_SkinSpecularMap); SAMPLER(sampler_SkinSpecularMap);
 TEXTURE2D(_ParallaxGlowMap); SAMPLER(sampler_ParallaxGlowMap);
+TEXTURE2D(_RimTintMap); SAMPLER(sampler_RimTintMap);
+TEXTURE2D(_SourceDissolveMap); SAMPLER(sampler_SourceDissolveMap);
+TEXTURE2D(_FaceAtlasMap); SAMPLER(sampler_FaceAtlasMap);
+TEXTURE2D(_FabricMaskMap); SAMPLER(sampler_FabricMaskMap);
+TEXTURE2D(_SpecularResponseLut); SAMPLER(sampler_SpecularResponseLut);
 TEXTURE2D(_SourceOutlineWidthMap); SAMPLER(sampler_SourceOutlineWidthMap);
 TEXTURE2D(_SourceOutlineCoverageMap); SAMPLER(sampler_SourceOutlineCoverageMap);
 CBUFFER_START(UnityPerMaterial)
+float _RenderPassMask;
+float _ShadowCoverageMode;
+float4 _GroundPatternColor, _GroundPatternUV_ST, _GroundBaseUV_ST;
+float4 _GroundCoverageParameters, _GroundDistanceParameters, _GroundColorGain;
 float4 _BaseMap_ST;
 float4 _BaseColor;
 float4 _EmissionColor;
@@ -42,6 +51,7 @@ float _SourceOutlineWidth;
 float _SourceOutlineDepth;
 float _SourceOutlineSmoothNormal;
 float _SourceOutlineCutoff;
+float4 _SourceOutlineCoverageChannel;
 float _Cull;
 float _SrcBlend;
 float _DstBlend;
@@ -76,6 +86,18 @@ float _SkinSdfBias;
 float4 _ParallaxGlowParams;
 float4 _ParallaxGlowColor;
 float4 _ParallaxGlowMap_ST;
+float4 _RimTintMap_ST;
+float4 _RimTintParams;
+float4 _RimTintColor;
+float4 _SourceDirectTint;
+float4 _SourceDissolveMap_ST;
+float4 _SourceDissolvePlane;
+float4 _SourceDissolveControl;
+float4 _SourceDissolveEdgeColor;
+float _SourceDissolveEdgeWidth;
+float4 _FaceAtlasParams;
+float4 _FabricTint,_FabricRimTint,_FabricFresnel,_FabricLobes;
+float _SpecularLookupBlend;
 float4 _EnvironmentBaseUV_ST;
 float4 _EnvironmentMaterialUV_ST;
 float4 _EnvironmentRoughnessRange;
@@ -176,6 +198,20 @@ EFVaryings EFVertex(EFAttributes input)
     return o;
 }
 
+float EFSourceDissolveDistance(EFVaryings input)
+{
+    float2 uv=input.uv*_SourceDissolveMap_ST.xy+_SourceDissolveMap_ST.zw;
+    float noise=SAMPLE_TEXTURE2D_BIAS(_SourceDissolveMap,sampler_SourceDissolveMap,uv,_SourceMipBias).r;
+    float height=_SourceDissolvePlane.w-dot(input.positionWS,_SourceDissolvePlane.xyz);
+    return (noise-_SourceDissolveControl.w)*_SourceDissolveControl.z+height*_SourceDissolveControl.y;
+}
+void EFSourceDissolveClip(EFVaryings input)
+{
+    #if defined(EF_SOURCE_DISSOLVE)
+        clip(saturate(EFSourceDissolveDistance(input)*_SourceDissolveControl.x)-0.01);
+    #endif
+}
+
 // SI1_655/08ed673f 与旧 SharedEnvironment/GBufferFormula01 的同一环境模型。
 // UV混合、遮罩重映射、镜面强度和法线解码顺序保留源公式，仅参数改为语义名字。
 EFGBufferOutput EFSourceEnvironmentGBuffer(EFVaryings input, bool frontFace, float2 motion)
@@ -210,7 +246,12 @@ EFGBufferOutput EFSourceEnvironmentGBuffer(EFVaryings input, bool frontFace, flo
 EFSurface EFSampleSurface(EFVaryings input, bool frontFace)
 {
     EFSurface s;
-    float4 base = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, input.uv) * _BaseColor;
+    #if defined(EF_SOURCE_CHARACTER)
+        // 源角色的alphaClip与GB/Surface采样同一mip；避免通用采样再次用不同LOD切掉边缘。
+        float4 base=SAMPLE_TEXTURE2D_BIAS(_BaseMap,sampler_BaseMap,input.uv,_SourceMipBias)*_BaseColor;
+    #else
+        float4 base = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, input.uv) * _BaseColor;
+    #endif
     #if defined(EF_ALPHA_CLIP)
         clip(base.a - _Cutoff);
     #endif
@@ -253,10 +294,15 @@ EFSurface EFSampleSurface(EFVaryings input, bool frontFace)
 // 488/502:479a1a25；520/585/599:b3ed3da6；538/553/568:f3ad6268；617:d2a926b5。
 EFGBufferOutput EFSourceCharacterGBuffer(EFVaryings input, bool frontFace, float2 motion)
 {
+    EFSourceDissolveClip(input);
     #if defined(EF_SOURCE_COVERAGE)
         clip(SAMPLE_TEXTURE2D_BIAS(_CoverageMap, sampler_CoverageMap, input.uv, _SourceMipBias).r - _Cutoff);
     #endif
-    float3 color = SAMPLE_TEXTURE2D_BIAS(_BaseMap, sampler_BaseMap, input.uv, _SourceMipBias).rgb * _BaseColor.rgb;
+    float4 sourceBase = SAMPLE_TEXTURE2D_BIAS(_BaseMap, sampler_BaseMap, input.uv, _SourceMipBias) * _BaseColor;
+    #if defined(EF_ALPHA_CLIP)
+        clip(sourceBase.a - _Cutoff);
+    #endif
+    float3 color = sourceBase.rgb;
     float3 normal = normalize(input.normalWS);
     #if defined(EF_NORMAL_MAP)
         float4 packed = SAMPLE_TEXTURE2D_BIAS(_NormalMap, sampler_NormalMap, input.uv, _SourceMipBias);

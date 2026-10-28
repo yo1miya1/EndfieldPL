@@ -1,8 +1,10 @@
 # SI-1 离线来源与发布
 
-本 EndfieldPL 快照保留 `Tools` 与 `Assets/Authoring/Editor`，未附带 `Extracted`、`Work` 或原始 RDC。已保存的 SI1 场景可完整运行；重新发布前需从 `F:/Project/_Game/EndfieldRebuild/pro/Authoring/Extracted/SI1` 恢复完整输入到本仓库同名目录。工作区根为 `F:/Project/_Game/Endfield/EndfieldPL/EndfieldPL`，在此执行下文相对路径命令；换机器时设为实际克隆根。原资料仍在原工作区，未移动或删除。
-
 完整操作顺序、工具修改清单和从零采集的现存缺口，以[从 RDC 到 Unity 的详细操作手册](../../doc/learning/rdc-to-unity-tool-workflow.md)为准。本文保留来源与数据格式摘要。
+
+Typhon2 使用单独的 `Extracted/Typhon2` 和 `Tools/Typhon2`，其已有数据迁移与完整发布顺序见 [Typhon2 工具说明](Tools/Typhon2/README.md)。两者共用 Unity 资产发布器与运行 SRP，不能把 SI1 的坐标变换、PNG 颜色边界或 CBuffer 行号直接套到 Typhon2。
+
+Lino1使用同样的分层方式，完整步骤见[Lino1工具说明](Tools/Lino1/README.md)。Typhon2/Lino1共用`capture_materials.py`和`capture_scene_plan.py`，各角色只保留来源映射与薄入口；Lino需要的多层粒子、镜面查表和折射快照已作为共享Shader/Pass功能发布。
 
 `Extracted/SI1` 保存实际截帧导出的网格、贴图、着色器与参数来源；`Tools` 负责离线整理；`Assets/Authoring/Editor` 负责Unity资产发布。运行场景仅引用 `Assets/Endfield` 内的Mesh、Texture、Cubemap、Material、UIComposition与Shader。删除原RDC、Extracted目录和工具后，已经发布的场景仍可运行。
 

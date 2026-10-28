@@ -5,6 +5,12 @@
 #include "EnvironmentReflection.hlsl"
 #include "ParallaxGlow.hlsl"
 #include "SourceEye.hlsl"
+#include "SourceLightAttenuation.hlsl"
+float4 _Time;
+// 公开EndfieldLightResponse组件上传：模式、参数语义与灯索引分开，不读取来源CB页。
+float4 _AdditionalLightResponses[32];
+float4 _AdditionalLightFalloff[32];
+float _AdditionalLightEvaluationOrder[32];
 
 // 原材质 LUT 的 B切片/R横轴/G纵轴，32³展开为1024×32；采样返回线性RGB。
 // SI1 1019:39-55、1040:40-56；与旧LitSurface的同一片段直接重组。
@@ -87,6 +93,20 @@ float3 EFSourceMainHalfVector(float3 view, float3 light)
     return normalize(normalize(cameraDirection)*2+light+view*3);
 }
 
+float3 EFSourceFabricSpecular(EFSurface s, EFVaryings input, float3 view, float3 halfVector, float3 f0)
+{
+    // Lino LitSurface04:749-822/2475-2543，本帧实例层权重0；绒面主瓣各向同性、次瓣各向异性。
+    float4 mask=SAMPLE_TEXTURE2D_BIAS(_FabricMaskMap,sampler_FabricMaskMap,input.uv,_SourceMipBias);
+    float3 tangent,bitangent;EFSourceClothFrame(s,input.normalWS,input.tangentWS,tangent,bitangent);
+    float covered=saturate(s.alpha*_FabricLobes.z);
+    float anisotropy=clamp(mask.g*2-1,-0.95,0.95)*(1-covered);
+    float alpha=max(s.roughness*s.roughness,0.0078125);
+    float3 secondaryHalf=normalize(halfVector+view*_FabricFresnel.w);
+    float secondary=clamp(EFSourceAnisotropicDistribution(s.normalWS,tangent,bitangent,secondaryHalf,alpha*(1-anisotropy),alpha*(1+anisotropy)),0,20);
+    float primary=EFSourceSpecularLobe(s.roughness,saturate(dot(s.normalWS,halfVector)),saturate(dot(s.normalWS,view)));
+    return f0*(primary+secondary*mask.r*_FabricLobes.x*_FabricLobes.y);
+}
+
 float3 EFSourceClothSpecular(EFSurface s, float3 geometricNormal, float4 meshTangent, float3 view, float3 halfVector, float3 f0)
 {
     float3 tangent,bitangent;
@@ -100,7 +120,15 @@ float3 EFSourceClothSpecular(EFSurface s, float3 geometricNormal, float4 meshTan
     float visibility = 0.5 / (2 * nv + alpha + 0.0001);
     float primary = clamp(d1 * visibility - 0.00006103515625,0,20);
     float secondary = clamp(d2,0,20);
-    return f0 * (primary + _ClothSecondLobeColor.rgb * s.specular * secondary);
+    float3 primaryF0=f0;
+    #if defined(EF_SOURCE_SPECULAR_LUT)
+        // Lino LitSurface09:1828-1852。t10是256²镜面响应，不是漫反Ramp。
+        float nh=dot(s.normalWS,halfVector);
+        float lookupU=lerp(d1*(alpha*alpha+0.0001),nh*nh,_SpecularLookupBlend);
+        float lookupV=s.roughness*(1-s.metallic);
+        primaryF0*=SAMPLE_TEXTURE2D_LOD(_SpecularResponseLut,sampler_SpecularResponseLut,float2(lookupU,lookupV),0).rgb;
+    #endif
+    return primaryF0*primary+f0*_ClothSecondLobeColor.rgb*s.specular*secondary;
 }
 
 float3 EFSourceDirect(EFSurface s, float3 positionWS, float3 direction, float3 radiance, float shadow, float3 geometricNormal, float4 tangentWS)
@@ -139,11 +167,16 @@ float3 EFSourceDirect(EFSurface s, float3 positionWS, float3 direction, float3 r
     return (diffuseRamp * ramp.a * _SourceDiffuseStrength * diffuseRadiance + specularColor * _SourceSpecularStrength * radiance) * visibility;
 }
 
+#include "AnalyticSurfaceLighting.hlsl"
+
 // SI1_1019:1035-1106及1082:560/674-728的主光漫反与间接色组合。
 // 两家族共享此算术段，但1082另有面部SDF/区域Mask输入，不能据此视作整份PS相同。
 float3 EFSourceMainLighting(EFSurface s, EFVaryings input, float3 indirectAlbedo,
     float characterShadow, out float3 mainDiffuse, out float3 mainSpecularRadiance)
 {
+    #if defined(EF_SOURCE_ANALYTIC_LIGHTING)
+        return EFSourceAnalyticMainLighting(s,input,indirectAlbedo,characterShadow,mainDiffuse,mainSpecularRadiance);
+    #endif
     float3 view = normalize(_WorldSpaceCameraPos - input.positionWS);
     float3 light = SafeNormalize(_MainLightDirection.xyz);
     float rampU = clamp(dot(s.normalWS,light) + _SourceRampBias,-1,1) * 0.5 + 0.5;
@@ -163,7 +196,11 @@ float3 EFSourceMainLighting(EFSurface s, EFVaryings input, float3 indirectAlbedo
         smoothSdf = smoothSdf*smoothSdf*(3-2*smoothSdf);
         float halfCosine = 0.5*sdfCosine;
         float sdfSigned = 2*abs(-smoothSdf-halfCosine*ceil(halfCosine))-1;
-        float normalSigned = clamp(dot(s.normalWS,light)+_SourceRampBias,-1,1);
+        float3 rampNormal=s.normalWS;
+        #if defined(EF_SOURCE_FACE_ATLAS)
+            rampNormal=normalize(input.normalWS);
+        #endif
+        float normalSigned = clamp(dot(rampNormal,light)+_SourceRampBias,-1,1);
         rampU = lerp(sdfSigned,normalSigned,skinRegion.g)*0.5+0.5;
     #endif
     float4 ramp = SAMPLE_TEXTURE2D_LOD(_LightingRamp,sampler_LightingRamp,float2(rampU,0.5),0);
@@ -173,6 +210,10 @@ float3 EFSourceMainLighting(EFSurface s, EFVaryings input, float3 indirectAlbedo
         float3 cameraBack = unity_MatrixV[2].xyz;
         float2 localCamera = normalize(float2(dot(cameraBack,right),dot(cameraBack,forward)));
         float sideOcclusion = saturate((localCamera.y-0.75)*-2);
+        #if defined(EF_SOURCE_FACE_ATLAS)
+            // Lino Graph08:1220-1233保留几何法线Y；它与SI1相机侧向门控不是同一输入。
+            sideOcclusion=saturate(normalize(input.normalWS).y*-2);
+        #endif
         sideOcclusion = sideOcclusion*sideOcclusion*(3-2*sideOcclusion);
         float shadowWeight = max(skinRegion.b*sideOcclusion,skinRegion.g);
         shadow = lerp(1,shadow,shadowWeight);
@@ -203,7 +244,7 @@ float3 EFSourceMainLighting(EFSurface s, EFVaryings input, float3 indirectAlbedo
     float hemisphere = saturate(dot(hemisphereNormal,_SourceHemisphereDirection.xyz) + _SourceHemisphereParams.x);
     shade *= hemisphere * _SourceHemisphereParams.y + _SourceHemisphereParams.z;
     float response = _SourceAmbientResponse;
-    float3 radiance = _MainLightColor.rgb;
+    float3 radiance = _MainLightColor.rgb*_SourceDirectTint.rgb;
     float radianceLuminance = dot(radiance,float3(0.212673,0.715152,0.072175));
     float3 coloredRadiance = lerp(radianceLuminance.xxx,radiance,visible);
     // 引擎Light把颜色与强度相乘；源色彩因子为其归一化颜色，辐照度保留完整强度。
@@ -228,6 +269,9 @@ float3 EFSourceMainLighting(EFSurface s, EFVaryings input, float3 indirectAlbedo
     float3 specularColor = f0*EFSourceSpecularLobe(s.roughness,saturate(dot(s.normalWS,halfVector)),saturate(dot(s.normalWS,view)));
     #if defined(EF_SOURCE_ANISOTROPIC)
         specularColor = EFSourceClothSpecular(s,input.normalWS,input.tangentWS,view,halfVector,f0);
+    #endif
+    #if defined(EF_SOURCE_FABRIC)
+        specularColor = EFSourceFabricSpecular(s,input,view,halfVector,f0);
     #endif
     float3 directSpecular = specularColor*_SourceSpecularStrength;
     #if defined(EF_SOURCE_SKIN)
@@ -285,11 +329,104 @@ float3 EFSourceHairDiffuseOcclusion(float3 diffuse, float3 detailNormal, float3 
     return lerp(luminance.xxx,attenuated,saturation);
 }
 
+float3 EFSourceAdditionalLighting(EFSurface surface, EFVaryings input, float3 initialColor)
+{
+    float3 color = initialColor;
+    float3 view = normalize(_WorldSpaceCameraPos-input.positionWS);
+    float3 cameraBack = unity_MatrixV[2].xyz;
+    float3 diffuse,f0;
+    EFSourceMaterialEnergy(surface.baseColor,surface.metallic,surface.specular,diffuse,f0);
+    [loop] for (int stepIndex=0;stepIndex<min(_AdditionalLightCount,32);stepIndex++)
+    {
+        int index = (int)_AdditionalLightEvaluationOrder[stepIndex];
+        float4 response = _AdditionalLightResponses[index];
+        int mode = (int)response.x;
+        float3 direction;
+        float attenuation = 1;
+        if (_AdditionalLightPositions[index].w==0)
+            direction = SafeNormalize(_AdditionalLightPositions[index].xyz);
+        else
+        {
+            float3 delta = _AdditionalLightPositions[index].xyz-input.positionWS;
+            float distanceSquared = dot(delta,delta);
+            direction = normalize(delta);
+            // Local13:164-174/285-324：mode4使用2*record4.y作为幂，其余按公开falloffExponent选择。
+            float exponent = mode==4 ? response.z : _AdditionalLightFalloff[index].x;
+            attenuation = exponent>=0 ? pow(saturate(1-distanceSquared*_AdditionalLightPositions[index].w),exponent)
+                : EFSourceDistanceAttenuation(distanceSquared,_AdditionalLightPositions[index].w);
+            float cone = saturate(dot(-direction,_AdditionalLightSpotDirections[index].xyz)*_AdditionalLightSpotAngles[index].x+_AdditionalLightSpotAngles[index].y);
+            attenuation *= cone*cone;
+        }
+        float3 radiance = _AdditionalLightColors[index].rgb;
+        float shadow = EFAdditionalShadow(index,input.positionWS,_AdditionalLightPositions[index].xyz);
+        if (mode==4)
+        {
+            // Local13:483-510：对当前累积结果作顺序混色，不是再加一盏普通BRDF光。
+            float normalTransition = saturate(dot(surface.normalWS,direction)+0.5);
+            normalTransition = normalTransition*normalTransition*(3-2*normalTransition);
+            float normalWeight = lerp(1,normalTransition,_AdditionalLightFalloff[index].y);
+            color = lerp(color,radiance,attenuation*response.y*normalWeight);
+        }
+        else if (mode==3)
+        {
+            // Local13:978-1048：仅视角边缘的Diffuse响应，强度参数控制边缘区间，明确没有镜面项。
+            float rim = 1-abs(dot(view,surface.normalWS));
+            float lower = 0.8-0.6*response.y;
+            float upper = 0.9-0.4*response.y;
+            float rimTransition = saturate((rim-lower)/(upper-lower));
+            rimTransition = rimTransition*rimTransition*(3-2*rimTransition);
+            float3 projectedLight = normalize(cross(cross(direction,cameraBack),cameraBack));
+            float angular = saturate(dot(surface.normalWS,-projectedLight));
+            // arg40.yzw来自Graph11 float1200=diffuseEnergy-0.5，不是原始BaseColor。
+            // 金属/黑色表面若误加常数0.5，会在13/18强度的源rim灯下产生白边。
+            float3 rimMaterial = lerp(0.5,diffuse,response.z);
+            color += radiance*attenuation*shadow*rimTransition*angular*rimMaterial;
+        }
+        else if (mode==2)
+        {
+            // Local13:1083-1189：Lambert漫反保留；粗糙度区间只门控镜面，并把alpha向0.01混合。
+            float roughnessGate=saturate((surface.roughness-(response.y+0.05))*-10);
+            roughnessGate=roughnessGate*roughnessGate*(3-2*roughnessGate);
+            float sourceAlpha=max(surface.roughness*surface.roughness,0.0078125);
+            float filteredRoughness=sqrt(lerp(sourceAlpha,0.01,response.z));
+            float3 halfVector=normalize(view+direction);
+            float lobe=EFSourceSpecularLobe(filteredRoughness,saturate(dot(surface.normalWS,halfVector)),saturate(dot(surface.normalWS,view)));
+            color+=attenuation*shadow*radiance*saturate(dot(surface.normalWS,direction))*(diffuse+f0*lobe*roughnessGate*response.w);
+        }
+        else
+        {
+            // Local13:936-977：普通局部灯不重复主光的Ramp、SH半球或间接色。
+            // 原强光压缩系数为0.75-0.25*(1-screenAO)；当前屏幕AO输入边界为1。
+            float normalization = rcp(max(0.75*max(radiance.r,max(radiance.g,radiance.b))*attenuation,1));
+            float3 normalizedRadiance = radiance*lerp(1,normalization,response.z);
+            float nl = dot(surface.normalWS,direction);
+            float diffuseAngular = saturate(nl+0.5)*(1-0.5*response.y)+0.5*response.y;
+            float3 halfVector = normalize(view+direction);
+            float specular = EFSourceSpecularLobe(surface.roughness,saturate(dot(surface.normalWS,halfVector)),saturate(dot(surface.normalWS,view)));
+            color += attenuation*shadow*normalizedRadiance*diffuseAngular*(diffuse+f0*specular*response.w);
+        }
+    }
+    return color;
+}
+
 float3 EFEvaluateSourceCharacter(EFVaryings input, bool frontFace)
 {
     EFGBufferOutput g = EFSourceCharacterGBuffer(input, frontFace, 0);
     EFSurface s = EFSampleSurface(input, frontFace);
+    // TangentNormalSurface的发光叶与Base/Normal共享源mip bias；默认黑色保持其他家族不发光。
+    s.emission = SAMPLE_TEXTURE2D_BIAS(_EmissionMap, sampler_EmissionMap, input.uv, _SourceMipBias).rgb * _EmissionColor.rgb;
+    s.alpha = SAMPLE_TEXTURE2D_BIAS(_BaseMap, sampler_BaseMap, input.uv, _SourceMipBias).a*_BaseColor.a;
     s.baseColor = g.target4.rgb;
+    #if defined(EF_SOURCE_RIM_TINT)
+        // Typhon2 Graph10:129-156：按原几何N计算view rim，遮罩居中拉伸后只混合基础色。
+        float3 rimView = normalize(_WorldSpaceCameraPos-input.positionWS);
+        float rim = pow(clamp(1-dot(rimView,input.normalWS),0.0001,1),_RimTintParams.x);
+        rim = saturate(rim*_RimTintParams.y);
+        float2 rimUV = (input.uv+_Time.y*_RimTintParams.z)*_RimTintMap_ST.xy+_RimTintMap_ST.zw;
+        float rimMask = SAMPLE_TEXTURE2D_BIAS(_RimTintMap,sampler_RimTintMap,rimUV,_SourceMipBias).r;
+        rimMask = saturate((rimMask-0.5)*_RimTintParams.w+0.5);
+        s.baseColor = lerp(s.baseColor,_RimTintColor.rgb,rim*rimMask);
+    #endif
     s.normalWS = EFDecodeNormal(g.target3.xy);
     // 914读取10bit GB3；此几何重画Pass不采屏幕GB，按同一UNorm精度复现接收N。
     // Eye后续程序化虹膜/角膜N只用于BRDF，不应改变阴影接收偏移。
@@ -321,6 +458,13 @@ float3 EFEvaluateSourceCharacter(EFVaryings input, bool frontFace)
         // 原间接色LUT在视角染色之前采样；视角染色只改变直接基础色。
         ambientAlbedo = SAMPLE_TEXTURE2D_BIAS(_BaseMap, sampler_BaseMap, input.uv, _SourceMipBias).rgb * _BaseColor.rgb;
     #endif
+    #if defined(EF_SOURCE_FACE_ATLAS)
+        // Lino Graph08:153-181，2x2面部图集的RGBA覆盖仅改变基础色，保持BaseMap alpha独立。
+        float atlasIndex=_FaceAtlasParams.x;
+        float2 atlasUV=input.uv*0.5+float2(frac(atlasIndex*0.5),floor(atlasIndex*0.5)*0.5);
+        float4 overlay=SAMPLE_TEXTURE2D_BIAS(_FaceAtlasMap,sampler_FaceAtlasMap,atlasUV,_SourceMipBias);
+        ambientAlbedo=lerp(ambientAlbedo,overlay.rgb,overlay.a*_FaceAtlasParams.y);
+    #endif
     #if defined(EF_SOURCE_SKIN)
         // SI1_1082:359-374。GBufffer只输出简化染色，实际Forward另受区域/相机朝向控制。
         float4 skinRegion = SAMPLE_TEXTURE2D_BIAS(_SkinRegionMap,sampler_SkinRegionMap,input.uv,_SourceMipBias);
@@ -333,14 +477,37 @@ float3 EFEvaluateSourceCharacter(EFVaryings input, bool frontFace)
         s.baseColor = ambientAlbedo*lerp(1,_ViewTintColor.rgb,viewTint);
         s.specular *= skinRegion.g;
     #endif
+    #if defined(EF_SOURCE_FACE_ATLAS)
+        // Graph08:1100-1160：SDF蓝通道保存局部方向；G区切回实际几何N，不能把区域图当NormalMap。
+        float3 faceLight=SafeNormalize(_MainLightDirection.xyz);
+        float3 faceRight=EFWorldTangent(_SkinRightOS.xyz),faceForward=EFWorldTangent(_SkinForwardOS.xyz);
+        float signedSide=dot(faceLight,faceRight)>0 ? 1 : -1;
+        float2 faceUV=float2(signedSide>0 ? input.uv.x : 1-input.uv.x,input.uv.y);
+        float faceEncoded=SAMPLE_TEXTURE2D_LOD(_SkinLightingSdf,sampler_SkinLightingSdf,faceUV,0).b;
+        float side=(faceEncoded*2-1)*signedSide;
+        float3 faceLocal=normalize(float3(side,0.00006103515625,1-abs(side)));
+        float3 faceUp=normalize(cross(faceForward,faceRight));
+        float3 sdfNormal=normalize(faceRight*faceLocal.x+faceUp*faceLocal.y+faceForward*faceLocal.z);
+        s.normalWS=normalize(lerp(sdfNormal,s.normalWS,skinRegion.g));
+    #endif
+    #if defined(EF_SOURCE_FABRIC)
+        float nv=saturate(dot(s.normalWS,normalize(_WorldSpaceCameraPos-input.positionWS)));
+        float amount=min(pow(1.05-nv,2*saturate(s.alpha+1-_FabricFresnel.z)),1);
+        amount=lerp(_FabricFresnel.x,_FabricFresnel.y,amount);
+        s.baseColor=lerp(s.baseColor*_FabricTint.rgb,_FabricRimTint.rgb,amount);
+        ambientAlbedo=lerp(ambientAlbedo*_FabricTint.rgb,_FabricRimTint.rgb,amount);
+    #endif
     #if defined(EF_SOURCE_PACKED_MASK)
         // 源t17/t18：R金属、G介质高光、B细节覆盖、A光滑；不是通用ILM约定。
         float4 sourceMask = SAMPLE_TEXTURE2D_BIAS(_SourceMaskMap, sampler_SourceMaskMap, input.uv, _SourceMipBias);
         s.metallic = sourceMask.r;
         s.specular = sourceMask.g;
         s.roughness = 1 - sourceMask.a;
+        #if defined(EF_SOURCE_ANALYTIC_LIGHTING)
+            s.occlusion = sourceMask.b;
+        #endif
     #endif
-    #if defined(EF_SOURCE_PACKED_MASK) || defined(EF_EYE) || defined(EF_HAIR)
+    #if defined(EF_SOURCE_PACKED_MASK) || defined(EF_EYE) || defined(EF_HAIR) || defined(EF_SOURCE_INDIRECT_COLOR)
         ambientAlbedo *= _SourceIndirectAlbedoGain;
         float luminance = dot(ambientAlbedo, float3(0.212673, 0.715152, 0.072175));
         ambientAlbedo = lerp(luminance.xxx, ambientAlbedo, _SourceIndirectSaturation);
@@ -388,25 +555,6 @@ float3 EFEvaluateSourceCharacter(EFVaryings input, bool frontFace)
         color += EFSourceHairSpecular(detailNormal,strand,hairHalfVector,hairMask,viewAlignment,primaryMaximum)*mainSpecularRadiance*_SourceSpecularStrength;
         color += EFSourceHairDiffuseOcclusion(mainDiffuse,detailNormal,strand,hairHalfVector,input.uv,hairMask.g,primaryMaximum)-mainDiffuse;
     #endif
-    [loop] for (int i = 0; i < min(_AdditionalLightCount, 32); i++)
-    {
-        float3 direction;
-        float attenuation = 1;
-        if (_AdditionalLightPositions[i].w == 0)
-            direction = SafeNormalize(_AdditionalLightPositions[i].xyz);
-        else
-        {
-            float3 delta = _AdditionalLightPositions[i].xyz - input.positionWS;
-            float distanceSquared = dot(delta, delta);
-            direction = normalize(delta);
-            // 复用旧公共SourceLightEvaluation的四次距离截止与平方锥衰减。
-            float cutoff = max(1 - EFSquare(distanceSquared * _AdditionalLightPositions[i].w), 0);
-            float cone = saturate(dot(-direction, _AdditionalLightSpotDirections[i].xyz) * _AdditionalLightSpotAngles[i].x + _AdditionalLightSpotAngles[i].y);
-            attenuation = cutoff * cutoff / max(distanceSquared, 0.0001) * cone * cone;
-        }
-        color += EFSourceDirect(s,input.positionWS,direction,_AdditionalLightColors[i].rgb*attenuation,
-            EFAdditionalShadow(i,input.positionWS,_AdditionalLightPositions[i].xyz),input.normalWS,input.tangentWS);
-    }
     #if defined(EF_SOURCE_ENVIRONMENT_REFLECTION)
         float3 environmentColor = 0;
         float3 environmentDiffuse, environmentF0;
@@ -429,7 +577,7 @@ float3 EFEvaluateSourceCharacter(EFVaryings input, bool frontFace)
         #endif
         environmentColor += EFSourceEnvironmentSpecularWithNormal(s.normalWS,reflectionNormal,environmentView,input.positionWS,s.roughness,environmentF0);
     #endif
-    #if defined(EF_SOURCE_ANISOTROPIC)
+    #if defined(EF_SOURCE_ANISOTROPIC) || defined(EF_SOURCE_COAT)
         // 源1122:1194-1227的独立coat层，遮罩与LUT是静态材质输入。
         float coatMask = SAMPLE_TEXTURE2D_BIAS(_ClothCoatMaskMap,sampler_ClothCoatMaskMap,input.uv,_SourceMipBias).r;
         if (coatMask > 0.001)
@@ -445,7 +593,7 @@ float3 EFEvaluateSourceCharacter(EFVaryings input, bool frontFace)
             float3 coatFresnel = lerp(coatF0,1,EFPow5(1-saturate(dot(view,halfVector))));
             float3 transmission = 1 - coatFresnel * coatMask;
             float coatSpecular = EFSourceSpecularLobe(1-_ClothCoatSmoothness,nh,nv);
-            color = color * transmission * transmission + coatFresnel * coatMask * coatSpecular * _MainLightColor.rgb * characterShadow * _SourceSpecularStrength;
+            color = color * transmission * transmission + coatFresnel * coatMask * coatSpecular * _MainLightColor.rgb * _SourceDirectTint.rgb * characterShadow * _SourceSpecularStrength;
             #if defined(EF_SOURCE_ENVIRONMENT_REFLECTION)
                 // 源1122:1326-1374：coat有独立法线/粗糙度和反射响应。
                 environmentColor += EFSourceEnvironmentSpecular(coatNormal,view,input.positionWS,1-_ClothCoatSmoothness,coatF0) * coatMask;
@@ -457,12 +605,22 @@ float3 EFEvaluateSourceCharacter(EFVaryings input, bool frontFace)
         float environmentRampU = clamp(dot(s.normalWS,SafeNormalize(_MainLightDirection.xyz))+_SourceRampBias,-1,1)*0.5+0.5;
         float environmentRampVisibility = SAMPLE_TEXTURE2D_LOD(_LightingRamp,sampler_LightingRamp,float2(environmentRampU,0.5),0).a;
         float environmentVisibility = min(environmentRampVisibility,characterShadow);
+        #if defined(EF_SOURCE_ANALYTIC_LIGHTING)
+            float analyticLightTransition,analyticCameraTransition,analyticMaterialVisibility;
+            environmentVisibility = EFSourceAnalyticVisibility(s,input.positionWS,characterShadow,analyticLightTransition,analyticCameraTransition,analyticMaterialVisibility);
+        #endif
         float environmentResponse = clamp(_SourceAmbientResponse,0.5,1.5)*_SourceEnvironmentStrength*lerp(_SourceIndirectStrength,1,environmentVisibility);
         color += environmentColor*environmentResponse*EFUnityAmbient(s.normalWS)*_SourceAmbientTint.rgb;
     #endif
     #if defined(EF_SOURCE_PARALLAX_GLOW)
         color += EFSourceParallaxGlow(input,s,frontFace);
     #endif
-    return max(color + s.emission, 0);
+    #if defined(EF_SOURCE_DISSOLVE)
+        // LitSurface07/17：用未饱和的原溶解距离建立HDR边缘，不能拿clip后的coverage代替。
+        float edge=saturate((_SourceDissolveEdgeWidth-EFSourceDissolveDistance(input))*_SourceDissolveControl.x);
+        color+=edge*_SourceDissolveEdgeColor.rgb;
+    #endif
+    // 源局部灯遍历在主光/环境/发光之后；mode4必须混合当前完整累积色。
+    return max(EFSourceAdditionalLighting(s,input,color+s.emission),0);
 }
 #endif

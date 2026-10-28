@@ -23,6 +23,8 @@ namespace Endfield.Rendering
         [Range(0, 32)] public int maxAdditionalLights = 32;
         [Tooltip("仅在场景透明材质实际采样opaque深度时开启；附件与采样副本分离。")]
         public bool requireOpaqueDepthTexture;
+        [Tooltip("在透明队列3500之前复制当前HDR颜色，供3500及之后的折射材质读取，避免读写同一附件。")]
+        public bool requireRefractionColorTexture;
         [Min(1f)] public float shadowDistance = 80f;
         [Range(256, 4096)] public int shadowAtlasSize = 2048;
         [Range(1, 4)] public int shadowCascadeCount = 4;

@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lino1_EF_PARTICLE_REFRACTION_2634
+  m_Shader: {fileID: 4800000, guid: fbd490ad321d07e4eabaa294e739e9eb, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - EF_PARTICLE_REFRACTION
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3501
+  stringTagMap: {}
+  disabledShaderPasses:
+  - EndfieldGBuffer
+  - EndfieldSurfaceLighting
+  - EndfieldEffect
+  - EndfieldOutline
+  - EndfieldSurfaceOutline
+  - EndfieldMotionVectors
+  - SHADOWCASTER
+  - CharacterShadowCaster
+  - UniversalForward
+  - SRPDEFAULTUNLIT
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ParticleBaseMap:
+        m_Texture: {fileID: 2800000, guid: 12d28c3104feeee40a1f2da02a75fec7, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParticleMaskMap:
+        m_Texture: {fileID: 2800000, guid: 282befd9618caaf489f2d1467b4b74ec, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParticleNoiseMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParticleOverlayMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BlendOp: 0
+    - _BlendOpAlpha: 0
+    - _ColorMask: 15
+    - _Cull: 0
+    - _DstBlend: 10
+    - _DstBlendAlpha: 1
+    - _ParticleMipBias: -1.7655349
+    - _ParticlePhase: 132.7333
+    - _ParticlePhaseSpeed: 0
+    - _SrcBlend: 5
+    - _SrcBlendAlpha: 0
+    - _StencilComp: 8
+    - _StencilFail: 0
+    - _StencilPass: 0
+    - _StencilReadMask: 255
+    - _StencilRef: 0
+    - _StencilWriteMask: 0
+    - _StencilZFail: 0
+    - _ZTest: 4
+    - _ZWrite: 0
+    m_Colors:
+    - _MaskUvLayerWeights: {r: 0, g: 0, b: 0, a: 0}
+    - _MaskUvRotation: {r: 0, g: 0, b: 0, a: 0}
+    - _MaskUvVelocity: {r: 0, g: 0, b: 0, a: 0}
+    - _MaskUvWeights: {r: 0, g: 0, b: 0, a: 0}
+    - _NoiseUvAdditionalWeight: {r: 0, g: 0, b: 0, a: 0}
+    - _NoiseUvLayerWeights: {r: 0, g: 0, b: 0, a: 0}
+    - _NoiseUvRotation: {r: 0, g: 0, b: 0, a: 0}
+    - _NoiseUvVelocity: {r: 0, g: 0, b: 0, a: 0}
+    - _NoiseUvWeights: {r: 0, g: 0, b: 0, a: 0}
+    - _OverlayUvLayerWeights: {r: 0, g: 0, b: 0, a: 0}
+    - _OverlayUvResponse: {r: 0, g: 0, b: 0, a: 0}
+    - _OverlayUvRotation: {r: 0, g: 0, b: 0, a: 0}
+    - _OverlayUvTransform: {r: 0, g: 0, b: 0, a: 0}
+    - _OverlayUvVelocity: {r: 0, g: 0, b: 0, a: 0}
+    - _OverlayUvWeights: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleBlendCoverage: {r: 0, g: 0.001, b: 10, a: 120}
+    - _ParticleColorResponse: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleColorStreamControls: {r: 100, g: 0, b: 0, a: 0}
+    - _ParticleCoverageControl: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleDepthFadeFar: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleDepthFadeNear: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleDistortionFlags: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleDistortionMode: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleDistortionScale: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleExposureViewControls: {r: 1, g: 0, b: 0, a: 0}
+    - _ParticleHighlightResponse: {r: 1, g: 0, b: 0, a: 0.15}
+    - _ParticleInstanceCoverage: {r: 1000, g: 0, b: 0, a: 0}
+    - _ParticleLayerInfluence: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleMaskCoverage: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleMaskResponse: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleMaskSampling: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleMaskTint: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleMaskUvControls: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleNoiseResponse: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleNoiseSampling: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleOutputColorResponse: {r: 1, g: 1, b: 1, a: 1}
+    - _ParticleOutputTint: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleOverlayInfluence: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleOverlayResponse: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleOverlayTint: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticlePrimarySampling: {r: 1, g: 1, b: 0, a: 0}
+    - _ParticlePrimaryTint: {r: 90, g: 0, b: 0, a: 0}
+    - _ParticleSecondaryDistortionFlags: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleSecondaryDistortionMode: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleSecondaryDistortionScale: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleSecondaryLayerInfluence: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleSecondarySampling: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleSoftDepthControls: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleSoftIntersection: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleUvRotation: {r: -5, g: 0, b: 0, a: 0}
+    - _ParticleUvTransform: {r: 1, g: 1, b: 0, a: 0}
+    - _ParticleUvVelocity: {r: 2.5, g: 0.7, b: 0, a: 0}
+    - _ParticleUvWeights: {r: 180, g: 1, b: 0, a: 0}
+    - _ParticleVertexColorControl: {r: 90, g: 0, b: 0, a: 0}
+    - _ParticleVertexFade: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleVertexStreamControl: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleVertexViewControl: {r: 0, g: 0, b: 0, a: 0}
+    - _PrimaryUvRotation: {r: 0, g: 0, b: 0, a: 0}
+    - _PrimaryUvTransform: {r: 0, g: 0, b: 0, a: 0}
+    - _PrimaryUvVelocity: {r: 0, g: 0, b: 0, a: 0}
+    - _PrimaryUvWeights: {r: 0, g: 0, b: 0, a: 0}
+    - _UvBaseTransformA: {r: 0, g: 0, b: 0, a: 0}
+    - _UvBaseTransformB: {r: 0, g: 0, b: 0, a: 0}
+    - _UvExtraTransformA: {r: 0, g: 0, b: 0, a: 0}
+    - _UvExtraTransformB: {r: 0, g: 0, b: 0, a: 0}
+    - _UvExtraTransformC: {r: 0, g: 0, b: 0, a: 0}
+    - _UvExtraTransformD: {r: 0, g: 0, b: 0, a: 0}
+    - _UvExtraTransformE: {r: 0, g: 0, b: 0, a: 0}
+    - _UvExtraTransformF: {r: 0, g: 0, b: 0, a: 0}
+    - _UvSharedTransformA: {r: 0, g: 0, b: 0, a: 0}
+    - _UvSharedTransformB: {r: 0, g: 0, b: 0, a: 0}
+    - _UvSharedTransformC: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

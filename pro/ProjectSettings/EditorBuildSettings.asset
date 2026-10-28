@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Endfield/Scenes/SI1.unity
-    guid: 1965f151c33f64a4fa0c7bd988910715
+    path: Assets/Endfield/Scenes/Lino1.unity
+    guid: ca0053dde45484c4f88eff44b417ea48
   m_configObjects: {}

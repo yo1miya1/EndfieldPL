@@ -2,6 +2,16 @@ Shader "Endfield/HybridLit"
 {
     Properties
     {
+        _RenderPassMask ("渲染Pass位掩码（0自动）", Float) = 0
+        [Enum(Surface,0,Opaque,1,BaseAlpha,2,Stochastic,3)] _ShadowCoverageMode ("投影覆盖模式", Float) = 0
+        [Toggle(EF_SOURCE_INDIRECT_COLOR)] _SourceIndirectColor ("源间接基础色增益与饱和", Float) = 0
+        [Toggle(EF_SOURCE_GROUND)] _SourceGround ("源台面GBuffer模型", Float) = 0
+        _GroundPatternColor ("台面图案颜色与混合强度", Vector) = (1,1,1,0)
+        _GroundPatternUV_ST ("台面图案UV变换", Vector) = (1,1,0,0)
+        _GroundBaseUV_ST ("台面底图UV变换", Vector) = (1,1,0,0)
+        _GroundCoverageParameters ("台面覆盖/响应/运动掩码", Vector) = (0,1,1,1)
+        _GroundDistanceParameters ("台面近远区间/运动缩放", Vector) = (30,14,0,0)
+        _GroundColorGain ("台面环境混合/底图增益/初始帧亮度", Vector) = (0,1,1,0)
         [MainTexture] _BaseMap ("基础颜色贴图", 2D) = "white" {}
         [MainColor] _BaseColor ("基础颜色", Color) = (1,1,1,1)
         [Toggle(EF_NORMAL_MAP)] _UseNormalMap ("使用切线法线", Float) = 0
@@ -31,8 +41,14 @@ Shader "Endfield/HybridLit"
         _SourceOutlineWidthMap ("轮廓宽度R/深度G", 2D) = "white" {}
         _SourceOutlineCoverageMap ("轮廓覆盖率R", 2D) = "white" {}
         _SourceOutlineCutoff ("轮廓裁剪阈值", Float) = 0.5
+        _SourceOutlineCoverageChannel ("源轮廓覆盖率通道",Vector)=(1,0,0,0)
         [Enum(Unprotected,0,Protected,16)] _OutlineStencilReference ("轮廓遮挡区域", Float) = 0
         [Enum(UnityEngine.Rendering.CompareFunction)] _OutlineStencilComparison ("轮廓遮挡比较", Float) = 8
+        _OutlineStencilReadMask ("模板读取位掩码", Float) = 16
+        _OutlineStencilWriteMask ("模板写入位掩码", Float) = 16
+        [Enum(UnityEngine.Rendering.StencilOp)] _StencilPass ("模板通过操作", Float) = 2
+        [Enum(UnityEngine.Rendering.StencilOp)] _StencilFail ("模板失败操作", Float) = 0
+        [Enum(UnityEngine.Rendering.StencilOp)] _StencilZFail ("模板深度失败操作", Float) = 0
         [Enum(UnityEngine.Rendering.CullMode)] _Cull ("剔除", Float) = 2
         [HideInInspector] _SrcBlend ("源混合", Float) = 1
         [HideInInspector] _DstBlend ("目标混合", Float) = 0
@@ -53,6 +69,31 @@ Shader "Endfield/HybridLit"
         [Toggle(EF_SOURCE_SKIN)] _SourceSkin ("皮肤区域与面部SDF", Float) = 0
         [Toggle(EF_SOURCE_ENVIRONMENT_REFLECTION)] _SourceEnvironmentReflection ("Unity探针环境镜面", Float) = 0
         [Toggle(EF_SOURCE_PARALLAX_GLOW)] _SourceParallaxGlow ("视差水晶附加响应", Float) = 0
+        [Toggle(EF_SOURCE_RIM_TINT)] _SourceRimTint ("源视角边缘基础色混合", Float) = 0
+        [Toggle(EF_SOURCE_COAT)] _SourceCoat ("源独立coat层", Float) = 0
+        [Toggle(EF_SOURCE_ANALYTIC_LIGHTING)] _SourceAnalyticLighting ("源解析明暗响应", Float) = 0
+        _SourceDirectTint ("主光材质色响应", Color) = (1,1,1,1)
+        [Toggle(EF_SOURCE_DISSOLVE)] _SourceDissolve ("源高度与噪声溶解", Float) = 0
+        _SourceDissolveMap ("源溶解噪声R", 2D) = "white" {}
+        _SourceDissolvePlane ("溶解世界平面法线/高度", Vector) = (0,1,0,0)
+        _SourceDissolveControl ("溶解增益/高度增益/噪声增益/阈值", Vector) = (1,0,0,-1)
+        [HDR] _SourceDissolveEdgeColor ("溶解边缘发光",Color)=(0,0,0,1)
+        _SourceDissolveEdgeWidth ("溶解发光区间",Float)=0
+        [Toggle(EF_SOURCE_FACE_ATLAS)] _SourceFaceAtlas ("面部图集与SDF方向法线", Float) = 0
+        _FaceAtlasMap ("面部覆盖图集RGBA",2D)="black" {}
+        _FaceAtlasParams ("图集索引/覆盖强度",Vector)=(0,0,0,0)
+        [Toggle(EF_SOURCE_FABRIC)] _SourceFabric ("源绒面遮罩双瓣", Float) = 0
+        _FabricMaskMap ("绒面强度/各向异性/光滑/覆盖",2D)="white" {}
+        _FabricTint ("绒面基础乘色",Color)=(1,1,1,1)
+        _FabricRimTint ("绒面掠射目标色",Color)=(0,0,0,1)
+        _FabricFresnel ("掠射最小/最大/覆盖偏移/次瓣视角偏移",Vector)=(0,1,1,0)
+        _FabricLobes ("次瓣强度/低区强度/覆盖响应",Vector)=(1,1,0,0)
+        [Toggle(EF_SOURCE_SPECULAR_LUT)] _SourceSpecularLut ("源镜面分布查表",Float)=0
+        _SpecularResponseLut ("源主瓣RGB查表",2D)="white" {}
+        _SpecularLookupBlend ("源镜面查表坐标/环境混合",Float)=0
+        _RimTintMap ("视角边缘混色遮罩R", 2D) = "white" {}
+        _RimTintParams ("边缘幂次/强度/UV速度/遮罩对比", Vector) = (1,0,0,1)
+        _RimTintColor ("边缘混色目标", Color) = (1,1,1,1)
         _SourceMaskMap ("源遮罩R金属G高光B细节A光滑", 2D) = "white" {}
         _LightingRamp ("源明暗Ramp", 2D) = "white" {}
         _AlbedoResponseLut ("源基础色响应LUT", 2D) = "white" {}
@@ -175,7 +216,7 @@ Shader "Endfield/HybridLit"
             Name "GBuffer"
             Tags { "LightMode"="EndfieldGBuffer" }
             // bit4只表示不允许头发与其轮廓越过的表面；不继承源未使用的Stencil位。
-            Stencil { Ref [_OutlineStencilReference] ReadMask 16 WriteMask 16 Comp [_OutlineStencilComparison] Pass Replace }
+            Stencil { Ref [_OutlineStencilReference] ReadMask [_OutlineStencilReadMask] WriteMask [_OutlineStencilWriteMask] Comp [_OutlineStencilComparison] Pass [_StencilPass] Fail [_StencilFail] ZFail [_StencilZFail] }
             Cull [_Cull] ZWrite On ZTest LEqual
             HLSLPROGRAM
             #pragma vertex EFVertex
@@ -185,16 +226,24 @@ Shader "Endfield/HybridLit"
             #pragma shader_feature_local _ EF_MASK_MAP
             #pragma shader_feature_local _ EF_ALPHA_CLIP
             #pragma shader_feature_local _ EF_SOURCE_CHARACTER
+            #pragma shader_feature_local _ EF_SOURCE_DISSOLVE
+            #pragma shader_feature_local _ EF_SOURCE_FACE_ATLAS
+            #pragma shader_feature_local _ EF_SOURCE_FABRIC
+            #pragma shader_feature_local _ EF_SOURCE_SPECULAR_LUT
             #pragma shader_feature_local _ EF_SOURCE_VIEW_TINT
             #pragma shader_feature_local _ EF_SOURCE_COVERAGE
             #pragma shader_feature_local _ EF_SOURCE_ENVIRONMENT
             #pragma shader_feature_local _ EF_SOURCE_EFFECT
+            #pragma shader_feature_local _ EF_SOURCE_GROUND
+            #include "Library/SourceGround.hlsl"
             EFGBufferOutput Fragment(EFVaryings input, bool frontFace : SV_IsFrontFace)
             {
                 // 尚无蒙皮/对象前帧流，因此此处只输出已明确支持的相机运动。
                 float4 previousClip = mul(_EndfieldPreviousViewProjection, float4(input.positionWS, 1));
                 float2 motion = (input.currentClip.xy / max(input.currentClip.w, 1e-8) - previousClip.xy / max(previousClip.w, 1e-8)) * float2(0.5, -0.5);
-                #if defined(EF_SOURCE_CHARACTER)
+                #if defined(EF_SOURCE_GROUND)
+                    return EFSourceGroundGBuffer(input, motion * _EndfieldHistoryValid);
+                #elif defined(EF_SOURCE_CHARACTER)
                     return EFSourceCharacterGBuffer(input, frontFace, motion * _EndfieldHistoryValid);
                 #elif defined(EF_SOURCE_ENVIRONMENT)
                     return EFSourceEnvironmentGBuffer(input, frontFace, motion * _EndfieldHistoryValid);
@@ -220,14 +269,22 @@ Shader "Endfield/HybridLit"
             #pragma shader_feature_local _ EF_MASK_MAP
             #pragma shader_feature_local _ EF_ALPHA_CLIP
             #pragma shader_feature_local _ EF_SOURCE_CHARACTER
+            #pragma shader_feature_local _ EF_SOURCE_DISSOLVE
+            #pragma shader_feature_local _ EF_SOURCE_FACE_ATLAS
+            #pragma shader_feature_local _ EF_SOURCE_FABRIC
+            #pragma shader_feature_local _ EF_SOURCE_SPECULAR_LUT
             #pragma shader_feature_local _ EF_SOURCE_VIEW_TINT
             #pragma shader_feature_local _ EF_SOURCE_COVERAGE
             #pragma shader_feature_local _ EF_SOURCE_PACKED_MASK
             #pragma shader_feature_local _ EF_SOURCE_COLOR_LUT
+            #pragma shader_feature_local _ EF_SOURCE_INDIRECT_COLOR
             #pragma shader_feature_local _ EF_SOURCE_ANISOTROPIC
             #pragma shader_feature_local _ EF_SOURCE_ENVIRONMENT_REFLECTION
             #pragma shader_feature_local _ EF_SOURCE_SKIN
             #pragma shader_feature_local _ EF_SOURCE_PARALLAX_GLOW
+            #pragma shader_feature_local _ EF_SOURCE_RIM_TINT
+            #pragma shader_feature_local _ EF_SOURCE_COAT
+            #pragma shader_feature_local _ EF_SOURCE_ANALYTIC_LIGHTING
             #include "Library/SourceCharacterLighting.hlsl"
             float4 Fragment(EFVaryings input, bool frontFace : SV_IsFrontFace) : SV_Target
             {
@@ -244,7 +301,7 @@ Shader "Endfield/HybridLit"
         {
             Name "SurfaceLighting"
             Tags { "LightMode"="EndfieldSurfaceLighting" }
-            Stencil { Ref [_OutlineStencilReference] ReadMask 16 WriteMask 0 Comp [_OutlineStencilComparison] Pass Keep }
+            Stencil { Ref [_OutlineStencilReference] ReadMask [_OutlineStencilReadMask] WriteMask 0 Comp [_OutlineStencilComparison] Pass Keep }
             Cull [_Cull] ZWrite Off ZTest Equal
             HLSLPROGRAM
             #pragma vertex EFVertex
@@ -252,14 +309,23 @@ Shader "Endfield/HybridLit"
             #pragma shader_feature_local _ EF_HAIR EF_CLOTH EF_FACE EF_EYE
             #pragma shader_feature_local _ EF_NORMAL_MAP
             #pragma shader_feature_local _ EF_SOURCE_CHARACTER
+            #pragma shader_feature_local _ EF_SOURCE_DISSOLVE
+            #pragma shader_feature_local _ EF_SOURCE_FACE_ATLAS
+            #pragma shader_feature_local _ EF_SOURCE_FABRIC
+            #pragma shader_feature_local _ EF_SOURCE_SPECULAR_LUT
             #pragma shader_feature_local _ EF_SOURCE_VIEW_TINT
             #pragma shader_feature_local _ EF_SOURCE_COVERAGE
+            #pragma shader_feature_local _ EF_ALPHA_CLIP
             #pragma shader_feature_local _ EF_SOURCE_PACKED_MASK
             #pragma shader_feature_local _ EF_SOURCE_COLOR_LUT
+            #pragma shader_feature_local _ EF_SOURCE_INDIRECT_COLOR
             #pragma shader_feature_local _ EF_SOURCE_ANISOTROPIC
             #pragma shader_feature_local _ EF_SOURCE_ENVIRONMENT_REFLECTION
             #pragma shader_feature_local _ EF_SOURCE_SKIN
             #pragma shader_feature_local _ EF_SOURCE_PARALLAX_GLOW
+            #pragma shader_feature_local _ EF_SOURCE_RIM_TINT
+            #pragma shader_feature_local _ EF_SOURCE_COAT
+            #pragma shader_feature_local _ EF_SOURCE_ANALYTIC_LIGHTING
             #include "Library/SourceCharacterLighting.hlsl"
             float4 Fragment(EFVaryings input, bool frontFace : SV_IsFrontFace) : SV_Target
             {
@@ -324,12 +390,13 @@ Shader "Endfield/HybridLit"
         {
             Name "SurfaceOutline"
             Tags { "LightMode"="EndfieldSurfaceOutline" }
-            Stencil { Ref 0 ReadMask 16 WriteMask 0 Comp Equal Pass Keep }
+            Stencil { Ref [_OutlineStencilReference] ReadMask [_OutlineStencilReadMask] WriteMask [_OutlineStencilWriteMask] Comp [_OutlineStencilComparison] Pass [_StencilPass] Fail [_StencilFail] ZFail [_StencilZFail] }
             Cull Front ZWrite On ZTest LEqual
             HLSLPROGRAM
             #pragma vertex EFSourceOutlineVertex
             #pragma fragment EFSourceOutlineFragment
             #pragma shader_feature_local _ EF_SOURCE_SCREEN_OUTLINE
+            #pragma shader_feature_local _ EF_SOURCE_DISSOLVE
             #include "Library/SourceOutline.hlsl"
             ENDHLSL
         }
@@ -374,6 +441,14 @@ Shader "Endfield/HybridLit"
             }
             float4 CharacterShadowFragment(CharacterShadowVaryings input) : SV_Target
             {
+                if (_ShadowCoverageMode > .5)
+                {
+                    if (_ShadowCoverageMode > 2.5)
+                        EFStochasticCoverageClip(TEXTURE2D_ARGS(_AlphaMap,sampler_AlphaMap),input.uv,input.positionCS.xy,_Opacity,_SourceMipBias);
+                    else if (_ShadowCoverageMode > 1.5)
+                        clip(SAMPLE_TEXTURE2D_BIAS(_BaseMap,sampler_BaseMap,input.uv,_SourceMipBias).a * _BaseColor.a - _Cutoff);
+                    return 0;
+                }
                 #if defined(EF_ALPHA_CLIP)
                     clip(SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, input.uv).a * _BaseColor.a - _Cutoff);
                 #endif
@@ -419,6 +494,14 @@ Shader "Endfield/HybridLit"
             }
             float4 Fragment(EFVaryings input) : SV_Target
             {
+                if (_ShadowCoverageMode > .5)
+                {
+                    if (_ShadowCoverageMode > 2.5)
+                        EFStochasticCoverageClip(TEXTURE2D_ARGS(_AlphaMap,sampler_AlphaMap),input.uv,input.positionCS.xy,_Opacity,_SourceMipBias);
+                    else if (_ShadowCoverageMode > 1.5)
+                        clip(SAMPLE_TEXTURE2D_BIAS(_BaseMap,sampler_BaseMap,input.uv,_SourceMipBias).a * _BaseColor.a - _Cutoff);
+                    return 0;
+                }
                 #if defined(EF_ALPHA_CLIP)
                     clip(SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, input.uv).a * _BaseColor.a - _Cutoff);
                 #endif

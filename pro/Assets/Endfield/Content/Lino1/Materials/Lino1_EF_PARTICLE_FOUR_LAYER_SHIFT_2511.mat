@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lino1_EF_PARTICLE_FOUR_LAYER_SHIFT_2511
+  m_Shader: {fileID: 4800000, guid: fbd490ad321d07e4eabaa294e739e9eb, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - EF_PARTICLE_FOUR_LAYER_SHIFT
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3043
+  stringTagMap: {}
+  disabledShaderPasses:
+  - EndfieldGBuffer
+  - EndfieldSurfaceLighting
+  - EndfieldEffect
+  - EndfieldOutline
+  - EndfieldSurfaceOutline
+  - EndfieldMotionVectors
+  - SHADOWCASTER
+  - CharacterShadowCaster
+  - UniversalForward
+  - SRPDEFAULTUNLIT
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ParticleBaseMap:
+        m_Texture: {fileID: 2800000, guid: 78afa68393ead7d49b45ebd305b675cc, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParticleMaskMap:
+        m_Texture: {fileID: 2800000, guid: cc66ea18d9f55da40b69ead688dcc2b7, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParticleNoiseMap:
+        m_Texture: {fileID: 2800000, guid: 7957141f5cadacd45b05e46febd712f7, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParticleOverlayMap:
+        m_Texture: {fileID: 2800000, guid: a1c725d935d2e7d43840f1de59cbfb77, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BlendOp: 0
+    - _BlendOpAlpha: 0
+    - _ColorMask: 15
+    - _Cull: 0
+    - _DstBlend: 10
+    - _DstBlendAlpha: 10
+    - _ParticleMipBias: -1.7655349
+    - _ParticlePhase: 132.7333
+    - _ParticlePhaseSpeed: 0
+    - _SrcBlend: 1
+    - _SrcBlendAlpha: 1
+    - _StencilComp: 8
+    - _StencilFail: 0
+    - _StencilPass: 0
+    - _StencilReadMask: 255
+    - _StencilRef: 0
+    - _StencilWriteMask: 255
+    - _StencilZFail: 0
+    - _ZTest: 4
+    - _ZWrite: 0
+    m_Colors:
+    - _MaskUvLayerWeights: {r: 1, g: 0, b: 0, a: 0}
+    - _MaskUvRotation: {r: 1, g: -0, b: 0, a: 1}
+    - _MaskUvVelocity: {r: -2, g: 0, b: 0, a: 0}
+    - _MaskUvWeights: {r: 1, g: 0, b: 0, a: 0}
+    - _NoiseUvAdditionalWeight: {r: 0, g: 0, b: 0, a: 0}
+    - _NoiseUvLayerWeights: {r: 0, g: 1, b: 0, a: 0}
+    - _NoiseUvRotation: {r: -1, g: 0.00000008742278, b: -0.00000008742278, a: -1}
+    - _NoiseUvVelocity: {r: 0, g: 0, b: 0, a: 0}
+    - _NoiseUvWeights: {r: 1, g: 0, b: 0, a: 0}
+    - _OverlayUvLayerWeights: {r: 0, g: 0, b: 1, a: 0}
+    - _OverlayUvResponse: {r: 0, g: 0, b: 0, a: 0}
+    - _OverlayUvRotation: {r: 1, g: -0, b: 0, a: 1}
+    - _OverlayUvTransform: {r: 0, g: 0, b: 0, a: 0}
+    - _OverlayUvVelocity: {r: 0, g: 0, b: 0, a: 0}
+    - _OverlayUvWeights: {r: 1, g: 0, b: 0, a: 0}
+    - _ParticleBlendCoverage: {r: 1, g: 1, b: 1, a: 0}
+    - _ParticleColorResponse: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleColorStreamControls: {r: 1, g: 0, b: 2.4, a: 1}
+    - _ParticleCoverageControl: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleDepthFadeFar: {r: 0, g: 0, b: 1, a: 0}
+    - _ParticleDepthFadeNear: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleDistortionFlags: {r: 0, g: 15, b: 30, a: 120}
+    - _ParticleDistortionMode: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleDistortionScale: {r: 0.02, g: 0, b: 0, a: 0}
+    - _ParticleExposureViewControls: {r: 1, g: 0, b: 0, a: 0}
+    - _ParticleHighlightResponse: {r: 0, g: 1, b: 10, a: 0}
+    - _ParticleInstanceCoverage: {r: 1000, g: 0, b: 0, a: 0}
+    - _ParticleLayerInfluence: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleMaskCoverage: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleMaskResponse: {r: 0, g: 1, b: 0, a: 0}
+    - _ParticleMaskSampling: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleMaskTint: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleMaskUvControls: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleNoiseResponse: {r: 1, g: 0, b: 0, a: 0}
+    - _ParticleNoiseSampling: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleOutputColorResponse: {r: 1, g: 1, b: 1, a: 1}
+    - _ParticleOutputTint: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleOverlayInfluence: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleOverlayResponse: {r: 69.684525, g: 69.684525, b: 69.684525, a: 1}
+    - _ParticleOverlayTint: {r: 1, g: 0.33335897, b: 0.11449481, a: 0}
+    - _ParticlePrimarySampling: {r: 0.795, g: 1, b: 0, a: 0}
+    - _ParticlePrimaryTint: {r: 1, g: 1, b: 1, a: 1}
+    - _ParticleSecondaryDistortionFlags: {r: 0, g: 0, b: 1, a: 1}
+    - _ParticleSecondaryDistortionMode: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleSecondaryDistortionScale: {r: 0.5, g: 0, b: 0, a: 0}
+    - _ParticleSecondaryLayerInfluence: {r: 1, g: 0, b: 1, a: 0}
+    - _ParticleSecondarySampling: {r: 5, g: 0, b: 0, a: 0}
+    - _ParticleSoftDepthControls: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleSoftIntersection: {r: 100, g: 0, b: 0, a: 0}
+    - _ParticleUvRotation: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleUvTransform: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleUvVelocity: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleUvWeights: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleVertexColorControl: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleVertexFade: {r: 0, g: 0, b: 0, a: 0}
+    - _ParticleVertexStreamControl: {r: 1, g: 0, b: 2.4, a: 1}
+    - _ParticleVertexViewControl: {r: 1, g: 0, b: 0, a: 0}
+    - _PrimaryUvRotation: {r: -1, g: 0.00000008742278, b: -0.00000008742278, a: -1}
+    - _PrimaryUvTransform: {r: 1.7, g: 0.5, b: -0.97, a: 0.25}
+    - _PrimaryUvVelocity: {r: 0, g: 0, b: 0, a: 0}
+    - _PrimaryUvWeights: {r: 1, g: 0, b: 0, a: 0}
+    - _UvBaseTransformA: {r: 0, g: 0, b: 0, a: 0}
+    - _UvBaseTransformB: {r: 0, g: 0, b: 0, a: 0}
+    - _UvExtraTransformA: {r: 1, g: 1, b: 0, a: 0}
+    - _UvExtraTransformB: {r: 1, g: 1, b: 0, a: 0}
+    - _UvExtraTransformC: {r: 1.4, g: 1, b: -0.43, a: 0}
+    - _UvExtraTransformD: {r: 1, g: 0.7, b: 0, a: 0.15}
+    - _UvExtraTransformE: {r: 0.5, g: 1, b: -0.15, a: 0}
+    - _UvExtraTransformF: {r: 1, g: 1, b: 0, a: 0}
+    - _UvSharedTransformA: {r: 0, g: 0, b: 0, a: 0}
+    - _UvSharedTransformB: {r: 0, g: 0, b: 0, a: 0}
+    - _UvSharedTransformC: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lino1_ColorBasisEffectGBuffer_923
+  m_Shader: {fileID: 4800000, guid: f08cd716b61b0304b91afc26597b74f1, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2503
+  stringTagMap: {}
+  disabledShaderPasses:
+  - EndfieldSurfaceLighting
+  - EndfieldEffect
+  - EndfieldForward
+  - EndfieldOutline
+  - EndfieldSurfaceOutline
+  - SHADOWCASTER
+  - CharacterShadowCaster
+  - UniversalForward
+  - SRPDEFAULTUNLIT
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: 98af2d2d373e2734c8db529b1d0ddacd, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ColorBasisNoiseMap:
+        m_Texture: {fileID: 2800000, guid: 7957141f5cadacd45b05e46febd712f7, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorBasisExposure: 1
+    - _ColorBasisPhase: 132.7333
+    - _Cull: 0
+    - _OutlineStencilComparison: 8
+    - _OutlineStencilReadMask: 255
+    - _OutlineStencilReference: 0
+    - _OutlineStencilWriteMask: 0
+    - _SourceMipBias: -1.7655349
+    - _StencilFail: 0
+    - _StencilPass: 0
+    - _StencilZFail: 0
+    - _ZWrite: 0
+    m_Colors:
+    - _ColorBasisBaseUV_ST: {r: 1.64, g: 0.5, b: -0.63, a: 0.25}
+    - _ColorBasisColorParams: {r: 0, g: 0, b: 0, a: 0}
+    - _ColorBasisCoverage: {r: 1, g: 0, b: 70, a: 0}
+    - _ColorBasisDistortion: {r: 0, g: 0, b: 0.19, a: 0}
+    - _ColorBasisNoiseRotation: {r: 1, g: 0, b: 0, a: 1}
+    - _ColorBasisNoiseUV_ST: {r: 1, g: 1, b: 0, a: 0}
+    - _ColorBasisNoiseWeights: {r: 1, g: 0, b: 0, a: 0}
+    - _ColorBasisResponse: {r: 0.795, g: 1, b: 0, a: 0}
+    - _ColorBasisRotation: {r: -1, g: 0.00000008742278, b: -0.00000008742278, a: -1}
+    - _ColorBasisSurface: {r: 0, g: 0, b: 1, a: 0}
+    - _ColorBasisTint: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorBasisUVWeights: {r: 1, g: 0, b: 0, a: 0}
+    - _ColorBasisVelocity: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

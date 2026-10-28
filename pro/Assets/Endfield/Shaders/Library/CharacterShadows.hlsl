@@ -71,14 +71,15 @@ float3 EFCharacterShadowReceiverPosition(float3 positionWS, float3 normalWS,
 // 源914的G通道：16个Gather共64个深度值，不是硬比较的PCF平均。
 // projectedUVZ与纹理均采用Unity当前阴影矩阵/当前几何生成；没有捕获图输入。
 float EFCharacterShadowFilter(TEXTURE2D_PARAM(shadowMap, shadowSampler),
-    float3 projectedUVZ, float2 screenPixel, float atlasTexelX, float radiusTexels)
+    float3 projectedUVZ, float2 screenPixel, float2 atlasTexelSize, float2 radiusTexels)
 {
     uint2 pixel = (uint2)screenPixel;
     uint rotationIndex = ((pixel.x & 3u) << 2u) | (pixel.y & 3u);
     float2 rotation = asfloat(EFCharacterShadowDisk[rotationIndex]).xy;
     float2 flippedRotation = rotation * float2(1, -1);
-    // 原式使用1/atlasWidth这一标量同时乘两个UV轴，不能换成float2 texel。
-    float radiusUV = atlasTexelX * radiusTexels;
+    // 原式同一个1/sourceAtlasWidth作用于两轴。离线profile保存由此得到的像素半径比，
+    // 再按当前图集各轴换算UV。SI1是4/2，Typhon2是4/4，动态打包不改变源采样范围。
+    float2 radiusUV = atlasTexelSize * radiusTexels;
     float receiverDepth = projectedUVZ.z;
     #if !UNITY_REVERSED_Z
         receiverDepth = 1 - receiverDepth;
@@ -130,7 +131,7 @@ float EFCharacterShadow(float3 positionWS, float3 normalWS, float2 screenPixel, 
         return 1;
     float visibility = EFCharacterShadowFilter(TEXTURE2D_ARGS(_CharacterShadowmapTexture,
         sampler_CharacterShadowmapTexture), coordinates, screenPixel,
-        _CharacterShadowAtlasSize.x, _CharacterShadowFilterRadii[characterIndex].x);
+        _CharacterShadowAtlasSize.xy, _CharacterShadowFilterRadii[characterIndex].xy);
     return lerp(1, visibility, parameters.x);
 }
 #endif
