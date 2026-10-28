@@ -1,0 +1,77 @@
+{
+ "schema": 1,
+ "base": "Adapter",
+ "name": "mygame",
+ "label": "我的游戏",
+ "description": "one line saying where this engine keeps its palette and its camera",
+ "adapter": "mygame",
+
+ "notes": "Anything a later reader needs that the keys below do not say: which capture this was fitted on, what the odd bits are, what is still a guess.",
+
+ "palette_base": [
+  {"cb": 2, "stride": 16, "index": 5, "component": "x"},
+  {"cb": 2, "stride": 16, "index": 5, "component": "y"}
+ ],
+ "palette_header_offset": 3,
+ "bone_stride_f4": 3,
+ "palette_select": {"cb": 2, "stride": 16, "index": 10, "component": "x", "less_than": 1.0},
+ "skin_flag": {"cb": 2, "stride": 16, "index": 4, "component": "w", "mask": 32, "clear_mask": 4294967247},
+
+ "vp_rows": {"cb": 0, "indices": [32, 33, 34, 35]},
+ "model_rows": [0, 1, 2],
+ "model_translation": 3,
+ "origin_rebase": {"cb": 0, "index": 44},
+
+ "left_handed": false,
+ "up_axis": "y",
+ "unit_scale": 1.0,
+ "flip_camera_y": false,
+ "flip_y_before_eid": null,
+
+ "normal_packing": "auto",
+ "skin_weight": "renormalize",
+ "attribute_map": {},
+
+ "scene": {
+  "object_transforms": true,
+  "fit": "keep",
+  "offset": [0.0, 0.0, 0.0],
+  "matrix": null,
+  "fbx": "local"
+ },
+
+ "mesh_kinds": {
+  "skinned": true,
+  "static": true,
+  "fx": true,
+  "ui": false,
+  "ui_from_eid": null,
+  "static_min_vertices": 6,
+  "static_min_triangles": 2,
+  "fx_depth_write_ratio": 0.75,
+  "fx_min_draws": 1,
+  "fx_exempt_character_pass": true
+ },
+
+ "discover": {
+  "header_offsets": [0, 3],
+  "swap_palettes": true,
+  "scan_cbuffer_values": true,
+  "scan_bone_stride": [3, 4],
+  "scan_matrix_runs": true,
+  "max_align_delta": 600
+ },
+
+ "select": {
+  "min_bone_buffer_bytes": 262144,
+  "require_skin_attributes": true,
+  "group_by": ["depth_target", "viewport"],
+  "max_parts": 64
+ },
+
+ "verify": {
+  "min_iou": 0.95,
+  "accept_pose_rms": 0.001,
+  "reference_eid": "last"
+ }
+}

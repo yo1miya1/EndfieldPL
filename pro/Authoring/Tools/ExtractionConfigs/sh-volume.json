@@ -1,0 +1,49 @@
+{
+  "capture": "{ROOT}/pro/Authoring/Work/SI1.rdc",
+  "output": "{ROOT}/pro/Authoring/Work/sh-volume-export",
+  "skipCompute": true,
+  "textures": [
+    {
+      "resourceId": 12997,
+      "boundEids": [
+        1040
+      ],
+      "requestedDirectory": "{ROOT}/pro/Authoring/Extracted/SI1/EnvironmentSH/12997"
+    },
+    {
+      "resourceId": 13000,
+      "boundEids": [
+        1040
+      ],
+      "requestedDirectory": "{ROOT}/pro/Authoring/Extracted/SI1/EnvironmentSH/13000"
+    },
+    {
+      "resourceId": 13003,
+      "boundEids": [
+        1040
+      ],
+      "requestedDirectory": "{ROOT}/pro/Authoring/Extracted/SI1/EnvironmentSH/13003"
+    },
+    {
+      "resourceId": 13006,
+      "boundEids": [
+        1040
+      ],
+      "requestedDirectory": "{ROOT}/pro/Authoring/Extracted/SI1/EnvironmentSH/13006"
+    },
+    {
+      "resourceId": 13009,
+      "boundEids": [
+        1040
+      ],
+      "requestedDirectory": "{ROOT}/pro/Authoring/Extracted/SI1/EnvironmentSH/13009"
+    },
+    {
+      "resourceId": 13012,
+      "boundEids": [
+        1040
+      ],
+      "requestedDirectory": "{ROOT}/pro/Authoring/Extracted/SI1/EnvironmentSH/13012"
+    }
+  ]
+}

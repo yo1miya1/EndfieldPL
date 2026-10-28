@@ -1,0 +1,32 @@
+{
+  "sourceEvents": [
+    617,
+    635
+  ],
+  "results": [
+    {
+      "target": "g4",
+      "beforeSha256": "265043bc00cf1f2d0894c83c291f65e7a6ed1117f170c359f5a64b42ccaf9a8d",
+      "afterSha256": "265043bc00cf1f2d0894c83c291f65e7a6ed1117f170c359f5a64b42ccaf9a8d",
+      "rawIdentical": true,
+      "changedPixels": 0,
+      "imageSize": [
+        1506,
+        846
+      ]
+    },
+    {
+      "target": "rt0",
+      "beforeSha256": "6e30a0e2eb42251fecb57291eeadd8f73ef2ff8700d2e3f3c04fe22928789beb",
+      "afterSha256": "0b84986e33d0efd600bed329f624c166d228b4d3d333d0c2913c53bb8b5101e1",
+      "rawIdentical": false,
+      "changedPixels": 710,
+      "imageSize": [
+        1506,
+        846
+      ]
+    }
+  ],
+  "caveat": "RT0 changed-pixel count measures actual color-value differences, not total fragment/depth coverage; writing black over already-black RT0 pixels is invisible in this mask.",
+  "rt0ChangeMask": "outline635-rt0-changes.png"
+}

@@ -1,0 +1,42 @@
+Shader hash f125d86f-d42b3732-6aa4bd14-4911b2be
+
+cs_5_0
+      dcl_globalFlags refactoringAllowed
+      dcl_constantbuffer cb0[6], immediateIndexed
+      dcl_sampler s0, mode_default
+      dcl_resource_texture2d (float,float,float,float) t0
+      dcl_uav_typed_texture2d (float,float,float,float) u0
+      dcl_input vThreadID.xy
+      dcl_temps 5
+      dcl_thread_group 8, 8, 1
+   0: utof r0.xy, vThreadID.xyxx
+   1: add r0.xy, r0.xyxx, l(0.500000, 0.500000, 0.000000, 0.000000)
+   2: mov r1.xyzw, l(0, 0, 0, 0)
+   3: mov r0.z, l(-16.000000)
+   4: loop
+   5:   lt r0.w, l(17.000000), r0.z
+   6:   breakc_nz r0.w
+   7:   mov r2.xyzw, r1.xyzw
+   8:   mov r3.x, l(-16.000000)
+   9:   mov r3.y, r0.z
+  10:   loop
+  11:     lt r0.w, l(17.000000), r3.x
+  12:     breakc_nz r0.w
+  13:     add r0.w, r3.x, l(7.920001)
+  14:     mul r3.zw, r3.xxxy, cb0[4].zzzw
+  15:     mad r3.zw, r0.xxxy, cb0[5].zzzw, r3.zzzw
+  16:     gather4(texture2d)(float,float,float,float) r4.xyzw, r3.zwzz, t0.xyzw, s0.x
+  17:     max r4.xyzw, -r4.xyzw, l(0, 0, 0, 0)
+  18:     max r4.xyzw, r2.xyzw, r4.xyzw
+  19:     mov r2.xyzw, r4.xyzw
+  20:     mov r3.x, r0.w
+  21:     continue
+  22:   endloop
+  23:   mov r1.xyzw, r2.xyzw
+  24:   add r0.z, r0.z, l(7.920001)
+  25: endloop
+  26: max r0.x, r1.w, r1.z
+  27: max r0.x, r0.x, r1.y
+  28: max r0.x, r0.x, r1.x
+  29: store_uav_typed u0.xyzw, vThreadID.xyyy, r0.xxxx
+  30: ret

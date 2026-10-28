@@ -1,0 +1,46 @@
+{
+  "source": {
+    "path": "F:\\Project\\_Game\\EndfieldRebuild\\tmp\\capture\\post-lut-compare\\diagnostic-textures\\source-lut20329.raw",
+    "sha256": "b64157ec4524027fc768d10001e0994da630de8fd20c4dbe7d91263b7f4de1d3",
+    "format": "R16G16B16A16_FLOAT",
+    "width": 1024,
+    "height": 32,
+    "eventId": 2148,
+    "resourceId": 20329,
+    "runtimeUse": "Offline comparison only; pixels are never runtime inputs"
+  },
+  "generatedWithUnity": {
+    "path": "F:\\Project\\_Game\\EndfieldRebuild\\tmp\\unity\\generated-color-lut.raw",
+    "sha256": "c27f2acfd7e26b653acf79f02f33cab3196392866f7c68df47d90e0e82dee04c",
+    "exactHalfComponents": 130681,
+    "halfComponents": 131072,
+    "exactHalfFraction": 0.9970169067382812,
+    "componentMAE": 5.9330386648071e-07,
+    "rgbMAE": 7.910718219742799e-07,
+    "maxAbsolute": 0.00146484375
+  },
+  "oldMatureReference": {
+    "path": "F:\\Project\\_Game\\EndfieldRendering\\pro\\Generation\\Reference\\stage1\\validation\\deferred-input-audit\\diagnostic-textures\\lut-70611-at2705.raw",
+    "sha256": "20988edbd274f7ef4bd72dcdb4097f8ca571532aa5740c1f271a91728e3fa4b4",
+    "exactHalfComponents": 130679,
+    "halfComponents": 131072,
+    "exactHalfFraction": 0.9970016479492188,
+    "componentMAE": 5.951810635451693e-07,
+    "rgbMAE": 7.93574751393559e-07,
+    "maxAbsolute": 0.00146484375
+  },
+  "runtimeMethod": "Unity CommandBuffer.DrawProcedural runs Hidden/Endfield/ColorLut with EndfieldColorLutBuilder semantic parameters and mathematical i/128 or constant0.5 curves; no source CB or reference LUT bytes",
+  "inferredSettings": {
+    "saturation": 1.08,
+    "shadowMultiplier": 0.8947368860244751,
+    "unityShadowTrackball": [
+      1,
+      1,
+      1,
+      -0.1052631139755249
+    ],
+    "status": "Inferred and non-unique; SI-1 LUT producer CB not located"
+  },
+  "rowOrder": "Native Unity readback order matches source. Flipping rows increases component MAE to 0.2890364995.",
+  "limits": "Residual LUT component differences remain. Their exact cause is not established; no exposure or light compensation was applied."
+}

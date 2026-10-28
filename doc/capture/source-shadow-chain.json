@@ -1,0 +1,216 @@
+{
+  "sourceCaptureSha256": "e2c40a194bf57fe4827aa631a4a50562c792258a2007819d2c1d3f6745ef3bec",
+  "events": [
+    {
+      "sourceEvent": 372,
+      "programs": [
+        {
+          "stage": "Vertex",
+          "path": "ShadowReceiverNative/graphics-constants/eid-372/Vertex.dxbc",
+          "bytes": 6136,
+          "sha256": "b2374fafafc47f408343c5a512697d67f41c3c079a643436194b922ab8b0693c"
+        },
+        {
+          "stage": "Pixel",
+          "path": "ShadowReceiverNative/graphics-constants/eid-372/Pixel.dxbc",
+          "bytes": 100,
+          "sha256": "aca1cf0d617ea67f21751ae52c7a1980cc8c220290ca4f3366962d5f6f8be83f"
+        }
+      ],
+      "cbMetadata": "ShadowReceiverNative/graphics-constants/eid-372/metadata.json",
+      "bindings": "ShadowReceiverNative/bindings/eid-372.json",
+      "viewports": [
+        {
+          "enabled": true,
+          "height": 1024.0,
+          "maxDepth": 1.0,
+          "minDepth": 0.0,
+          "width": 1024.0,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "renderTargets": []
+    },
+    {
+      "sourceEvent": 903,
+      "programs": [
+        {
+          "stage": "Vertex",
+          "path": "ShadowReceiverNative/graphics-constants/eid-903/Vertex.dxbc",
+          "bytes": 496,
+          "sha256": "a6afe2c96caa3fd940004ce9ee725886d0f8df683d5f73403278743e32563155"
+        },
+        {
+          "stage": "Pixel",
+          "path": "ShadowReceiverNative/graphics-constants/eid-903/Pixel.dxbc",
+          "bytes": 10376,
+          "sha256": "5523ba1e0b229df37ba45fd0941112c543cf3af20ef634854ab1911facbabd11"
+        }
+      ],
+      "cbMetadata": "ShadowReceiverNative/graphics-constants/eid-903/metadata.json",
+      "bindings": "ShadowReceiverNative/bindings/eid-903.json",
+      "viewports": [
+        {
+          "enabled": true,
+          "height": 846.0,
+          "maxDepth": 1.0,
+          "minDepth": 0.0,
+          "width": 1506.0,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "renderTargets": [
+        "ResourceId::20410"
+      ]
+    },
+    {
+      "sourceEvent": 914,
+      "programs": [
+        {
+          "stage": "Vertex",
+          "path": "ShadowReceiverNative/graphics-constants/eid-914/Vertex.dxbc",
+          "bytes": 496,
+          "sha256": "a6afe2c96caa3fd940004ce9ee725886d0f8df683d5f73403278743e32563155"
+        },
+        {
+          "stage": "Pixel",
+          "path": "ShadowReceiverNative/graphics-constants/eid-914/Pixel.dxbc",
+          "bytes": 12108,
+          "sha256": "1f30e122a6d9c3257fdc2cc3bdc2b72ef60f7d1926138f89dbd6962c7fa24c52"
+        }
+      ],
+      "cbMetadata": "ShadowReceiverNative/graphics-constants/eid-914/metadata.json",
+      "bindings": "ShadowReceiverNative/bindings/eid-914.json",
+      "viewports": [
+        {
+          "enabled": true,
+          "height": 846.0,
+          "maxDepth": 1.0,
+          "minDepth": 0.0,
+          "width": 1506.0,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "renderTargets": [
+        "ResourceId::20410"
+      ]
+    }
+  ],
+  "authoritativeReceiverMapping": "doc/validation/character-shadow-receiver.json",
+  "authoritativeKernelMapping": "doc/validation/character-shadow-kernel.json",
+  "verification": {
+    "matrixRowsBitExact": true,
+    "kernelUIntConstantsBitExact": true
+  },
+  "constants": {
+    "34": [
+      1.0,
+      2.0,
+      0.0007716049440205097,
+      3600.0
+    ],
+    "35": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+    ],
+    "128": [
+      0.5605679750442505,
+      0.0723533183336258,
+      -0.11992481350898743,
+      0.0
+    ],
+    "129": [
+      -9.406091017183371e-09,
+      0.4637470245361328,
+      0.16713862121105194,
+      0.0
+    ],
+    "130": [
+      0.1990276724100113,
+      -0.2037854790687561,
+      0.3377722203731537,
+      0.0
+    ],
+    "131": [
+      228.38356018066406,
+      -178.6062774658203,
+      15.644901275634766,
+      1.0
+    ],
+    "188": [
+      0.004925072193145752,
+      0.009850144386291504,
+      0.001641690731048584,
+      256.0
+    ],
+    "203": [
+      0.30323585867881775,
+      -0.4226182997226715,
+      -0.8540738821029663,
+      0.0
+    ],
+    "218": [
+      0.0,
+      0.0,
+      0.25,
+      0.5
+    ],
+    "233": [
+      0.000244140625,
+      0.00048828125,
+      4096.0,
+      2048.0
+    ],
+    "234": [
+      1.0,
+      1.0,
+      5.0,
+      0.0
+    ]
+  },
+  "derived": {
+    "tileResolution": [
+      1024.0,
+      1024.0
+    ],
+    "uvXWorldGradient": 0.5948516726493835,
+    "worldTexelX": 0.0016416907691467547,
+    "sourceDepthOffsetTexels": 3.0,
+    "sourceNormalOffsetTexels": 6.0,
+    "radiusUV": 0.0009765625,
+    "fullAtlasRadiusPixels": [
+      4.0,
+      2.0
+    ]
+  },
+  "receiver": {
+    "normal": "decoded perturbed GBuffer3 t6, Y-up octahedral",
+    "outwardLight": "cb3[203].xyz, opposite towardLight",
+    "incidence": "1-clamp(dot(N,outwardLight),0,.9)",
+    "position": "P - outwardLight*(3*worldTexelX*incidence) + N*(6*worldTexelX*incidence)",
+    "sourceBackoff": "the first receiver term, along towardLight; no separate casterbackoff",
+    "gathers": 16,
+    "depthValues": 64,
+    "response": "nonlinear blocker count + relative mean positive depth separation; not binary PCF average"
+  },
+  "caster372": {
+    "normalDisplacement": false,
+    "geometryShader": false,
+    "hullShader": false,
+    "domainShader": false,
+    "pixelDepthOverride": false,
+    "rasterDepthBias": -8,
+    "rasterSlopeScaledDepthBias": 0,
+    "cull": "Off",
+    "depthComparison": "GreaterEqual",
+    "depthWrites": true
+  },
+  "role": "903 initializes RG8 visibility; 914 writes character visibility G for actor one-hot group0; source1019 samples20410.G",
+  "replay": "No new replay for archive. The earlier minimal372/903/914 export already closed.",
+  "runtimeBoundary": "Use Unity live geometry, world position/normal, light and independently generated character map. Do not import source20410 or1725766 result textures."
+}

@@ -1,0 +1,46 @@
+{
+  "rgbUnmodified": true,
+  "resized": false,
+  "images": [
+    {
+      "label": "265 Final",
+      "path": "tmp/unity/captures/20261028-143532-362/editor-camera.png",
+      "crop": [
+        380,
+        180,
+        850,
+        620
+      ]
+    },
+    {
+      "label": "268 Normal",
+      "path": "tmp/unity/captures/20261028-143657-037/editor-camera.png",
+      "crop": [
+        380,
+        180,
+        850,
+        620
+      ]
+    },
+    {
+      "label": "269 Shadow",
+      "path": "tmp/unity/captures/20261028-143657-539/editor-camera.png",
+      "crop": [
+        380,
+        180,
+        850,
+        620
+      ]
+    },
+    {
+      "label": "270 Light shadows off",
+      "path": "tmp/unity/captures/20261028-143658-040/editor-camera.png",
+      "crop": [
+        380,
+        180,
+        850,
+        620
+      ]
+    }
+  ]
+}

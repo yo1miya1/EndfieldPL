@@ -1,0 +1,9 @@
+{
+  "capture": "{ROOT}/pro/Authoring/Work/SI1.rdc",
+  "output": "{ROOT}/pro/Authoring/Work/shadow424",
+  "skipCompute": true,
+  "graphicsStates": [
+    424,
+    635
+  ]
+}

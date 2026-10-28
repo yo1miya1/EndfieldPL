@@ -1,0 +1,75 @@
+Shader hash 590d6d76-ffa9ba9e-6aca1680-17006292
+
+cs_5_0
+      dcl_globalFlags refactoringAllowed
+      dcl_immediateConstantBuffer {
+			{ -0.002842, 0.052536, 0, 0}, 
+			{ 0.046849, 0.060761, 0, 0}, 
+			{ 0.092281, 0.039693, 0, 0}, 
+			{ 0.117476, 0.011971, 0, 0}, 
+			{ 0.124623, 0, 0, 0}, 
+			{ 0.117476, 0.011971, 0, 0}, 
+			{ 0.092281, 0.039693, 0, 0}, 
+			{ 0.046849, 0.060761, 0, 0}, 
+			{ -0.002842, 0.052536, 0, 0} }
+      dcl_constantbuffer cb0[5], immediateIndexed
+      dcl_sampler s0, mode_default
+      dcl_sampler s1, mode_default
+      dcl_resource_texture2d (float,float,float,float) t0
+      dcl_resource_texture2d (float,float,float,float) t1
+      dcl_resource_texture2d (float,float,float,float) t2
+      dcl_uav_typed_texture2d (float,float,float,float) u0
+      dcl_input vThreadID.xy
+      dcl_temps 8
+      dcl_thread_group 8, 8, 1
+   0: utof r0.xy, vThreadID.xyxx
+   1: add r0.xy, r0.xyxx, l(0.500000, 0.500000, 0.000000, 0.000000)
+   2: mul r0.xy, r0.xyxx, cb0[4].zwzz
+   3: sample_l(texture2d)(float,float,float,float) r0.z, r0.xyxx, t0.yzxw, s0, l(0)
+   4: max r0.z, r0.z, l(0)
+   5: mul r0.z, r0.z, cb0[2].z
+   6: mul r0.z, r0.z, l(0.250000)
+   7: mul r0.zw, r0.zzzz, cb0[4].zzzw
+   8: mov r1.x, l(0)
+   9: mov r1.zw, l(0, 0, 0, 0)
+  10: mov r2.xyzw, l(0, 0, 0, 0)
+  11: mov r3.x, l(-4)
+  12: loop
+  13:   ilt r3.y, l(4), r3.x
+  14:   breakc_nz r3.y
+  15:   iadd r3.yz, r3.xxxx, l(0, 4, 1, 0)
+  16:   itof r1.y, r3.x
+  17:   mad r4.xy, r0.zwzz, r1.xyxx, r0.xyxx
+  18:   max r4.xy, r4.xyxx, l(0.000100, 0.000100, 0.000000, 0.000000)
+  19:   min r4.xy, r4.xyxx, l(0.999900, 0.999900, 0.000000, 0.000000)
+  20:   sample_l(texture2d)(float,float,float,float) r1.y, r4.xyxx, t0.yxzw, s0, l(0)
+  21:   mov_sat r1.y, r1.y
+  22:   eq r3.w, r1.y, l(0)
+  23:   mul r1.y, r1.y, l(4.000000)
+  24:   imax r4.z, -r3.x, r3.x
+  25:   itof r4.z, r4.z
+  26:   lt r1.y, r1.y, r4.z
+  27:   or r1.y, r1.y, r3.w
+  28:   movc r4.xy, r1.yyyy, r0.xyxx, r4.xyxx
+  29:   sample_l(texture2d)(float,float,float,float) r5.xyz, r4.xyxx, t1.xyzw, s1, l(0)
+  30:   sample_l(texture2d)(float,float,float,float) r4.xyz, r4.xyxx, t2.xyzw, s1, l(0)
+  31:   mul r6.xyzw, r4.zzyy, icb[r3.y + 0].yxyx
+  32:   mad r7.xy, r5.zyzz, icb[r3.y + 0].xxxx, -r6.xzxx
+  33:   mad r7.zw, r5.zzzy, icb[r3.y + 0].yyyy, r6.yyyw
+  34:   add r4.yz, r1.zzwz, r7.xxzx
+  35:   add r5.yz, r2.xxyx, r7.yywy
+  36:   mul r4.xw, r4.xxxx, icb[r3.y + 0].yyyx
+  37:   mad r6.x, r5.x, icb[r3.y + 0].x, -r4.x
+  38:   mad r6.y, r5.x, icb[r3.y + 0].y, r4.w
+  39:   add r3.yw, r2.zzzw, r6.xxxy
+  40:   mov r1.zw, r4.yyyz
+  41:   mov r2.xy, r5.yzyy
+  42:   mov r2.zw, r3.yyyw
+  43:   mov r3.x, r3.z
+  44:   continue
+  45: endloop
+  46: dp2 r0.x, r2.zwzz, l(0.767583, 1.862321, 0.000000, 0.000000)
+  47: dp2 r0.y, r2.xyxx, l(0.767583, 1.862321, 0.000000, 0.000000)
+  48: dp2 r0.z, r1.zwzz, l(0.767583, 1.862321, 0.000000, 0.000000)
+  49: store_uav_typed u0.xyzw, vThreadID.xyyy, r0.xyzx
+  50: ret

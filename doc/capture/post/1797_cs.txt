@@ -1,0 +1,30 @@
+Shader hash 4abab7c5-911d1008-68f54344-6680c577
+
+cs_5_0
+      dcl_globalFlags refactoringAllowed
+      dcl_constantbuffer cb0[5], immediateIndexed
+      dcl_sampler s0, mode_default
+      dcl_resource_texture2d (float,float,float,float) t0
+      dcl_uav_typed_texture2d (float,float,float,float) u0
+      dcl_input vThreadID.xy
+      dcl_temps 2
+      dcl_thread_group 8, 8, 1
+   0: utof r0.xy, vThreadID.xyxx
+   1: add r0.z, r0.x, l(0.500000)
+   2: mov r1.y, l(0.500000)
+   3: mov r0.xw, l(0, 0, 0, -4)
+   4: loop
+   5:   ilt r1.z, l(4), r0.w
+   6:   breakc_nz r1.z
+   7:   itof r1.x, r0.w
+   8:   add r1.xz, r0.zzyz, r1.xxyx
+   9:   mul r1.xz, r1.xxzx, cb0[4].zzwz
+  10:   sample_l(texture2d)(float,float,float,float) r1.x, r1.xzxx, t0.wxyz, s0, l(0)
+  11:   add r1.x, r0.x, r1.x
+  12:   iadd r1.z, r0.w, l(1)
+  13:   mov r0.xw, r1.xxxz
+  14:   continue
+  15: endloop
+  16: mul r0.x, r0.x, l(0.111111)
+  17: store_uav_typed u0.xyzw, vThreadID.xyyy, r0.xxxx
+  18: ret

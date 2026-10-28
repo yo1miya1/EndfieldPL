@@ -1,0 +1,358 @@
+{
+  "bindSet": 0,
+  "bindSlot": 1,
+  "blockName": "cbuffer1",
+  "byteSize": 464,
+  "eventId": 2148,
+  "stage": "ps",
+  "variables": [
+    {
+      "columns": 4,
+      "floatValues": [
+        0.8207547068595886,
+        0.8207547068595886,
+        0.8207547068595886,
+        0.5
+      ],
+      "name": "cb1_v0",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "name": "cb1_v1",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        0.9000000357627869,
+        2.049999952316284,
+        1.2999999523162842,
+        0.0
+      ],
+      "name": "cb1_v2",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        0.7911511659622192,
+        0.7911511659622192,
+        0.7911511659622192,
+        1.0
+      ],
+      "name": "cb1_v3",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        0.06666667014360428,
+        0.06717457622289658,
+        0.07450980693101883,
+        1.0
+      ],
+      "name": "cb1_v4",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        1.0,
+        1.0,
+        0.7200000286102295,
+        0.44999998807907104
+      ],
+      "name": "cb1_v5",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        1.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "name": "cb1_v6",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        0.0009765625,
+        0.03125,
+        31.0,
+        1.0
+      ],
+      "name": "cb1_v7",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        0.0,
+        -0.0,
+        0.10020039975643158,
+        0.0
+      ],
+      "name": "cb1_v8",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        0.3660402297973633,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "name": "cb1_v9",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        0.5225216150283813,
+        0.2612507939338684,
+        0.5225416421890259,
+        0.9568615555763245
+      ],
+      "name": "cb1_v10",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        0.9999998807907104,
+        0.9999998807907104,
+        0.9999998807907104,
+        0.9999998807907104
+      ],
+      "name": "cb1_v11",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        1.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "name": "cb1_v12",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "name": "cb1_v13",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "name": "cb1_v14",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "name": "cb1_v15",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        1.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "name": "cb1_v16",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "name": "cb1_v17",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        0.0,
+        14.100000381469727,
+        0.0,
+        0.0
+      ],
+      "name": "cb1_v18",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        0.7911511659622192,
+        0.7911511659622192,
+        0.7911511659622192,
+        1.0
+      ],
+      "name": "cb1_v19",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        1.0,
+        1.0,
+        1.0,
+        0.04313725605607033
+      ],
+      "name": "cb1_v20",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        1.0,
+        1.0,
+        0.7200000286102295,
+        0.44999998807907104
+      ],
+      "name": "cb1_v21",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        1.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "name": "cb1_v22",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        0.0,
+        -0.0,
+        0.002003967761993408,
+        -1.0
+      ],
+      "name": "cb1_v23",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        0.0,
+        -0.0,
+        0.10020039975643158,
+        0.0
+      ],
+      "name": "cb1_v24",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        0.3660402297973633,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "name": "cb1_v25",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        1.0,
+        0.0,
+        -0.5,
+        -1.0
+      ],
+      "name": "cb1_v26",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        1.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "name": "cb1_v27",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        1.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "name": "cb1_v28",
+      "rows": 1,
+      "type": "float4"
+    }
+  ]
+}

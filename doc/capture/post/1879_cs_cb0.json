@@ -1,0 +1,22 @@
+{
+  "bindSet": 0,
+  "bindSlot": 0,
+  "blockName": "cbuffer0",
+  "byteSize": 16,
+  "eventId": 1879,
+  "stage": "cs",
+  "variables": [
+    {
+      "columns": 4,
+      "floatValues": [
+        2.1103554872731745e-42,
+        1.1854985008187952e-42,
+        1.401298464324817e-45,
+        1.401298464324817e-45
+      ],
+      "name": "cb0_v0",
+      "rows": 1,
+      "type": "float4"
+    }
+  ]
+}

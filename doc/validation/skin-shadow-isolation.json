@@ -1,0 +1,103 @@
+{
+  "finding": "The source actor visibility channel was incorrectly replaced by camera-cascaded PCF. Large chest triangle steps persisted with CSM bias1/1 and1/0, and disappeared after restoring independent local actor projection, source receiver offset and64-depth filter.",
+  "sourceEvidence": "doc/capture/source-shadow-chain.md",
+  "lightBiasAfterFix": {
+    "depth": 0.03,
+    "normal": 0.12,
+    "changed": false
+  },
+  "unchangedSurfaceDepthTest": "Equal; both passes use EFVertex and no SV_Depth offset. Fullscreen Shadow debug independently reproduced the pattern.",
+  "rejectedCapture": "273 captured the temporary SceneView camera at origin after domain reload; excluded from comparisons. Recorded265 view/projection were subsequently restored exactly.",
+  "captures": [
+    {
+      "case": "csm-original-final",
+      "folder": "F:\\Project\\_Game\\EndfieldRebuild\\tmp\\unity\\captures\\20261028-143532-362",
+      "pngSha256": "bbebb6d319f6e4f1709b700525f56da3b78c73659bde6eea20631a9656889988",
+      "width": 1200,
+      "height": 900,
+      "warmupFrames": 32,
+      "viewMatchesBaseline": true,
+      "projectionMatchesBaseline": true
+    },
+    {
+      "case": "csm-original-shadow",
+      "folder": "F:\\Project\\_Game\\EndfieldRebuild\\tmp\\unity\\captures\\20261028-143657-539",
+      "pngSha256": "57c8060e97edc79c2463cdb12e8b202a2b0fef3c14de75863609b00d978f6009",
+      "width": 1200,
+      "height": 900,
+      "warmupFrames": 32,
+      "viewMatchesBaseline": true,
+      "projectionMatchesBaseline": true
+    },
+    {
+      "case": "shadows-disabled",
+      "folder": "F:\\Project\\_Game\\EndfieldRebuild\\tmp\\unity\\captures\\20261028-143658-040",
+      "pngSha256": "f8d533c90c58a44dd6225ca7ca5dfc0c1686f5839f7ea6e6e2f9420a0545862a",
+      "width": 1200,
+      "height": 900,
+      "warmupFrames": 32,
+      "viewMatchesBaseline": true,
+      "projectionMatchesBaseline": true
+    },
+    {
+      "case": "csm-depth1-normal1-final",
+      "folder": "F:\\Project\\_Game\\EndfieldRebuild\\tmp\\unity\\captures\\20261028-144857-426",
+      "pngSha256": "2612c2a18acb7a08d67bc51713c9981e9e745ca228600de0ea2c9822d20e5341",
+      "width": 1200,
+      "height": 900,
+      "warmupFrames": 32,
+      "viewMatchesBaseline": true,
+      "projectionMatchesBaseline": true
+    },
+    {
+      "case": "csm-depth1-normal1-shadow",
+      "folder": "F:\\Project\\_Game\\EndfieldRebuild\\tmp\\unity\\captures\\20261028-144857-573",
+      "pngSha256": "1b45e540e500cefbfaecaf397b4272e78e7011ea06c7d91a5eb8d1b685667366",
+      "width": 1200,
+      "height": 900,
+      "warmupFrames": 1,
+      "viewMatchesBaseline": true,
+      "projectionMatchesBaseline": true
+    },
+    {
+      "case": "csm-depth1-normal0-final",
+      "folder": "F:\\Project\\_Game\\EndfieldRebuild\\tmp\\unity\\captures\\20261028-145618-970",
+      "pngSha256": "40fb9ff9657a039b8f15be9ff0b2cf4ee12fdef738073c46602e4080c90c3449",
+      "width": 1200,
+      "height": 900,
+      "warmupFrames": 32,
+      "viewMatchesBaseline": true,
+      "projectionMatchesBaseline": true
+    },
+    {
+      "case": "csm-depth1-normal0-shadow",
+      "folder": "F:\\Project\\_Game\\EndfieldRebuild\\tmp\\unity\\captures\\20261028-145619-116",
+      "pngSha256": "451d47c97871aefa32c0f4d3fcc2b9c8b6b1f30a12cb3d4741ada59c7e3f9185",
+      "width": 1200,
+      "height": 900,
+      "warmupFrames": 1,
+      "viewMatchesBaseline": true,
+      "projectionMatchesBaseline": true
+    },
+    {
+      "case": "published-local-final",
+      "folder": "F:\\Project\\_Game\\EndfieldRebuild\\tmp\\unity\\captures\\20261028-152231-124",
+      "pngSha256": "81da99709892f9290e968335372f6646a00084d427c551316df2e0179bbf2bf8",
+      "width": 1200,
+      "height": 900,
+      "warmupFrames": 32,
+      "viewMatchesBaseline": true,
+      "projectionMatchesBaseline": true
+    },
+    {
+      "case": "published-local-shadow",
+      "folder": "F:\\Project\\_Game\\EndfieldRebuild\\tmp\\unity\\captures\\20261028-152231-289",
+      "pngSha256": "d97eb5e3acf2b9182e0e8cdf457d40ffaed675aa9f7b9da708a5fef6d490d736",
+      "width": 1200,
+      "height": 900,
+      "warmupFrames": 1,
+      "viewMatchesBaseline": true,
+      "projectionMatchesBaseline": true
+    }
+  ]
+}

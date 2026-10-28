@@ -1,0 +1,39 @@
+{
+  "rgbUnmodified": true,
+  "resized": false,
+  "alphaUsed": false,
+  "labelMarginPixels": 24,
+  "images": [
+    {
+      "label": "265 Before",
+      "path": "tmp/unity/captures/20261028-143532-362/editor-camera.png",
+      "sha256": "bbebb6d319f6e4f1709b700525f56da3b78c73659bde6eea20631a9656889988",
+      "originalSize": [
+        1200,
+        900
+      ],
+      "crop": [
+        300,
+        80,
+        900,
+        780
+      ]
+    },
+    {
+      "label": "281 After",
+      "path": "tmp/unity/captures/20261028-152231-124/editor-camera.png",
+      "sha256": "81da99709892f9290e968335372f6646a00084d427c551316df2e0179bbf2bf8",
+      "originalSize": [
+        1200,
+        900
+      ],
+      "crop": [
+        300,
+        80,
+        900,
+        780
+      ]
+    }
+  ],
+  "result": "Same-view long chest/armpit triangle steps disappear after independent character shadow receiver/filter; cloth occlusion and smooth backlit region remain. Source 4x4 rotation sampling texture remains visible in close-up transition."
+}

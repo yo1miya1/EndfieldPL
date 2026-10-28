@@ -1,0 +1,54 @@
+Shader hash 234ec776-98df4897-1b3c0280-a4115239
+
+cs_5_0
+      dcl_globalFlags refactoringAllowed
+      dcl_constantbuffer cb0[1], immediateIndexed
+      dcl_constantbuffer cb1[10], immediateIndexed
+      dcl_sampler s0, mode_default
+      dcl_sampler s1, mode_default
+      dcl_resource_texture2d (float,float,float,float) t0
+      dcl_resource_texture2d (float,float,float,float) t1
+      dcl_resource_texture2d (float,float,float,float) t2
+      dcl_resource_texture2d (float,float,float,float) t3
+      dcl_uav_typed_texture2d (float,float,float,float) u0
+      dcl_input vThreadID.xy
+      dcl_temps 6
+      dcl_thread_group 8, 8, 1
+   0: add r0.xyz, -cb1[8].xyzx, cb1[9].xyzx
+   1: max r0.w, l(0.001000), cb1[2].z
+   2: utof r1.xy, vThreadID.xyxx
+   3: add r1.xy, r1.xyxx, l(0.500000, 0.500000, 0.000000, 0.000000)
+   4: mul r1.xy, r1.xyxx, cb0[0].zwzz
+   5: sample_l(texture2d)(float,float,float,float) r1.z, r1.xyxx, t1.yzxw, s0, l(0)
+   6: max r1.w, r1.z, l(0)
+   7: max r1.z, -r1.z, l(0)
+   8: div r0.w, r1.w, r0.w
+   9: mad r0.xyz, r0.wwww, r0.xyzx, cb1[8].xyzx
+  10: sample_l(texture2d)(float,float,float,float) r2.yzw, r1.xyxx, t3.wxyz, s1, l(0)
+  11: lt r0.w, l(0), r1.w
+  12: mad_sat r1.w, r1.w, cb1[2].z, l(-0.500000)
+  13: movc r3.yzw, r0.wwww, r0.xxyz, r2.yyzw
+  14: lt r0.x, l(0), r1.z
+  15: and r0.y, r0.w, r0.x
+  16: and r0.z, r0.x, l(1.000000)
+  17: movc r3.x, r0.y, l(0.500000), r0.z
+  18: eq r0.y, l(1.000000), cb1[3].x
+  19: sample_l(texture2d)(float,float,float,float) r4.xyzw, r1.xyxx, t2.xyzw, s1, l(0)
+  20: sample_l(texture2d)(float,float,float,float) r5.xyz, r1.xyxx, t0.xyzw, s1, l(0)
+  21: mov r2.x, r4.w
+  22: movc r2.xyzw, r0.yyyy, r3.xyzw, r2.xyzw
+  23: add r3.xyzw, -r5.xyzx, r2.yzwy
+  24: mad r0.z, r1.w, l(-2.000000), l(3.000000)
+  25: mul r0.w, r1.w, r1.w
+  26: mul r0.z, r0.w, r0.z
+  27: mad r3.xyzw, r0.zzzz, r3.xyzw, r5.xyzx
+  28: max r0.z, l(0.001000), cb1[1].z
+  29: div r0.z, r1.z, r0.z
+  30: add r1.xyzw, cb1[6].xyzx, -cb1[7].xyzx
+  31: mad r1.xyzw, r0.zzzz, r1.xyzw, cb1[7].xyzx
+  32: movc r1.xyzw, r0.xxxx, r1.xyzw, r4.xyzx
+  33: movc r0.xyzw, r0.yyyy, r1.xyzw, r4.xyzx
+  34: add r0.xyzw, -r3.wyzw, r0.xyzw
+  35: mad r0.xyzw, r2.xxxx, r0.xyzw, r3.xyzw
+  36: store_uav_typed u0.xyzw, vThreadID.xyyy, r0.xyzw
+  37: ret

@@ -1,2 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Native pixel/mesh payloads; keep scenes, materials, profiles and .meta as text.
+pro/Assets/Endfield/Content/**/Textures/*.asset filter=lfs diff=lfs merge=lfs -text
+pro/Assets/Endfield/Content/**/Meshes/*.asset filter=lfs diff=lfs merge=lfs -text

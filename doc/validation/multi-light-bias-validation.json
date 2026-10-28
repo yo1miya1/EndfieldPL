@@ -1,0 +1,53 @@
+{
+  "demoLightDepthBias": 1,
+  "demoLightNormalBias": 1,
+  "presetSource": "Installed Unity6000.6.3f1 URP UniversalRenderPipelineAsset.cs fields m_ShadowDepthBias=1.0,m_ShadowNormalBias=1.0",
+  "sourceSceneLightParametersUnchanged": true,
+  "observations": [
+    "Generic capsule dome no longer shows the initial visible self-shadow facets; cast shadows remain.",
+    "Character demo still shows blue point/warm spot/secondary directional illumination and distinct cast shadows."
+  ],
+  "scope": "Visual confirmation of two rebuilt all-light scenes. Original six-case quantitative studies are preserved separately with their original .05/.2 bias; these final captures use32 warmup frames instead of16, so no pixel-equivalence or numeric artifact-isolation claim is made.",
+  "captures": [
+    {
+      "sceneKind": "generic",
+      "image": "F:\\Project\\_Game\\EndfieldRebuild\\tmp\\unity\\captures\\20261028-141406-661\\editor-camera.png",
+      "pngSha256": "26092bbf0d8c6def1d4ac6ecac6c253e1b28c2aa004c6a27c3389e03ec8121a8",
+      "scene": "Assets/Endfield/Scenes/MultiLightDemo.unity",
+      "width": 1920,
+      "height": 1080,
+      "warmupFrames": 32,
+      "cameraPosition": {
+        "x": 6.0,
+        "y": 4.5,
+        "z": -8.0
+      },
+      "cameraRotation": {
+        "x": 0.1672189086675644,
+        "y": -0.31127655506134033,
+        "z": 0.055739641189575195,
+        "w": 0.933829665184021
+      }
+    },
+    {
+      "sceneKind": "character",
+      "image": "F:\\Project\\_Game\\EndfieldRebuild\\tmp\\unity\\captures\\20261028-141410-708\\editor-camera.png",
+      "pngSha256": "232b2b6558aa2f2bbbcd311b18e0f224e2989909ac9adae02524db13902bfb15",
+      "scene": "Assets/Endfield/Scenes/MultiLightCharacterDemo.unity",
+      "width": 1920,
+      "height": 1080,
+      "warmupFrames": 32,
+      "cameraPosition": {
+        "x": 3.0,
+        "y": 2.200000047683716,
+        "z": -5.0
+      },
+      "cameraRotation": {
+        "x": 0.10427969694137573,
+        "y": -0.28805896639823914,
+        "z": 0.031573351472616196,
+        "w": 0.9513942003250122
+      }
+    }
+  ]
+}

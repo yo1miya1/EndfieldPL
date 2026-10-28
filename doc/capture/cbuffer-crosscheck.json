@@ -1,0 +1,10 @@
+{
+  "eventId": 585,
+  "stage": "ps",
+  "index": 2,
+  "resourceId": "ResourceId::34551",
+  "offset": 13568,
+  "size": 112,
+  "floatCount": 28,
+  "rawDecodeExact": true
+}

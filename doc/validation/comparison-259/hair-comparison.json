@@ -1,0 +1,14 @@
+{
+  "crop": [
+    1130,
+    220,
+    1450,
+    650
+  ],
+  "noColorTransform": true,
+  "noResize": true,
+  "sourceVs247MAE": 16.238561046511627,
+  "sourceVs259MAE": 16.293970445736434,
+  "frame247Vs259MAE": 1.0862281976744186,
+  "caveat": "ROI includes face, silhouette and temporal raster differences; not a pure isolated Hair material metric."
+}

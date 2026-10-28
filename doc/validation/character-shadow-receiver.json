@@ -1,0 +1,87 @@
+{
+  "sourceEvent": 914,
+  "slot": 3,
+  "sourceMatrixRows": [
+    [
+      0.5605679750442505,
+      0.0723533183336258,
+      -0.11992481350898743,
+      0.0
+    ],
+    [
+      -9.406091017183371e-09,
+      0.4637470245361328,
+      0.16713862121105194,
+      0.0
+    ],
+    [
+      0.1990276724100113,
+      -0.2037854790687561,
+      0.3377722203731537,
+      0.0
+    ],
+    [
+      228.38356018066406,
+      -178.6062774658203,
+      15.644901275634766,
+      1.0
+    ]
+  ],
+  "atlasSize": [
+    4096.0,
+    2048.0
+  ],
+  "tileScaleOffset": [
+    0.0,
+    0.0,
+    0.25,
+    0.5
+  ],
+  "tileResolution": [
+    1024.0,
+    1024.0
+  ],
+  "projectedUvXWorldGradientLength": 0.5948516726493835,
+  "derivedWorldTexelX": 0.0016416907691467547,
+  "row188": [
+    0.004925072193145752,
+    0.009850144386291504,
+    0.001641690731048584,
+    256.0
+  ],
+  "worldTexelRelativeError": 2.3206667254527247e-08,
+  "receiverDepthBiasTexels": 3.0,
+  "receiverNormalBiasTexels": 6.0,
+  "filterRadiusUv": "4 / atlasWidth, scalar used for both UV axes",
+  "normalSource": "914 t6 GBuffer normal oct decode, not geometry derivative normal",
+  "mainCascadeGate": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+  ],
+  "row203OutwardLightDirection": [
+    0.30323585867881775,
+    -0.4226182997226715,
+    -0.8540738821029663,
+    0.0
+  ],
+  "sourceTowardLightDirection": [
+    -0.3032359182834625,
+    0.4226182699203491,
+    0.8540736436843872
+  ],
+  "projectionDepthGradient": [
+    -0.11992481350898743,
+    0.16713862121105194,
+    0.3377722203731537
+  ],
+  "normalizedProjectionDepthGradient": [
+    -0.303235799074173,
+    0.42261824011802673,
+    0.854073703289032
+  ],
+  "maxAbsOutwardPlusTowardError": 2.384185791015625e-07,
+  "depthGradientDotToward": 0.3954836968719233,
+  "receiverOffsetSignExplanation": "row203 is opposite to source towardLight; -row203*depthOffset moves receiver towardLight and increases reversed-Z projected depth. Unity direction conversion preserves this relationship."
+}

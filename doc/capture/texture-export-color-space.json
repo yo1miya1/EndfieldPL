@@ -1,0 +1,296 @@
+{
+  "sourceCaptureSha256": "e2c40a194bf57fe4827aa631a4a50562c792258a2007819d2c1d3f6745ef3bec",
+  "observation": "Original PNG values match RenderDoc GPU decoded-linear PickPixel/EXR, up to 8-bit PNG quantization. All tested resources are BC7_SRGB. PNG must not undergo another sRGB decode when preserving source sampling values.",
+  "probes": [
+    {
+      "eid": 599,
+      "resourceId": 98916,
+      "x": 303,
+      "y": 157,
+      "format": "BC7_SRGB",
+      "floatValue": [
+        0.9296875,
+        0.6171875,
+        0.0091552734375,
+        0.4941176474094391
+      ],
+      "originalPngRGBA8": [
+        237,
+        157,
+        2,
+        126
+      ],
+      "originalPngNormalized": [
+        0.9294117647058824,
+        0.615686274509804,
+        0.00784313725490196,
+        0.49411764705882355
+      ],
+      "exrFloatRGBA": [
+        0.9296875,
+        0.6171875,
+        0.0091552734375,
+        0.4941176474094391
+      ],
+      "reExportPngIdentical": true
+    },
+    {
+      "eid": 599,
+      "resourceId": 98916,
+      "x": 6,
+      "y": 456,
+      "format": "BC7_SRGB",
+      "floatValue": [
+        0.78515625,
+        0.5859375,
+        0.1591796875,
+        0.003921568859368563
+      ],
+      "originalPngRGBA8": [
+        200,
+        149,
+        41,
+        1
+      ],
+      "originalPngNormalized": [
+        0.7843137254901961,
+        0.5843137254901961,
+        0.1607843137254902,
+        0.00392156862745098
+      ],
+      "exrFloatRGBA": [
+        0.78515625,
+        0.5859375,
+        0.1591796875,
+        0.003921568859368563
+      ],
+      "reExportPngIdentical": true
+    },
+    {
+      "eid": 599,
+      "resourceId": 98916,
+      "x": 8,
+      "y": 232,
+      "format": "BC7_SRGB",
+      "floatValue": [
+        0.76953125,
+        0.5859375,
+        0.1591796875,
+        0.003921568859368563
+      ],
+      "originalPngRGBA8": [
+        196,
+        149,
+        41,
+        1
+      ],
+      "originalPngNormalized": [
+        0.7686274509803922,
+        0.5843137254901961,
+        0.1607843137254902,
+        0.00392156862745098
+      ],
+      "exrFloatRGBA": [
+        0.76953125,
+        0.5859375,
+        0.1591796875,
+        0.003921568859368563
+      ],
+      "reExportPngIdentical": true
+    },
+    {
+      "eid": 568,
+      "resourceId": 102012,
+      "x": 446,
+      "y": 21,
+      "format": "BC7_SRGB",
+      "floatValue": [
+        0.86328125,
+        0.1220703125,
+        0.10205078125,
+        1.0
+      ],
+      "originalPngRGBA8": [
+        220,
+        31,
+        26,
+        255
+      ],
+      "originalPngNormalized": [
+        0.8627450980392157,
+        0.12156862745098039,
+        0.10196078431372549,
+        1.0
+      ],
+      "exrFloatRGBA": [
+        0.86328125,
+        0.1220703125,
+        0.10205078125,
+        1.0
+      ],
+      "reExportPngIdentical": true
+    },
+    {
+      "eid": 568,
+      "resourceId": 102012,
+      "x": 509,
+      "y": 374,
+      "format": "BC7_SRGB",
+      "floatValue": [
+        0.6796875,
+        0.38671875,
+        0.328125,
+        1.0
+      ],
+      "originalPngRGBA8": [
+        173,
+        99,
+        84,
+        255
+      ],
+      "originalPngNormalized": [
+        0.6784313725490196,
+        0.38823529411764707,
+        0.32941176470588235,
+        1.0
+      ],
+      "exrFloatRGBA": [
+        0.6796875,
+        0.38671875,
+        0.328125,
+        1.0
+      ],
+      "reExportPngIdentical": true
+    },
+    {
+      "eid": 568,
+      "resourceId": 102012,
+      "x": 276,
+      "y": 578,
+      "format": "BC7_SRGB",
+      "floatValue": [
+        0.66015625,
+        0.37109375,
+        0.314453125,
+        1.0
+      ],
+      "originalPngRGBA8": [
+        168,
+        95,
+        80,
+        255
+      ],
+      "originalPngNormalized": [
+        0.6588235294117647,
+        0.37254901960784315,
+        0.3137254901960784,
+        1.0
+      ],
+      "exrFloatRGBA": [
+        0.66015625,
+        0.37109375,
+        0.314453125,
+        1.0
+      ],
+      "reExportPngIdentical": true
+    },
+    {
+      "eid": 520,
+      "resourceId": 96852,
+      "x": 332,
+      "y": 71,
+      "format": "BC7_SRGB",
+      "floatValue": [
+        0.10693359375,
+        0.126953125,
+        0.162109375,
+        1.0
+      ],
+      "originalPngRGBA8": [
+        27,
+        32,
+        41,
+        255
+      ],
+      "originalPngNormalized": [
+        0.10588235294117647,
+        0.12549019607843137,
+        0.1607843137254902,
+        1.0
+      ],
+      "exrFloatRGBA": [
+        0.10693359375,
+        0.126953125,
+        0.162109375,
+        1.0
+      ],
+      "reExportPngIdentical": true
+    },
+    {
+      "eid": 520,
+      "resourceId": 96852,
+      "x": 1,
+      "y": 78,
+      "format": "BC7_SRGB",
+      "floatValue": [
+        0.10009765625,
+        0.11962890625,
+        0.1474609375,
+        1.0
+      ],
+      "originalPngRGBA8": [
+        26,
+        31,
+        38,
+        255
+      ],
+      "originalPngNormalized": [
+        0.10196078431372549,
+        0.12156862745098039,
+        0.14901960784313725,
+        1.0
+      ],
+      "exrFloatRGBA": [
+        0.10009765625,
+        0.11962890625,
+        0.1474609375,
+        1.0
+      ],
+      "reExportPngIdentical": true
+    },
+    {
+      "eid": 520,
+      "resourceId": 96852,
+      "x": 160,
+      "y": 64,
+      "format": "BC7_SRGB",
+      "floatValue": [
+        0.109375,
+        0.11962890625,
+        0.1533203125,
+        1.0
+      ],
+      "originalPngRGBA8": [
+        28,
+        31,
+        39,
+        255
+      ],
+      "originalPngNormalized": [
+        0.10980392156862745,
+        0.12156862745098039,
+        0.15294117647058825,
+        1.0
+      ],
+      "exrFloatRGBA": [
+        0.109375,
+        0.11962890625,
+        0.1533203125,
+        1.0
+      ],
+      "reExportPngIdentical": true
+    }
+  ],
+  "higherPrecisionSource": "pro/Authoring/Extracted/SI1/TexturesNative/index.json",
+  "higherPrecisionCount": 57
+}

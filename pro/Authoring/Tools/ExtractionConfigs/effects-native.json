@@ -1,0 +1,44 @@
+{
+  "capture": "{ROOT}/pro/Authoring/Work/SI1.rdc",
+  "output": "{ROOT}/pro/Authoring/Extracted/SI1/EffectsNative",
+  "skipCompute": true,
+  "postvs": [
+    1530,
+    1554,
+    1571,
+    1589,
+    1607,
+    1625,
+    1649,
+    1672,
+    1693,
+    1712,
+    1730
+  ],
+  "graphicsStates": [
+    1530,
+    1554,
+    1571,
+    1589,
+    1607,
+    1625,
+    1649,
+    1672,
+    1693,
+    1712,
+    1730
+  ],
+  "bindings": [
+    1530,
+    1554,
+    1571,
+    1589,
+    1607,
+    1625,
+    1649,
+    1672,
+    1693,
+    1712,
+    1730
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "capture": "{ROOT}/pro/Authoring/Work/SI1.rdc",
+  "output": "{ROOT}/pro/Authoring/Work/shadow424-uv",
+  "skipCompute": true,
+  "postvs": [
+    424
+  ],
+  "textures": [
+    {
+      "resourceId": 11550,
+      "boundEids": [
+        1122
+      ],
+      "requestedDirectory": "{ROOT}/pro/Authoring/Extracted/SI1/EnvironmentReflection/11550"
+    }
+  ]
+}

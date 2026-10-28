@@ -1,0 +1,74 @@
+Shader hash 9d9ac518-41a7becc-1326a537-c032e59e
+
+cs_5_0
+      dcl_globalFlags refactoringAllowed
+      dcl_immediateConstantBuffer {
+			{ -0.002842, 0.052536, 0, 0}, 
+			{ 0.046849, 0.060761, 0, 0}, 
+			{ 0.092281, 0.039693, 0, 0}, 
+			{ 0.117476, 0.011971, 0, 0}, 
+			{ 0.124623, 0, 0, 0}, 
+			{ 0.117476, 0.011971, 0, 0}, 
+			{ 0.092281, 0.039693, 0, 0}, 
+			{ 0.046849, 0.060761, 0, 0}, 
+			{ -0.002842, 0.052536, 0, 0} }
+      dcl_constantbuffer cb0[5], immediateIndexed
+      dcl_sampler s0, mode_default
+      dcl_sampler s1, mode_default
+      dcl_resource_texture2d (float,float,float,float) t0
+      dcl_resource_texture2d (float,float,float,float) t1
+      dcl_uav_typed_texture2d (float,float,float,float) u0
+      dcl_uav_typed_texture2d (float,float,float,float) u1
+      dcl_input vThreadID.xy
+      dcl_temps 8
+      dcl_thread_group 8, 8, 1
+   0: utof r0.xy, vThreadID.xyxx
+   1: add r0.xy, r0.xyxx, l(0.500000, 0.500000, 0.000000, 0.000000)
+   2: mul r0.zw, r0.xxxy, cb0[4].zzzw
+   3: sample_l(texture2d)(float,float,float,float) r1.x, r0.zwzz, t0.xyzw, s0, l(0)
+   4: max r1.x, r1.x, l(0)
+   5: ne r1.y, r1.x, l(0)
+   6: if_nz r1.y
+   7:   mul r1.y, r1.x, cb0[2].z
+   8:   mul r1.y, r1.y, l(0.250000)
+   9:   mul r1.y, r1.y, cb0[4].z
+  10:   sample_l(texture2d)(float,float,float,float) r2.xyz, r0.zwzz, t1.xyzw, s1, l(0)
+  11:   min r0.z, r1.x, l(1.000000)
+  12:   mov r3.y, l(0)
+  13:   mov r4.xyzw, l(0, 0, 0, 0)
+  14:   mov r5.xyzw, l(0, 0, 0, 0)
+  15:   mov r0.w, l(-4)
+  16:   loop
+  17:     ilt r1.x, l(4), r0.w
+  18:     breakc_nz r1.x
+  19:     itof r1.x, r0.w
+  20:     mul r3.x, r1.x, r1.y
+  21:     mad r1.xz, r0.xxyx, cb0[4].zzwz, r3.xxyx
+  22:     max r1.xz, r1.xxzx, l(0.000100, 0.000000, 0.000100, 0.000000)
+  23:     min r1.xz, r1.xxzx, l(0.999900, 0.000000, 0.999900, 0.000000)
+  24:     sample_l(texture2d)(float,float,float,float) r1.w, r1.xzxx, t0.yzwx, s0, l(0)
+  25:     mov_sat r1.w, r1.w
+  26:     sample_l(texture2d)(float,float,float,float) r3.xzw, r1.xzxx, t1.xwyz, s1, l(0)
+  27:     eq r1.x, r1.w, l(0)
+  28:     mul r1.z, r1.w, l(4.000000)
+  29:     imax r2.w, -r0.w, r0.w
+  30:     itof r2.w, r2.w
+  31:     lt r1.z, r1.z, r2.w
+  32:     or r1.x, r1.z, r1.x
+  33:     movc r6.xyz, r1.xxxx, r2.xyzx, r3.xzwx
+  34:     movc r6.w, r1.x, r0.z, r1.w
+  35:     iadd r1.xz, r0.wwww, l(4, 0, 1, 0)
+  36:     mad r7.xyzw, r6.xyzw, icb[r1.x + 0].yyyy, r4.xyzw
+  37:     mad r6.xyzw, r6.xyzw, icb[r1.x + 0].xxxx, r5.xyzw
+  38:     mov r4.xyzw, r7.xyzw
+  39:     mov r5.xyzw, r6.xyzw
+  40:     mov r0.w, r1.z
+  41:     continue
+  42:   endloop
+  43: else
+  44:   mov r4.xyzw, l(0, 0, 0, 0)
+  45:   mov r5.xyzw, l(0, 0, 0, 0)
+  46: endif
+  47: store_uav_typed u0.xyzw, vThreadID.xyyy, r5.xyzw
+  48: store_uav_typed u1.xyzw, vThreadID.xyyy, r4.xyzw
+  49: ret

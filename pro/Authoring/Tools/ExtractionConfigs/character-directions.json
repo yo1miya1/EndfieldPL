@@ -1,0 +1,46 @@
+{
+  "output": "{ROOT}/pro/Authoring/Extracted/SI1/CharacterDirections/Native",
+  "postvs": [
+    488,
+    502,
+    520,
+    538,
+    553,
+    568,
+    585,
+    599,
+    617,
+    655,
+    1190,
+    1061,
+    1019
+  ],
+  "skipCompute": true,
+  "graphicsStates": [
+    488,
+    502,
+    520,
+    538,
+    553,
+    568,
+    585,
+    599,
+    617,
+    655,
+    1190
+  ],
+  "capture": "{ROOT}/pro/Authoring/Work/SI1.rdc",
+  "bindings": [
+    488,
+    502,
+    520,
+    538,
+    553,
+    568,
+    585,
+    599,
+    617,
+    655,
+    1190
+  ]
+}

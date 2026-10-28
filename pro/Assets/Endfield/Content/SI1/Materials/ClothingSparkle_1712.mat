@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ClothingSparkle_1712
+  m_Shader: {fileID: 4800000, guid: 11e0a135b6a0c0c4587440141a96a16c, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3008
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _InkBaseMap:
+        m_Texture: {fileID: 2800000, guid: a945c81fadf1d4f40bb31210f0e58e16, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _InkMaskMap:
+        m_Texture: {fileID: 2800000, guid: 91819095b8b7b2e4082e677a658ddcba, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _InkNoiseMap:
+        m_Texture: {fileID: 2800000, guid: d4a3910113301a246b3a7b99939aaf2c, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _InkOverlayMap:
+        m_Texture: {fileID: 2800000, guid: 376778d3bea5785418efeedf0cf8b659, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Cull: 2
+    - _DstBlend: 10
+    - _InkAlphaGain: 0.1
+    - _InkAlphaMode: 1
+    - _InkAnimationSpeed: 0
+    - _InkBaseBorderU: 0
+    - _InkBaseBorderV: 0
+    - _InkBaseDistortion: 0
+    - _InkBaseMonochrome: 1
+    - _InkColorGain: 1
+    - _InkCutoff: 0
+    - _InkDepthFadeEnabled: 0
+    - _InkIgnoreVertexColor: 0
+    - _InkInstanceOpacity: 1
+    - _InkLODFade: 1000
+    - _InkMaskDistortion: 0
+    - _InkMaskMonochrome: 1
+    - _InkMipBias: -1.7655349
+    - _InkOverlayDistortion: 0.74
+    - _InkOverlayIgnoreVertexColor: 0
+    - _InkPhase: 206.80193
+    - _InkPreExposureWeight: 1
+    - _InkSoftIntersectionDistance: 0
+    - _InkSoftIntersectionOffset: 0
+    - _InkUVStreamBlend: 0
+    - _SrcBlend: 1
+    - _ZWrite: 0
+    m_Colors:
+    - _InkBaseTint: {r: 0, g: 0, b: 0, a: 1}
+    - _InkBaseUVRotation: {r: 1, g: 0, b: 0, a: 1}
+    - _InkBaseUVTransform: {r: 2, g: 2, b: 0, a: 0}
+    - _InkBaseUVVelocity: {r: 0, g: 0, b: 0, a: 0}
+    - _InkBaseUVWeights: {r: 1, g: 0, b: 0, a: 0}
+    - _InkDepthRanges: {r: 0.001, g: 10, b: 120, a: 100}
+    - _InkEdgeParams: {r: 0, g: 0, b: 1, a: 1}
+    - _InkEdgeTint: {r: 1, g: 1, b: 1, a: 0}
+    - _InkMaskBorderUV: {r: 0, g: 0, b: 0, a: 0}
+    - _InkMaskUVRotation: {r: 1, g: 0, b: 0, a: 1}
+    - _InkMaskUVTransform: {r: 1, g: 1, b: 0, a: 0}
+    - _InkMaskUVVelocity: {r: 0, g: 0, b: 0, a: 0}
+    - _InkMaskUVWeights: {r: 1, g: 0, b: 0, a: 0}
+    - _InkNoiseBorderUV: {r: 0, g: 0, b: 0, a: 0}
+    - _InkNoiseResponse: {r: 0, g: 1, b: 0.1, a: 0}
+    - _InkNoiseUVRotation: {r: 1, g: 0, b: 0, a: 1}
+    - _InkNoiseUVTransform: {r: 2, g: 2, b: 0, a: 0}
+    - _InkNoiseUVVelocity: {r: 0.01, g: 0, b: 0, a: 0}
+    - _InkNoiseUVWeights: {r: 1, g: 0, b: 0, a: 0}
+    - _InkOverlayBorderUV: {r: 0, g: 0, b: 0, a: 0}
+    - _InkOverlayTint: {r: 2.9960787, g: 2.9960787, b: 2.9960787, a: 1}
+    - _InkOverlayUVRotation: {r: -1, g: 0.00000008742278, b: -0.00000008742278, a: -1}
+    - _InkOverlayUVTransform: {r: 1, g: 1, b: -0.46, a: 0}
+    - _InkOverlayUVVelocity: {r: 0, g: 0, b: 0, a: 0}
+    - _InkOverlayUVWeights: {r: 1, g: 0, b: 0, a: 0}
+    - _InkProjectionOriginOS: {r: 0, g: 0, b: 0, a: 1}
+    - _InkProjectionParams: {r: 0, g: 0, b: 0, a: 0}
+    - _InkProjectionSign: {r: 1, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

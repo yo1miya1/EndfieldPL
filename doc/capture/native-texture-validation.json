@@ -1,0 +1,371 @@
+{
+  "textures": 59,
+  "totalBytes": 588259640,
+  "allBlobSizesAndHashesVerified": true,
+  "source599Probe": {
+    "x": 303,
+    "y": 157,
+    "halfRGBA": [
+      0.9296875,
+      0.6171875,
+      0.0091552734375,
+      0.494140625
+    ]
+  },
+  "resources": [
+    {
+      "resourceId": 101668,
+      "mipCount": 11,
+      "byteSize": 11184808,
+      "sha256": "3d212b977ffca24060a5fb6041e04d69aff784d97ad7563d7b6b3ffb8d92ba78"
+    },
+    {
+      "resourceId": 102012,
+      "mipCount": 11,
+      "byteSize": 11184808,
+      "sha256": "331347e846e90d2c22a9284d233d4287553d231443c0d4e68ee602c15591ee29"
+    },
+    {
+      "resourceId": 103044,
+      "mipCount": 10,
+      "byteSize": 2796200,
+      "sha256": "1b6266d5702e3099913cb32a76b9bc46147fe6650854be824af756e9a536351f"
+    },
+    {
+      "resourceId": 12643,
+      "mipCount": 10,
+      "byteSize": 1398104,
+      "sha256": "312bf511078dd3d16f15ca075ab23fbc00ace0de5d00045599a71f1982e5d3a3"
+    },
+    {
+      "resourceId": 12671,
+      "mipCount": 1,
+      "byteSize": 2097152,
+      "sha256": "8a3cd893b6c4b3f9eac97f79e98534675088f35ba018a8ad5439292feae92eb6"
+    },
+    {
+      "resourceId": 14281,
+      "mipCount": 8,
+      "byteSize": 174760,
+      "sha256": "ed8a881fe9c5abb529ddefa14057cedda0bf028ec7f0c529c67ee92ab6ace9d0"
+    },
+    {
+      "resourceId": 16812,
+      "mipCount": 11,
+      "byteSize": 11184808,
+      "sha256": "cba66b7e18a346d9042e7ef9733262088308118305b4b79e0d93a587467965a1"
+    },
+    {
+      "resourceId": 17109,
+      "mipCount": 1,
+      "byteSize": 524288,
+      "sha256": "e949e1908a8cf4bd376b799133b98e9913b0ac5f8cd97171c46d832a2ed09e2f"
+    },
+    {
+      "resourceId": 17113,
+      "mipCount": 1,
+      "byteSize": 262144,
+      "sha256": "aa48067171e6f5afe7c709a1ac34a949e2b96a7d0f5fea3954c01e27751b4382"
+    },
+    {
+      "resourceId": 17126,
+      "mipCount": 1,
+      "byteSize": 262144,
+      "sha256": "090323def4cb2abf90beb5909695d915bbe94f433fe5d92198d4b4f793946fc0"
+    },
+    {
+      "resourceId": 1727094,
+      "mipCount": 12,
+      "byteSize": 44739240,
+      "sha256": "bc076cac3f56c35d7dfb8c939e62a57d42f77fe69447908c4edebcee991bb626"
+    },
+    {
+      "resourceId": 1727206,
+      "mipCount": 12,
+      "byteSize": 44739240,
+      "sha256": "17ca4e82a3c37c162eeae6004eb9b1bccc069c8a2af628cd2bd5fcdbedafe137"
+    },
+    {
+      "resourceId": 1727219,
+      "mipCount": 10,
+      "byteSize": 2796200,
+      "sha256": "fded7d4a0f90288554d7e76808d6cbba95269f31ecf6ceb37465aca437022561"
+    },
+    {
+      "resourceId": 1727344,
+      "mipCount": 10,
+      "byteSize": 2796200,
+      "sha256": "cd25c79f00086e64ea39f1f080cda5772e060889a87d6ddcb983e898a4eb705b"
+    },
+    {
+      "resourceId": 1727374,
+      "mipCount": 9,
+      "byteSize": 699048,
+      "sha256": "83b204229d4c88755fb9d5214878b8ad2a396edfb9674b7081f2c1665398d495"
+    },
+    {
+      "resourceId": 17728,
+      "mipCount": 11,
+      "byteSize": 2796216,
+      "sha256": "34637a12b9e69eb29afe548cdfc43a3932ce122d9a2649eea1b3efde886fd56c"
+    },
+    {
+      "resourceId": 18073,
+      "mipCount": 7,
+      "byteSize": 43688,
+      "sha256": "3644c4d7667841594f12465c964d8a65323d2343b3ff21c246b1bf64f0da99a5"
+    },
+    {
+      "resourceId": 18332,
+      "mipCount": 1,
+      "byteSize": 2048,
+      "sha256": "646cbd997036f07b91ea7eb8eced3180144d8ba230cbf3386e513179aa9f4555"
+    },
+    {
+      "resourceId": 18338,
+      "mipCount": 1,
+      "byteSize": 8388608,
+      "sha256": "217bdcf287d84e4f60d0711857fcc5bea05df063a919849d3a2330fdf1d72b9b"
+    },
+    {
+      "resourceId": 18729,
+      "mipCount": 11,
+      "byteSize": 5592408,
+      "sha256": "d0c7320769ead18f8a1088f0afc3a9fcd144c781c8f90f323becf6fca142d39d"
+    },
+    {
+      "resourceId": 18734,
+      "mipCount": 10,
+      "byteSize": 1398104,
+      "sha256": "fe917681e85d681ccc2a442f008fb824c4539429f6db9723704b9e036554bac5"
+    },
+    {
+      "resourceId": 18736,
+      "mipCount": 11,
+      "byteSize": 5592408,
+      "sha256": "b39ae62f945a4680ae497ea3913cccdd4aca71917015598a8ee087c3fa16d201"
+    },
+    {
+      "resourceId": 18742,
+      "mipCount": 1,
+      "byteSize": 524288,
+      "sha256": "1f74aa7fce3e1ce1fa3a1b3ff23aa05da96acf749be1826597380859b15b94f8"
+    },
+    {
+      "resourceId": 18793,
+      "mipCount": 9,
+      "byteSize": 699048,
+      "sha256": "a6bef622f4f91d6bf4f21b7efc68abc9f15f47e5d8bee9c79a81f214dcd616b4"
+    },
+    {
+      "resourceId": 18806,
+      "mipCount": 11,
+      "byteSize": 5592408,
+      "sha256": "b057d3a73a6351756f7e25a1126d9b046010717fb6c66baeed039578fa2b81fd"
+    },
+    {
+      "resourceId": 18809,
+      "mipCount": 9,
+      "byteSize": 699048,
+      "sha256": "55b227f0dddb2751784939dea2ae3f11c082e0bc6715d6ce8132581584dd9462"
+    },
+    {
+      "resourceId": 18813,
+      "mipCount": 10,
+      "byteSize": 2796200,
+      "sha256": "22e2fada209e4bcebd9db2e2165839fb3e73d3915850b3ecf3d0691477f241f3"
+    },
+    {
+      "resourceId": 24401,
+      "mipCount": 12,
+      "byteSize": 44739240,
+      "sha256": "f550f50799065fce71ebc643ac7ffbfa3fc2ac2ec4400d3c7d797998dd8d1b0f"
+    },
+    {
+      "resourceId": 24403,
+      "mipCount": 12,
+      "byteSize": 44739240,
+      "sha256": "82a171abd882644784b13ef0f4f265a6318790d54752fbd02c930b65139358a2"
+    },
+    {
+      "resourceId": 25127,
+      "mipCount": 1,
+      "byteSize": 33554432,
+      "sha256": "9db0bfe03a253e29d7a4716bbe7b0d255cedcc03a47a3632795682c079836020"
+    },
+    {
+      "resourceId": 4377,
+      "mipCount": 10,
+      "byteSize": 2796200,
+      "sha256": "ef3242673ab8162f1f699a7912e7518048555c6fbdeef8fbd8f1a8ebbf1b1ce4"
+    },
+    {
+      "resourceId": 4548,
+      "mipCount": 1,
+      "byteSize": 2048,
+      "sha256": "0b26b16dae9b626599180775a5fd32a9088bc8568f6c57d18f99b6b176ff5441"
+    },
+    {
+      "resourceId": 4556,
+      "mipCount": 1,
+      "byteSize": 2048,
+      "sha256": "60c8c025b02e4fae33002feb3d99fd2cd5fd972216677dcf02ed8718163604c3"
+    },
+    {
+      "resourceId": 4564,
+      "mipCount": 1,
+      "byteSize": 524288,
+      "sha256": "064b3da0a900d25c155239f1a249d4293063d6ff97f4d2538ca96dc4372acc30"
+    },
+    {
+      "resourceId": 4621,
+      "mipCount": 1,
+      "byteSize": 2048,
+      "sha256": "0b26b16dae9b626599180775a5fd32a9088bc8568f6c57d18f99b6b176ff5441"
+    },
+    {
+      "resourceId": 59,
+      "mipCount": 1,
+      "byteSize": 128,
+      "sha256": "24811aed1a3859154192b54bfc366e1c11fe654b91143777a6aa36388d6b7bb2"
+    },
+    {
+      "resourceId": 62,
+      "mipCount": 1,
+      "byteSize": 128,
+      "sha256": "dba486f693668dded9ad2fad9f62bb399b36545c771207f7c52e496e98f036aa"
+    },
+    {
+      "resourceId": 7011,
+      "mipCount": 7,
+      "byteSize": 43688,
+      "sha256": "139a96be4e1d53a66eb7c3d6c2ca34b6cfcc7201bbadec7811b7e34aeb41dfd1"
+    },
+    {
+      "resourceId": 7018,
+      "mipCount": 1,
+      "byteSize": 128,
+      "sha256": "351bb33a26e8a64e54f4cf6d4dc8355d681624075037352199ba365a35c94ea5"
+    },
+    {
+      "resourceId": 9182,
+      "mipCount": 1,
+      "byteSize": 8388608,
+      "sha256": "18771cc97302930d089045c6cbf676fb8dd9d05ff5a85a0337a47b20792d6685"
+    },
+    {
+      "resourceId": 9183,
+      "mipCount": 7,
+      "byteSize": 43688,
+      "sha256": "0d1d3ff126490bd4be7c69c7f4a0b42e2f424fce814e8e37df68a47c9700a5b0"
+    },
+    {
+      "resourceId": 9187,
+      "mipCount": 7,
+      "byteSize": 43688,
+      "sha256": "43a56e84f73de9b8eb88eda8ad8fe1361f3bf4705d52eefd4fc9076b3a96f3cb"
+    },
+    {
+      "resourceId": 94788,
+      "mipCount": 11,
+      "byteSize": 11184808,
+      "sha256": "05bbe101a19d681f789bfedad0453b90f4eddfcb8a5970c694a3b62861260fcc"
+    },
+    {
+      "resourceId": 95383,
+      "mipCount": 12,
+      "byteSize": 44739240,
+      "sha256": "d0a67bc81608ddbaa2d17d4d2d8541d705d9408af92d21e96076c29d53e6e9c1"
+    },
+    {
+      "resourceId": 95727,
+      "mipCount": 12,
+      "byteSize": 44739240,
+      "sha256": "2c2e9463c5b101b0d57562e12d731c7f296ce283592ab81a6a7a6a636ade0748"
+    },
+    {
+      "resourceId": 96071,
+      "mipCount": 12,
+      "byteSize": 44739240,
+      "sha256": "a1c8d2056eb68646b07834ae9a64914902c87fcf0a543d5b39d46b211b1151d3"
+    },
+    {
+      "resourceId": 96415,
+      "mipCount": 12,
+      "byteSize": 44739240,
+      "sha256": "9b9718d62f1e3db63f05a6bda08772f3e74d0338cc8268033e571b2e6cf501d4"
+    },
+    {
+      "resourceId": 96762,
+      "mipCount": 12,
+      "byteSize": 44739240,
+      "sha256": "9930783a1bf4feef0dcfe9d616d069efc5a653e10b1e32f723024618a1bc186f"
+    },
+    {
+      "resourceId": 96852,
+      "mipCount": 10,
+      "byteSize": 2796200,
+      "sha256": "51e443d36303417c4de9c862f47a83fc75234e0d900d475ac57b0a6030ae8419"
+    },
+    {
+      "resourceId": 97196,
+      "mipCount": 10,
+      "byteSize": 2796200,
+      "sha256": "e6e65af02b4fa3b9efcb415b946b4518699e922f5c081cd836f5c58565fc1f60"
+    },
+    {
+      "resourceId": 97540,
+      "mipCount": 10,
+      "byteSize": 2796200,
+      "sha256": "12f639e0d9ff3447256ba079b683ffcc5020a638284bf9cdfec0cb5466887e48"
+    },
+    {
+      "resourceId": 97884,
+      "mipCount": 10,
+      "byteSize": 2796200,
+      "sha256": "670ef152a240971c14e5a338c69276c912c3c96953c69f2921ca8a7d4807d14c"
+    },
+    {
+      "resourceId": 98228,
+      "mipCount": 10,
+      "byteSize": 2796200,
+      "sha256": "501be29f8a287e133760051c380c2e9c45eb601f3a54abe28260d724167961e6"
+    },
+    {
+      "resourceId": 98572,
+      "mipCount": 10,
+      "byteSize": 2796200,
+      "sha256": "d09a72df1b91b8832cdda0a23b251321ad619adfe524b4ccd7820ae3260fe2ee"
+    },
+    {
+      "resourceId": 98916,
+      "mipCount": 10,
+      "byteSize": 2796200,
+      "sha256": "0971b1c82a937ee7be1eeac7626eda9ba26437139fa9b54f995cce1f13680fa1"
+    },
+    {
+      "resourceId": 99260,
+      "mipCount": 11,
+      "byteSize": 11184808,
+      "sha256": "fd943e773f75a2316155856507a5e148b5529d40679b61d3b0395384811a7eca"
+    },
+    {
+      "resourceId": 99604,
+      "mipCount": 11,
+      "byteSize": 11184808,
+      "sha256": "7ca979b89fbb9a7ca37cf98d9e17cff80da4de194624e55df481c591b26af00f"
+    },
+    {
+      "resourceId": 1727234,
+      "mipCount": 10,
+      "byteSize": 2796200,
+      "sha256": "ed47919ba511d6ac8db41359b64ed4f64acea07d8db356c01362f8570a6b26f4"
+    },
+    {
+      "resourceId": 1727319,
+      "mipCount": 10,
+      "byteSize": 2796200,
+      "sha256": "d1aa6693f667896edafd5c83964a6945f54b31a23310916a102164992be9ecee"
+    }
+  ]
+}

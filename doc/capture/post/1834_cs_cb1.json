@@ -1,0 +1,130 @@
+{
+  "bindSet": 0,
+  "bindSlot": 1,
+  "blockName": "cbuffer1",
+  "byteSize": 160,
+  "eventId": 1834,
+  "stage": "cs",
+  "variables": [
+    {
+      "columns": 4,
+      "floatValues": [
+        0.26277217268943787,
+        32.78083038330078,
+        1.0,
+        1.0
+      ],
+      "name": "cb1_v0",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "name": "cb1_v1",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        9.0,
+        20.0,
+        1.409999966621399,
+        0.0
+      ],
+      "name": "cb1_v2",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "name": "cb1_v3",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        1506.0,
+        846.0,
+        0.0006640106439590454,
+        0.0011820330983027816
+      ],
+      "name": "cb1_v4",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        188.25,
+        105.75,
+        0.005312085151672363,
+        0.009456264786422253
+      ],
+      "name": "cb1_v5",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        0.21960784494876862,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "cb1_v6",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        1.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "cb1_v7",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        0.0,
+        0.0,
+        0.6000000238418579,
+        1.0
+      ],
+      "name": "cb1_v8",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        0.05882352963089943,
+        0.20000000298023224,
+        1.0,
+        1.0
+      ],
+      "name": "cb1_v9",
+      "rows": 1,
+      "type": "float4"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+ "_note": "SAMPLE ONLY - a handful of entries, to show the shape of a translation file. Copy it to the language code you want, translate as much or as little as you like, and leave the keys and the {0} {1} placeholders exactly as they are. A key that is absent here falls back to the English in the code, so this file can be grown one message at a time. `en.json` is the complete list. See README.md in this folder.",
+ "cmd.all_checks_passed": "全部 {0} 项检查通过",
+ "cmd.all_requested_stages_finished": "所有请求的阶段都已完成",
+ "cmd.capture": "捕获       {0}",
+ "cmd.component": "组件       {0}",
+ "cmd.doctor": "doctor",
+ "cmd.dry_run_nothing_changed": "试运行 - 未做任何更改",
+ "cmd.executable": "可执行文件 {0}",
+ "cmd.nothing_do_every_stage_complete": "无事可做 - 所有阶段都已完成",
+ "cmd.task_root": "任务根     {0}",
+ "cmd.tool_root": "工具根     {0}{1}",
+ "cmd.via_host": "{0}  由宿主执行",
+ "cmd.will_run_stage": "将运行     {0} 个阶段：{1}",
+ "cmd.workspace": "工作区     {0}",
+ "fbx.fbx_local_space_each_part_imports_onto_scene_origin": "fbx       局部空间：每个部件都导入到场景原点",
+ "parse.camera_built_probe_written_vp_eid": "camera       由 probe 构建并写入 {0}（vp 来自 eid {1}）",
+ "parse.camera_kept_existing": "相机       沿用已有的 {0}",
+ "read.read_probe_survey": "read         probe {0}、survey {1}"
+}

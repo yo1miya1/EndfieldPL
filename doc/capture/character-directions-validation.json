@@ -1,0 +1,195 @@
+{
+  "importerChain": "placement inverse-transpose for normal, placement for tangent, then B(-x,z,y); source expected C(-x,y,-z)",
+  "comparisons": [
+    {
+      "sourceEvent": 488,
+      "postVSEvent": 488,
+      "vertexCount": 2450,
+      "normalMeanAbsError": 2.3982238009003658e-05,
+      "normalMaxAbsError": 0.00012210215488844822,
+      "tangentMeanAbsError": 9.92086930395e-09,
+      "tangentMaxAbsError": 2.979365509858667e-08,
+      "tangentWChangedVertices": 0,
+      "sourceNormalLengthRange": [
+        0.9999998807907104,
+        1.0000001192092896
+      ],
+      "sourceTangentLengthRange": [
+        0.9999999403953552,
+        1.0
+      ],
+      "sourceMaximumAbsNdotT": 0.0001214742660522461
+    },
+    {
+      "sourceEvent": 502,
+      "postVSEvent": 1061,
+      "vertexCount": 302,
+      "normalMeanAbsError": 0.6215810581352168,
+      "normalMaxAbsError": 1.294982529793552,
+      "tangentMeanAbsError": 0.31788307604790617,
+      "tangentMaxAbsError": 0.8678591617668024,
+      "tangentWChangedVertices": 107,
+      "sourceNormalLengthRange": [
+        0.9999999403953552,
+        1.0
+      ],
+      "sourceTangentLengthRange": [
+        0.9999998807907104,
+        1.0
+      ],
+      "sourceMaximumAbsNdotT": 1.341104507446289e-07
+    },
+    {
+      "sourceEvent": 520,
+      "postVSEvent": 520,
+      "vertexCount": 785,
+      "normalMeanAbsError": 0.7550545345648294,
+      "normalMaxAbsError": 1.7935805148744965,
+      "tangentMeanAbsError": 0.3032666549145046,
+      "tangentMaxAbsError": 1.3201975953785468,
+      "tangentWChangedVertices": 390,
+      "sourceNormalLengthRange": [
+        0.9999998807907104,
+        1.0000001192092896
+      ],
+      "sourceTangentLengthRange": [
+        0.9999998211860657,
+        1.0000001192092896
+      ],
+      "sourceMaximumAbsNdotT": 0.020296834409236908
+    },
+    {
+      "sourceEvent": 538,
+      "postVSEvent": 538,
+      "vertexCount": 5553,
+      "normalMeanAbsError": 0.6882823311374188,
+      "normalMaxAbsError": 1.990053786477533,
+      "tangentMeanAbsError": 0.2672367205998927,
+      "tangentMaxAbsError": 1.6773925867569246,
+      "tangentWChangedVertices": 2841,
+      "sourceNormalLengthRange": [
+        0.9999998211860657,
+        1.0000001192092896
+      ],
+      "sourceTangentLengthRange": [
+        0.9999998211860657,
+        1.0000001192092896
+      ],
+      "sourceMaximumAbsNdotT": 0.43481385707855225
+    },
+    {
+      "sourceEvent": 553,
+      "postVSEvent": 553,
+      "vertexCount": 594,
+      "normalMeanAbsError": 1.1148758523373333e-08,
+      "normalMaxAbsError": 5.0961106112801247e-08,
+      "tangentMeanAbsError": 1.0937726839206446e-08,
+      "tangentMaxAbsError": 5.9487611059338974e-08,
+      "tangentWChangedVertices": 0,
+      "sourceNormalLengthRange": [
+        0.9999999403953552,
+        1.0
+      ],
+      "sourceTangentLengthRange": [
+        0.9999998807907104,
+        1.0
+      ],
+      "sourceMaximumAbsNdotT": 0.00012741237878799438
+    },
+    {
+      "sourceEvent": 568,
+      "postVSEvent": 568,
+      "vertexCount": 2596,
+      "normalMeanAbsError": 0.5621799144700922,
+      "normalMaxAbsError": 1.9522317541460734,
+      "tangentMeanAbsError": 0.326781055102859,
+      "tangentMaxAbsError": 1.562909647733615,
+      "tangentWChangedVertices": 716,
+      "sourceNormalLengthRange": [
+        0.9999998807907104,
+        1.0
+      ],
+      "sourceTangentLengthRange": [
+        0.9999998211860657,
+        1.0
+      ],
+      "sourceMaximumAbsNdotT": 0.0005892813205718994
+    },
+    {
+      "sourceEvent": 585,
+      "postVSEvent": 585,
+      "vertexCount": 28195,
+      "normalMeanAbsError": 0.6328375078140879,
+      "normalMaxAbsError": 1.9874544698470862,
+      "tangentMeanAbsError": 0.28393154377633295,
+      "tangentMaxAbsError": 1.6114037310836258,
+      "tangentWChangedVertices": 11933,
+      "sourceNormalLengthRange": [
+        0.9999998211860657,
+        1.0000001192092896
+      ],
+      "sourceTangentLengthRange": [
+        0.9999998211860657,
+        1.0000001192092896
+      ],
+      "sourceMaximumAbsNdotT": 0.29773715138435364
+    },
+    {
+      "sourceEvent": 599,
+      "postVSEvent": 599,
+      "vertexCount": 4792,
+      "normalMeanAbsError": 0.6445181861296991,
+      "normalMaxAbsError": 1.9762443486368633,
+      "tangentMeanAbsError": 0.29388102109076886,
+      "tangentMaxAbsError": 1.4997785487974533,
+      "tangentWChangedVertices": 2132,
+      "sourceNormalLengthRange": [
+        0.9999998211860657,
+        1.0000001192092896
+      ],
+      "sourceTangentLengthRange": [
+        0.9999998211860657,
+        1.0000001192092896
+      ],
+      "sourceMaximumAbsNdotT": 0.002604931592941284
+    },
+    {
+      "sourceEvent": 617,
+      "postVSEvent": 617,
+      "vertexCount": 17162,
+      "normalMeanAbsError": 0.6663353424244322,
+      "normalMaxAbsError": 1.9564041861117727,
+      "tangentMeanAbsError": 0.3197921047485048,
+      "tangentMaxAbsError": 1.701670226067547,
+      "tangentWChangedVertices": 7754,
+      "sourceNormalLengthRange": [
+        0.9999998211860657,
+        1.0000001192092896
+      ],
+      "sourceTangentLengthRange": [
+        0.9999998211860657,
+        1.0000001192092896
+      ],
+      "sourceMaximumAbsNdotT": 0.043977439403533936
+    },
+    {
+      "sourceEvent": 655,
+      "postVSEvent": 655,
+      "vertexCount": 509,
+      "normalMeanAbsError": 3.444233988548027e-05,
+      "normalMaxAbsError": 0.00017374764732121586,
+      "tangentMeanAbsError": 7.811701506108138e-05,
+      "tangentMaxAbsError": 0.0006014510115178728,
+      "tangentWChangedVertices": 0,
+      "sourceNormalLengthRange": [
+        0.9999999403953552,
+        1.0000001192092896
+      ],
+      "sourceTangentLengthRange": [
+        0.9999998211860657,
+        1.0
+      ],
+      "sourceMaximumAbsNdotT": 0.0006415024399757385
+    }
+  ]
+}

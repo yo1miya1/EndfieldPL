@@ -1,0 +1,126 @@
+{
+ "schema": 1,
+ "name": "endfield",
+ "label": "终末地",
+ "description": "终末地 (Unity, Y-up): palette base from a per-instance constant-buffer record, camera from four consecutive view-projection rows.  This is the built-in solver the tool itself is fitted against.",
+ "base": "Adapter",
+ "adapter": "endfield",
+ "palette_base": [
+  {
+   "cb": 2,
+   "stride": 16,
+   "index": 5,
+   "component": "x"
+  },
+  {
+   "cb": 2,
+   "stride": 16,
+   "index": 5,
+   "component": "y"
+  }
+ ],
+ "palette_header_offset": 3,
+ "bone_stride_f4": 3,
+ "palette_select": {
+  "cb": 2,
+  "stride": 16,
+  "index": 10,
+  "component": "x",
+  "less_than": 1.0
+ },
+ "skin_flag": {
+  "cb": 2,
+  "stride": 16,
+  "index": 4,
+  "component": "w",
+  "mask": 32,
+  "clear_mask": 4294967247
+ },
+ "model_rows": [
+  0,
+  1,
+  2
+ ],
+ "model_translation": 3,
+ "origin_rebase": {
+  "cb": 0,
+  "index": 44
+ },
+ "view_rows": {
+  "cb": 0,
+  "indices": [
+   4,
+   5,
+   6,
+   7
+  ]
+ },
+ "vp_rows": {
+  "cb": 0,
+  "indices": [
+   32,
+   33,
+   34,
+   35
+  ]
+ },
+ "fx": {
+  "cb": 0,
+  "index": 8,
+  "component": "x"
+ },
+ "fy": {
+  "cb": 0,
+  "index": 9,
+  "component": "y",
+  "negate": true
+ },
+ "near": {
+  "cb": 0,
+  "index": 11,
+  "component": "z"
+ },
+ "reverse_z_infinite": true,
+ "left_handed": false,
+ "up_axis": "y",
+ "scene": {
+  "object_transforms": true,
+  "fit": "keep",
+  "offset": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "matrix": null,
+  "fbx": "local"
+ },
+ "discover": {
+  "header_offsets": [
+   0,
+   3
+  ],
+  "swap_palettes": true,
+  "scan_cbuffer_values": true,
+  "scan_bone_stride": [
+   3,
+   4
+  ],
+  "scan_matrix_runs": true,
+  "max_align_delta": 600
+ },
+ "select": {
+  "min_bone_buffer_bytes": 262144,
+  "require_skin_attributes": true,
+  "group_by": [
+   "depth_target",
+   "viewport"
+  ],
+  "max_parts": 64
+ },
+ "verify": {
+  "min_iou": 0.95,
+  "accept_pose_rms": 0.001,
+  "reference_eid": "last"
+ },
+ "notes": "终末地 (the built-in solver, `endfield`): per-instance palette base + view-projection rows.  This is the profile a run with no solver named falls back to, so it keeps the file name it has always had.  The engine is Unity, so the world is Y-up: `up_axis` turns +Y into Blender's +Z, and `left_handed` is OFF because that turn is already a proper rotation - (x, y, z) -> (x, -z, y) - and adding the Y mirror on top of it would both mirror the model and stand it on its head.  (It used to be `left_handed: true, up_axis: \"z\"`, which left every character lying along Blender's Y with its camera flipped; the silhouette check could not see either, because it renders with the very camera it grades.)  READ THIS BEFORE CHANGING `left_handed`: the setting does NOT mean \"this game is left-handed\" - Unity is, and so is 逆水寒, and both packs say false - it means \"put a Y mirror on top of the up-axis turn\".  A mirror reflects the whole world, so the model comes out inside out AND the camera lands on the wrong side of it, and the picture is left-right reversed: measured on 梨诺-1.rdc, a scene rendered mirrored because a front end sent `--left-handed true` over this pack.  It is the one frame mistake that leaves everything else perfect - the fit still converges to the float floor and the camera stays self-consistent with its own view-projection - so no number catches it and only the picture does.  `parse`, `solve` and `emit-scene` now print the frame they used and warn when a caller's flags disagree with this pack; if a run's log says \"left-handed\", the render is mirrored."
+}

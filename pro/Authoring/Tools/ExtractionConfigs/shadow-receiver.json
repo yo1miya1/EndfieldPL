@@ -1,0 +1,22 @@
+{
+  "output": "{ROOT}/pro/Authoring/Extracted/SI1/ShadowReceiverNative",
+  "graphicsStates": [
+    372,
+    903,
+    914
+  ],
+  "graphicsConstantLayouts": true,
+  "graphicsPrograms": true,
+  "skipCompute": true,
+  "bindings": [
+    372,
+    903,
+    914
+  ],
+  "capture": "{ROOT}/pro/Authoring/Work/SI1.rdc",
+  "graphicsConstants": [
+    372,
+    903,
+    914
+  ]
+}

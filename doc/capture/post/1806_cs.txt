@@ -1,0 +1,34 @@
+Shader hash d8b5a0ca-5b7a1698-650f9594-13588ae2
+
+// Note: shader requires additional functionality:
+//       Typed UAV Load Additional Formats
+//
+cs_5_0
+      dcl_globalFlags refactoringAllowed
+      dcl_constantbuffer cb0[5], immediateIndexed
+      dcl_sampler s0, mode_default
+      dcl_resource_texture2d (float,float,float,float) t0
+      dcl_uav_typed_texture2d (float,float,float,float) u0
+      dcl_input vThreadID.xy
+      dcl_temps 2
+      dcl_thread_group 8, 8, 1
+   0: utof r0.xy, vThreadID.xyxx
+   1: add r0.z, r0.y, l(0.500000)
+   2: mov r1.x, l(0.500000)
+   3: mov r0.yw, l(0, 0, 0, -4)
+   4: loop
+   5:   ilt r1.z, l(4), r0.w
+   6:   breakc_nz r1.z
+   7:   itof r1.y, r0.w
+   8:   add r1.yz, r0.xxzx, r1.xxyx
+   9:   mul r1.yz, r1.yyzy, cb0[4].zzwz
+  10:   sample_l(texture2d)(float,float,float,float) r1.y, r1.yzyy, t0.yxzw, s0, l(0)
+  11:   add r1.y, r0.y, r1.y
+  12:   iadd r1.z, r0.w, l(1)
+  13:   mov r0.yw, r1.yyyz
+  14:   continue
+  15: endloop
+  16: ld_uav_typed(texture2d)(float,float,float,float) r1.xyz, vThreadID.xyyy, u0.xyzw
+  17: mul r1.w, r0.y, l(0.111111)
+  18: store_uav_typed u0.xyzw, vThreadID.xyyy, r1.xyzw
+  19: ret

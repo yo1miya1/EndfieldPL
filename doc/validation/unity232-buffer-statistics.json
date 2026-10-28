@@ -1,0 +1,25 @@
+{
+  "main-shadow": {
+    "values": 4194304,
+    "finiteFraction": 1.0,
+    "minimum": 0.0,
+    "maximum": 0.9999998807907104,
+    "nonzeroFraction": 0.007640838623046875
+  },
+  "motion": {
+    "values": 7372800,
+    "finiteFraction": 1.0,
+    "minimum": -0.0,
+    "maximum": 0.0,
+    "nonzeroFraction": 0.0,
+    "maxAbsMotion": 0.0,
+    "p99AbsMotion": 0.0
+  },
+  "taa-history": {
+    "values": 14745600,
+    "finiteFraction": 1.0,
+    "minimum": 0.0,
+    "maximum": 22.578125,
+    "nonzeroFraction": 0.9997197808159722
+  }
+}

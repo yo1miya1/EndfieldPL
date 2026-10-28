@@ -1,0 +1,71 @@
+Shader hash 46a56475-0b24f750-97dbc028-b0202e70
+
+cs_5_0
+      dcl_globalFlags refactoringAllowed
+      dcl_immediateConstantBuffer {
+			{ 0, 0, 4.000000, 0}, 
+			{ -2.000000, -2.000000, 1.000000, 0}, 
+			{ 2.000000, -2.000000, 1.000000, 0}, 
+			{ 2.000000, 2.000000, 1.000000, 0}, 
+			{ -2.000000, 2.000000, 1.000000, 0}, 
+			{ -2.000000, 0, 2.000000, 0}, 
+			{ 2.000000, 0, 2.000000, 0}, 
+			{ 0, 2.000000, 2.000000, 0}, 
+			{ 0, -2.000000, 2.000000, 0}, 
+			{ -1.000000, 1.000000, 4.000000, 0}, 
+			{ 1.000000, 1.000000, 4.000000, 0}, 
+			{ -1.000000, -1.000000, 4.000000, 0}, 
+			{ -1.000000, 1.000000, 4.000000, 0} }
+      dcl_constantbuffer cb0[28], immediateIndexed
+      dcl_constantbuffer cb1[2], immediateIndexed
+      dcl_sampler s0, mode_default
+      dcl_resource_texture2d (float,float,float,float) t0
+      dcl_uav_typed_texture2d (float,float,float,float) u0
+      dcl_input vThreadID.xy
+      dcl_temps 4
+      dcl_thread_group 8, 8, 1
+   0: utof r0.xy, vThreadID.xyxx
+   1: add r0.xy, r0.xyxx, l(0.500000, 0.500000, 0.000000, 0.000000)
+   2: mov r1.xyz, l(0, 0, 0, 0)
+   3: mov r0.zw, l(0, 0, 0, 0)
+   4: loop
+   5:   ige r1.w, r0.w, l(13)
+   6:   breakc_nz r1.w
+   7:   mul r2.xy, cb0[0].zwzz, icb[r0.w + 0].xyxx
+   8:   mad r2.xy, r0.xyxx, cb1[0].zwzz, r2.xyxx
+   9:   sample_l(texture2d)(float,float,float,float) r2.xyz, r2.xyxx, t0.xyzw, s0, l(0)
+  10:   ult r3.xyz, r2.xyzx, l(0x7f800000, 0x7f800000, 0x7f800000, 0)
+  11:   and r2.xyz, r2.xyzx, r3.xyzx
+  12:   max r1.w, r2.y, r2.x
+  13:   max r1.w, r2.z, r1.w
+  14:   add r3.xy, r1.wwww, -cb1[1].yxyy
+  15:   max r2.w, r3.x, l(0)
+  16:   min r2.w, r2.w, cb1[1].z
+  17:   mul r2.w, r2.w, r2.w
+  18:   mul r2.w, r2.w, cb1[1].w
+  19:   max r2.w, r3.y, r2.w
+  20:   max r1.w, r1.w, l(0.000100)
+  21:   div r1.w, r2.w, r1.w
+  22:   mul r2.xyz, r1.wwww, r2.xyzx
+  23:   mul r2.xyz, r2.xyzx, cb0[27].xxxx
+  24:   dp3 r1.w, r2.xyzx, l(0.212673, 0.715152, 0.072175, 0.000000)
+  25:   add r1.w, r1.w, l(1.000000)
+  26:   div r1.w, l(1.000000, 1.000000, 1.000000, 1.000000), r1.w
+  27:   mad r2.w, icb[r0.w + 0].z, r1.w, r0.z
+  28:   mul r2.xyz, r2.xyzx, icb[r0.w + 0].zzzz
+  29:   mad r2.xyz, r2.xyzx, r1.wwww, r1.xyzx
+  30:   iadd r1.w, r0.w, l(1)
+  31:   mov r1.xyz, r2.xyzx
+  32:   mov r0.z, r2.w
+  33:   mov r0.w, r1.w
+  34:   continue
+  35: endloop
+  36: mov r1.xyzw, r1.xyzx
+  37: ftou r0.xy, cb1[0].xyxx
+  38: div r1.xyzw, r1.xyzw, r0.zzzz
+  39: uge r0.xy, r0.xyxx, vThreadID.xyxx
+  40: and r0.x, r0.y, r0.x
+  41: and r0.x, r0.x, l(1.000000)
+  42: mul r0.xyzw, r0.xxxx, r1.xyzw
+  43: store_uav_typed u0.xyzw, vThreadID.xyyy, r0.xyzw
+  44: ret

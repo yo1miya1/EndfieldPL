@@ -1,0 +1,32 @@
+{
+  "AddressMode": {
+    "ClampBorder": 4,
+    "ClampEdge": 3,
+    "Mirror": 1,
+    "MirrorOnce": 2,
+    "Wrap": 0
+  },
+  "FilterMode": {
+    "Anisotropic": 4,
+    "Cubic": 3,
+    "Linear": 2,
+    "NoFilter": 0,
+    "Point": 1
+  },
+  "CompareFunction": {
+    "AlwaysTrue": 1,
+    "Equal": 6,
+    "Greater": 4,
+    "GreaterEqual": 5,
+    "Less": 2,
+    "LessEqual": 3,
+    "Never": 0,
+    "NotEqual": 7
+  },
+  "CullMode": {
+    "Back": 2,
+    "Front": 1,
+    "FrontAndBack": 3,
+    "NoCull": 0
+  }
+}

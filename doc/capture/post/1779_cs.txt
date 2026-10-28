@@ -1,0 +1,64 @@
+Shader hash d6ba69a0-cee80528-ca1a1834-9f20b133
+
+cs_5_0
+      dcl_globalFlags refactoringAllowed
+      dcl_immediateConstantBuffer {
+			{ -0.002842, 0.052536, 0, 0}, 
+			{ 0.046849, 0.060761, 0, 0}, 
+			{ 0.092281, 0.039693, 0, 0}, 
+			{ 0.117476, 0.011971, 0, 0}, 
+			{ 0.124623, 0, 0, 0}, 
+			{ 0.117476, 0.011971, 0, 0}, 
+			{ 0.092281, 0.039693, 0, 0}, 
+			{ 0.046849, 0.060761, 0, 0}, 
+			{ -0.002842, 0.052536, 0, 0} }
+      dcl_constantbuffer cb0[5], immediateIndexed
+      dcl_sampler s0, mode_default
+      dcl_sampler s1, mode_default
+      dcl_resource_texture2d (float,float,float,float) t0
+      dcl_resource_texture2d (float,float,float,float) t1
+      dcl_resource_texture2d (float,float,float,float) t2
+      dcl_uav_typed_texture2d (float,float,float,float) u0
+      dcl_uav_typed_texture2d (float,float,float,float) u1
+      dcl_uav_typed_texture2d (float,float,float,float) u2
+      dcl_input vThreadID.xy
+      dcl_temps 8
+      dcl_thread_group 8, 8, 1
+   0: utof r0.xy, vThreadID.xyxx
+   1: add r0.xy, r0.xyxx, l(0.500000, 0.500000, 0.000000, 0.000000)
+   2: mul r0.zw, r0.xxxy, cb0[4].zzzw
+   3: sample_l(texture2d)(float,float,float,float) r0.z, r0.zwzz, t1.yzxw, s0, l(0)
+   4: mul r0.z, r0.z, cb0[1].z
+   5: mul r0.z, r0.z, l(0.250000)
+   6: mul r0.z, r0.z, cb0[4].z
+   7: mov r1.y, l(0)
+   8: mov r2.w, l(0)
+   9: mov r3.w, l(0)
+  10: mov r4.xyzw, l(0, 0, 0, 0)
+  11: mov r5.xyzw, l(0, 0, 0, 0)
+  12: mov r0.w, l(0)
+  13: mov r1.z, l(-4)
+  14: loop
+  15:   ilt r6.x, l(4), r1.z
+  16:   breakc_nz r6.x
+  17:   itof r6.x, r1.z
+  18:   mul r1.x, r0.z, r6.x
+  19:   mad r6.xy, r0.xyxx, cb0[4].zwzz, r1.xyxx
+  20:   max r6.xy, r6.xyxx, l(0.000100, 0.000100, 0.000000, 0.000000)
+  21:   min r6.xy, r6.xyxx, l(0.999900, 0.999900, 0.000000, 0.000000)
+  22:   sample_l(texture2d)(float,float,float,float) r7.xyz, r6.xyxx, t2.xyzw, s1, l(0)
+  23:   sample_l(texture2d)(float,float,float,float) r1.x, r6.xyxx, t0.xyzw, s0, l(0)
+  24:   mov_sat r1.x, -r1.x
+  25:   lt r1.x, l(0), r1.x
+  26:   add r6.x, r0.w, l(1.000000)
+  27:   movc r0.w, r1.x, r6.x, r0.w
+  28:   iadd r1.zw, r1.zzzz, l(0, 0, 1, 4)
+  29:   mul r2.xyz, r7.xyzx, icb[r1.w + 0].xxxx
+  30:   add r5.xyzw, r2.xyzw, r5.xyzw
+  31:   mul r3.xyz, r7.xyzx, icb[r1.w + 0].yyyy
+  32:   add r4.xyzw, r3.xyzw, r4.xyzw
+  33: endloop
+  34: store_uav_typed u0.xyzw, vThreadID.xyyy, r5.xyzw
+  35: store_uav_typed u1.xyzw, vThreadID.xyyy, r4.xyzw
+  36: store_uav_typed u2.xyzw, vThreadID.xyyy, r0.wwww
+  37: ret

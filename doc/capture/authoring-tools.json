@@ -1,0 +1,111 @@
+{
+  "sourceCaptureSha256": "e2c40a194bf57fe4827aa631a4a50562c792258a2007819d2c1d3f6745ef3bec",
+  "runtimeDependency": false,
+  "files": [
+    {
+      "path": "pro/Authoring/Tools/prepare_capture_copy.py",
+      "bytes": 1297,
+      "sha256": "a2bb025d5ff4d258677bba30e68b76710cb2e49e2ca944b9140e283f6f2df968"
+    },
+    {
+      "path": "pro/Authoring/Tools/prepare_export_configs.py",
+      "bytes": 621,
+      "sha256": "a9f5195720fbe72bcbfdbb5ca7c7cd90374c228ea74efbb49b57ee463159e7e9"
+    },
+    {
+      "path": "pro/Authoring/Tools/prepare_native_texture_plan.py",
+      "bytes": 2234,
+      "sha256": "e3ee7a9c8191a6e162184ee08aa6c391e60d5357d384ea1ef1195e8f78007f91"
+    },
+    {
+      "path": "pro/Authoring/Tools/export_native_texture_mips.py",
+      "bytes": 2784,
+      "sha256": "cebe5ef6cc6cb78af05097ea1df480a115b13b701c30d09afe9faba4a125ef00"
+    },
+    {
+      "path": "pro/Authoring/Tools/decode_native_texture_mips.py",
+      "bytes": 1768,
+      "sha256": "68ba1173d1b9481cffd1656e0e4b372a11749d9033d099d38c8c7896f56cf7d8"
+    },
+    {
+      "path": "pro/Authoring/Tools/prepare_effect_geometry.py",
+      "bytes": 4839,
+      "sha256": "a0c4e551ccab21424b46de22e29694027040863977fa75253b3a90e1cc0ab905"
+    },
+    {
+      "path": "pro/Authoring/Tools/prepare_ui_geometry.py",
+      "bytes": 10582,
+      "sha256": "0eda295a03d8202de05cb8a17eaa745d6b4770d94215be7e655def5c6e61995a"
+    },
+    {
+      "path": "pro/Authoring/Tools/build_ui_semantic_parameters.py",
+      "bytes": 5748,
+      "sha256": "efd4ae141a2191ff7803ea6a88d718cdcf867b5777d85548a11590cde572d0f6"
+    },
+    {
+      "path": "pro/Authoring/Tools/build_semantic_effect_bindings.py",
+      "bytes": 5689,
+      "sha256": "d93c0cdaa42916f87a031fcf7f6fc8c367c2fc4f5b0e97df578dd0c753790b0c"
+    },
+    {
+      "path": "pro/Authoring/Tools/build_semantic_soft_effect_bindings.py",
+      "bytes": 5128,
+      "sha256": "9e06786f459fa956d349812379614b670689390f3c46072952c850105f58042c"
+    },
+    {
+      "path": "pro/Authoring/Tools/prepare_background.py",
+      "bytes": 3088,
+      "sha256": "ba7b4a0b745adfb440edeafa95ac8d4d261ab410b1e4260ff8351a22a4832455"
+    },
+    {
+      "path": "pro/Authoring/Tools/restore_character_submesh.py",
+      "bytes": 1910,
+      "sha256": "2fd0c63112556b1abd98f6605e8ba551afa5f3558a12c1580ba18ebb128fe264"
+    },
+    {
+      "path": "pro/Authoring/Tools/export_reflection_cube.py",
+      "bytes": 1795,
+      "sha256": "b12b2c125e5a30d63b6cf863aedb427de3a4ebb385d15b4ae7255c7fb6126e5e"
+    },
+    {
+      "path": "pro/Authoring/Tools/decode_reflection_cube.py",
+      "bytes": 1393,
+      "sha256": "dbe03cdecaf5b1fd30a7637cce40bdcdc9ec6afac612dab0288bce145fe30f28"
+    },
+    {
+      "path": "pro/Authoring/Tools/read_exr.py",
+      "bytes": 2542,
+      "sha256": "f22817829569195720f993585d13c2a627e96604b34a0f7e41e52fd8894099ac"
+    },
+    {
+      "path": "pro/Authoring/Tools/export_native.py",
+      "bytes": 29424,
+      "sha256": "0649ad466a615916c9b09cca8d1a08b84748d093bf57ea69025208b194f9c755"
+    },
+    {
+      "path": "pro/Authoring/Tools/prepare_character_directions.py",
+      "bytes": 5228,
+      "sha256": "15520c3221b00dd14b5f9df40893ebd4f44b7a08631b732c0bb2c2f5c04e77ab"
+    },
+    {
+      "path": "pro/Authoring/Tools/prepare_outline_stream.py",
+      "bytes": 2865,
+      "sha256": "6a19b4f70f53774ecda5258c5c70a79593b00814625c426ca2ab1b059f4b4faf"
+    },
+    {
+      "path": "pro/Authoring/Tools/prepare_scene_import.py",
+      "bytes": 8662,
+      "sha256": "60152b217f74004a970e5b827870d0ca54412e77d3348f18762bbf40c3aa7701"
+    },
+    {
+      "path": "pro/Authoring/Tools/verify_body_geometry.py",
+      "bytes": 4555,
+      "sha256": "5ea6da4c78f278e77aeaf7809deca323156652391233d73184fc945c33ec6028"
+    },
+    {
+      "path": "pro/Authoring/Tools/verify_body_shadow_normals.py",
+      "bytes": 4526,
+      "sha256": "be1531f210adfa39fe2ea97f4931cc42c5ce0f62b667ef5a7b5f32814cc22240"
+    }
+  ]
+}

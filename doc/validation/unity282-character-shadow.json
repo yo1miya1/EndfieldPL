@@ -1,0 +1,342 @@
+{
+  "captureIntegrity": {
+    "source": "F:/Project/_Game/EndfieldRebuild/tmp/unity/captures/20261028-152440-599/editor_capture.rdc",
+    "bytes": 351180909,
+    "sha256": "395878ED5689D18BEE496017E9B084CEA64B8916C3D897072852AAB8BCE33C01",
+    "copy": "F:/Project/_Game/EndfieldRebuild/tmp/capture/Unity282.rdc"
+  },
+  "scope": "Only new character shadow chain and UI presence; previous CSM/additional/TAA checks not repeated",
+  "selection": {
+    "stages": {
+      "GBuffer": 236,
+      "Lighting": 399,
+      "Transparent": 664,
+      "UI": 1374,
+      "UI.RenderOverlays": 2571
+    },
+    "bodyGBuffer": 292,
+    "bodyReceiver": 530,
+    "bodyCaster": 191,
+    "casters": [
+      178,
+      184,
+      188,
+      191,
+      195,
+      199,
+      202,
+      205,
+      211
+    ],
+    "actorMapResources": [
+      "28104"
+    ],
+    "uiDrawCount": 97,
+    "uiSourceMeshCount": 95,
+    "uiCompositionCount": 2
+  },
+  "atlas": {
+    "resource": "28104",
+    "width": 2072,
+    "height": 1036,
+    "resourceFormat": "R16_TYPELESS",
+    "depthViewFormat": "D16",
+    "samplingViewFormat": "R16_UNORM",
+    "depthMin": 0,
+    "depthMax": 54990,
+    "nonzeroFraction": 0.08345367913418106
+  },
+  "casters": [
+    {
+      "eventId": 178,
+      "resource": "ResourceId::28104",
+      "depthViewFormat": "D16",
+      "cullMode": 0,
+      "nativeDepthBias": -8,
+      "slopeScaledDepthBias": -0.0,
+      "viewport": [
+        6.0,
+        6.0,
+        1024.0,
+        1024.0
+      ],
+      "vertexShaderSha256": "73cf53c09ca38e51d7f8597dac64c1717ef2fd825b6b3eee1207c9762c28bb8f"
+    },
+    {
+      "eventId": 184,
+      "resource": "ResourceId::28104",
+      "depthViewFormat": "D16",
+      "cullMode": 0,
+      "nativeDepthBias": -8,
+      "slopeScaledDepthBias": -0.0,
+      "viewport": [
+        6.0,
+        6.0,
+        1024.0,
+        1024.0
+      ],
+      "vertexShaderSha256": "73cf53c09ca38e51d7f8597dac64c1717ef2fd825b6b3eee1207c9762c28bb8f"
+    },
+    {
+      "eventId": 188,
+      "resource": "ResourceId::28104",
+      "depthViewFormat": "D16",
+      "cullMode": 0,
+      "nativeDepthBias": -8,
+      "slopeScaledDepthBias": -0.0,
+      "viewport": [
+        6.0,
+        6.0,
+        1024.0,
+        1024.0
+      ],
+      "vertexShaderSha256": "73cf53c09ca38e51d7f8597dac64c1717ef2fd825b6b3eee1207c9762c28bb8f"
+    },
+    {
+      "eventId": 191,
+      "resource": "ResourceId::28104",
+      "depthViewFormat": "D16",
+      "cullMode": 0,
+      "nativeDepthBias": -8,
+      "slopeScaledDepthBias": -0.0,
+      "viewport": [
+        6.0,
+        6.0,
+        1024.0,
+        1024.0
+      ],
+      "vertexShaderSha256": "73cf53c09ca38e51d7f8597dac64c1717ef2fd825b6b3eee1207c9762c28bb8f"
+    },
+    {
+      "eventId": 195,
+      "resource": "ResourceId::28104",
+      "depthViewFormat": "D16",
+      "cullMode": 0,
+      "nativeDepthBias": -8,
+      "slopeScaledDepthBias": -0.0,
+      "viewport": [
+        6.0,
+        6.0,
+        1024.0,
+        1024.0
+      ],
+      "vertexShaderSha256": "73cf53c09ca38e51d7f8597dac64c1717ef2fd825b6b3eee1207c9762c28bb8f"
+    },
+    {
+      "eventId": 199,
+      "resource": "ResourceId::28104",
+      "depthViewFormat": "D16",
+      "cullMode": 0,
+      "nativeDepthBias": -8,
+      "slopeScaledDepthBias": -0.0,
+      "viewport": [
+        6.0,
+        6.0,
+        1024.0,
+        1024.0
+      ],
+      "vertexShaderSha256": "73cf53c09ca38e51d7f8597dac64c1717ef2fd825b6b3eee1207c9762c28bb8f"
+    },
+    {
+      "eventId": 202,
+      "resource": "ResourceId::28104",
+      "depthViewFormat": "D16",
+      "cullMode": 0,
+      "nativeDepthBias": -8,
+      "slopeScaledDepthBias": -0.0,
+      "viewport": [
+        6.0,
+        6.0,
+        1024.0,
+        1024.0
+      ],
+      "vertexShaderSha256": "73cf53c09ca38e51d7f8597dac64c1717ef2fd825b6b3eee1207c9762c28bb8f"
+    },
+    {
+      "eventId": 205,
+      "resource": "ResourceId::28104",
+      "depthViewFormat": "D16",
+      "cullMode": 0,
+      "nativeDepthBias": -8,
+      "slopeScaledDepthBias": -0.0,
+      "viewport": [
+        6.0,
+        6.0,
+        1024.0,
+        1024.0
+      ],
+      "vertexShaderSha256": "73cf53c09ca38e51d7f8597dac64c1717ef2fd825b6b3eee1207c9762c28bb8f"
+    },
+    {
+      "eventId": 211,
+      "resource": "ResourceId::28104",
+      "depthViewFormat": "D16",
+      "cullMode": 0,
+      "nativeDepthBias": -8,
+      "slopeScaledDepthBias": -0.0,
+      "viewport": [
+        6.0,
+        6.0,
+        1024.0,
+        1024.0
+      ],
+      "vertexShaderSha256": "73cf53c09ca38e51d7f8597dac64c1717ef2fd825b6b3eee1207c9762c28bb8f"
+    }
+  ],
+  "casterVertex": {
+    "singleShaderForAll": true,
+    "readsNormal": false,
+    "readsTangent": false,
+    "normalDisplacement": false,
+    "positionPath": "ObjectToWorld -> current shadow VP -> near clip; only POSITION and UV inputs",
+    "shaderSha256": "73cf53c09ca38e51d7f8597dac64c1717ef2fd825b6b3eee1207c9762c28bb8f",
+    "disassembly": "tmp\\capture\\unity282-native\\191-Vertex.asm"
+  },
+  "receiver": {
+    "eventId": 530,
+    "textureSlot": 2,
+    "sameAtlasResource": "ResourceId::28104",
+    "gatherInstructionCount": 16,
+    "gatherTexture": "t2",
+    "params": [
+      1.0,
+      0.0015915996627882123,
+      3.0,
+      6.0
+    ],
+    "filterRadii": [
+      4.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "towardLight": [
+      0.3032359480857849,
+      0.4226182699203491,
+      -0.8540736436843872,
+      0.0
+    ],
+    "atlasSize": [
+      0.0004826254735235125,
+      0.000965250947047025,
+      2072.0,
+      1036.0
+    ],
+    "groupCount": 1,
+    "matrix": [
+      [
+        0.2857564389705658,
+        4.794870722690803e-09,
+        0.10145685076713562,
+        0.2415120005607605
+      ],
+      [
+        -0.056953202933073044,
+        0.36504024267196655,
+        0.16041052341461182,
+        0.147038534283638
+      ],
+      [
+        0.12038065493106842,
+        0.16777388751506805,
+        -0.33905598521232605,
+        0.4262239336967468
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rect": [
+      0.002895752899348736,
+      0.005791505798697472,
+      0.4971042573451996,
+      0.9942085146903992
+    ],
+    "worldTexelFromMatrix": 0.0015915996215749844,
+    "matrixLightDirection": [
+      0.30323589311869464,
+      0.42261827410524405,
+      -0.8540736429119051
+    ],
+    "bodyVertexCount": 5553,
+    "receiverVersusCasterProjectedMaxError": [
+      4.065485498250254e-08,
+      1.8090307252194293e-07,
+      1.1392051069147868e-07
+    ],
+    "coordinateComparison": "Caster SV clip converts to top-down D3D texture UV before guard rectangle; this is a validation conversion, not an extra runtime flip",
+    "characterSamplerIsComparison": false,
+    "characterSampler": {
+      "addressU": 3,
+      "addressV": 3,
+      "addressW": 3,
+      "borderColorType": 1,
+      "borderColorValue": {
+        "floatValue": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "intValue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "uintValue": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "chromaFilter": 0,
+      "compareFunction": 0,
+      "creationTimeConstant": false,
+      "filter": {
+        "filter": 0,
+        "magnify": 1,
+        "minify": 1,
+        "mip": 1
+      },
+      "forceExplicitReconstruction": false,
+      "maxAnisotropy": 0.0,
+      "maxLOD": 3.4028234663852886e+38,
+      "minLOD": -3.4028234663852886e+38,
+      "mipBias": 0.0,
+      "object": "ResourceId::9631",
+      "seamlessCubemaps": true,
+      "srgbBorder": false,
+      "swizzle": {
+        "alpha": 3,
+        "blue": 2,
+        "green": 1,
+        "red": 0
+      },
+      "type": 2,
+      "unnormalized": false,
+      "xChromaOffset": 0,
+      "yChromaOffset": 0,
+      "ycbcrModel": 0,
+      "ycbcrRange": 0,
+      "ycbcrSampler": "ResourceId::0"
+    }
+  },
+  "actorZero": {
+    "materialIndexValue": 0,
+    "materialField": "UnityPerMaterial _CharacterShadowIndex row9.x; actual GBuffer Pixel cb1",
+    "originalInstancePayload": 258,
+    "gbuffer2Payload258Pixels": 617546,
+    "note": "Payload258 alone could be inherited from source; GPU index0 plus count1 and live receiver binding closes actor0 independently"
+  },
+  "ui": {
+    "draws": 97,
+    "sourceMeshes": 95,
+    "composition": 2
+  },
+  "replayClosed": true
+}

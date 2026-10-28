@@ -1,0 +1,210 @@
+{
+  "vertices": 17162,
+  "registerMaxAbsDifferences": {
+    "0": 0.005620062351226807,
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0,
+    "4": 0.0,
+    "5": 0.005620062351226807,
+    "6": 0.005620062351226807,
+    "7": 0.0
+  },
+  "clipDeltaMax": [
+    0.0031612813472747803,
+    0.005620062351226807,
+    2.7567148208618164e-07,
+    0.0
+  ],
+  "ndcDeltaMax": [
+    0.000925624743103981,
+    0.00164031982421875,
+    6.51925802230835e-08
+  ],
+  "indexBindingIdentical": true,
+  "vertexBindingsIdentical": true,
+  "outlineState": {
+    "rasterizer": {
+      "antialiasedLines": false,
+      "conservativeRasterization": 0,
+      "cullMode": 1,
+      "depthBias": 0,
+      "depthBiasClamp": 0.0,
+      "depthClip": true,
+      "fillMode": 0,
+      "forcedSampleCount": 0,
+      "frontCCW": true,
+      "multisampleEnable": false,
+      "resourceId": "ResourceId::1912",
+      "scissorEnable": true,
+      "slopeScaledDepthBias": 0.0
+    },
+    "depth": {
+      "backFace": {
+        "compareMask": 16,
+        "depthFailOperation": 0,
+        "failOperation": 0,
+        "function": 5,
+        "passOperation": 2,
+        "reference": 36,
+        "writeMask": 239
+      },
+      "depthEnable": true,
+      "depthFunction": 5,
+      "depthWrites": true,
+      "frontFace": {
+        "compareMask": 16,
+        "depthFailOperation": 0,
+        "failOperation": 0,
+        "function": 5,
+        "passOperation": 2,
+        "reference": 36,
+        "writeMask": 239
+      },
+      "resourceId": "ResourceId::24442",
+      "stencilEnable": true
+    },
+    "blend": {
+      "alphaToCoverage": false,
+      "blendFactor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "blends": [
+        {
+          "alphaBlend": {
+            "destination": 0,
+            "operation": 0,
+            "source": 1
+          },
+          "colorBlend": {
+            "destination": 0,
+            "operation": 0,
+            "source": 1
+          },
+          "enabled": false,
+          "logicOperation": 0,
+          "logicOperationEnabled": false,
+          "writeMask": 15
+        },
+        {
+          "alphaBlend": {
+            "destination": 0,
+            "operation": 0,
+            "source": 1
+          },
+          "colorBlend": {
+            "destination": 0,
+            "operation": 0,
+            "source": 1
+          },
+          "enabled": false,
+          "logicOperation": 0,
+          "logicOperationEnabled": false,
+          "writeMask": 15
+        },
+        {
+          "alphaBlend": {
+            "destination": 0,
+            "operation": 0,
+            "source": 1
+          },
+          "colorBlend": {
+            "destination": 0,
+            "operation": 0,
+            "source": 1
+          },
+          "enabled": false,
+          "logicOperation": 0,
+          "logicOperationEnabled": false,
+          "writeMask": 15
+        },
+        {
+          "alphaBlend": {
+            "destination": 0,
+            "operation": 0,
+            "source": 1
+          },
+          "colorBlend": {
+            "destination": 0,
+            "operation": 0,
+            "source": 1
+          },
+          "enabled": false,
+          "logicOperation": 0,
+          "logicOperationEnabled": false,
+          "writeMask": 15
+        },
+        {
+          "alphaBlend": {
+            "destination": 0,
+            "operation": 0,
+            "source": 1
+          },
+          "colorBlend": {
+            "destination": 0,
+            "operation": 0,
+            "source": 1
+          },
+          "enabled": false,
+          "logicOperation": 0,
+          "logicOperationEnabled": false,
+          "writeMask": 15
+        },
+        {
+          "alphaBlend": {
+            "destination": 0,
+            "operation": 0,
+            "source": 1
+          },
+          "colorBlend": {
+            "destination": 0,
+            "operation": 0,
+            "source": 1
+          },
+          "enabled": false,
+          "logicOperation": 0,
+          "logicOperationEnabled": false,
+          "writeMask": 15
+        },
+        {
+          "alphaBlend": {
+            "destination": 0,
+            "operation": 0,
+            "source": 1
+          },
+          "colorBlend": {
+            "destination": 0,
+            "operation": 0,
+            "source": 1
+          },
+          "enabled": false,
+          "logicOperation": 0,
+          "logicOperationEnabled": false,
+          "writeMask": 15
+        },
+        {
+          "alphaBlend": {
+            "destination": 0,
+            "operation": 0,
+            "source": 1
+          },
+          "colorBlend": {
+            "destination": 0,
+            "operation": 0,
+            "source": 1
+          },
+          "enabled": false,
+          "logicOperation": 0,
+          "logicOperationEnabled": false,
+          "writeMask": 15
+        }
+      ],
+      "independentBlend": true,
+      "resourceId": "ResourceId::671",
+      "sampleMask": 4294967295
+    }
+  }
+}

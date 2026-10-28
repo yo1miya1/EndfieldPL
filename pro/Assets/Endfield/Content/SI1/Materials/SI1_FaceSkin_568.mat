@@ -1,0 +1,268 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SI1_FaceSkin_568
+  m_Shader: {fileID: 4800000, guid: 123ae4c8f992b5543a8613d3c1f03bcb, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - EF_FACE
+  - EF_NORMAL_MAP
+  - EF_SOURCE_CHARACTER
+  - EF_SOURCE_COLOR_LUT
+  - EF_SOURCE_SKIN
+  - EF_SOURCE_VIEW_TINT
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2000
+  stringTagMap: {}
+  disabledShaderPasses:
+  - EndfieldEffect
+  - EndfieldForward
+  - EndfieldOutline
+  - EndfieldSurfaceOutline
+  - EndfieldOutlineColor
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlbedoResponseLut:
+        m_Texture: {fileID: 2800000, guid: 54fafc2d4e208d5428d773b8b7d963b7, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AlphaMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: 7a6eaca91d110d640bdc3a3716e05252, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ClothCoatMaskMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ClothCoatReflectanceMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CoverageMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EnvironmentMaskMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EyeReflectionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _HairMaskMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _HairNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _HairOcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _HairSpecularRamp:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LightingRamp:
+        m_Texture: {fileID: 2800000, guid: fbd9550cbabefb644aa5f1207787f08c, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 47fd3af8d8e0c01468f8b2b57949e05c, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxGlowMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SkinLightingSdf:
+        m_Texture: {fileID: 2800000, guid: d16a91d4d5d273f40b0400247cebe0d5, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SkinRegionMap:
+        m_Texture: {fileID: 2800000, guid: 110cfc6b2ee03de4fb51dd8311f6646e, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SkinSpecularMap:
+        m_Texture: {fileID: 2800000, guid: 25373a8bd96df65409d5661d91a3ea53, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SourceMaskMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SourceOutlineCoverageMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SourceOutlineWidthMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaClip: 0
+    - _BackFaceNormal: 0
+    - _Cloth: 0
+    - _ClothCoatMetallic: 0
+    - _ClothCoatNormalBlend: 1
+    - _ClothCoatSmoothness: 0
+    - _ClothTangentMode: 0
+    - _Cull: 2
+    - _Cutoff: 0.5
+    - _DstBlend: 0
+    - _EffectAlphaIntensity: 1
+    - _EffectAlphaMode: 0
+    - _EffectBloomBoost: 0
+    - _EffectBloomThreshold: 1
+    - _EffectColorIntensity: 1
+    - _EffectColorResponseWeight: 0
+    - _EffectDepthFadeEnabled: 0
+    - _EffectDissolveEnabled: 0
+    - _EffectDissolveHeight: 0
+    - _EffectDissolveMask: 0
+    - _EffectDissolveStrength: 0
+    - _EffectIgnoreVertexColor: 0
+    - _EffectInstanceOpacity: 1
+    - _EffectInvisibleWeight: 0
+    - _EffectMipBias: 0
+    - _EffectMonochromeWeight: 0
+    - _EffectOpacity: 1
+    - _EffectPreExposureWeight: 0
+    - _EnvironmentAlbedoUVWeight: 0
+    - _EnvironmentBaseBlend: 0
+    - _EnvironmentBaseGain: 1
+    - _EnvironmentLightingWeight: 0
+    - _EnvironmentMaterialTag: 0
+    - _EnvironmentMaterialUVWeight: 0
+    - _EnvironmentMetallicOverride: 0
+    - _EnvironmentMetallicOverrideWeight: 0
+    - _EnvironmentMotionDisabled: 0
+    - _EnvironmentNormalMipBias: 0
+    - _EnvironmentReflectionMask: 0
+    - _EnvironmentSpecularBias: 0
+    - _EnvironmentSpecularMetallicWeight: 0
+    - _EnvironmentSpecularRoughnessWeight: 0
+    - _Eye: 0
+    - _EyeCurvature: 0
+    - _EyeParallax: 0
+    - _EyeReflectionStrength: 1
+    - _Face: 1
+    - _Hair: 0
+    - _HairDetailNormalScale: 1
+    - _HairFlowDirection: 0
+    - _HairPrimaryStrength: 1
+    - _HairSecondarySmoothness: 0.5
+    - _HairViewAlignmentPower: 1
+    - _Metallic: 0
+    - _NormalScale: 1
+    - _NprWeight: 0
+    - _Occlusion: 1
+    - _Opacity: 1
+    - _OutlineStencilComparison: 8
+    - _OutlineStencilReference: 0
+    - _OutlineWidth: 0
+    - _Roughness: 0.742
+    - _SkinSdfBias: 0
+    - _SourceAmbientResponse: 0.28772247
+    - _SourceAnisotropic: 0
+    - _SourceCharacter: 1
+    - _SourceColorLut: 1
+    - _SourceCoverage: 0
+    - _SourceDiffuseStrength: 1.1
+    - _SourceDirectColorWeight: 1
+    - _SourceEffect: 0
+    - _SourceEnvironment: 0
+    - _SourceEnvironmentReflection: 0
+    - _SourceEnvironmentStrength: 1
+    - _SourceGBufferTag: 0.4
+    - _SourceIndirectAlbedoGain: 1
+    - _SourceIndirectSaturation: 1
+    - _SourceIndirectStrength: 0.5
+    - _SourceMipBias: -1.7655349
+    - _SourceOutlineCutoff: 0.5
+    - _SourceOutlineDepth: 0
+    - _SourceOutlineSmoothNormal: 0
+    - _SourceOutlineWidth: 0
+    - _SourcePackedMask: 0
+    - _SourceParallaxGlow: 0
+    - _SourceRampBias: -0.099999994
+    - _SourceScreenOutline: 0
+    - _SourceShadowStrength: 1
+    - _SourceSkin: 1
+    - _SourceSpecularStrength: 1
+    - _SourceStochasticShadow: 0
+    - _SourceViewTint: 1
+    - _Specular: 0.454
+    - _SrcBlend: 1
+    - _UseMaskMap: 0
+    - _UseNormalMap: 1
+    - _ViewTintStrength: 0.3
+    - _ZWrite: 1
+    m_Colors:
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ClothAnisotropy: {r: 0, g: 0, b: 0, a: 1}
+    - _ClothCoatColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ClothSecondLobeColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EffectColor: {r: 1, g: 1, b: 1, a: 1}
+    - _EffectColorResponse: {r: 1, g: 1, b: 1, a: 1}
+    - _EffectDepthRanges: {r: 0.001, g: 10, b: 120, a: 100}
+    - _EffectDissolveColor: {r: 0, g: 0, b: 0, a: 0}
+    - _EffectDissolveProfile: {r: 1, g: 0, b: 0, a: 0}
+    - _EffectVertexColor: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EnvironmentBaseUV_ST: {r: 1, g: 1, b: 0, a: 0}
+    - _EnvironmentMaterialUV_ST: {r: 1, g: 1, b: 0, a: 0}
+    - _EnvironmentRoughnessRange: {r: 0, g: 1, b: 0, a: 0}
+    - _EyeIrisTint: {r: 1, g: 1, b: 1, a: 1}
+    - _EyeReflectionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _EyeScleraTint: {r: 1, g: 1, b: 1, a: 1}
+    - _HairForwardOS: {r: 0, g: 0, b: 1, a: 0}
+    - _HairOcclusionLobe: {r: 0, g: 0.5, b: 1, a: 0}
+    - _HairOcclusionResponse: {r: 1, g: 1, b: 0, a: 0}
+    - _HairPrimarySecondaryShift: {r: 0.5, g: 0.5, b: 0, a: 0}
+    - _HairRightOS: {r: 1, g: 0, b: 0, a: 0}
+    - _HairSecondaryColor: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0.035, g: 0.025, b: 0.03, a: 1}
+    - _ParallaxGlowColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ParallaxGlowParams: {r: 1, g: 0, b: 0, a: 0}
+    - _SkinForwardOS: {r: -0, g: -0.00000039947417, b: -1, a: 0}
+    - _SkinHemisphereOriginOS: {r: -0.0004903121, g: 0.0003420987, b: -0.00002057457, a: 0}
+    - _SkinRightOS: {r: -1, g: 0, b: -0, a: 0}
+    - _SkinSpecularParallax: {r: 0.03, g: 0, b: 0, a: 0}
+    - _SkinViewTintStrength: {r: 0.3, g: 0.7, b: 0, a: 0}
+    - _SourceAmbientTint: {r: 1.1966939, g: 0.9190587, b: 0.82246697, a: 1}
+    - _SourceEnvironmentRotation: {r: 0, g: 1, b: 0, a: 0}
+    - _SourceHemisphereDirection: {r: -0, g: 1, b: -0.00000004371139, a: 0}
+    - _SourceHemisphereParams: {r: 0.15, g: 1.5, b: 0.5, a: 0}
+    - _SourceInstancePayload: {r: 0.2521994, g: 0, b: 0, a: 0}
+    - _ViewTintColor: {r: 0.8196079, g: 0.64705884, b: 0.5803921, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

@@ -1,0 +1,760 @@
+{
+  "DepthClippedLayeredSprite": [
+    {
+      "sourceSlot": 0,
+      "sourceRow": 48,
+      "property": "_DepthLinearization",
+      "usedComponents": "zw",
+      "meaning": "zw源倒数深度线性化",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 5,
+      "property": "_TextureSampleAdd",
+      "usedComponents": "xyzw",
+      "meaning": "采样RGBA相加项",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 12,
+      "property": "_TextureAlphaOverride",
+      "usedComponents": "x",
+      "meaning": "x非零时忽略图集alpha",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 13,
+      "property": "_PatternUVTransform",
+      "usedComponents": "xyzw",
+      "meaning": "xy缩放zw偏移，进入源固定200倍纹样坐标",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 14,
+      "property": "_PatternControl",
+      "usedComponents": "xyz",
+      "meaning": "x纹样反差，y乘法亮度，z启用",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 15,
+      "property": "_GridColor",
+      "usedComponents": "xyzw",
+      "meaning": "RGB网格色，a混合强度",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 16,
+      "property": "_GridControl",
+      "usedComponents": "xyz",
+      "meaning": "x开关，y重复频率，z单元阈值",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 18,
+      "property": "_LayerFeatures",
+      "usedComponents": "xyzw",
+      "meaning": "x备用颜色层，y屏幕抖动，z/w抖动响应",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 19,
+      "property": "_LayerScreenAndDepth",
+      "usedComponents": "xyzw",
+      "meaning": "xy源整数位模式尺寸，z预乘模式，w深度插值",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 20,
+      "property": "_DepthOffsetControl",
+      "usedComponents": "xyz",
+      "meaning": "x插值参考深度，yz裁剪深度偏移因子",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    }
+  ],
+  "DepthClippedDistanceFieldText": [
+    {
+      "sourceSlot": 0,
+      "sourceRow": 0,
+      "property": "_WaveTimeControl",
+      "usedComponents": "y",
+      "meaning": "波形时间输入，仅使用源y分量，时间单位未恢复",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 2,
+      "property": "_WaveEnabled",
+      "usedComponents": "x",
+      "meaning": "x启用字形波动",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 4,
+      "property": "_DirectionalFade",
+      "usedComponents": "w",
+      "meaning": "w控制方向性透明渐变",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 5,
+      "property": "_WaveParameters",
+      "usedComponents": "xyzw",
+      "meaning": "xyzw为振幅、频率、相位速度、幂次",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 6,
+      "property": "_GlyphSamplingAndSoftness",
+      "usedComponents": "xyzw",
+      "meaning": "x多点采样开关，y面平滑，z采样半径，w边缘平滑",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 0,
+      "property": "_FaceUVScroll",
+      "usedComponents": "xy",
+      "meaning": "xy为面纹理UV的相位偏移系数",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 1,
+      "property": "_FaceColor",
+      "usedComponents": "xyzw",
+      "meaning": "字形面RGBA，源公式与顶点色及面纹理相乘",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 2,
+      "property": "_OutlineSoftnessAndUVScroll",
+      "usedComponents": "yzw",
+      "meaning": "y轮廓柔度，zw轮廓纹理UV的相位偏移系数",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 3,
+      "property": "_OutlineColor",
+      "usedComponents": "xyzw",
+      "meaning": "字形轮廓RGBA",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 4,
+      "property": "_OutlineWidth",
+      "usedComponents": "x",
+      "meaning": "x轮廓宽度，乘梯度尺度及顶点SDF尺度",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 20,
+      "property": "_DistanceFieldScale",
+      "usedComponents": "w",
+      "meaning": "w为距离场梯度尺度",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 24,
+      "property": "_FontAtlasDimensions",
+      "usedComponents": "zw",
+      "meaning": "zw为字体图集宽高",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 25,
+      "property": "_GlyphPadding",
+      "usedComponents": "x",
+      "meaning": "x用于约束波动UV偏移",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 3,
+      "sourceRow": 45,
+      "property": "_AnimationPhase",
+      "usedComponents": "y",
+      "meaning": "y作为面/轮廓纹理滚动相位，未假定真实时间单位",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 3,
+      "sourceRow": 47,
+      "property": "_ReferenceViewport",
+      "usedComponents": "xy",
+      "meaning": "xy为源UI参考视口宽高",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 3,
+      "sourceRow": 48,
+      "property": "_DepthLinearization",
+      "usedComponents": "zw",
+      "meaning": "zw把采样深度转换为倒数线性深度",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    }
+  ],
+  "ScreenMaskedSprite": [
+    {
+      "sourceSlot": 0,
+      "sourceRow": 5,
+      "property": "_TextureSampleAdd",
+      "usedComponents": "xyzw",
+      "meaning": "采样RGBA相加项",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 0,
+      "sourceRow": 6,
+      "property": "_ClipRect",
+      "usedComponents": "xyzw",
+      "meaning": "xy最小边界，zw最大边界",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 0,
+      "sourceRow": 7,
+      "property": "_ClipFadeWidths",
+      "usedComponents": "xyzw",
+      "meaning": "四边平滑宽度",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 12,
+      "property": "_TextureAlphaOverride",
+      "usedComponents": "x",
+      "meaning": "x非零时忽略图集alpha",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 13,
+      "property": "_PatternUVTransform",
+      "usedComponents": "xyzw",
+      "meaning": "xy缩放zw偏移，进入源固定200倍纹样坐标",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 14,
+      "property": "_PatternControl",
+      "usedComponents": "xyz",
+      "meaning": "x纹样反差，y乘法亮度，z启用",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 15,
+      "property": "_GridColor",
+      "usedComponents": "xyzw",
+      "meaning": "RGB网格色，a混合强度",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 16,
+      "property": "_GridControl",
+      "usedComponents": "xyz",
+      "meaning": "x开关，y重复频率，z单元阈值",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 18,
+      "property": "_LayerFeatures",
+      "usedComponents": "xyzw",
+      "meaning": "x备用颜色层，y屏幕抖动，z/w抖动响应",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 19,
+      "property": "_LayerScreenAndDepth",
+      "usedComponents": "xyz",
+      "meaning": "xy源整数位模式尺寸，z预乘模式，w深度插值",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    }
+  ],
+  "ScreenDistanceFieldText": [
+    {
+      "sourceSlot": 0,
+      "sourceRow": 0,
+      "property": "_WaveTimeControl",
+      "usedComponents": "y",
+      "meaning": "波形时间输入，仅使用源y分量，时间单位未恢复",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 2,
+      "property": "_WaveEnabled",
+      "usedComponents": "x",
+      "meaning": "x启用字形波动",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 4,
+      "property": "_DirectionalFade",
+      "usedComponents": "w",
+      "meaning": "w控制方向性透明渐变",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 5,
+      "property": "_WaveParameters",
+      "usedComponents": "xyzw",
+      "meaning": "xyzw为振幅、频率、相位速度、幂次",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 6,
+      "property": "_GlyphSamplingAndSoftness",
+      "usedComponents": "xyzw",
+      "meaning": "x多点采样开关，y面平滑，z采样半径，w边缘平滑",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 0,
+      "property": "_FaceUVScroll",
+      "usedComponents": "xy",
+      "meaning": "xy为面纹理UV的相位偏移系数",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 1,
+      "property": "_FaceColor",
+      "usedComponents": "xyzw",
+      "meaning": "字形面RGBA，源公式与顶点色及面纹理相乘",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 2,
+      "property": "_OutlineSoftnessAndUVScroll",
+      "usedComponents": "yzw",
+      "meaning": "y轮廓柔度，zw轮廓纹理UV的相位偏移系数",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 3,
+      "property": "_OutlineColor",
+      "usedComponents": "xyzw",
+      "meaning": "字形轮廓RGBA",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 4,
+      "property": "_OutlineWidth",
+      "usedComponents": "x",
+      "meaning": "x轮廓宽度，乘梯度尺度及顶点SDF尺度",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 20,
+      "property": "_DistanceFieldScale",
+      "usedComponents": "w",
+      "meaning": "w为距离场梯度尺度",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 24,
+      "property": "_FontAtlasDimensions",
+      "usedComponents": "zw",
+      "meaning": "zw为字体图集宽高",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 25,
+      "property": "_GlyphPadding",
+      "usedComponents": "x",
+      "meaning": "x用于约束波动UV偏移",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 3,
+      "sourceRow": 45,
+      "property": "_AnimationPhase",
+      "usedComponents": "y",
+      "meaning": "y作为面/轮廓纹理滚动相位，未假定真实时间单位",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 3,
+      "sourceRow": 47,
+      "property": "_ReferenceViewport",
+      "usedComponents": "xy",
+      "meaning": "xy为源UI参考视口宽高",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    }
+  ],
+  "ScreenOutlineText": [
+    {
+      "sourceSlot": 0,
+      "sourceRow": 0,
+      "property": "_WaveTimeControl",
+      "usedComponents": "y",
+      "meaning": "波形时间输入，仅使用源y分量，时间单位未恢复",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 2,
+      "property": "_WaveEnabled",
+      "usedComponents": "x",
+      "meaning": "x启用字形波动",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 4,
+      "property": "_DirectionalFade",
+      "usedComponents": "w",
+      "meaning": "w控制方向性透明渐变",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 5,
+      "property": "_WaveParameters",
+      "usedComponents": "xyzw",
+      "meaning": "xyzw为振幅、频率、相位速度、幂次",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 6,
+      "property": "_GlyphSamplingAndSoftness",
+      "usedComponents": "xyzw",
+      "meaning": "x多点采样开关，y面平滑，z采样半径，w边缘平滑",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 0,
+      "property": "_FaceUVScroll",
+      "usedComponents": "xy",
+      "meaning": "xy为面纹理UV的相位偏移系数",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 1,
+      "property": "_FaceColor",
+      "usedComponents": "xyzw",
+      "meaning": "字形面RGBA，源公式与顶点色及面纹理相乘",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 2,
+      "property": "_OutlineSoftnessAndUVScroll",
+      "usedComponents": "yzw",
+      "meaning": "y轮廓柔度，zw轮廓纹理UV的相位偏移系数",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 3,
+      "property": "_OutlineColor",
+      "usedComponents": "xyzw",
+      "meaning": "字形轮廓RGBA",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 4,
+      "property": "_OutlineWidth",
+      "usedComponents": "x",
+      "meaning": "x轮廓宽度，乘梯度尺度及顶点SDF尺度",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 20,
+      "property": "_DistanceFieldScale",
+      "usedComponents": "w",
+      "meaning": "w为距离场梯度尺度",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 24,
+      "property": "_FontAtlasDimensions",
+      "usedComponents": "zw",
+      "meaning": "zw为字体图集宽高",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 25,
+      "property": "_GlyphPadding",
+      "usedComponents": "x",
+      "meaning": "x用于约束波动UV偏移",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 3,
+      "sourceRow": 45,
+      "property": "_AnimationPhase",
+      "usedComponents": "y",
+      "meaning": "y作为面/轮廓纹理滚动相位，未假定真实时间单位",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 3,
+      "sourceRow": 47,
+      "property": "_ReferenceViewport",
+      "usedComponents": "xy",
+      "meaning": "xy为源UI参考视口宽高",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 4,
+      "sourceRow": 6,
+      "property": "_ClipRect",
+      "usedComponents": "xyzw",
+      "meaning": "xy最小边界，zw最大边界",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 4,
+      "sourceRow": 7,
+      "property": "_ClipFadeWidths",
+      "usedComponents": "xyzw",
+      "meaning": "x/y/z/w分别参与矩形四边smoothstep过渡",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    }
+  ],
+  "ScreenDecoratedText": [
+    {
+      "sourceSlot": 0,
+      "sourceRow": 0,
+      "property": "_WaveTimeControl",
+      "usedComponents": "y",
+      "meaning": "波形时间输入，仅使用源y分量，时间单位未恢复",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 2,
+      "property": "_WaveEnabled",
+      "usedComponents": "x",
+      "meaning": "x启用字形波动",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 4,
+      "property": "_DirectionalFade",
+      "usedComponents": "w",
+      "meaning": "w控制方向性透明渐变",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 5,
+      "property": "_WaveParameters",
+      "usedComponents": "xyzw",
+      "meaning": "xyzw为振幅、频率、相位速度、幂次",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 6,
+      "property": "_GlyphSamplingAndSoftness",
+      "usedComponents": "xyzw",
+      "meaning": "x多点采样开关，y面平滑，z采样半径，w边缘平滑",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 0,
+      "property": "_FaceUVScroll",
+      "usedComponents": "xy",
+      "meaning": "xy为面纹理UV的相位偏移系数",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 1,
+      "property": "_FaceColor",
+      "usedComponents": "xyzw",
+      "meaning": "字形面RGBA，源公式与顶点色及面纹理相乘",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 2,
+      "property": "_OutlineSoftnessAndUVScroll",
+      "usedComponents": "yzw",
+      "meaning": "y轮廓柔度，zw轮廓纹理UV的相位偏移系数",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 3,
+      "property": "_OutlineColor",
+      "usedComponents": "xyzw",
+      "meaning": "字形轮廓RGBA",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 4,
+      "property": "_OutlineWidth",
+      "usedComponents": "x",
+      "meaning": "x轮廓宽度，乘梯度尺度及顶点SDF尺度",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 20,
+      "property": "_DistanceFieldScale",
+      "usedComponents": "w",
+      "meaning": "w为距离场梯度尺度",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 24,
+      "property": "_FontAtlasDimensions",
+      "usedComponents": "zw",
+      "meaning": "zw为字体图集宽高",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 2,
+      "sourceRow": 25,
+      "property": "_GlyphPadding",
+      "usedComponents": "x",
+      "meaning": "x用于约束波动UV偏移",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 3,
+      "sourceRow": 45,
+      "property": "_AnimationPhase",
+      "usedComponents": "y",
+      "meaning": "y作为面/轮廓纹理滚动相位，未假定真实时间单位",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 3,
+      "sourceRow": 47,
+      "property": "_ReferenceViewport",
+      "usedComponents": "xy",
+      "meaning": "xy为源UI参考视口宽高",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 4,
+      "sourceRow": 6,
+      "property": "_ClipRect",
+      "usedComponents": "xyzw",
+      "meaning": "xy最小边界，zw最大边界",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 4,
+      "sourceRow": 7,
+      "property": "_ClipFadeWidths",
+      "usedComponents": "xyzw",
+      "meaning": "x/y/z/w分别参与矩形四边smoothstep过渡",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    }
+  ],
+  "ScreenLayeredSprite": [
+    {
+      "sourceSlot": 0,
+      "sourceRow": 5,
+      "property": "_TextureSampleAdd",
+      "usedComponents": "xyzw",
+      "meaning": "采样RGBA相加项",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 12,
+      "property": "_TextureAlphaOverride",
+      "usedComponents": "x",
+      "meaning": "x非零时忽略图集alpha",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 13,
+      "property": "_PatternUVTransform",
+      "usedComponents": "xyzw",
+      "meaning": "xy缩放zw偏移，进入源固定200倍纹样坐标",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 14,
+      "property": "_PatternControl",
+      "usedComponents": "xyz",
+      "meaning": "x纹样反差，y乘法亮度，z启用",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 15,
+      "property": "_GridColor",
+      "usedComponents": "xyzw",
+      "meaning": "RGB网格色，a混合强度",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 16,
+      "property": "_GridControl",
+      "usedComponents": "xyz",
+      "meaning": "x开关，y重复频率，z单元阈值",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 18,
+      "property": "_LayerFeatures",
+      "usedComponents": "xyzw",
+      "meaning": "x备用颜色层，y屏幕抖动，z/w抖动响应",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    },
+    {
+      "sourceSlot": 1,
+      "sourceRow": 19,
+      "property": "_LayerScreenAndDepth",
+      "usedComponents": "xyz",
+      "meaning": "xy源整数位模式尺寸，z预乘模式，w深度插值",
+      "confidence": "direct-instruction-use; physical/editor names inferred"
+    }
+  ]
+}

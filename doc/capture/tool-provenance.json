@@ -1,0 +1,14 @@
+{
+  "sourceTool": "F:\\Project\\rdc2blend\\release\\UI",
+  "localCopy": "tool/rdc2dcc",
+  "externalToolModified": false,
+  "localModifications": [
+    {
+      "path": "env/rdc_driver.py",
+      "purpose": "Persist full PostVS packed output for draw 553 recovery, preserving position/UV/world-normal/tangent instead of VS-out position-only OBJ."
+    }
+  ],
+  "pipelineCommand": "run --capture tmp/capture/SI1.rdc --workspace tmp/capture/dcc --task SI1 --component endfield --solver endfield --origin character --json",
+  "originalDriverSha256": "d6792318ffa7c9770259cc39c9fc801aa0f507fe4d761963b4fc24474d63816f",
+  "localDriverSha256": "0a360a75f837ffa2d8c7bf9837c42e4bf787199b482f0fa8f1e3ebb2d4f03ffe"
+}

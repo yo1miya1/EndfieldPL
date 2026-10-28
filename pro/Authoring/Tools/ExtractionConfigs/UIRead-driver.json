@@ -1,0 +1,18 @@
+{
+  "stage": "all",
+  "capture": "{ROOT}/pro/Authoring/Work/SI1.rdc",
+  "work": "{ROOT}/pro/Authoring/Extracted/SI1/UIRead",
+  "package_root": "{ROOT}/tool/rdc2dcc/env",
+  "package_name": "rdc2blend_env",
+  "profile": "{ROOT}/tool/rdc2dcc/component/endfield/solver.json",
+  "eids": null,
+  "eid_min": 2148,
+  "eid_max": 3389,
+  "pad": 1024,
+  "max_draws": 8000,
+  "min_bone_bytes": 262144,
+  "mesh": true,
+  "textures": false,
+  "depth": true,
+  "matex": true
+}

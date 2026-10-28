@@ -1,0 +1,388 @@
+{
+  "label": "259",
+  "status": "intermediate evidence; not final acceptance",
+  "source": {
+    "path": "F:\\Project\\_Game\\EndfieldRebuild\\doc\\capture\\reference\\final-with-ui.png",
+    "size": [
+      2560,
+      1440
+    ],
+    "sha256": "f21609e29fdc95ea1625b6006091017e6da93f16bb27c02fdbe3554480d18080",
+    "alpha": {
+      "mean": 37.54483832465278,
+      "median": 15.0,
+      "minimum": 0,
+      "maximum": 255,
+      "opaqueFraction": 0.007146538628472222,
+      "belowHalfFraction": 0.8943674045138889
+    }
+  },
+  "unity": {
+    "path": "tmp\\unity\\captures\\20261028-141603-272\\editor-camera.png",
+    "size": [
+      2560,
+      1440
+    ],
+    "sha256": "d0678e832fbf313fee50965fe9ec0eefd4534cc914876ebc10c1d53d5f067c7d",
+    "alpha": {
+      "mean": 255.0,
+      "median": 255.0,
+      "minimum": 255,
+      "maximum": 255,
+      "opaqueFraction": 1.0,
+      "belowHalfFraction": 0.0
+    }
+  },
+  "comparisonSize": [
+    2560,
+    1440
+  ],
+  "sampling": "Source RGB resized once with Lanczos. Unity RGB retained at native size. No alignment/warping/color transform/alpha composition.",
+  "valueUnits": "8-bit display RGB code values, not scene-linear irradiance",
+  "fullFrame": {
+    "sourceMeanRGB": [
+      150.38849745008682,
+      150.6187939453125,
+      148.49001790364582
+    ],
+    "unityMeanRGB": [
+      151.63050265842014,
+      151.5460685221354,
+      150.79184868706596
+    ],
+    "unityMinusSourceMeanRGB": [
+      1.2420052083333333,
+      0.9272745768229167,
+      2.301830783420139
+    ],
+    "maeRGB": [
+      5.07060546875,
+      5.094966091579861,
+      6.426662055121528
+    ],
+    "mae": 5.5307445384837965,
+    "rmse": 12.519881259732957,
+    "p90": 9.0,
+    "within8Fraction": 0.8948458297164352
+  },
+  "regions": {
+    "background_top": {
+      "sourceReferenceBox": [
+        640,
+        25,
+        1070,
+        180
+      ],
+      "comparisonBox": [
+        640,
+        25,
+        1070,
+        180
+      ],
+      "sourceMeanRGB": [
+        144.00082520630158,
+        143.85732933233308,
+        142.63027756939235
+      ],
+      "unityMeanRGB": [
+        145.552048012003,
+        145.41732933233308,
+        145.50136534133534
+      ],
+      "unityMinusSourceMeanRGB": [
+        1.5512228057014255,
+        1.56,
+        2.8710877719429857
+      ],
+      "maeRGB": [
+        1.5512228057014255,
+        1.56,
+        2.8710877719429857
+      ],
+      "mae": 1.9941035258814703,
+      "rmse": 2.233233492709224,
+      "p90": 3.0,
+      "within8Fraction": 1.0
+    },
+    "background_left": {
+      "sourceReferenceBox": [
+        80,
+        180,
+        620,
+        470
+      ],
+      "comparisonBox": [
+        80,
+        180,
+        620,
+        470
+      ],
+      "sourceMeanRGB": [
+        144.63653895274584,
+        144.52842911877394,
+        142.291877394636
+      ],
+      "unityMeanRGB": [
+        147.43613026819924,
+        147.33242656449553,
+        147.24427841634738
+      ],
+      "unityMinusSourceMeanRGB": [
+        2.7995913154533842,
+        2.8039974457215835,
+        4.952401021711367
+      ],
+      "maeRGB": [
+        2.7995913154533842,
+        2.8039974457215835,
+        4.952401021711367
+      ],
+      "mae": 3.5186632609621116,
+      "rmse": 3.870595177006457,
+      "p90": 6.0,
+      "within8Fraction": 0.9992975734355045
+    },
+    "background_right": {
+      "sourceReferenceBox": [
+        1770,
+        850,
+        2460,
+        1210
+      ],
+      "comparisonBox": [
+        1770,
+        850,
+        2460,
+        1210
+      ],
+      "sourceMeanRGB": [
+        188.84590177133654,
+        188.60003623188405,
+        186.64969404186795
+      ],
+      "unityMeanRGB": [
+        191.37349838969405,
+        191.0913647342995,
+        190.88193639291467
+      ],
+      "unityMinusSourceMeanRGB": [
+        2.527596618357488,
+        2.491328502415459,
+        4.232242351046699
+      ],
+      "maeRGB": [
+        2.527596618357488,
+        2.491328502415459,
+        4.232242351046699
+      ],
+      "mae": 3.0837224906065486,
+      "rmse": 3.2762667441542845,
+      "p90": 5.0,
+      "within8Fraction": 1.0
+    },
+    "platform_left": {
+      "sourceReferenceBox": [
+        80,
+        1220,
+        650,
+        1300
+      ],
+      "comparisonBox": [
+        80,
+        1220,
+        650,
+        1300
+      ],
+      "sourceMeanRGB": [
+        155.8790789473684,
+        156.20894736842106,
+        154.54929824561404
+      ],
+      "unityMeanRGB": [
+        158.69059210526316,
+        159.0260307017544,
+        158.82379385964913
+      ],
+      "unityMinusSourceMeanRGB": [
+        2.811513157894737,
+        2.817083333333333,
+        4.274495614035088
+      ],
+      "maeRGB": [
+        2.8244078947368423,
+        2.828706140350877,
+        4.275986842105263
+      ],
+      "mae": 3.3097002923976606,
+      "rmse": 3.541273972037357,
+      "p90": 5.0,
+      "within8Fraction": 0.9986476608187135
+    },
+    "character_face": {
+      "sourceReferenceBox": [
+        1180,
+        310,
+        1440,
+        600
+      ],
+      "comparisonBox": [
+        1180,
+        310,
+        1440,
+        600
+      ],
+      "sourceMeanRGB": [
+        167.9471352785146,
+        167.74478779840848,
+        154.1009549071618
+      ],
+      "unityMeanRGB": [
+        157.06689655172414,
+        156.22537135278515,
+        144.58700265251989
+      ],
+      "unityMinusSourceMeanRGB": [
+        -10.88023872679045,
+        -11.519416445623342,
+        -9.513952254641909
+      ],
+      "maeRGB": [
+        17.38185676392573,
+        17.673819628647216,
+        17.585623342175065
+      ],
+      "mae": 17.54709991158267,
+      "rmse": 28.607672729392764,
+      "p90": 41.0,
+      "within8Fraction": 0.4209018567639257
+    },
+    "character_dress": {
+      "sourceReferenceBox": [
+        1120,
+        730,
+        1600,
+        1180
+      ],
+      "comparisonBox": [
+        1120,
+        730,
+        1600,
+        1180
+      ],
+      "sourceMeanRGB": [
+        167.17266666666666,
+        170.69577777777778,
+        170.22760185185186
+      ],
+      "unityMeanRGB": [
+        164.24039814814816,
+        165.1793935185185,
+        165.2255787037037
+      ],
+      "unityMinusSourceMeanRGB": [
+        -2.9322685185185184,
+        -5.516384259259259,
+        -5.002023148148148
+      ],
+      "maeRGB": [
+        14.656074074074073,
+        14.80749537037037,
+        15.317097222222221
+      ],
+      "mae": 14.92688888888889,
+      "rmse": 26.76317553682326,
+      "p90": 36.0,
+      "within8Fraction": 0.5611929012345679
+    },
+    "ink_left_stroke": {
+      "sourceReferenceBox": [
+        280,
+        900,
+        700,
+        1190
+      ],
+      "comparisonBox": [
+        280,
+        900,
+        700,
+        1190
+      ],
+      "sourceMeanRGB": [
+        170.77062397372742,
+        170.5301395730706,
+        168.57521346469622
+      ],
+      "unityMeanRGB": [
+        173.7765435139573,
+        173.52025451559933,
+        173.3176026272578
+      ],
+      "unityMinusSourceMeanRGB": [
+        3.0059195402298853,
+        2.9901149425287357,
+        4.742389162561576
+      ],
+      "maeRGB": [
+        5.388809523809524,
+        5.367504105090312,
+        6.891256157635468
+      ],
+      "mae": 5.8825232621784345,
+      "rmse": 11.753869735083669,
+      "p90": 8.0,
+      "within8Fraction": 0.9019786535303776,
+      "darkMask": {
+        "threshold": 120,
+        "sourceFraction": 0.05077175697865353,
+        "unityFraction": 0.047479474548440065,
+        "intersectionOverUnion": 0.6499379567075693,
+        "caveat": "Threshold also responds to tone/coverage; this is not an isolated effect-buffer comparison."
+      }
+    },
+    "ink_left_knot": {
+      "sourceReferenceBox": [
+        760,
+        470,
+        970,
+        690
+      ],
+      "comparisonBox": [
+        760,
+        470,
+        970,
+        690
+      ],
+      "sourceMeanRGB": [
+        154.14352813852813,
+        154.04549783549783,
+        151.73753246753247
+      ],
+      "unityMeanRGB": [
+        158.26941558441558,
+        158.0967316017316,
+        157.90930735930735
+      ],
+      "unityMinusSourceMeanRGB": [
+        4.125887445887446,
+        4.051233766233766,
+        6.171774891774891
+      ],
+      "maeRGB": [
+        9.194588744588744,
+        9.11504329004329,
+        10.619220779220779
+      ],
+      "mae": 9.642950937950937,
+      "rmse": 17.548421774681245,
+      "p90": 24.0,
+      "within8Fraction": 0.7656421356421357,
+      "darkMask": {
+        "threshold": 120,
+        "sourceFraction": 0.15495670995670996,
+        "unityFraction": 0.14564935064935064,
+        "intersectionOverUnion": 0.7480176211453744,
+        "caveat": "Threshold also responds to tone/coverage; this is not an isolated effect-buffer comparison."
+      }
+    }
+  }
+}

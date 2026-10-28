@@ -1,0 +1,131 @@
+{
+  "compareFunctions": {
+    "5": "GreaterEqual"
+  },
+  "passOperations": {
+    "2": "Replace"
+  },
+  "draws": [
+    {
+      "sourceEvent": 488,
+      "enabled": true,
+      "reference": 52,
+      "readMask": 255,
+      "writeMask": 255,
+      "comparison": 1,
+      "passOperation": 2,
+      "protectBit16": true,
+      "backMatches": true
+    },
+    {
+      "sourceEvent": 502,
+      "enabled": true,
+      "reference": 52,
+      "readMask": 255,
+      "writeMask": 255,
+      "comparison": 1,
+      "passOperation": 2,
+      "protectBit16": true,
+      "backMatches": true
+    },
+    {
+      "sourceEvent": 520,
+      "enabled": true,
+      "reference": 36,
+      "readMask": 255,
+      "writeMask": 255,
+      "comparison": 1,
+      "passOperation": 2,
+      "protectBit16": false,
+      "backMatches": true
+    },
+    {
+      "sourceEvent": 538,
+      "enabled": true,
+      "reference": 36,
+      "readMask": 255,
+      "writeMask": 255,
+      "comparison": 1,
+      "passOperation": 2,
+      "protectBit16": false,
+      "backMatches": true
+    },
+    {
+      "sourceEvent": 553,
+      "enabled": true,
+      "reference": 36,
+      "readMask": 255,
+      "writeMask": 255,
+      "comparison": 1,
+      "passOperation": 2,
+      "protectBit16": false,
+      "backMatches": true
+    },
+    {
+      "sourceEvent": 568,
+      "enabled": true,
+      "reference": 36,
+      "readMask": 255,
+      "writeMask": 255,
+      "comparison": 1,
+      "passOperation": 2,
+      "protectBit16": false,
+      "backMatches": true
+    },
+    {
+      "sourceEvent": 585,
+      "enabled": true,
+      "reference": 36,
+      "readMask": 255,
+      "writeMask": 255,
+      "comparison": 1,
+      "passOperation": 2,
+      "protectBit16": false,
+      "backMatches": true
+    },
+    {
+      "sourceEvent": 599,
+      "enabled": true,
+      "reference": 36,
+      "readMask": 255,
+      "writeMask": 255,
+      "comparison": 1,
+      "passOperation": 2,
+      "protectBit16": false,
+      "backMatches": true
+    },
+    {
+      "sourceEvent": 617,
+      "enabled": true,
+      "reference": 36,
+      "readMask": 16,
+      "writeMask": 239,
+      "comparison": 5,
+      "passOperation": 2,
+      "protectBit16": false,
+      "backMatches": true
+    },
+    {
+      "sourceEvent": 655,
+      "enabled": true,
+      "reference": 0,
+      "readMask": 255,
+      "writeMask": 255,
+      "comparison": 1,
+      "passOperation": 2,
+      "protectBit16": false,
+      "backMatches": true
+    },
+    {
+      "sourceEvent": 1190,
+      "enabled": true,
+      "reference": 0,
+      "readMask": 255,
+      "writeMask": 255,
+      "comparison": 1,
+      "passOperation": 0,
+      "protectBit16": false,
+      "backMatches": true
+    }
+  ]
+}

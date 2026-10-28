@@ -1,0 +1,28 @@
+{
+  "capture": "tmp/unity/captures/20261026-200835-343/editor_capture.rdc",
+  "unityEvent": 960,
+  "sourceSurface": 599,
+  "resource": {
+    "arraysize": 6,
+    "byteSize": 1048560,
+    "cubemap": true,
+    "depth": 1,
+    "dimension": "2",
+    "format": "R16G16B16A16_FLOAT",
+    "formatDetails": {
+      "compByteWidth": 2,
+      "compCount": 4,
+      "compType": 1,
+      "name": "R16G16B16A16_FLOAT"
+    },
+    "height": 128,
+    "mips": 8,
+    "msSamp": 1,
+    "name": "EnvironmentReflection",
+    "resourceId": "ResourceId::13048",
+    "type": "Texture",
+    "width": 128
+  },
+  "binding": "PS texture7 / native unity_SpecCube0",
+  "observation": "Unity selects and binds scene ReflectionProbe; no captured CBuffer or manual source cube binding"
+}

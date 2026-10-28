@@ -1,0 +1,63 @@
+{
+  "sourceEvents": [
+    538,
+    1019
+  ],
+  "vertexCount": 5553,
+  "indexCount": 27468,
+  "triangleCount": 9156,
+  "indices": {
+    "originalFormat": "uint16",
+    "world2Format": "uint32",
+    "equal": true,
+    "minimum": 0,
+    "maximum": 5552,
+    "uniqueVertices": 5553,
+    "baseVertex": 0,
+    "indexOffset": 0,
+    "world2Handedness": 1.0000000184265005,
+    "sourceIBSha256": "689e706bbba0de967404a2011f07fd81193c40cedfe710762354d9921ebe3660"
+  },
+  "vertexAssociation": {
+    "originalRDCIClipEqualsFresh538": true,
+    "maximumOriginalClipDifference": 0.0,
+    "gb538Forward1019PositionEqual": true,
+    "gb538Forward1019ClipEqual": true,
+    "gb538Forward1019UVEqual": true
+  },
+  "publishedPositionVersusVarying": {
+    "maxAbsXYZ": [
+      0.0005376389319813879,
+      0.0003749809483913902,
+      2.2837719398705048e-05
+    ],
+    "meanAbsXYZ": [
+      0.00047811734572548645,
+      0.00033341627133259247,
+      2.0194370943728652e-05
+    ],
+    "maxEuclideanDistance": 0.0006558828942178779,
+    "maxProjectedNDCError": [
+      1.1403405794641053e-07,
+      4.994167819849515e-07,
+      4.595403023388567e-09
+    ]
+  },
+  "sourceJitterPixels": {
+    "mean": [
+      0.3437768916906978,
+      -0.24043960339541653
+    ],
+    "minimum": [
+      0.34375302128605423,
+      -0.24055847215170933
+    ],
+    "maximum": [
+      0.3438015402926413,
+      -0.2403212247779567
+    ],
+    "sourceInstruction": "538 VS166-167 adds cb1[19] jitter to clip.xy; world2 solver fits clip positions"
+  },
+  "conclusion": "No evidence of mixed pose, wrong vertex order or wrong triangle indices. World2 reproduces actual clip geometry; small o2 world-position difference follows captured jitter. No geometry correction or RecalculateNormals performed.",
+  "validationScope": "Offline pose/topology evidence. Main agent 268/269/270 image A/B isolated the currently visible steps to shadowing, not geometry."
+}

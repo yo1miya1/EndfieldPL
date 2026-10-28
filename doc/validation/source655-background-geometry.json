@@ -1,0 +1,42 @@
+{
+  "sourceEvent": 655,
+  "vertexCount": 509,
+  "indexCount": 2304,
+  "primitiveCount": 768,
+  "worldBounds": [
+    [
+      -24.976420309268065,
+      -24.99976781636907,
+      -25.528260857862684
+    ],
+    [
+      25.015621909875865,
+      24.999874055424616,
+      24.464146693479304
+    ]
+  ],
+  "sphereCenter": [
+    0.017773628730548392,
+    0.03927256266744905,
+    -0.530052019658342
+  ],
+  "sphereRadiusMean": 24.959287318155337,
+  "sphereRadiusMinimum": 24.921307294534465,
+  "sphereRadiusMaximum": 25.039040381793075,
+  "sphereRadiusStandardDeviation": 0.020969992019373593,
+  "materialInputs": [
+    [
+      "_BaseMap",
+      "ResourceId::62"
+    ],
+    [
+      "_NormalMap",
+      "ResourceId::59"
+    ],
+    [
+      "_EnvironmentMaskMap",
+      "ResourceId::7018"
+    ]
+  ],
+  "classification": "Approximately radius25 sphere surrounding origin/camera/character, source environment backdrop rather than floor/world-prop geometry."
+}

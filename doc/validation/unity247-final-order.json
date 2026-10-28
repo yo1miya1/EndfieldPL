@@ -1,0 +1,51 @@
+{
+  "captureIntegrity": {
+    "copy": "F:/Project/_Game/EndfieldRebuild/tmp/capture/Unity247.rdc",
+    "bytes": 349903033,
+    "sha256": "7C67734BB6F76287F7956987553DFFAC0D75D21B8DE9F7C8F1353400694C34AA",
+    "source": "F:/Project/_Game/EndfieldRebuild/tmp/unity/captures/20261028-141049-863/editor_capture.rdc"
+  },
+  "actionCount": 327,
+  "drawCount": 184,
+  "gbufferStage": [
+    322,
+    590
+  ],
+  "orderedGeometry": [
+    {
+      "eventId": 401,
+      "indexCount": 59757,
+      "outputs": "(ResourceId::69448, ResourceId::69460, ResourceId::69456, ResourceId::69452, ResourceId::69464, ResourceId::0, ResourceId::0, ResourceId::0)",
+      "depth": "ResourceId::69478"
+    },
+    {
+      "eventId": 542,
+      "indexCount": 59757,
+      "outputs": "(ResourceId::69448, ResourceId::0, ResourceId::0, ResourceId::0, ResourceId::0, ResourceId::0, ResourceId::0, ResourceId::0)",
+      "depth": "ResourceId::69478"
+    },
+    {
+      "eventId": 578,
+      "indexCount": 2304,
+      "outputs": "(ResourceId::69448, ResourceId::69460, ResourceId::69456, ResourceId::69452, ResourceId::69464, ResourceId::0, ResourceId::0, ResourceId::0)",
+      "depth": "ResourceId::69478"
+    }
+  ],
+  "lightingHairDraws": [
+    743
+  ],
+  "ui": {
+    "stage": [
+      1798,
+      2995
+    ],
+    "draws": 97,
+    "sourceMeshes": 95,
+    "compositionDraws": [
+      1812,
+      2994
+    ]
+  },
+  "limitedScope": "Only final outline/background order and saved UI draw count. TAA, light CB and shadow atlas validation reused232/237, not recopied.",
+  "replayClosed": true
+}

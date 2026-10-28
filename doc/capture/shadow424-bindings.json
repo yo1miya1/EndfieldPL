@@ -1,0 +1,104 @@
+{
+  "424": {
+    "indexBuffer": {
+      "byteOffset": 5646544,
+      "byteStride": 2,
+      "resourceId": "ResourceId::18828"
+    },
+    "vertexBuffers": [
+      {
+        "byteOffset": 5627024,
+        "byteStride": 16,
+        "resourceId": "ResourceId::18828"
+      },
+      {
+        "byteOffset": 5634832,
+        "byteStride": 12,
+        "resourceId": "ResourceId::18828"
+      },
+      {
+        "byteOffset": 5640688,
+        "byteStride": 12,
+        "resourceId": "ResourceId::18828"
+      },
+      {
+        "byteOffset": 5627024,
+        "byteStride": 16,
+        "resourceId": "ResourceId::18828"
+      },
+      {
+        "byteOffset": 713360,
+        "byteStride": 40,
+        "resourceId": "ResourceId::18828"
+      }
+    ]
+  },
+  "635": {
+    "indexBuffer": {
+      "byteOffset": 6337120,
+      "byteStride": 2,
+      "resourceId": "ResourceId::18828"
+    },
+    "vertexBuffers": [
+      {
+        "byteOffset": 5650560,
+        "byteStride": 16,
+        "resourceId": "ResourceId::18828"
+      },
+      {
+        "byteOffset": 5925184,
+        "byteStride": 12,
+        "resourceId": "ResourceId::18828"
+      },
+      {
+        "byteOffset": 6131152,
+        "byteStride": 12,
+        "resourceId": "ResourceId::18828"
+      },
+      {
+        "byteOffset": 5650560,
+        "byteStride": 16,
+        "resourceId": "ResourceId::18828"
+      },
+      {
+        "byteOffset": 0,
+        "byteStride": 0,
+        "resourceId": "ResourceId::54"
+      }
+    ]
+  },
+  "1649": {
+    "indexBuffer": {
+      "byteOffset": 5646544,
+      "byteStride": 2,
+      "resourceId": "ResourceId::18828"
+    },
+    "vertexBuffers": [
+      {
+        "byteOffset": 5627024,
+        "byteStride": 16,
+        "resourceId": "ResourceId::18828"
+      },
+      {
+        "byteOffset": 5634832,
+        "byteStride": 12,
+        "resourceId": "ResourceId::18828"
+      },
+      {
+        "byteOffset": 5640688,
+        "byteStride": 12,
+        "resourceId": "ResourceId::18828"
+      },
+      {
+        "byteOffset": 5627024,
+        "byteStride": 16,
+        "resourceId": "ResourceId::18828"
+      },
+      {
+        "byteOffset": 0,
+        "byteStride": 0,
+        "resourceId": "ResourceId::54"
+      }
+    ]
+  }
+}

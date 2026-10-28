@@ -1,0 +1,71 @@
+Shader hash 479a1a25-06b1e55f-ce4e2a85-fd0489e1
+
+ps_5_0
+      dcl_globalFlags refactoringAllowed
+      dcl_constantbuffer cb0[27], immediateIndexed
+      dcl_constantbuffer cb1[4086], dynamicIndexed
+      dcl_constantbuffer cb2[7], immediateIndexed
+      dcl_sampler s0, mode_default
+      dcl_resource_texture2d (float,float,float,float) t0
+      dcl_input_ps linear v1.xy
+      dcl_input_ps linear v3.xyz
+      dcl_input_ps linear v4.xyz
+      dcl_input_ps linear v5.xyz
+      dcl_input_ps nointerpolation v6.x
+      dcl_input_ps_sgv nointerpolation v7.x, isfrontface
+      dcl_output o0.xyzw
+      dcl_output o1.xyzw
+      dcl_output o2.xyzw
+      dcl_output o3.xyzw
+      dcl_output o4.xyzw
+      dcl_temps 2
+   0: mov o0.xyzw, l(0, 0, 0, 0)
+   1: max r0.x, v4.z, l(0.000000)
+   2: div r0.xy, v4.xyxx, r0.xxxx
+   3: max r0.z, v5.z, l(0.000000)
+   4: div r0.zw, v5.xxxy, r0.zzzz
+   5: add r0.xy, -r0.zwzz, r0.xyxx
+   6: mov r0.z, -r0.y
+   7: lt r1.xy, l(0, 0, 0, 0), r0.xzxx
+   8: lt r0.zw, r0.xxxz, l(0, 0, 0, 0)
+   9: mul r0.xy, r0.xyxx, l(0.500000, -0.500000, 0.000000, 0.000000)
+  10: sqrt r0.xy, abs(r0.xyxx)
+  11: sqrt r0.xy, r0.xyxx
+  12: iadd r0.zw, -r1.xxxy, r0.zzzw
+  13: itof r0.zw, r0.zzzw
+  14: mul r0.xy, r0.zwzz, r0.xyxx
+  15: mad o1.xy, r0.xyxx, l(0.500000, 0.500000, 0.000000, 0.000000), l(0.500000, 0.500000, 0.000000, 0.000000)
+  16: mov o1.zw, l(0.000000, 0.000000, 1.000000, 0.400000)
+  17: ishl r0.x, v6.x, l(4)
+  18: and r0.y, l(1023), cb1[r0.x + 5].z
+  19: utof r0.y, r0.y
+  20: mul o2.x, r0.y, l(0.000978)
+  21: ubfe r0.yz, l(0, 10, 10, 0), l(0, 10, 20, 0), cb1[r0.x + 5].zzzz
+  22: ushr r0.x, cb1[r0.x + 5].z, l(30)
+  23: utof r0.x, r0.x
+  24: mul o2.w, r0.x, l(0.333333)
+  25: utof r0.xy, r0.yzyy
+  26: mul o2.yz, r0.xxyx, l(0.000000, 0.000978, 0.000978, 0.000000)
+  27: dp3 r0.x, v3.xyzx, v3.xyzx
+  28: rsq r0.x, r0.x
+  29: mul r0.xyz, r0.xxxx, v3.xyzx
+  30: mad r0.w, cb2[1].y, l(2.000000), l(-1.000000)
+  31: movc r0.w, v7.x, l(1.000000), r0.w
+  32: mul r0.xyz, r0.wwww, r0.xyzx
+  33: dp3 r0.w, r0.xyzx, r0.xyzx
+  34: rsq r0.w, r0.w
+  35: mul r0.xyz, r0.wwww, r0.xyzx
+  36: dp3 r0.w, l(1.000000, 1.000000, 1.000000, 0.000000), abs(r0.xyzx)
+  37: div r0.xz, r0.xxzx, r0.wwww
+  38: ge r0.y, l(0), r0.y
+  39: ge r1.xy, r0.xzxx, l(0, 0, 0, 0)
+  40: movc r1.xy, r1.xyxx, l(1.000000, 1.000000, 0.000000, 0.000000), l(-1.000000, -1.000000, 0.000000, 0.000000)
+  41: add r1.zw, -abs(r0.zzzx), l(0.000000, 0.000000, 1.000000, 1.000000)
+  42: mul r1.xy, r1.xyxx, r1.zwzz
+  43: movc r0.xy, r0.yyyy, r1.xyxx, r0.xzxx
+  44: mad o3.xy, r0.xyxx, l(0.500000, 0.500000, 0.000000, 0.000000), l(0.500000, 0.500000, 0.000000, 0.000000)
+  45: mov o3.zw, l(0.000000, 0.000000, 0.000000, 0.700000)
+  46: sample_b(texture2d)(float,float,float,float) r0.xyz, v1.xyxx, t0.xyzw, s0, cb0[26].x
+  47: mul o4.xyz, r0.xyzx, cb2[6].xyzx
+  48: mov o4.w, l(1.000000)
+  49: ret

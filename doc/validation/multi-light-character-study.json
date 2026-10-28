@@ -1,0 +1,102 @@
+{
+  "studyDirectory": "F:\\Project\\_Game\\EndfieldRebuild\\tmp\\unity\\lighting-study\\20261028-140523-418",
+  "resolution": [
+    1920,
+    1080
+  ],
+  "warmupFrames": 16,
+  "measurement": "Display RGB absolute channel differences in 0..255; changed pixel means max absolute RGB difference >= 8. Whole frame, same camera and jitter sequence; not a fidelity score.",
+  "cases": [
+    {
+      "case": "01-main",
+      "meanAbsoluteRGBDifferenceFromMain": 0.0,
+      "maximumChannelDifferenceFromMain": 0,
+      "changedPixelsFromMain": 0,
+      "enabledLights": [
+        "Key Directional"
+      ],
+      "pngSha256": "78d003f3e36f5f31be166d7352caf9762b0a528f6b1045ca1e3021ee435f9e25"
+    },
+    {
+      "case": "02-main-point",
+      "meanAbsoluteRGBDifferenceFromMain": 7.177375257201646,
+      "maximumChannelDifferenceFromMain": 234,
+      "changedPixelsFromMain": 681019,
+      "enabledLights": [
+        "Key Directional",
+        "Blue Point"
+      ],
+      "pngSha256": "e04efaee5e3813c9f817cff641976af25691d027340cb9257f80be770818b000"
+    },
+    {
+      "case": "03-main-spot",
+      "meanAbsoluteRGBDifferenceFromMain": 1.8230643968621398,
+      "maximumChannelDifferenceFromMain": 182,
+      "changedPixelsFromMain": 309441,
+      "enabledLights": [
+        "Key Directional",
+        "Warm Spot"
+      ],
+      "pngSha256": "767c687aebe3ac493cf3f165c0f48e27abc179699e959adf9c1dea5d293413b0"
+    },
+    {
+      "case": "04-main-fill-directional",
+      "meanAbsoluteRGBDifferenceFromMain": 3.2117640817901236,
+      "maximumChannelDifferenceFromMain": 229,
+      "changedPixelsFromMain": 603215,
+      "enabledLights": [
+        "Key Directional",
+        "Fill Directional"
+      ],
+      "pngSha256": "ff10590561a8f907f5c426be1fe9a9ba89a885363b30d76d156da6c358226f87"
+    },
+    {
+      "case": "05-all",
+      "meanAbsoluteRGBDifferenceFromMain": 11.532189750514403,
+      "maximumChannelDifferenceFromMain": 234,
+      "changedPixelsFromMain": 984241,
+      "enabledLights": [
+        "Key Directional",
+        "Fill Directional",
+        "Blue Point",
+        "Warm Spot"
+      ],
+      "pngSha256": "52eb83671bb1d9919f6af29dbe8146ef90e49d6144ccbe8e3dbd7ab906a39c65"
+    },
+    {
+      "case": "06-all-no-shadows",
+      "meanAbsoluteRGBDifferenceFromMain": 14.40247717335391,
+      "maximumChannelDifferenceFromMain": 234,
+      "changedPixelsFromMain": 1071991,
+      "enabledLights": [
+        "Key Directional",
+        "Fill Directional",
+        "Blue Point",
+        "Warm Spot"
+      ],
+      "pngSha256": "16a031faa104adc200e47cdb0dc287feed29335c09cbec52a3be1860b85d0326"
+    }
+  ],
+  "shadowComparison": {
+    "enabledLightsUnchanged": true,
+    "meanAbsoluteRGBDifference": 2.8711586934156377,
+    "maximumChannelDifference": 222,
+    "changedPixels": 329402,
+    "noShadowsBrighterPixelsAtLeast8": 329385,
+    "noShadowsDarkerPixelsAtLeast8": 48
+  },
+  "cameraPositionAndRotationIdentical": true,
+  "cameraPosition": {
+    "x": 3.0,
+    "y": 2.200000047683716,
+    "z": -5.0
+  },
+  "cameraRotation": {
+    "x": 0.10427969694137573,
+    "y": -0.28805896639823914,
+    "z": 0.031573351472616196,
+    "w": 0.9513942003250122
+  },
+  "capturedLightShadowBias": 0.05000000074505806,
+  "capturedLightNormalBias": 0.20000000298023224
+}

@@ -1,0 +1,215 @@
+Shader hash 4fefe2c5-8eec1c04-58e7f014-c70d423d
+
+cs_5_0
+      dcl_globalFlags refactoringAllowed
+      dcl_constantbuffer cb0[2], immediateIndexed
+      dcl_sampler s0, mode_default
+      dcl_resource_texture2d (float,float,float,float) t0
+      dcl_uav_typed_texture2d (float,float,float,float) u0
+      dcl_input vThreadGroupID.xy
+      dcl_input vThreadIDInGroup.xy
+      dcl_input vThreadID.xy
+      dcl_temps 11
+      dcl_tgsm_structured g0, 4, 128
+      dcl_tgsm_structured g1, 4, 128
+      dcl_tgsm_structured g2, 4, 128
+      dcl_thread_group 8, 8, 1
+   0: ishl r0.xyzw, vThreadGroupID.xyxy, l(3, 3, 3, 3)
+   1: ishl r1.xyzw, vThreadIDInGroup.xyxy, l(1, 1, 1, 1)
+   2: iadd r0.xyzw, r0.xyzw, r1.xyzw
+   3: imad r1.x, vThreadIDInGroup.y, l(16), r1.z
+   4: iadd r0.xyzw, r0.xyzw, l(-4, -4, -4, -4)
+   5: itof r0.xyzw, r0.xyzw
+   6: add r2.xyzw, r0.zwzw, l(0.500000, 0.500000, 1.500000, 0.500000)
+   7: add r0.xyzw, r0.xyzw, l(0.500000, 1.500000, 1.500000, 1.500000)
+   8: mul r0.xyzw, r0.xyzw, cb0[0].zwzw
+   9: mul r2.xyzw, r2.xyzw, cb0[0].zwzw
+  10: sample_l(texture2d)(float,float,float,float) r1.yzw, r2.xyxx, t0.wxyz, s0, l(0)
+  11: sample_l(texture2d)(float,float,float,float) r2.xyz, r2.zwzz, t0.xyzw, s0, l(0)
+  12: max r2.w, r1.z, r1.y
+  13: max r2.w, r1.w, r2.w
+  14: max r2.w, r2.w, cb0[1].x
+  15: div r2.w, r2.w, cb0[1].x
+  16: div r1.yzw, r1.yyzw, r2.wwww
+  17: f32tof16 r1.yzw, r1.yyzw
+  18: max r2.w, r2.y, r2.x
+  19: max r2.w, r2.z, r2.w
+  20: max r2.w, r2.w, cb0[1].x
+  21: div r2.w, r2.w, cb0[1].x
+  22: div r2.xyz, r2.xyzx, r2.wwww
+  23: f32tof16 r2.xyz, r2.xyzx
+  24: imad r1.yzw, r2.xxyz, l(0, 0x00010000, 0x00010000, 0x00010000), r1.yyzw
+  25: imad r2.xy, vThreadIDInGroup.yyyy, l(16, 8, 0, 0), vThreadIDInGroup.xxxx
+  26: store_structured g0.x, r2.x, l(0), r1.y
+  27: store_structured g1.x, r2.x, l(0), r1.z
+  28: store_structured g2.x, r2.x, l(0), r1.w
+  29: sample_l(texture2d)(float,float,float,float) r1.yzw, r0.xyxx, t0.wxyz, s0, l(0)
+  30: sample_l(texture2d)(float,float,float,float) r0.xyz, r0.zwzz, t0.xyzw, s0, l(0)
+  31: max r0.w, r1.z, r1.y
+  32: max r0.w, r1.w, r0.w
+  33: max r0.w, r0.w, cb0[1].x
+  34: div r0.w, r0.w, cb0[1].x
+  35: div r1.yzw, r1.yyzw, r0.wwww
+  36: f32tof16 r1.yzw, r1.yyzw
+  37: max r0.w, r0.y, r0.x
+  38: max r0.w, r0.z, r0.w
+  39: max r0.w, r0.w, cb0[1].x
+  40: div r0.w, r0.w, cb0[1].x
+  41: div r0.xyz, r0.xyzx, r0.wwww
+  42: f32tof16 r0.xyz, r0.xyzx
+  43: imad r0.xyz, r0.xyzx, l(0x00010000, 0x00010000, 0x00010000, 0), r1.yzwy
+  44: iadd r0.w, r2.x, l(8)
+  45: store_structured g0.x, r0.w, l(0), r0.x
+  46: store_structured g1.x, r0.w, l(0), r0.y
+  47: store_structured g2.x, r0.w, l(0), r0.z
+  48: sync_g_t
+  49: and r0.x, vThreadIDInGroup.x, l(4)
+  50: iadd r0.x, r0.x, r2.x
+  51: ld_structured r0.y, r0.x, l(0), g0.xxxx
+  52: ld_structured r0.z, r0.x, l(0), g1.xxxx
+  53: ld_structured r0.w, r0.x, l(0), g2.xxxx
+  54: iadd r3.xyzw, r0.xxxx, l(1, 2, 3, 4)
+  55: ld_structured r0.x, r3.x, l(0), g0.xxxx
+  56: ld_structured r1.y, r3.x, l(0), g1.xxxx
+  57: ld_structured r1.z, r3.x, l(0), g2.xxxx
+  58: ld_structured r1.w, r3.y, l(0), g0.xxxx
+  59: ld_structured r2.x, r3.y, l(0), g1.xxxx
+  60: ld_structured r2.z, r3.y, l(0), g2.xxxx
+  61: ld_structured r2.w, r3.z, l(0), g0.xxxx
+  62: ld_structured r3.x, r3.w, l(0), g0.xxxx
+  63: ld_structured r3.y, r3.z, l(0), g1.xxxx
+  64: ld_structured r4.x, r3.w, l(0), g1.xxxx
+  65: ld_structured r3.z, r3.z, l(0), g2.xxxx
+  66: ld_structured r3.w, r3.w, l(0), g2.xxxx
+  67: and r4.y, r1.w, l(0x0000ffff)
+  68: ushr r1.w, r1.w, l(16)
+  69: f16tof32 r5.x, r1.w
+  70: f16tof32 r6.x, r4.y
+  71: and r1.w, r2.x, l(0x0000ffff)
+  72: ushr r2.x, r2.x, l(16)
+  73: f16tof32 r5.y, r2.x
+  74: f16tof32 r6.y, r1.w
+  75: and r1.w, r2.z, l(0x0000ffff)
+  76: ushr r2.x, r2.z, l(16)
+  77: f16tof32 r5.z, r2.x
+  78: f16tof32 r6.z, r1.w
+  79: ushr r1.w, r0.x, l(16)
+  80: and r0.x, r0.x, l(0x0000ffff)
+  81: f16tof32 r7.x, r0.x
+  82: f16tof32 r8.x, r1.w
+  83: ushr r0.x, r1.y, l(16)
+  84: and r1.y, r1.y, l(0x0000ffff)
+  85: f16tof32 r7.y, r1.y
+  86: f16tof32 r8.y, r0.x
+  87: ushr r0.x, r1.z, l(16)
+  88: and r1.y, r1.z, l(0x0000ffff)
+  89: f16tof32 r7.z, r1.y
+  90: f16tof32 r8.z, r0.x
+  91: add r1.yzw, r5.xxyz, r8.xxyz
+  92: mul r1.yzw, r1.yyzw, l(0.000000, 0.218750, 0.218750, 0.218750)
+  93: mad r1.yzw, r6.xxyz, l(0.000000, 0.273438, 0.273438, 0.273438), r1.yyzw
+  94: and r0.x, r2.w, l(0x0000ffff)
+  95: ushr r2.x, r2.w, l(16)
+  96: f16tof32 r9.x, r2.x
+  97: f16tof32 r10.x, r0.x
+  98: and r0.x, r3.y, l(0x0000ffff)
+  99: ushr r2.x, r3.y, l(16)
+ 100: f16tof32 r9.y, r2.x
+ 101: f16tof32 r10.y, r0.x
+ 102: and r0.x, r3.z, l(0x0000ffff)
+ 103: ushr r2.x, r3.z, l(16)
+ 104: f16tof32 r9.z, r2.x
+ 105: f16tof32 r10.z, r0.x
+ 106: add r2.xzw, r7.xxyz, r10.xxyz
+ 107: add r4.yzw, r6.xxyz, r10.xxyz
+ 108: mul r4.yzw, r4.yyzw, l(0.000000, 0.218750, 0.218750, 0.218750)
+ 109: mad r4.yzw, r5.xxyz, l(0.000000, 0.273438, 0.273438, 0.273438), r4.yyzw
+ 110: mad r1.yzw, r2.xxzw, l(0.000000, 0.109375, 0.109375, 0.109375), r1.yyzw
+ 111: ushr r0.x, r0.y, l(16)
+ 112: and r0.y, r0.y, l(0x0000ffff)
+ 113: f16tof32 r5.x, r0.y
+ 114: f16tof32 r6.x, r0.x
+ 115: ushr r0.x, r0.z, l(16)
+ 116: and r0.y, r0.z, l(0x0000ffff)
+ 117: f16tof32 r5.y, r0.y
+ 118: f16tof32 r6.y, r0.x
+ 119: ushr r0.x, r0.w, l(16)
+ 120: and r0.y, r0.w, l(0x0000ffff)
+ 121: f16tof32 r5.z, r0.y
+ 122: f16tof32 r6.z, r0.x
+ 123: add r0.xyz, r9.xyzx, r6.xyzx
+ 124: add r2.xzw, r8.xxyz, r9.xxyz
+ 125: mad r2.xzw, r2.xxzw, l(0.109375, 0.000000, 0.109375, 0.109375), r4.yyzw
+ 126: mad r0.xyz, r0.xyzx, l(0.031250, 0.031250, 0.031250, 0.000000), r1.yzwy
+ 127: and r0.w, r3.x, l(0x0000ffff)
+ 128: ushr r1.y, r3.x, l(16)
+ 129: f16tof32 r3.x, r1.y
+ 130: f16tof32 r8.x, r0.w
+ 131: and r0.w, r4.x, l(0x0000ffff)
+ 132: ushr r1.y, r4.x, l(16)
+ 133: f16tof32 r3.y, r1.y
+ 134: f16tof32 r8.y, r0.w
+ 135: and r0.w, r3.w, l(0x0000ffff)
+ 136: ushr r1.y, r3.w, l(16)
+ 137: f16tof32 r3.z, r1.y
+ 138: add r1.yzw, r3.xxyz, r6.xxyz
+ 139: f16tof32 r8.z, r0.w
+ 140: add r3.xyz, r5.xyzx, r8.xyzx
+ 141: add r4.xyz, r7.xyzx, r8.xyzx
+ 142: mad r2.xzw, r4.xxyz, l(0.031250, 0.000000, 0.031250, 0.031250), r2.xxzw
+ 143: mad r1.yzw, r1.yyzw, l(0.000000, 0.003906, 0.003906, 0.003906), r2.xxzw
+ 144: mad r0.xyz, r3.xyzx, l(0.003906, 0.003906, 0.003906, 0.000000), r0.xyzx
+ 145: store_structured g0.x, r1.x, l(0), r0.x
+ 146: store_structured g1.x, r1.x, l(0), r0.y
+ 147: store_structured g2.x, r1.x, l(0), r0.z
+ 148: iadd r0.x, r1.x, l(1)
+ 149: store_structured g0.x, r0.x, l(0), r1.y
+ 150: store_structured g1.x, r0.x, l(0), r1.z
+ 151: store_structured g2.x, r0.x, l(0), r1.w
+ 152: sync_g_t
+ 153: iadd r0.xyzw, r2.yyyy, l(8, 16, 24, 32)
+ 154: ld_structured r1.x, r0.w, l(0), g0.xxxx
+ 155: ld_structured r1.y, r0.w, l(0), g1.xxxx
+ 156: ld_structured r1.z, r0.w, l(0), g2.xxxx
+ 157: iadd r2.xzw, r2.yyyy, l(40, 0, 48, 56)
+ 158: ld_structured r3.x, r2.x, l(0), g0.xxxx
+ 159: ld_structured r3.y, r2.x, l(0), g1.xxxx
+ 160: ld_structured r3.z, r2.x, l(0), g2.xxxx
+ 161: ld_structured r4.x, r0.z, l(0), g0.xxxx
+ 162: ld_structured r4.y, r0.z, l(0), g1.xxxx
+ 163: ld_structured r4.z, r0.z, l(0), g2.xxxx
+ 164: add r3.xyzw, r3.xyzx, r4.xyzx
+ 165: mul r3.xyzw, r3.xyzw, l(0.218750, 0.218750, 0.218750, 0.218750)
+ 166: mad r1.xyzw, r1.xyzx, l(0.273438, 0.273438, 0.273438, 0.273438), r3.xyzw
+ 167: ld_structured r3.x, r0.y, l(0), g0.xxxx
+ 168: ld_structured r3.y, r0.y, l(0), g1.xxxx
+ 169: ld_structured r3.z, r0.y, l(0), g2.xxxx
+ 170: ld_structured r4.x, r2.z, l(0), g0.xxxx
+ 171: ld_structured r4.y, r2.z, l(0), g1.xxxx
+ 172: ld_structured r4.z, r2.z, l(0), g2.xxxx
+ 173: add r3.xyzw, r3.xyzx, r4.xyzx
+ 174: mad r1.xyzw, r3.xyzw, l(0.109375, 0.109375, 0.109375, 0.109375), r1.xyzw
+ 175: ld_structured r3.x, r0.x, l(0), g0.xxxx
+ 176: ld_structured r3.y, r0.x, l(0), g1.xxxx
+ 177: ld_structured r3.z, r0.x, l(0), g2.xxxx
+ 178: ld_structured r0.x, r2.w, l(0), g0.xxxx
+ 179: ld_structured r0.y, r2.w, l(0), g1.xxxx
+ 180: ld_structured r0.z, r2.w, l(0), g2.xxxx
+ 181: add r0.xyzw, r0.xyzx, r3.xyzx
+ 182: mad r0.xyzw, r0.xyzw, l(0.031250, 0.031250, 0.031250, 0.031250), r1.xyzw
+ 183: ld_structured r1.x, r2.y, l(0), g0.xxxx
+ 184: ld_structured r1.y, r2.y, l(0), g1.xxxx
+ 185: ld_structured r1.z, r2.y, l(0), g2.xxxx
+ 186: iadd r1.w, r2.y, l(64)
+ 187: ld_structured r2.x, r1.w, l(0), g0.xxxx
+ 188: ld_structured r2.y, r1.w, l(0), g1.xxxx
+ 189: ld_structured r2.z, r1.w, l(0), g2.xxxx
+ 190: add r1.xyzw, r1.xyzx, r2.xyzx
+ 191: mad r0.xyzw, r1.xyzw, l(0.003906, 0.003906, 0.003906, 0.003906), r0.xyzw
+ 192: ftou r1.xy, cb0[0].xyxx
+ 193: ult r1.xy, vThreadID.xyxx, r1.xyxx
+ 194: and r1.x, r1.y, r1.x
+ 195: and r1.x, r1.x, l(1.000000)
+ 196: mul r0.xyzw, r0.xyzw, r1.xxxx
+ 197: store_uav_typed u0.xyzw, vThreadID.xyyy, r0.xyzw
+ 198: ret

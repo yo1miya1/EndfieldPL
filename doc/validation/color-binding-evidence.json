@@ -1,0 +1,38 @@
+{
+  "unityCapture": "tmp/unity/captures/20261026-195421-309/editor_capture.rdc",
+  "actualDrawCount": 195,
+  "actualActionCount": 319,
+  "sourceLinearColors": {
+    "face568_ViewTintColor": [
+      0.637597,
+      0.376262,
+      0.296138
+    ],
+    "shell1190_EffectColor": [
+      0.8214345,
+      0.8214345,
+      0.8214345
+    ]
+  },
+  "observed": {
+    "face568_GPU": [
+      0.3642064332962036,
+      0.11683514714241028,
+      0.07134143263101578,
+      1.0
+    ],
+    "shell1190_GPU": [
+      0.6407976150512695,
+      0.6407976150512695,
+      0.6407976150512695,
+      1.0
+    ],
+    "horn599_ParallaxGlowColor_GPU": [
+      0.11043240875005722,
+      0.20264729857444763,
+      0.2339916229248047,
+      1.0
+    ]
+  },
+  "conclusion": "ShaderLab Color properties decode source-linear values a second time unless publication converts to Unity display storage."
+}

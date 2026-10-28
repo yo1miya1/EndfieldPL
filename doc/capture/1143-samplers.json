@@ -1,0 +1,411 @@
+{
+  "sourceEvent": 1143,
+  "stage": "PS",
+  "samplers": [
+    {
+      "access": {
+        "NoShaderBinding": 65535,
+        "arrayElement": 0,
+        "byteOffset": 1030,
+        "byteSize": 1,
+        "descriptorStore": "ResourceId::1000000000000000182",
+        "index": 0,
+        "stage": 4,
+        "staticallyUnused": false,
+        "type": 2
+      },
+      "descriptor": {
+        "bufferStructCount": 0,
+        "byteOffset": 0,
+        "byteSize": 0,
+        "counterByteOffset": 0,
+        "elementByteSize": 0,
+        "firstMip": 0,
+        "firstSlice": 0,
+        "flags": 0,
+        "format": {
+          "name": "Undefined",
+          "compByteWidth": 0,
+          "compCount": 0,
+          "compType": 0,
+          "type": 1
+        },
+        "minLODClamp": 0.0,
+        "numMips": 1,
+        "numSlices": 1,
+        "resource": "ResourceId::0",
+        "secondary": "ResourceId::0",
+        "swizzle": {
+          "alpha": 3,
+          "blue": 2,
+          "green": 1,
+          "red": 0
+        },
+        "textureType": 0,
+        "type": 0,
+        "view": "ResourceId::0"
+      },
+      "sampler": {
+        "addressU": 3,
+        "addressV": 3,
+        "addressW": 3,
+        "borderColorType": 1,
+        "borderColorValue": {
+          "floatValue": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "intValue": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "uintValue": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "chromaFilter": 0,
+        "compareFunction": 0,
+        "creationTimeConstant": false,
+        "filter": {
+          "filter": 0,
+          "magnify": 2,
+          "minify": 2,
+          "mip": 1
+        },
+        "forceExplicitReconstruction": false,
+        "maxAnisotropy": 0.0,
+        "maxLOD": 1000.0,
+        "minLOD": 0.0,
+        "mipBias": 0.0,
+        "object": "ResourceId::88",
+        "seamlessCubemaps": true,
+        "srgbBorder": false,
+        "swizzle": {
+          "alpha": 3,
+          "blue": 2,
+          "green": 1,
+          "red": 0
+        },
+        "type": 2,
+        "unnormalized": false,
+        "xChromaOffset": 0,
+        "yChromaOffset": 0,
+        "ycbcrModel": 0,
+        "ycbcrRange": 0,
+        "ycbcrSampler": "ResourceId::0"
+      }
+    },
+    {
+      "access": {
+        "NoShaderBinding": 65535,
+        "arrayElement": 0,
+        "byteOffset": 1031,
+        "byteSize": 1,
+        "descriptorStore": "ResourceId::1000000000000000182",
+        "index": 1,
+        "stage": 4,
+        "staticallyUnused": false,
+        "type": 2
+      },
+      "descriptor": {
+        "bufferStructCount": 0,
+        "byteOffset": 0,
+        "byteSize": 0,
+        "counterByteOffset": 0,
+        "elementByteSize": 0,
+        "firstMip": 0,
+        "firstSlice": 0,
+        "flags": 0,
+        "format": {
+          "name": "Undefined",
+          "compByteWidth": 0,
+          "compCount": 0,
+          "compType": 0,
+          "type": 1
+        },
+        "minLODClamp": 0.0,
+        "numMips": 1,
+        "numSlices": 1,
+        "resource": "ResourceId::0",
+        "secondary": "ResourceId::0",
+        "swizzle": {
+          "alpha": 3,
+          "blue": 2,
+          "green": 1,
+          "red": 0
+        },
+        "textureType": 0,
+        "type": 0,
+        "view": "ResourceId::0"
+      },
+      "sampler": {
+        "addressU": 0,
+        "addressV": 0,
+        "addressW": 0,
+        "borderColorType": 1,
+        "borderColorValue": {
+          "floatValue": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "intValue": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "uintValue": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "chromaFilter": 0,
+        "compareFunction": 0,
+        "creationTimeConstant": false,
+        "filter": {
+          "filter": 0,
+          "magnify": 2,
+          "minify": 2,
+          "mip": 1
+        },
+        "forceExplicitReconstruction": false,
+        "maxAnisotropy": 0.0,
+        "maxLOD": 1000.0,
+        "minLOD": 0.0,
+        "mipBias": 0.0,
+        "object": "ResourceId::61",
+        "seamlessCubemaps": true,
+        "srgbBorder": false,
+        "swizzle": {
+          "alpha": 3,
+          "blue": 2,
+          "green": 1,
+          "red": 0
+        },
+        "type": 2,
+        "unnormalized": false,
+        "xChromaOffset": 0,
+        "yChromaOffset": 0,
+        "ycbcrModel": 0,
+        "ycbcrRange": 0,
+        "ycbcrSampler": "ResourceId::0"
+      }
+    },
+    {
+      "access": {
+        "NoShaderBinding": 65535,
+        "arrayElement": 0,
+        "byteOffset": 1032,
+        "byteSize": 1,
+        "descriptorStore": "ResourceId::1000000000000000182",
+        "index": 2,
+        "stage": 4,
+        "staticallyUnused": false,
+        "type": 2
+      },
+      "descriptor": {
+        "bufferStructCount": 0,
+        "byteOffset": 0,
+        "byteSize": 0,
+        "counterByteOffset": 0,
+        "elementByteSize": 0,
+        "firstMip": 0,
+        "firstSlice": 0,
+        "flags": 0,
+        "format": {
+          "name": "Undefined",
+          "compByteWidth": 0,
+          "compCount": 0,
+          "compType": 0,
+          "type": 1
+        },
+        "minLODClamp": 0.0,
+        "numMips": 1,
+        "numSlices": 1,
+        "resource": "ResourceId::0",
+        "secondary": "ResourceId::0",
+        "swizzle": {
+          "alpha": 3,
+          "blue": 2,
+          "green": 1,
+          "red": 0
+        },
+        "textureType": 0,
+        "type": 0,
+        "view": "ResourceId::0"
+      },
+      "sampler": {
+        "addressU": 3,
+        "addressV": 3,
+        "addressW": 3,
+        "borderColorType": 1,
+        "borderColorValue": {
+          "floatValue": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "intValue": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "uintValue": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "chromaFilter": 0,
+        "compareFunction": 4,
+        "creationTimeConstant": false,
+        "filter": {
+          "filter": 1,
+          "magnify": 2,
+          "minify": 2,
+          "mip": 1
+        },
+        "forceExplicitReconstruction": false,
+        "maxAnisotropy": 0.0,
+        "maxLOD": 1000.0,
+        "minLOD": 0.0,
+        "mipBias": 0.0,
+        "object": "ResourceId::598",
+        "seamlessCubemaps": true,
+        "srgbBorder": false,
+        "swizzle": {
+          "alpha": 3,
+          "blue": 2,
+          "green": 1,
+          "red": 0
+        },
+        "type": 2,
+        "unnormalized": false,
+        "xChromaOffset": 0,
+        "yChromaOffset": 0,
+        "ycbcrModel": 0,
+        "ycbcrRange": 0,
+        "ycbcrSampler": "ResourceId::0"
+      }
+    },
+    {
+      "access": {
+        "NoShaderBinding": 65535,
+        "arrayElement": 0,
+        "byteOffset": 1033,
+        "byteSize": 1,
+        "descriptorStore": "ResourceId::1000000000000000182",
+        "index": 3,
+        "stage": 4,
+        "staticallyUnused": false,
+        "type": 2
+      },
+      "descriptor": {
+        "bufferStructCount": 0,
+        "byteOffset": 0,
+        "byteSize": 0,
+        "counterByteOffset": 0,
+        "elementByteSize": 0,
+        "firstMip": 0,
+        "firstSlice": 0,
+        "flags": 0,
+        "format": {
+          "name": "Undefined",
+          "compByteWidth": 0,
+          "compCount": 0,
+          "compType": 0,
+          "type": 1
+        },
+        "minLODClamp": 0.0,
+        "numMips": 1,
+        "numSlices": 1,
+        "resource": "ResourceId::0",
+        "secondary": "ResourceId::0",
+        "swizzle": {
+          "alpha": 3,
+          "blue": 2,
+          "green": 1,
+          "red": 0
+        },
+        "textureType": 0,
+        "type": 0,
+        "view": "ResourceId::0"
+      },
+      "sampler": {
+        "addressU": 0,
+        "addressV": 0,
+        "addressW": 0,
+        "borderColorType": 1,
+        "borderColorValue": {
+          "floatValue": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "intValue": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "uintValue": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "chromaFilter": 0,
+        "compareFunction": 0,
+        "creationTimeConstant": false,
+        "filter": {
+          "filter": 0,
+          "magnify": 2,
+          "minify": 2,
+          "mip": 1
+        },
+        "forceExplicitReconstruction": false,
+        "maxAnisotropy": 0.0,
+        "maxLOD": 1000.0,
+        "minLOD": 0.0,
+        "mipBias": 0.0,
+        "object": "ResourceId::61",
+        "seamlessCubemaps": true,
+        "srgbBorder": false,
+        "swizzle": {
+          "alpha": 3,
+          "blue": 2,
+          "green": 1,
+          "red": 0
+        },
+        "type": 2,
+        "unnormalized": false,
+        "xChromaOffset": 0,
+        "yChromaOffset": 0,
+        "ycbcrModel": 0,
+        "ycbcrRange": 0,
+        "ycbcrSampler": "ResourceId::0"
+      }
+    }
+  ],
+  "interpretation": {
+    "s0": "Clamp U/V/W; min/mag Linear; mip Point",
+    "s1": "Wrap U/V/W; min/mag Linear; mip Point",
+    "s3": "Wrap U/V/W; min/mag Linear; mip Point; texture13 Resource9182"
+  }
+}

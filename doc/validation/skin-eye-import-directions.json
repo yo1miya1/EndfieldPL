@@ -1,0 +1,40 @@
+[
+  {
+    "geometry": 502,
+    "forward": 1061,
+    "vertices": 302,
+    "normalAngularDegrees": [
+      40.87131908557631,
+      72.99603442708587,
+      102.82989736335661,
+      103.67383457499335
+    ],
+    "tangentAngularDegrees": [
+      14.505909223964192,
+      36.37673061611685,
+      60.7784191952662,
+      69.5491216094943
+    ],
+    "handednessMismatch": 107,
+    "handednessTotal": 302
+  },
+  {
+    "geometry": 538,
+    "forward": 1019,
+    "vertices": 5553,
+    "normalAngularDegrees": [
+      1.0326380507129267,
+      92.06668972509101,
+      157.97273229421694,
+      178.79275377310242
+    ],
+    "tangentAngularDegrees": [
+      0.15642013193771398,
+      27.796154866568422,
+      71.78685231437936,
+      136.57135529188204
+    ],
+    "handednessMismatch": 2841,
+    "handednessTotal": 5553
+  }
+]

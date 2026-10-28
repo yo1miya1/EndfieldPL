@@ -1,0 +1,136 @@
+{
+  "cameraEvidence": "GeometryValidation/538/side-chest-camera.json",
+  "sourceGeometry": 538,
+  "roiPixels": [
+    350,
+    380,
+    800,
+    800
+  ],
+  "roiCaveat": "Projected triangle-centroid selection; front-facing subset uses geometric N toward camera. Other meshes and exact raster occlusion are not reconstructed.",
+  "percentilesOrder": [
+    0,
+    10,
+    50,
+    90,
+    100
+  ],
+  "regions": {
+    "wholeMesh": {
+      "triangles": 9156,
+      "faceMeanNormalDotPercentiles": [
+        -0.9997612491389221,
+        0.9679423031273331,
+        0.9938048596308806,
+        0.9993340040829213,
+        0.9999999426744205
+      ],
+      "faceMeanNormalAngleDegreesPercentiles": [
+        0.019400452480132162,
+        2.0912086950638855,
+        6.38098417306986,
+        14.546914067596946,
+        178.7479584411503
+      ],
+      "cornerNormalAngleDegreesPercentiles": [
+        0.03551600066513746,
+        6.032431178836748,
+        14.067865723033856,
+        24.015322236318443,
+        172.9247352050348
+      ],
+      "reversedMeanNormalFraction": 0.006880733944954129,
+      "geometricNdotLightPercentiles": [
+        -0.9969862443779486,
+        -0.7598063782219655,
+        -0.016651420990808935,
+        0.7543436239761362,
+        0.9999966184221383
+      ]
+    },
+    "sideChestROIBothSides": {
+      "triangles": 143,
+      "faceMeanNormalDotPercentiles": [
+        0.8784915669682181,
+        0.9511077510654157,
+        0.9920800137323864,
+        0.9985481010048073,
+        0.9999696396649036
+      ],
+      "faceMeanNormalAngleDegreesPercentiles": [
+        0.44646971939456986,
+        3.0878401152442643,
+        7.215840010842903,
+        17.990322970609533,
+        28.539066015388613
+      ],
+      "cornerNormalAngleDegreesPercentiles": [
+        0.7840372370630871,
+        4.610502647025953,
+        11.365134870347415,
+        24.63233874780197,
+        49.510975326946856
+      ],
+      "reversedMeanNormalFraction": 0.0,
+      "geometricNdotLightPercentiles": [
+        -0.9969862443779486,
+        -0.9761308971908595,
+        -0.6104307639644586,
+        0.0450448565132248,
+        0.5504242427418532
+      ]
+    },
+    "sideChestROIFrontFacing": {
+      "triangles": 43,
+      "faceMeanNormalDotPercentiles": [
+        0.9025608078722782,
+        0.9727166327398553,
+        0.9946640908238913,
+        0.9989863269212576,
+        0.9999696396649036
+      ],
+      "faceMeanNormalAngleDegreesPercentiles": [
+        0.44646971939456986,
+        2.5677652659767642,
+        5.9215465380009045,
+        13.413429508021087,
+        25.503257326704137
+      ],
+      "cornerNormalAngleDegreesPercentiles": [
+        0.7840372370630871,
+        3.4239741220695237,
+        10.422647434975467,
+        22.790781627368048,
+        49.510975326946856
+      ],
+      "reversedMeanNormalFraction": 0.0,
+      "geometricNdotLightPercentiles": [
+        -0.5422204642372669,
+        -0.3979986994431053,
+        -0.2569032008444125,
+        -0.008962143758002836,
+        0.26648968087649444
+      ]
+    }
+  },
+  "frontFacingROIVertices": 46,
+  "normalBiasFactorPercentiles": [
+    0.5416926463393947,
+    0.8387629956042717,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "tangentWInCasterPosition": false,
+  "sourceShadow372": {
+    "normalComputed": true,
+    "normalUsedForPosition": false,
+    "cull": "Off",
+    "depthBias": -8,
+    "slopeScaledDepthBias": 0,
+    "shader": "ShadowReceiverNative/programs/372-Vertex.hlsl",
+    "positionPath": "posed position + origin, then cb2 shadow matrix; N only exported to o2",
+    "noGeometryHullDomainStage": true
+  },
+  "conclusion": "Side-chest N follows geometric winding with ordinary smooth-normal deviation, not gross inversion. Most selected visible faces are backlit/near the terminator and receive maximum normal offset in the current URP-style caster. Source372 does not apply a shader vertex-normal bias. Do not recalculate source normals or flip Tw to hide shadow artifacts."
+}

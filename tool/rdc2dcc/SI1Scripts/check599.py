@@ -1,0 +1,7 @@
+import pathlib,json,struct,numpy as np
+r=pathlib.Path('F:/Project/_Game/EndfieldRebuild');s=r/'pro/Authoring/Extracted/SI1/Source';b=(s/'world2/eid-599.world2').read_bytes();n,nidx,nuv,flags=struct.unpack('<4I',b[:16]);p=np.frombuffer(b,dtype='<f4',offset=16,count=n*3).reshape(-1,3);m=json.loads((s/'world2/manifest.json').read_text())['599'];world=np.column_stack([p,np.ones(n)])
+if not m['baked']:world=world@np.array(m['matrix']).T
+world=world[:,:3]/world[:,3:4]
+cam=json.loads((s/'capture-camera.json').read_text());frame=np.array(cam['frame']);src=world@frame;clip=np.column_stack([src,np.ones(n)])@np.array(cam['vp']).T
+raw=(r/'tmp/capture/dcc/imi/SI1/read/raw/eid-599/inputs.bin').read_bytes();h=struct.unpack('<4s7I',raw[:32]);actual=np.frombuffer(raw,dtype='<f8',offset=32+h[2]*24,count=h[3]*4).reshape(-1,4)
+k=min(len(actual),len(clip));dx=clip[:k,0]/clip[:k,3]-actual[:k,0]/actual[:k,3];dy=clip[:k,1]/clip[:k,3]-actual[:k,1]/actual[:k,3];result={'eid':599,'comparedVertices':k,'maxNdcXDifference':float(abs(dx).max()),'meanNdcXDifference':float(dx.mean()),'maxNdcYDifference':float(abs(dy).max()),'meanNdcYDifference':float(dy.mean()),'firstPairs':[{'predicted':clip[i].tolist(),'actualPostVS':actual[i].tolist()} for i in [0,17,100]],'minMaxActualNdcX':[float((actual[:,0]/actual[:,3]).min()),float((actual[:,0]/actual[:,3]).max())]};(r/'doc/capture/599-postvs-coordinate-check.json').write_text(json.dumps(result,indent=2));print(json.dumps(result,indent=1))

@@ -1,0 +1,21 @@
+{
+  "eventId": 1190,
+  "resourceId": "ResourceId::54",
+  "inputSlot": 3,
+  "bindingOffset": 0,
+  "attributeOffset": 4,
+  "stride": 0,
+  "format": "R8G8B8A8_UNORM",
+  "rawBytes": [
+    255,
+    255,
+    255,
+    255
+  ],
+  "value": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "vertices": 17162,
+  "maskRGMin": [
+    0.0,
+    0.0
+  ],
+  "maskRGMax": [
+    1.0,
+    1.0
+  ],
+  "maskRGMean": [
+    0.5910225241140833,
+    0.5910223911098019
+  ],
+  "nonZeroWidthMaskFraction": 0.9881715417783475,
+  "sampling": "offline bilinear LOD0 using actual UV0, native top-down RGBAHalf; ClampEdge"
+}

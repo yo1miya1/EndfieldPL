@@ -1,0 +1,27 @@
+{
+  "rows": [
+    {
+      "title": "眼睛：正面虹膜",
+      "before": "F:\\Project\\_Game\\EndfieldRebuild\\tmp\\unity\\captures\\20261028-133715-540\\editor-camera.png",
+      "after": "F:\\Project\\_Game\\EndfieldRebuild\\tmp\\unity\\captures\\20261028-135553-341\\editor-camera.png",
+      "crop": [
+        300,
+        390,
+        950,
+        780
+      ]
+    },
+    {
+      "title": "腿部皮肤：同角度受光",
+      "before": "F:\\Project\\_Game\\EndfieldRebuild\\tmp\\unity\\captures\\20261028-133718-260\\editor-camera.png",
+      "after": "F:\\Project\\_Game\\EndfieldRebuild\\tmp\\unity\\captures\\20261028-135556-841\\editor-camera.png",
+      "crop": [
+        180,
+        130,
+        830,
+        780
+      ]
+    }
+  ],
+  "operation": "RGB channels only, crop and paste at native pixel resolution; no resize/color correction/alpha composition"
+}

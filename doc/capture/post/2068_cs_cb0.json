@@ -1,0 +1,46 @@
+{
+  "bindSet": 0,
+  "bindSlot": 0,
+  "blockName": "cbuffer0",
+  "byteSize": 48,
+  "eventId": 2068,
+  "stage": "cs",
+  "variables": [
+    {
+      "columns": 4,
+      "floatValues": [
+        0.7699999809265137,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "name": "cb0_v0",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        40.0,
+        23.0,
+        0.02500000037252903,
+        0.043478261679410934
+      ],
+      "name": "cb0_v1",
+      "rows": 1,
+      "type": "float4"
+    },
+    {
+      "columns": 4,
+      "floatValues": [
+        80.0,
+        45.0,
+        0.012500000186264515,
+        0.02222222276031971
+      ],
+      "name": "cb0_v2",
+      "rows": 1,
+      "type": "float4"
+    }
+  ]
+}
